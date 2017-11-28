@@ -1,2 +1,4 @@
-flask
-wtforms
+pip install flask
+pip install wtforms
+pip install pymongo
+sudo apt install mongodb-server

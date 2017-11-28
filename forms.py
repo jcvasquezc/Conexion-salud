@@ -1,6 +1,8 @@
 # pythonspot.com
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
+from pymongo import MongoClient #Manejos de base de datos
+
 
 # App config.
 DEBUG = True
@@ -13,12 +15,12 @@ class ReusableForm(Form):
     dpto = TextField('Departamento:', validators=[validators.required()])
     city = TextField('Ciudad:', validators=[validators.required()])
     addr = TextField('Dirección:', validators=[validators.required()])
-    tel=IntegerField('Teléfono:', validators=[validators.required(), validators.NumberRange(min=0000, max=9999999999, message="Por favor ntroduzca un teléfono valido")])
-    email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35, message="Por favor ntroduzca un email valido")])
+    tel=IntegerField('Teléfono:', validators=[validators.required(), validators.NumberRange(min=0000, max=9999999999, message="Por favor introduzca un teléfono valido")])
+    email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35, message="Por favor introduzca un email valido")])
 
 
 @app.route("/", methods=['GET', 'POST'])
-def hello():
+def datos_ips():
     form = ReusableForm(request.form)
 
     print (form.errors)
@@ -35,11 +37,11 @@ def hello():
 
         if form.validate():
             # Save the comment here.
-            flash('Thanks for registration ' + name)
+            flash('Gracias por registrarse ' + name)
         else:
-            flash('Error: All the form fields are required. ')
+            flash('Error: Todos los campos son requeridos. ')
 
-    return render_template('hello.html', form=form)
+    return render_template('encuesta.html', form=form)
 
 if __name__ == "__main__":
     app.run()
