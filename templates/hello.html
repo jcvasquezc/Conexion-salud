@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+       <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+       <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+
+
+
+
+
+<div class="container">
+
+
+<div class="row">
+  <div class="col-md-4">
+    <img src="static/udea.jpg" width="25%">
+  </div>
+  <div class="col-md-4">
+     <img src="static/colciencias.png"  width="30%">
+  </div>
+  <div class="col-md-4">
+     <img src="static/mintic.png"  width="100%">
+  </div>
+</div>
+
+
+
+
+  <h2>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</h2>
+  <br>
+  <h3>Datos iniciales</h3>
+  <form  action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+      <label for="name">Nombre de la IPS:</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Nombre de la IPS">
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="dpto">Departamento</label>
+          <input type="text" class="form-control" id="dpto" name="dpto" placeholder="Departamento">
+        </div>
+        <div class="col-md-6">
+          <label for="city">Ciudad</label>
+          <input type="city" class="form-control" id="city" name="city" placeholder="Ciudad">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="addr">Dirección</label>
+          <input type="text" class="form-control" id="addr" name="addr" placeholder="Dirección">
+        </div>
+
+        <div class="col-md-6">
+          <label for="tel">Teléfono</label>
+          <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono">
+        </div>
+      </div>
+
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+      <br>
+
+    </div>
+    <button type="Siguiente" class="btn btn-success">Sign Up</button>
+  </form>
+
+  <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+</div>
+<br>
+</div>
+</div>
+</body>
+</html>
