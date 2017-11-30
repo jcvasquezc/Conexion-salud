@@ -1,5 +1,5 @@
 # pythonspot.com
-from flask import Flask, render_template, flash, request,session
+from flask import Flask, render_template, flash, request,session, redirect
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient #Manejos de base de datos
 import pandas as pd
@@ -59,7 +59,7 @@ def datos_ips():
 #        else:
 #            flash('Error: Todos los campos son requeridos. ')
 
-    return render_template('encuesta.html', **{"dptos":dptos},cities=json.dumps(cities))
+    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
 #######################BASE DE DATOS#######################
 
@@ -73,7 +73,7 @@ def preguntas():
 
         # redirect to end the POST handling
         # the redirect can be to the same route or somewhere else
-        return redirect(url_for('encuesta'))
+        return redirect(url_for('index'))
 
     # show the form, it wasn't submitted
     return render_template('preguntas.html', form=form)
