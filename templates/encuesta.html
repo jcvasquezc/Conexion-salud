@@ -1,60 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>        
+    <head>
         <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
        <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
        <link rel="stylesheet" href="static/bootstrap-theme.min.css">
        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
+
     </head>
     <body>
-     
-       
+
+
     <!-- Funciones javascript -->
     <script type="text/javascript">
         //Diccionario de "Departamentos" y "Municipios" creados en Python.
-        var cityLists = {{cities|safe}}               
-        function setcity(val) 
-            {   
+        var cityLists = {{cities|safe}}
+        function setcity(val)
+            {
                 //Obtener indice del "Departamento" en el arreglo "cityLists"
-                var idx = val.selectedIndex; 
+                var idx = val.selectedIndex;
                 //Obtener arreglo de "Municipios" a partir del valor seleccionado
-                var which = val.options[idx].value;  
-                cList = cityLists[which]; 
-                 
-                var cSelect = document.getElementById("city"); 
-                var len=cSelect.options.length; 
-                while (cSelect.options.length > 0) { 
-                cSelect.remove(0); 
-                } 
-                 var newOption; 
-                 //Crear nuevas opciones con los "Municipios" 
-                for (var i=0; i<cList.length; i++) 
+                var which = val.options[idx].value;
+                cList = cityLists[which];
+
+                var cSelect = document.getElementById("city");
+                var len=cSelect.options.length;
+                while (cSelect.options.length > 0) {
+                cSelect.remove(0);
+                }
+                 var newOption;
+                 //Crear nuevas opciones con los "Municipios"
+                for (var i=0; i<cList.length; i++)
                 {
-                    newOption = document.createElement("option"); 
+                    newOption = document.createElement("option");
                     newOption.value = cList[i];
                     newOption.text = cList[i];
 
-                    try 
-                    { 
-                        cSelect.add(newOption);  //this will fail in DOM browsers but is needed for IE 
-                    } 
-                    catch (e) 
-                    { 
-                        cSelect.appendChild(newOption); 
-                    } 
+                    try
+                    {
+                        cSelect.add(newOption);  //this will fail in DOM browsers but is needed for IE
+                    }
+                    catch (e)
+                    {
+                        cSelect.appendChild(newOption);
+                    }
                 }
-            } 
+            }
     </script>
     <!-- Funciones javascript -->
-        
+
     <div class="jumbotron text-center">
       <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
     </div>
-        
+
     <!--Logos en la parte superior -->
     <div class="container">
 
@@ -70,14 +70,14 @@
       </div>
     </div>
     <!--Logos en la parte superior -->
-    
-    
+
+
     <h3>Datos iniciales</h3>
-        
-    <form  action="" method="post">    
+
+    <form  action="" method="post">
         <!-- COMIENZA: Campos: Nombre IPS  y NIT -->
-        <div class="row">            
-            <div class="col-sm-4 col-md-6">                
+        <div class="row">
+            <div class="col-sm-4 col-md-6">
             <!--Campo para el Nombre de la IPS -->
               <label for="name">Nombre de la IPS:</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Nombre de la IPS">
@@ -124,20 +124,20 @@
             </div>
         </div>
         <!-- TERMINA: nombre gerente, Nivel y habilitada -->
- 
-        <br>    
+
+        <br>
         <!-- COMIENZA: Campos: Departamento, ciudad -->
         <div class = "row">
             <!-- Campo para departamento -->
             <div class = "col-sm-4 col-md-6">
-              <label for = "dpto">Departamento</label>           
+              <label for = "dpto">Departamento</label>
                 <select id = "dpto" name = "dpto" onchange=setcity(this)>
                 <option  value = 0>Seleccionar</option>
                 {% for value in dptos %}
                     <option  value = {{value}}>{{value}}</option>
                 {% endfor %}
                 </select>
-            </div>        
+            </div>
             <!-- Campo para ciudad -->
             <div class="col-sm-4 col-md-6">
               <label for="city">Ciudad</label><br>
@@ -148,7 +148,7 @@
         </div>
         <!-- TERMINA: Campos: Departamento, ciudad -->
 
-        <br>         
+        <br>
         <!-- COMIENZA: Campos: Telefono, email, direccion -->
         <div class="row">
             <!-- campo para telefono -->
@@ -189,7 +189,8 @@
         </div>
         <!-- TERMINA: Campos: responsable encuesta, id y cargo -->
         <br>
-    <button type="Siguiente" class="btn btn-success">Sign Up</button>
+        <button type="button" class="btn btn-success" href="{{ url_for('preguntas') }}">Continuar a la encuesta</button>
+        <button type="button" class="btn btn-success" href="/dashboard.html">Ver los resultados</button>
     </form>
 
     <br>

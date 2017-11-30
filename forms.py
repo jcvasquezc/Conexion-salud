@@ -24,12 +24,12 @@ class ReusableForm(Form):
 
 
 @app.route("/", methods=['GET', 'POST'])
-def datos_ips():    
+def datos_ips():
     form = ReusableForm(request.form)
-    
+
     #Directorio de proyecto
     main_path = os.path.dirname(os.path.abspath(__file__))
-    
+
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/lista_dptos.csv')
     #Obtener departamentos
@@ -39,7 +39,7 @@ def datos_ips():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-    
+
     if request.method == 'POST':
         dpto = request.form['dpto']
         city = request.form['city']
@@ -50,7 +50,7 @@ def datos_ips():
         niv_opt = request.form['nivel']
         hab_opt = request.form['habil']
         car = request.form['car']
-        
+
         print (name, " ", dpto, " ", city, " ",car , " ",niv_opt, " ", addr, " ", tel, " ", email)
 
         if form.validate():
@@ -63,6 +63,20 @@ def datos_ips():
 
 #######################BASE DE DATOS#######################
 
+
+
+@app.route("/preguntas", methods=['GET', 'POST'])
+def preguntas():
+    form = ReusableForm(request.form)
+    if request.method == 'POST':
+        # do stuff when the form is submitted
+
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
+        return redirect(url_for('encuesta'))
+
+    # show the form, it wasn't submitted
+    return render_template('preguntas.html', form=form)
 
 
 if __name__ == "__main__":
