@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+       <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+       <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">}
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+       <script>
+       function myFunction() {
+           var x = document.getElementById("myFile");
+           x.disabled = true;
+       }
+       </script>
+
+
+
+    </head>
+    <body>
+
+
+<div class="jumbotron text-center">
+  <h2>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</h2>
+  <h3>Preguntas acerca del estado de conectividad en su IPS</h3>
+  <h3>IPS: {{ name }} </h3>
+
+</div>
+
+
+
+
+
+
+
+<div class="container mx-auto">
+
+
+
+  <form  action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col-sm-2 col-md-2">
+          <img src="static/udea.jpg" width="50%">
+        </div>
+        <div class="col-sm-2 col-md-2">
+           <img src="static/colciencias.png"  width="60%">
+        </div>
+        <div class="col-sm-2 col-md-2">
+           <img src="static/mintic.png"  width="200%">
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question1"><h4>1. Cuenta su IPS con conexión a internet?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <select  id="question1" name="question1" placeholder="SI/NO">
+               <option value="SI">SI</option>
+               <option value="NO">NO</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question1" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question2"><h4>2. Cuantos equipos se encuentran conectados a internet?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <select  id="question2" name="question2">
+               <option value="1">Entre 1 y 5</option>
+               <option value="2">Entre 6 y 10</option>
+               <option value="3">Entre 11 y 20</option>
+               <option value="4">Mas de 20</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question2" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question3"><h4>3. Cuentan con conexión de internet inalambrica (Wifi) en su IPS?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <select  id="question3" name="question3">
+               <option value="SI">SI</option>
+               <option value="NO">NO</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question3" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question4"><h4>4. Con que otros servcios de TIC cuenta su IPS?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3">
+            <label><input type="checkbox" id="cbox1" value="1"> Bandeja de correo propia</label>
+            <label><input type="checkbox" id="cbox2" value="2"> Manejo de archivos compartidos</label>
+            <label><input type="checkbox" id="cbox3" value="3"> Servidores para manejo de historia clínica</label>
+            <label><input type="checkbox" id="cbox4" value="4"> Direccines IP públicas</label>
+            <label><input type="checkbox" id="cbox5" value="5" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
+                    <input id="name2" name="name2" disabled="disabled"/></label>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question3" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question5"><h4>5. Cual es el ancho de banda de la conexion a internet en su IPS?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3">
+          <select  id="question5" name="question5">
+               <option value="1">Menor a 1 Mbps</option>
+               <option value="2">Entre 2 y 5 Mbps</option>
+               <option value="3">Entre 6 y 10 Mbps</option>
+               <option value="4">Entre 11 y 20 Mbps</option>
+               <option value="5">Mayor a 20 Mbps</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question5" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question6"><h4>6. Cuantas personas/empleados hay en su IPS que usen equipos de computo?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3">
+          <select  id="question6" name="question6">
+               <option value="1">Entre 1 y 10</option>
+               <option value="2">Entre 11 y 20</option>
+               <option value="3">Entre 21 y 50</option>
+               <option value="4">Mas de 50</option>
+               <option value="5">Mayor a 20 Mbps</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question6" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question7"><h4>7. Cuantas personas tienen acceso a internet en su IPS?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3">
+          <select  id="question7" name="question6">
+               <option value="1">Entre 1 y 10</option>
+               <option value="2">Entre 11 y 20</option>
+               <option value="3">Entre 21 y 50</option>
+               <option value="4">Mas de 50</option>
+               <option value="5">Mayor a 20 Mbps</option>
+          |</select>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question7" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <label for="question8"><h4>8. De que ente provienen los recursos para el pago de la conectividad a internet en su IPS?</h4></label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3">
+          <label><input type="checkbox" id="cbox6" value="1"> Ente gubernamental</label>
+          <label><input type="checkbox" id="cbox7" value="2">Entes privados</label>
+          <label><input type="checkbox" id="cbox8" value="3"> Recursos propos de la IPS</label>
+          <label><input type="checkbox" id="cbox9" value="4"> Donaciones</label>
+          <label><input type="checkbox" id="cbox10" value="5" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
+                  <input id="name2" name="name2" disabled="disabled"/></label>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+          <button type="file" id="file_question7" class="btn btn-default" >Adjuntar soporte </button>
+          <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </div>
+
+      </div>
+
+
+    </div>
+    <button class="btn btn-success" href="">Volver atras</button>
+    <button class="btn btn-success" href="">Ver los resultados</button>
+
+  </form>
+
+  <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+
+
+
+</div>
+<br>
+</div>
+</div>
+</body>
+</html>
