@@ -25,7 +25,7 @@ class ReusableForm(Form):
 
 @app.route("/", methods=['GET', 'POST'])
 def datos_ips():
-    form = ReusableForm(request.form)
+#    form = ReusableForm(request.form)
 
     #Directorio de proyecto
     main_path = os.path.dirname(os.path.abspath(__file__))
@@ -53,11 +53,11 @@ def datos_ips():
 
         print (name, " ", dpto, " ", city, " ",car , " ",niv_opt, " ", addr, " ", tel, " ", email)
 
-        if form.validate():
-            # Save the comment here.
-            flash('Gracias por registrarse ' + name)
-        else:
-            flash('Error: Todos los campos son requeridos. ')
+#        if form.validate():
+#            # Save the comment here.
+#            flash('Gracias por registrarse ' + name)
+#        else:
+#            flash('Error: Todos los campos son requeridos. ')
 
     return render_template('encuesta.html', **{"dptos":dptos},cities=json.dumps(cities))
 
