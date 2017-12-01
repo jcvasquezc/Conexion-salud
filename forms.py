@@ -2,22 +2,12 @@
 from flask import Flask, render_template, flash, request,session, redirect
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient #Manejos de base de datos
+import pymongo
 import pandas as pd
 import numpy as np
 import os
 import json
 import pprint
-
-
-##Crear cliente
-#client = MongoClient()
-#
-##Crear database
-#db = client.test_database
-#
-##Crear colección
-#collection = db.test_collection
-#collection.delete_many({})
 
 # App config.
 DEBUG = True
@@ -33,12 +23,14 @@ client = MongoClient()
 #Crear database
 db = client.IPS_database
 
-
 #Delete collection
 #db.Index_collection.delete_many({})
 
 #Crear colección
 IPS_data  = db.Index_collection
+
+#Crear indice basado en NIT
+db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
 
 class ReusableForm(Form):
     name = TextField('Nombre:', validators=[validators.required()])
@@ -52,7 +44,7 @@ class ReusableForm(Form):
 @app.route("/", methods=['GET', 'POST'])
 def datos_ips():
     
-#    form = ReusableForm(request.form)
+    form = ReusableForm(request.form)
 
     #Directorio de proyecto
     main_path = os.path.dirname(os.path.abspath(__file__))
@@ -86,7 +78,7 @@ def datos_ips():
         usrid = request.form['userid']
         usrjob = request.form['userjob']
         
-        index_data = {"Nombre IPS":name,
+        IPS_index_data = {"Nombre IPS":name,
                       "NIT":nit,
                       "Caracter":car,
                       "Nombre del gerente":ger,
@@ -101,19 +93,19 @@ def datos_ips():
                       "ID del responsable":usrid,
                       "Cargo del responsable":usrjob}
         
-        #Insertar nueva IPS
-        IPS_data.insert_one(index_data).inserted_id
-        
-        print (name, " ", dpto, " ", city, " ",car , " ",niv_opt, " ", addr, " ", tel, " ", email)
-        print(db.collection_names(include_system_collections=False))
-        for docs in IPS_data.find():
-            pprint.pprint(docs)
-            print('--------------------------------')
-#        if form.validate():
-#            # Save the comment here.
-#            flash('Gracias por registrarse ' + name)
-#        else:
-#            flash('Error: Todos los campos son requeridos. ')
+        if form.validate():
+            # Save the comment here.
+            flash('Gracias por registrarse ' + name)
+                        #Insertar nueva IPS
+            IPS_data.insert_one(IPS_index_data).inserted_id
+            
+            print (name, " ", dpto, " ", city, " ",car , " ",niv_opt, " ", addr, " ", tel, " ", email)
+            print(db.collection_names(include_system_collections=False))
+            for docs in IPS_data.find():
+                pprint.pprint(docs)
+                print('--------------------------------')
+        else:
+            flash('Error: Todos los campos son requeridos. ')
 
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
