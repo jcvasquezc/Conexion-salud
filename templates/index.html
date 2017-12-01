@@ -31,8 +31,22 @@
                 while (cSelect.options.length > 0) {
                 cSelect.remove(0);
                 }
-                 var newOption;
-                 //Crear nuevas opciones con los "Municipios"
+			
+				//Crear lista de cuidades
+                var newOption;
+				//Crear opción por defecto
+				newOption = document.createElement("option");
+				newOption.value = "";
+				newOption.text = "Seleccionar";    
+				try
+                    {
+                        cSelect.add(newOption);  //this will fail in DOM browsers but is needed for IE
+                    }
+				catch (e)
+                    {
+                        cSelect.appendChild(newOption);
+                    }
+				//Crear lista de municipios
                 for (var i=0; i<cList.length; i++)
                 {
                     newOption = document.createElement("option");
@@ -54,23 +68,26 @@
 
     <div class="jumbotron text-center">
       <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
-    </div>
-
-    <!--Logos en la parte superior -->
-    <div class="container">
-
+		
+	<br>
+		
+	<!--Logos-->
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="static/udea.jpg" width="25%">
+        <img src="static/udea.jpg" width="30%">
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-         <img src="static/colciencias.png"  width="30%">
+         <img src="static/colciencias.png"  width="40%">
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
          <img src="static/mintic.png"  width="100%">
       </div>
     </div>
-    <!--Logos en la parte superior -->
+    <!--Logos-->
+		
+    </div>
+
+    <div class="container">
 
 
     <h3>Datos iniciales</h3>
@@ -78,24 +95,24 @@
     <form  action="" method="post">
         <!-- COMIENZA: Campos: Nombre IPS  y NIT -->
         <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
             <!--Campo para el Nombre de la IPS -->
               <label for="name">Nombre de la IPS:</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Nombre de la IPS" required>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
             <!--Campo para el NIT -->
               <label for="nit">NIT</label>
               <input type="tel" class="form-control" id="nit" name="nit" placeholder="NIT" required>
             </div>
             <!-- Campo para caracter de la IPS-->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
-              <label for="car">Caracter de la IPS</label>
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+              <label for="car">Carácter de la IPS</label>
                 <select name="car" required>
-                    <option id="car" name="car" value="0">Seleccionar</option>
+                    <option id="car" name="car" value="">Seleccionar</option>
                     <option id="car" name="car" value="departamental">Departamental</option>
                     <option id="car" name="car" value="distrital">Distrital</option>
-                    <option id="car" name="car" value="indigena">Indigena</option>
+                    <option id="car" name="car" value="indigena">Indígena</option>
                     <option id="car" name="car" value="municipal">Municipal</option>
                     <option id="car" name="car" value="nacional">Nacional</option>
                 </select>
@@ -107,23 +124,23 @@
 
         <!-- COMIENZA: Campos: nombre gerente, Nivel y habilitada -->
         <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
                 <label for="ger">Nombre del gerente</label>
                 <input type="text" class="form-control" id="ger" name="ger" placeholder="Nombre del gerente" required>
             </div>
             <!-- campo para Nivel de la IPS -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="niv">Nivel de la IPS</label><br>
-              <input type="radio" id="opt_niv1" name="nivel" value="1"> 1
-              <input type="radio" id="opt_niv2" name="nivel" value="2"> 2
-              <input type="radio" id="opt_niv3" name="nivel" value="3"> 3
-              <input type="radio" id="opt_niv4" name="nivel" value="4"> 4
+              <input type="radio" id="opt_niv1" name="nivel" value="1" required> 1
+              <input type="radio" id="opt_niv2" name="nivel" value="2" > 2
+              <input type="radio" id="opt_niv3" name="nivel" value="3" > 3
+              <input type="radio" id="opt_niv4" name="nivel" value="4" > 4
             </div>
             <!-- Campo para IPS habilitada -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="hab">Habilitada</label><br>
-              <input type="radio" id="opt_hab1" name="habil" value="1"> Si
-              <input type="radio" id="opt_hab2" name="habil" value="0"> No
+              <input type="radio" id="opt_hab1" name="habil" value="si" required> Si
+              <input type="radio" id="opt_hab2" name="habil" value="no" > No
             </div>
         </div>
         <!-- TERMINA: nombre gerente, Nivel y habilitada -->
@@ -135,18 +152,18 @@
             <!-- Campo para departamento -->
             <div class = "col-sm-4 col-md-6">
               <label for = "dpto">Departamento</label>
-                <select id = "dpto" name = "dpto" onchange=setcity(this)>
-                <option  value = 0>Seleccionar</option>
+                <select id = "dpto" name = "dpto" onchange=setcity(this) required>
+                <option  value ="">Seleccionar</option>
                 {% for value in dptos %}
                     <option  value = {{value}}>{{value}}</option>
                 {% endfor %}
                 </select>
             </div>
             <!-- Campo para ciudad -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="city">Ciudad</label><br>
-                <select id="city" name="city">
-                    <option  value ="0">Seleccionar</option>
+                <select id="city" name="city" required>
+                    <option  value ="">Seleccionar</option>
                 </select>
             </div>
         </div>
@@ -157,17 +174,17 @@
         <!-- COMIENZA: Campos: Telefono, email, direccion -->
         <div class="row">
             <!-- campo para telefono -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="tel">Teléfono de la IPS</label>
               <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono de la IPS" required>
             </div>
             <!-- campo para email -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="email">Email de la IPS:</label>
               <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com" required>
             </div>
             <!-- Campo para direccion -->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="addr">Dirección de la IPS</label>
               <input type="text" class="form-control" id="addr" name="addr" placeholder="Dirección de la IPS" required>
             </div>
@@ -179,30 +196,41 @@
         <!-- COMIENZA: Campos: responsable encuesta, id y cargo -->
         <div class="row">
             <!-- campo nombre responsable -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="username">Responsable de la encuesta</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de responsable">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de responsable" required>
             </div>
             <!-- campo id -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="userid">Cedula de ciudadania</label>
-              <input type="tel" class="form-control" id="userid" name="userid" placeholder="C.C">
+              <input type="tel" class="form-control" id="userid" name="userid" placeholder="C.C" required>
             </div>
             <!-- campo cargo -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="userjob">Cargo que desempeña en la IPS</label>
-              <input type="text" class="form-control" id="userjob" name="userjob" placeholder="Cargo">
+              <input type="text" class="form-control" id="userjob" name="userjob" placeholder="Cargo" required>
             </div>
         </div>
         <!-- TERMINA: Campos: responsable encuesta, id y cargo -->
 
         <br>
-
-        <!-- Boton para continuar a la encuesta -->
-        <button type="button" class="btn btn-success" href="{{ url_for('preguntas') }}">Continuar a la encuesta</button>
-
-        <!-- Boton para ver resultados -->
-        <button type="button" class="btn btn-success" href="/dashboard.html">Ver los resultados</button>
+		
+		<!-- COMIENZA: Botones -->
+		<div class="row">
+			<!-- Boton para continuar a la encuesta -->
+			<!--<button type="button" class="btn btn-success" href="{{ url_for('preguntas') }}">Continuar a la encuesta</button>-->
+			<div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+				<div class="input submit">
+					<input type="submit" class="btn btn-success" />
+				</div>
+			</div>
+			<!-- Boton para ver resultados -->
+			<div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+				<button type="button" class="btn btn-success" href="/dashboard.html">Ver los resultados</button>
+			</div>
+		</div>
+		<!-- TERMINA: Botones -->
+			
     </form>
 
     <br>
@@ -226,6 +254,7 @@
         {% endwith %}
 
 <br>
+		
 </div>
 </body>
 </html>
