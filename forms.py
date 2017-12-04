@@ -1,5 +1,5 @@
 # pythonspot.com
-from flask import Flask, render_template, flash, request,session, redirect
+from flask import Flask, render_template, flash, request,session, redirect,url_for
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient #Manejos de base de datos
 import pymongo
@@ -16,6 +16,9 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 
+#Directorio de proyecto
+main_path = os.path.dirname(os.path.abspath(__file__))
+
 #Crear Base de datos
 #Crear cliente
 client = MongoClient()
@@ -24,7 +27,7 @@ client = MongoClient()
 db = client.IPS_database
 
 #Delete collection
-#db.Index_collection.delete_many({})
+#db.Index_collection.drop()
 
 #Crear colección
 IPS_data  = db.Index_collection
@@ -42,12 +45,8 @@ class ReusableForm(Form):
 
 
 @app.route("/", methods=['GET', 'POST'])
-def datos_ips():
-    
-    form = ReusableForm(request.form)
-
-    #Directorio de proyecto
-    main_path = os.path.dirname(os.path.abspath(__file__))
+def index():
+#    form = ReusableForm(request.form)
 
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/lista_dptos.csv')
@@ -59,7 +58,15 @@ def datos_ips():
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
 
-    if request.method == 'POST':
+#    if request.method == 'POST':
+
+    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+#######################ENCUESTA#######################
+@app.route("/preguntas", methods=['GET', 'POST'])
+def preguntas():
+    form = ReusableForm(request.form)
+    if request.method == 'POST':    
         #Datos IPS
         name = request.form['name']
         nit = request.form['nit']
@@ -93,38 +100,14 @@ def datos_ips():
                       "ID del responsable":usrid,
                       "Cargo del responsable":usrjob}
         
-        if form.validate():
-            # Save the comment here.
-            flash('Gracias por registrarse ' + name)
-                        #Insertar nueva IPS
-            IPS_data.insert_one(IPS_index_data).inserted_id
-            
-            print (name, " ", dpto, " ", city, " ",car , " ",niv_opt, " ", addr, " ", tel, " ", email)
-            print(db.collection_names(include_system_collections=False))
-            for docs in IPS_data.find():
-                pprint.pprint(docs)
-                print('--------------------------------')
-        else:
-            flash('Error: Todos los campos son requeridos. ')
+        print(db.collection_names(include_system_collections=False))
 
-    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+        IPS_data.insert_one(IPS_index_data).inserted_id                
+        for docs in IPS_data.find():
+            pprint.pprint(docs)
+            print('--------------------------------')
 
-#######################BASE DE DATOS#######################
-
-
-
-@app.route("/preguntas", methods=['GET', 'POST'])
-def preguntas():
-    form = ReusableForm(request.form)
-    if request.method == 'POST':
-        # do stuff when the form is submitted
-
-        # redirect to end the POST handling
-        # the redirect can be to the same route or somewhere else
-        return redirect(url_for('index'))
-
-    # show the form, it wasn't submitted
-    return render_template('preguntas.html', form=form)
+    return render_template('preguntas.html',form=form)
 
 
 if __name__ == "__main__":
