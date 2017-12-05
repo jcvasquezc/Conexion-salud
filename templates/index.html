@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+       <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
        <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
        <link rel="stylesheet" href="static/bootstrap-theme.min.css">
        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
@@ -126,7 +126,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
                 <label for="ger">Nombre del gerente</label>
-                <input type="text" class="form-control" id="ger" name="ger" placeholder="Nombre del gerente" required>
+                <input type="text" class="form-control" id="ger" name="ger" placeholder="Nombre del gerente">
             </div>
             <!-- campo para Nivel de la IPS -->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
@@ -139,8 +139,8 @@
             <!-- Campo para IPS habilitada -->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="hab">Habilitada</label><br>
-              <input type="radio" id="opt_hab1" name="habil" value="si" required> Si
-              <input type="radio" id="opt_hab2" name="habil" value="no" > No
+              <input type="radio" id="opt_hab1" name="habil" value="SI" required> Si
+              <input type="radio" id="opt_hab2" name="habil" value="NO" > No
             </div>
         </div>
         <!-- TERMINA: nombre gerente, Nivel y habilitada -->
@@ -176,12 +176,12 @@
             <!-- campo para telefono -->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="tel">Teléfono de la IPS</label>
-              <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono de la IPS" required>
+              <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono de la IPS">
             </div>
             <!-- campo para email -->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="email">Email de la IPS:</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com">
             </div>
             <!-- Campo para direccion -->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
@@ -196,17 +196,17 @@
         <!-- COMIENZA: Campos: responsable encuesta, id y cargo -->
         <div class="row">
             <!-- campo nombre responsable -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="username">Responsable de la encuesta</label>
               <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de responsable" required>
             </div>
             <!-- campo id -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="userid">Cedula de ciudadania</label>
               <input type="tel" class="form-control" id="userid" name="userid" placeholder="C.C" required>
             </div>
             <!-- campo cargo -->
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
               <label for="userjob">Cargo que desempeña en la IPS</label>
               <input type="text" class="form-control" id="userjob" name="userjob" placeholder="Cargo" required>
             </div>
@@ -219,8 +219,6 @@
 		<div class="row">
 			<!-- Boton para continuar a la encuesta -->
 			<div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
-				<!--<button type="submit" class="btn btn-success"  href = "{{url_for('preguntas')}}">Registrar IPS</button>-->
-				<!--<input type="submit" class="btn btn-success" href = "/preguntas.html">-->
 				<button type="submit" class="btn btn-success"  href = "/preguntas.html">Registrar IPS</button>
 			</div>
 			<!-- Boton para ver resultados -->

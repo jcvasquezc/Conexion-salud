@@ -33,7 +33,7 @@ db = client.IPS_database
 IPS_data  = db.Index_collection
 
 #Crear indice basado en NIT
-db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
+#db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
 
 class ReusableForm(Form):
     name = TextField('Nombre:', validators=[validators.required()])
@@ -75,7 +75,7 @@ def preguntas():
         niv_opt = request.form['nivel']
         hab_opt = request.form['habil']
         dpto = request.form['dpto']
-        city = request.form['city']        
+        city = request.form['city']
         addr = request.form['addr']
         tel = request.form['tel']
         email = request.form['email']
@@ -106,8 +106,8 @@ def preguntas():
         for docs in IPS_data.find():
             pprint.pprint(docs)
             print('--------------------------------')
-
-    return render_template('preguntas.html',form=form)
+        
+    return render_template('preguntas.html',**{'name':IPS_index_data["Nombre IPS"]},form=form)
 
 
 if __name__ == "__main__":
