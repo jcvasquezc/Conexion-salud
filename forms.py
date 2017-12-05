@@ -8,6 +8,10 @@ import numpy as np
 import os
 import json
 import pprint
+from dash.dependencies import Input, Output
+import dash_core_components as dcc
+import dash_html_components as html
+
 
 # App config.
 DEBUG = True
@@ -66,7 +70,7 @@ def index():
 @app.route("/preguntas", methods=['GET', 'POST'])
 def preguntas():
     form = ReusableForm(request.form)
-    if request.method == 'POST':    
+    if request.method == 'POST':
         #Datos IPS
         name = request.form['name']
         nit = request.form['nit']
@@ -79,18 +83,18 @@ def preguntas():
         addr = request.form['addr']
         tel = request.form['tel']
         email = request.form['email']
-        
+
         #Datos de quien llena la encuesta
         usrname = request.form['username']
         usrid = request.form['userid']
         usrjob = request.form['userjob']
-        
+
         IPS_index_data = {"Nombre IPS":name,
                       "NIT":nit,
                       "Caracter":car,
                       "Nombre del gerente":ger,
                       "Nivel de IPS":niv_opt,
-                      "Habilitada":hab_opt,                      
+                      "Habilitada":hab_opt,
                       "Departamento":dpto,
                       "Ciudad":city,
                       "Dirección":addr,
@@ -99,15 +103,16 @@ def preguntas():
                       "Nombre del responsable":usrname,
                       "ID del responsable":usrid,
                       "Cargo del responsable":usrjob}
-        
+
         print(db.collection_names(include_system_collections=False))
 
-        IPS_data.insert_one(IPS_index_data).inserted_id                
+        IPS_data.insert_one(IPS_index_data).inserted_id
         for docs in IPS_data.find():
             pprint.pprint(docs)
             print('--------------------------------')
-        
+
     return render_template('preguntas.html',**{'name':IPS_index_data["Nombre IPS"]},form=form)
+
 
 
 if __name__ == "__main__":
