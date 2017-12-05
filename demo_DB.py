@@ -22,40 +22,56 @@ main_path = os.path.dirname(os.path.abspath(__file__))
 
 ##Crear Base de datos
 ##Crear cliente
-#client = MongoClient()
+client = MongoClient()
 #
 ##Crear database
-#db = client.IPS_DEMODB
+db = client.IPS_DEMODB
 
 ##Crear colección
-#IPS_data  = db.Index_collection
+IPS_data  = db.IPS_Demo_collection
 
 ##Delete collection
-##db.Index_collection.drop()
+##db.IPS_Demo_collection.drop()
 
 #Obtener lista de departamento y ciudades
 info_IPS = pd.read_csv(main_path+'/demo/listaDB.csv')
 #Obtener departamentos
-IPS = pd.DataFrame(info_IPS)
+df = pd.DataFrame(info_IPS)
 
-IPS_index_data = {"Nombre IPS":name,
-              "NIT":nit,
-              "Caracter":car,
-              "Nombre del gerente":ger,
-              "Nivel de IPS":niv_opt,
-              "Habilitada":hab_opt,                      
-              "Departamento":dpto,
-              "Ciudad":city,
-              "Dirección":addr,
-              "Telefono":tel,
-              "e-mail":email,
-              "Nombre del responsable":usrname,
-              "ID del responsable":usrid,
-              "Cargo del responsable":usrjob}
+for idx_ips in range(0,df.shape[0]):
+    ips = df.iloc[[idx_ips]]
+    dpto = list(ips['Departamento'])[0]
+    city = list(ips['Municipio'])[0]
+    name = list(ips['IPS'])[0]
+    nit = list(ips['NIT'])[0]
+    car = list(ips['Caracter'])[0]
+    ger = list(ips['Gerente'])[0]
+    hab_opt = list(ips['Habilitada'])[0]
+    niv_opt = list(ips['Nivel'])[0]
+    addr = list(ips['Direccion'])[0]
+    tel = list(ips['Telefono'])[0]
+    email = list(ips['Email'])[0]
+    usrname = ['Gerente'+str(idx_ips)][0]
+    usrid = 1127710000+idx_ips
+    usrjob = 'Gerente'
 
-IPS_data.insert_one(IPS_index_data).inserted_id  
-#dptos = list(np.unique(lista_dptos['Departamento']))
-##Crear diccionario de ciudades
-#cities = {}
-#for idx in dptos:
-#    cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
+    IPS_index_data = {"Nombre IPS":name,
+                  "NIT":str(nit),
+                  "Caracter":car,
+                  "Nombre del gerente":ger,
+                  "Nivel de IPS":str(niv_opt),
+                  "Habilitada":hab_opt,                      
+                  "Departamento":dpto,
+                  "Ciudad":city,
+                  "Dirección":addr,
+                  "Telefono":str(tel),
+                  "e-mail":email,
+                  "Nombre del responsable":usrname,
+                  "ID del responsable":str(usrid),
+                  "Cargo del responsable":usrjob}
+
+    IPS_data.insert_one(IPS_index_data).inserted_id  
+
+for docs in IPS_data.find({"Departamento": "Amazonas"}):
+    pprint.pprint(docs)
+    print('--------------------------------')
