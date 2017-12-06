@@ -30,7 +30,7 @@ client = MongoClient()
 #Crear database
 db = client.IPS_database
 
-#Delete collection
+##Delete collection
 #db.Index_collection.drop()
 
 #Crear colección
@@ -61,15 +61,15 @@ def index():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-
-#    if request.method == 'POST':
-
+    
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+    
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
 #######################ENCUESTA#######################
 @app.route("/preguntas", methods=['GET', 'POST'])
 def preguntas():
-    form = ReusableForm(request.form)
     if request.method == 'POST':
         #Datos IPS
         name = request.form['name']
@@ -104,16 +104,21 @@ def preguntas():
                       "ID del responsable":usrid,
                       "Cargo del responsable":usrjob}
 
-        print(db.collection_names(include_system_collections=False))
-
         IPS_data.insert_one(IPS_index_data).inserted_id
         for docs in IPS_data.find():
             pprint.pprint(docs)
             print('--------------------------------')
+        return redirect(url_for('preguntas'))
+    
+    return render_template('preguntas.html')
 
-    return render_template('preguntas.html',**{'name':IPS_index_data["Nombre IPS"]},form=form)
-
-
-
+#######################ENCUESTA#######################
+@app.route("/analisis", methods=['GET', 'POST'])
+def analisis():
+    if request.method == 'POST':           
+        print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
+        return redirect(url_for('analisis'))
+    return render_template('analisis.html')
+    
 if __name__ == "__main__":
     app.run()
