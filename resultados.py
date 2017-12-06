@@ -6,6 +6,8 @@ import pandas as pd
 import base64
 import os
 import numpy as np
+from utils import get_data_map, get_data_radar
+
 
 df = pd.read_csv(
     'https://raw.githubusercontent.com/plotly/'
@@ -37,44 +39,28 @@ token='pk.eyJ1IjoiamN2YXNxdWV6YyIsImEiOiJjajhpOHJzYzEwd2lhMndteGE3dXdoZ2JwIn0.FX
 
 mapbox_access_token = token
 
-datamap = go.Data([
-    go.Scattermapbox(
-        lat=['4.6'],
-        lon=['-74.0833333'],
-        mode='markers',
-        marker=go.Marker(size=8),
-        text=['Bogotá'],
-    )
-])
+datamap, layoutmap=get_data_map([], mapbox_access_token)
 
-layoutmap = go.Layout(
-    title="Estado de conectividad de IPS públicas en Colombia",
-    hovermode='closest',
-    autosize=False,
-    width=600,
-    height=800,
-    mapbox=dict(
-        accesstoken=mapbox_access_token,
-        bearing=0,
-        center=dict(
-            lat=4.6,
-            lon=-74.09
-        ),
-        domain=dict(
-                x=[0,1],
-                y=[0,1]
-            ),
-        pitch=0,
-        style='light',
-        zoom=4.5
-    ),
-)
+
+
+
+
+
+############## data radar
+
+refh=[0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
+refl=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+data_ips_radar=[0.7, 0.2, 0.8, 0.95, 0.7, 0.7]
+data_radar, layout_radar=get_data_radar(refh, refl, data_ips_radar)
+
 
 
 
 ### estilos
 padding= ['0%' '10%' '0%' '10%']
 padding2= ['0%' '0%' '0%' '10%']
+padding3= ['0%' '0%' '0%' '5%']
 border='thin lightgrey solid'
 
 labels = [['1-5','6-10','11-20','>20'],
@@ -97,15 +83,13 @@ app.layout = html.Div([
 
     html.Div(["\n"]),
 
-    html.Div([
-        html.Div(["Departamento"]),
-        dcc.Dropdown(
-                id="dpto",
-        options=[{'label': dptos[i], "value": dptos[i]} for i in range(len(dptos))])
-    ], style={"padding":padding, "width":"40%"}),
 
     html.Div([
-        dcc.Markdown("""
+        html.Label(["Departamento"]),
+        dcc.Dropdown(id="dpto",
+            options=[{'label': dptos[i], "value": dptos[i]} for i in range(len(dptos))]),
+        dcc.Markdown(
+            """
                 Porcentaje de municipios conectados a internet: '{}'
 
                 Porcentaje de municipios que cuentan con conexión inalambrica (Wifi): '{}'
@@ -113,18 +97,16 @@ app.layout = html.Div([
                 Porcentaje de municipios que cuentan con servidores para manejo de hisoria clínica: '{}'
 
                 Porcentaje de municipios que cuentan con una dirección IP pública: '{}'
-            """.replace('   ', '').format('0.0%', '0.0%', '0.0%', '0.0%')),
-        ],id="porc", style={"padding":padding}),
 
-    html.Div([
-         dcc.Graph(
-             id='map',
-             figure={'data': datamap,
+            """.replace('   ', '').format('0.0%', '0.0%', '0.0%', '0.0%'), id="porc"),
 
-                 'layout': layoutmap
-
-             }
-         ),], style={'width': "40%", 'padding': padding}),
+         dcc.Graph(id='radar',
+             figure={'data': data_radar, 'layout': layout_radar}
+             ),
+         dcc.Graph(id='map',
+             figure={'data': datamap, 'layout': layoutmap}
+             )
+    ], style={'columnCount': 2, 'padding': padding, 'display': 'inline-block'}),
 
 
 
@@ -136,9 +118,7 @@ app.layout = html.Div([
                      go.Pie(labels=labels[0], values=values[0])],
                  'layout': go.Layout(
                      title='Num. Equipos conectados a internet',
-
                  )
-
              }
          )], style={'width': '30%', 'display': 'inline-block'}),
 
@@ -153,7 +133,7 @@ app.layout = html.Div([
                  )
 
              }
-         )], style={'width': '30%', 'display': 'inline-block'}),
+         )], style={'width': '33%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(
@@ -220,7 +200,7 @@ app.layout = html.Div([
 #             margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
 #             legend={'x': 0, 'y': 1},
 #             hovermode='closest'
-#         )     
+#         )
 #     }
 
 
