@@ -15,6 +15,7 @@ import numpy as np
 import os
 import json
 import pprint
+from random import randint
 
 
 #Directorio de proyecto
@@ -37,6 +38,16 @@ IPS_data  = db.IPS_Demo_collection
 info_IPS = pd.read_csv(main_path+'/demo/listaDB.csv')
 #Obtener departamentos
 df = pd.DataFrame(info_IPS)
+
+#Respuestas binarias tipo SI/NO
+bin_res = ['SI','NO']
+#Respuesta de selección multiple
+mul_res4 = ['Ninguno',
+            'Bandeja de correo propia',
+            'Manejo de archivos compartidos',
+            'Servidores para manejo de historia clínica',
+            'Direcciones IP públicas',
+            'Otro']
 
 for idx_ips in range(0,df.shape[0]):
     ips = df.iloc[[idx_ips]]
@@ -69,6 +80,18 @@ for idx_ips in range(0,df.shape[0]):
                   "Nombre del responsable":usrname,
                   "ID del responsable":str(usrid),
                   "Cargo del responsable":usrjob}
+    
+    #Respuestas encuesta.
+    res={'p1':bin_res[randint(0,1)],
+         'p2':randint(1,4),
+         'p3':bin_res[randint(0,1)],
+         'p4':randint(0,5),
+         'p5':randint(1,5),
+         'p6':randint(1,5),
+         'p7':randint(1,5),
+         'p8':randint(1,5),}
+    
+    IPS_index_data['Respuestas'] = res
 
     IPS_data.insert_one(IPS_index_data).inserted_id  
 

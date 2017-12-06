@@ -8,9 +8,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
     </head>
 	
    <script>
@@ -19,17 +16,14 @@
 			var x = document.getElementById("myFile");
 			x.disabled = true;
 		}
-   </script>
-
-	
+   </script>	
 	
 <body>
 
-
 <div class="jumbotron text-center">
-  <h2>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</h2>
-  <h3>Preguntas acerca del estado de conectividad en su IPS</h3>
-  <h3>IPS: {{ name }} </h3>
+	<h2>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</h2>
+	<h3>Preguntas acerca del estado de conectividad en su IPS</h3>
+	<h3>IPS:  </h3>
 		
 	<!--Logos-->
     <div class="row">
@@ -44,22 +38,13 @@
       </div>
     </div>
     <!--Logos-->
-
 </div>
 
 <!--<div class="container mx-auto">-->
 <div class="container">
-
-
-
-  <form  action="" method="post" role="form">
-    {{ form.csrf }}
-    <div class="form-group">
-
-
-      <br>
-      <br>
-
+	
+  <form  action="analisis" method="post">
+	  
 		<!--Campo para pregunta 1-->  
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -121,20 +106,20 @@
 		<!--Campo para pregunta 4--> 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<label for="question4"><h4>4. ¿Con qué otros servcios de TIC cuenta su IPS?</h4></label>
+				<label for="question4"><h4>4. ¿Con qué otros servicios de TIC cuenta su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<label><input type="checkbox" id="cbox1" value="1"> Ninguno</label>
+				<label><input type="checkbox" name="question4" value="1"> Ninguno</label>
 				<br>
-				<label><input type="checkbox" id="cbox1" value="2"> Bandeja de correo propia</label>
+				<label><input type="checkbox" name="question4" value="2"> Bandeja de correo propia</label>
 				<br>
-				<label><input type="checkbox" id="cbox2" value="3"> Manejo de archivos compartidos</label>
+				<label><input type="checkbox" name="question4" value="3"> Manejo de archivos compartidos</label>
 				<br>
-				<label><input type="checkbox" id="cbox3" value="4"> Servidores para manejo de historia clínica</label>
+				<label><input type="checkbox" name="question4" value="4"> Servidores para manejo de historia clínica</label>
 				<br>
-				<label><input type="checkbox" id="cbox4" value="5"> Direcciones IP públicas</label>
+				<label><input type="checkbox" name="question4" value="5"> Direcciones IP públicas</label>
 				<br>
-				<label><input type="checkbox" id="cbox5" value="6" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
+				<label><input type="checkbox" name="question4" value="6" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
 				<br>				
 				<input id="name2" name="name2" disabled="disabled"/></label>
 				<br><br>
@@ -223,15 +208,15 @@
 				<label for="question8"><h4>8. ¿Quién provee los recursos para el pago de la conectividad a internet en su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<label><input type="checkbox" id="cbox6" value="1"> Ente gubernamental</label>
+				<label><input type="checkbox" name="cboxq9" value="1"> Ente gubernamental</label>
 				<br>
-				<label><input type="checkbox" id="cbox7" value="2"> Entes privados</label>
+				<label><input type="checkbox" name="cboxq9" value="2"> Entes privados</label>
 				<br>
-				<label><input type="checkbox" id="cbox8" value="3"> Recursos propos de la IPS</label>
+				<label><input type="checkbox" name="cboxq9" value="3"> Recursos propios de la IPS</label>
 				<br>
-				<label><input type="checkbox" id="cbox9" value="4"> Donaciones</label>
+				<label><input type="checkbox" name="cboxq9" value="4"> Donaciones</label>
 				<br>
-				<label><input type="checkbox" id="cbox10" value="5" onclick="var input = document.getElementById('name3'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
+				<label><input type="checkbox" name="cboxq9" value="5" onclick="var input = document.getElementById('name3'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
 				<br>
 					<input id="name3" name="name3" disabled="disabled"/></label>
 				<br><br>
@@ -239,10 +224,8 @@
 			</div>
 		</div>
 
-
-    </div>
-    <a class="btn btn-success" href="/">Volver atras</a>
-    <button class="btn btn-success" href="">Ver los resultados</button>
+    <a class="btn btn-success" href="/">Volver</a>
+    <button type="submit" class="btn btn-success">Ver los resultados</button>
 
   </form>
 
