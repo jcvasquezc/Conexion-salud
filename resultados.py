@@ -220,7 +220,7 @@ app.layout = html.Div([
 #             margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
 #             legend={'x': 0, 'y': 1},
 #             hovermode='closest'
-#         )      
+#         )     
 #     }
 
 
