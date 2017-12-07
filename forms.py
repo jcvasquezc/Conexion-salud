@@ -66,7 +66,7 @@ def index():
         return redirect(url_for('index'))
     
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
-
+    
 #######################ENCUESTA#######################
 @app.route("/preguntas", methods=['GET', 'POST'])
 def preguntas():
