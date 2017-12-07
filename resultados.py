@@ -7,7 +7,7 @@ import base64
 import os
 import numpy as np
 from utils import get_data_map, get_data_radar
-
+import unidecode
 
 df = pd.read_csv(
     'https://raw.githubusercontent.com/plotly/'
@@ -26,10 +26,25 @@ main_path = os.path.dirname(os.path.abspath(__file__))
 lista_dptos = pd.read_csv(main_path+'/static/lista_dptos.csv')
 dfd = pd.DataFrame(lista_dptos)
 dptos = list(np.unique(lista_dptos['Departamento']))
+citiesIPS=list(np.unique(lista_dptos['Municipio']))
+
+
+dptos_all=list(lista_dptos['Departamento'])
+cities_all=list(lista_dptos['Municipio'])
+
 
 img1file="./static/udea.jpg"
 img2file="./static/colciencias.png"
 img3file="./static/mintic.png"
+dfpmap=pd.read_csv('./static/pos_col.csv')
+lat=[str(dfpmap["lat"][j]) for j in range(len(dfpmap["lat"]))]
+lon=[str(dfpmap["lon"][j]) for j in range(len(dfpmap["lon"]))]
+
+
+
+city_map=dfpmap["MUNICIPIO"]
+dpto_map=dfpmap["Departamento"]
+
 encoded_image1=base64.b64encode(open(img1file, 'rb').read())
 encoded_image2=base64.b64encode(open(img2file, 'rb').read())
 encoded_image3=base64.b64encode(open(img3file, 'rb').read())
@@ -39,10 +54,7 @@ token='pk.eyJ1IjoiamN2YXNxdWV6YyIsImEiOiJjajhpOHJzYzEwd2lhMndteGE3dXdoZ2JwIn0.FX
 
 mapbox_access_token = token
 
-datamap, layoutmap=get_data_map([], mapbox_access_token)
-
-
-
+datamap, layoutmap=get_data_map([4.6], [-74], [8], ['Bogotá'], mapbox_access_token)
 
 
 
@@ -85,6 +97,7 @@ app.layout = html.Div([
 
 
     html.Div([
+        html.Div([
         html.Label(["Departamento"]),
         dcc.Dropdown(id="dpto",
             options=[{'label': dptos[i], "value": dptos[i]} for i in range(len(dptos))]),
@@ -99,14 +112,20 @@ app.layout = html.Div([
                 Porcentaje de municipios que cuentan con una dirección IP pública: '{}'
 
             """.replace('   ', '').format('0.0%', '0.0%', '0.0%', '0.0%'), id="porc"),
+        ], style={'width':'100%', 'display': 'inline-block'}),
 
+        html.Div([
          dcc.Graph(id='radar',
              figure={'data': data_radar, 'layout': layout_radar}
              ),
+        ], style={'width':'100%', 'display': 'inline-block'}),
+
+        html.Div([
          dcc.Graph(id='map',
              figure={'data': datamap, 'layout': layoutmap}
              )
-    ], style={'columnCount': 2, 'padding': padding, 'display': 'inline-block'}),
+    ], style={'width':'100%', 'display': 'inline-block'}),
+    ], style={'columnCount': 2, 'padding': padding}),
 
 
 
@@ -120,7 +139,7 @@ app.layout = html.Div([
                      title='Num. Equipos conectados a internet',
                  )
              }
-         )], style={'width': '30%', 'display': 'inline-block'}),
+         )], style={'width': '100%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(
@@ -133,7 +152,7 @@ app.layout = html.Div([
                  )
 
              }
-         )], style={'width': '33%', 'display': 'inline-block'}),
+         )], style={'width': '100%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(
@@ -145,7 +164,7 @@ app.layout = html.Div([
                  )
 
              }
-         )], style={'width': '30%', 'display': 'inline-block'}),
+         )], style={'width': '100%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(
@@ -157,8 +176,8 @@ app.layout = html.Div([
                  )
 
              }
-         )], style={'width': '30%', 'display': 'inline-block'}),
-     ], style={'padding':padding}),
+         )], style={'width': '100%', 'display': 'inline-block'}),
+     ], style={'padding':padding,'columnCount': 2}),
 
 
 
@@ -166,42 +185,37 @@ app.layout = html.Div([
 ])
 
 
+@app.callback(
+     dash.dependencies.Output('map', 'figure'),
+     [dash.dependencies.Input('dpto', 'value'),
+      ])
+def update_map(dpto):
+
+    latmap=[]
+    lonmap=[]
+    sizemap=[]
+    textmap=[]
+    for k in range(len(cities_all)):
+        pos_map=np.where(city_map==cities_all[k])[0]
+        pos_dep=np.where(dpto_map==dptos_all[k])[0]
+        #print(citiesIPS[k], pos_map)
+        if len(pos_map)>0 and len(pos_dep)>0:
+            latmap.append(lat[pos_map[0]])
+            lonmap.append(lon[pos_map[0]])
+            prob=np.random.rand(1)
+            sizemap.append(int(np.ceil((prob*30)))+4)
+            textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
+        else:
+            print(cities_all[k], dptos_all[k])
 
 
+    datamap, layoutmap=get_data_map(latmap, lonmap, sizemap, textmap, mapbox_access_token)
 
-#
-#
-# @app.callback(
-#     dash.dependencies.Output('graph-with-slider', 'figure'),
-#     [dash.dependencies.Input('year-slider', 'value')])
-# def update_figure(selected_year):
-#     filtered_df = df[df.year == selected_year]
-#     traces = []
-#     for i in filtered_df.continent.unique():
-#         df_by_continent = filtered_df[filtered_df['continent'] == i]
-#         traces.append(go.Scatter(
-#             x=df_by_continent['gdpPercap'],
-#             y=df_by_continent['lifeExp'],
-#             text=df_by_continent['country'],
-#             mode='markers',
-#             opacity=0.7,
-#             marker={
-#                 'size': 15,
-#                 'line': {'width': 0.5, 'color': 'white'}
-#             },
-#             name=i
-#         ))
-#
-#     return {
-#         'data': traces,
-#         'layout': go.Layout(
-#             xaxis={'type': 'log', 'title': 'GDP Per Capita'},
-#             yaxis={'title': 'Life Expectancy', 'range': [20, 90]},
-#             margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
-#             legend={'x': 0, 'y': 1},
-#             hovermode='closest'
-#         )
-#     }
+    return {
+        'data': datamap,
+            'layout': layoutmap
+    }
+
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ Antioquia,ANDES
 Antioquia,ANGELÓPOLIS
 Antioquia,ANGOSTURA
 Antioquia,ANORÍ
-Antioquia,ANZA
+Antioquia,ANZÁ
 Antioquia,ARBOLETES
 Antioquia,ARGELIA
 Antioquia,ARMENIA
@@ -58,12 +58,12 @@ Antioquia,GÓMEZ PLATA
 Antioquia,GRANADA
 Antioquia,GUADALUPE
 Antioquia,GUARNE
-Antioquia,GUATAPE
+Antioquia,GUATAPÉ
 Antioquia,HELICONIA
 Antioquia,HISPANIA
-Antioquia,ITAGUI
-Antioquia,ITAGUI
-Antioquia,ITAGUI
+Antioquia,ITAGÜÍ
+Antioquia,ITAGÜÍ
+Antioquia,ITAGÜÍ
 Antioquia,ITUANGO
 Antioquia,JARDÍN
 Antioquia,JERICÓ
@@ -95,7 +95,7 @@ Antioquia,NARIÑO
 Antioquia,NECHÍ
 Antioquia,NECOCLÍ
 Antioquia,OLAYA
-Antioquia,PEÑOL
+Antioquia,EL PEÑOL
 Antioquia,PEQUE
 Antioquia,PUEBLORRICO
 Antioquia,PUERTO NARE
@@ -104,7 +104,7 @@ Antioquia,RIONEGRO
 Antioquia,SABANALARGA
 Antioquia,SABANETA
 Antioquia,SALGAR
-Antioquia,SAN ANDRÉS
+Antioquia,SAN ANDRÉS DE CUERQUÍA
 Antioquia,SAN CARLOS
 Antioquia,SAN FRANCISCO
 Antioquia,SAN JERÓNIMO
@@ -112,14 +112,14 @@ Antioquia,SAN JOSÉ DE LA MONTAÑA
 Antioquia,SAN JUAN DE URABÁ
 Antioquia,SAN LUIS
 Antioquia,SAN PEDRO
-Antioquia,SAN PEDRO DE URABA
+Antioquia,SAN PEDRO DE URABÁ
 Antioquia,SAN RAFAEL
 Antioquia,SAN ROQUE
 Antioquia,SANTA BÁRBARA
 Antioquia,SANTAFÉ DE ANTIOQUIA
 Antioquia,SANTO DOMINGO
 Antioquia,SEGOVIA
-Antioquia,SONSON
+Antioquia,SONSÓN
 Antioquia,SOPETRÁN
 Antioquia,TÁMESIS
 Antioquia,TARAZÁ
@@ -253,7 +253,7 @@ Bolívar,SOPLAVIENTO
 Bolívar,TALAIGUA NUEVO
 Bolívar,TIQUISIO
 Bolívar,TURBACO
-Bolívar,TURBANA
+Bolívar,TURBANÁ
 Bolívar,ZAMBRANO
 Boyacá,AQUITANIA
 Boyacá,ARCABUCO
@@ -398,10 +398,10 @@ Caldas,SAMANÁ
 Caldas,SAN JOSÉ
 Caldas,SUPÍA
 Caldas,SUPÍA
-Caldas,VICTORIA
+Caldas,LA VICTORIA
 Caldas,VILLAMARÍA
 Caldas,VITERBO
-Caquetá,BELÉN DE LOS ANDAQUIES
+Caquetá,BELÉN DE LOS ANDAQUÍES
 Caquetá,EL DONCELLO
 Caquetá,FLORENCIA
 Caquetá,FLORENCIA
@@ -416,7 +416,7 @@ Casanare,TAURAMENA
 Casanare,VILLANUEVA
 Casanare,YOPAL
 Casanare,YOPAL
-Cauca,BOLÍVAR
+Cauca,BOLIVAR
 Cauca,BUENOS AIRES
 Cauca,CALDONO
 Cauca,CALOTO
@@ -1063,67 +1063,67 @@ Tolima,VALLE DE SAN JUAN
 Tolima,VENADILLO
 Tolima,VILLAHERMOSA
 Tolima,VILLARRICA
-Valle del cauca,ALCALÁ
-Valle del cauca,ANDALUCÍA
-Valle del cauca,ANDALUCÍA
-Valle del cauca,ANSERMANUEVO
-Valle del cauca,ARGELIA
-Valle del cauca,BOLÍVAR
-Valle del cauca,BUENAVENTURA
-Valle del cauca,BUENAVENTURA
-Valle del cauca,BUENAVENTURA
-Valle del cauca,BUGALAGRANDE
-Valle del cauca,CAICEDONIA
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALI
-Valle del cauca,CALIMA
-Valle del cauca,CANDELARIA
-Valle del cauca,CARTAGO
-Valle del cauca,DAGUA
-Valle del cauca,EL ÁGUILA
-Valle del cauca,EL CAIRO
-Valle del cauca,EL CERRITO
-Valle del cauca,EL DOVIO
-Valle del cauca,FLORIDA
-Valle del cauca,GINEBRA
-Valle del cauca,GUACARÍ
-Valle del cauca,GUADALAJARA DE BUGA
-Valle del cauca,GUADALAJARA DE BUGA
-Valle del cauca,JAMUNDÍ
-Valle del cauca,JAMUNDÍ
-Valle del cauca,LA CUMBRE
-Valle del cauca,LA UNIÓN
-Valle del cauca,LA VICTORIA
-Valle del cauca,OBANDO
-Valle del cauca,PALMIRA
-Valle del cauca,PALMIRA
-Valle del cauca,PRADERA
-Valle del cauca,RESTREPO
-Valle del cauca,RIOFRÍO
-Valle del cauca,ROLDANILLO
-Valle del cauca,SAN PEDRO
-Valle del cauca,SEVILLA
-Valle del cauca,TORO
-Valle del cauca,TRUJILLO
-Valle del cauca,TULUÁ
-Valle del cauca,TULUÁ
-Valle del cauca,ULLOA
-Valle del cauca,VERSALLES
-Valle del cauca,VIJES
-Valle del cauca,YOTOCO
-Valle del cauca,YUMBO
-Valle del cauca,ZARZAL
+Valle del Cauca,ALCALÁ
+Valle del Cauca,ANDALUCÍA
+Valle del Cauca,ANDALUCÍA
+Valle del Cauca,ANSERMANUEVO
+Valle del Cauca,ARGELIA
+Valle del Cauca,BOLÍVAR
+Valle del Cauca,BUENAVENTURA
+Valle del Cauca,BUENAVENTURA
+Valle del Cauca,BUENAVENTURA
+Valle del Cauca,BUGALAGRANDE
+Valle del Cauca,CAICEDONIA
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALI
+Valle del Cauca,CALIMA
+Valle del Cauca,CANDELARIA
+Valle del Cauca,CARTAGO
+Valle del Cauca,DAGUA
+Valle del Cauca,EL ÁGUILA
+Valle del Cauca,EL CAIRO
+Valle del Cauca,EL CERRITO
+Valle del Cauca,EL DOVIO
+Valle del Cauca,FLORIDA
+Valle del Cauca,GINEBRA
+Valle del Cauca,GUACARÍ
+Valle del Cauca,GUADALAJARA DE BUGA
+Valle del Cauca,GUADALAJARA DE BUGA
+Valle del Cauca,JAMUNDÍ
+Valle del Cauca,JAMUNDÍ
+Valle del Cauca,LA CUMBRE
+Valle del Cauca,LA UNIÓN
+Valle del Cauca,LA VICTORIA
+Valle del Cauca,OBANDO
+Valle del Cauca,PALMIRA
+Valle del Cauca,PALMIRA
+Valle del Cauca,PRADERA
+Valle del Cauca,RESTREPO
+Valle del Cauca,RIOFRÍO
+Valle del Cauca,ROLDANILLO
+Valle del Cauca,SAN PEDRO
+Valle del Cauca,SEVILLA
+Valle del Cauca,TORO
+Valle del Cauca,TRUJILLO
+Valle del Cauca,TULUÁ
+Valle del Cauca,TULUÁ
+Valle del Cauca,ULLOA
+Valle del Cauca,VERSALLES
+Valle del Cauca,VIJES
+Valle del Cauca,YOTOCO
+Valle del Cauca,YUMBO
+Valle del Cauca,ZARZAL
 Vaupés,MITÚ
 Vichada,CUMARIBO
 Vichada,CUMARIBO

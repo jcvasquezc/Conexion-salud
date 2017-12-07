@@ -2,14 +2,15 @@ import plotly.graph_objs as go
 import numpy as np
 
 
-def get_data_map(points, mapbox_access_token):
+def get_data_map(lati, longi, sizem, textm, mapbox_access_token):
+    #print(textm)
     datamap = go.Data([
         go.Scattermapbox(
-            lat=['4.6'],
-            lon=['-74.0833333'],
+            lat=lati,
+            lon=longi,
             mode='markers',
-            marker=go.Marker(size=8),
-            text=['Bogotá'],
+            marker=go.Marker(size=sizem),
+            text=textm,
         )
     ])
 
