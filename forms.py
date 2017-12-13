@@ -58,8 +58,13 @@ def allowed_file(filename):
 def index():
 #    form = ReusableForm(request.form)
 
+    #Obtener lista de IPS    
+    lista_IPS = pd.read_csv(main_path+'/static/listaDB.csv')
+    tablaIPS = pd.DataFrame(lista_IPS)
+    IPS_dpto = list(np.unique(tablaIPS['Departamento']))
+    
     #Obtener lista de departamento y ciudades
-    lista_dptos = pd.read_csv(main_path+'/static/lista_dptos.csv')
+    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
     #Obtener departamentos
     df = pd.DataFrame(lista_dptos)
     dptos = list(np.unique(lista_dptos['Departamento']))
@@ -67,15 +72,16 @@ def index():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-    
+        
+        
     if request.method == 'POST':
         return redirect(url_for('index'))
     
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
     
 #######################ENCUESTA#######################
-@app.route("/preguntas", methods=['GET', 'POST'])
-def preguntas():
+@app.route("/registro", methods=['GET', 'POST'])
+def registro():
     if request.method == 'POST':
         #Datos IPS
         name = request.form['name']
@@ -83,37 +89,34 @@ def preguntas():
         car = request.form['car']
         ger = request.form['ger']
         niv_opt = request.form['nivel']
-        hab_opt = request.form['habil']
         dpto = request.form['dpto']
         city = request.form['city']
         addr = request.form['addr']
         tel = request.form['tel']
         email = request.form['email']
-
-        #Datos de quien llena la encuesta
-        usrname = request.form['username']
-        usrid = request.form['userid']
-        usrjob = request.form['userjob']
-
-        IPS_index_data = {"Nombre IPS":name,
+        
+        IPS_index_data = {"IPS":name,
                       "NIT":nit,
-                      "Caracter":car,
-                      "Nombre del gerente":ger,
-                      "Nivel de IPS":niv_opt,
-                      "Habilitada":hab_opt,
+                      "Carácter":car,
+                      "Gerente":ger,
+                      "Nivel":niv_opt,
                       "Departamento":dpto,
-                      "Ciudad":city,
+                      "Municipio":city,
                       "Dirección":addr,
-                      "Telefono":tel,
-                      "e-mail":email,
-                      "Nombre del responsable":usrname,
-                      "ID del responsable":usrid,
-                      "Cargo del responsable":usrjob}
+                      "Teléfono":tel,
+                      "e-mail":email}
 
         IPS_data.insert_one(IPS_index_data).inserted_id
         for docs in IPS_data.find():
             pprint.pprint(docs)
             print('--------------------------------')
+        return redirect(url_for('registro'))
+    
+    return render_template('registro.html')
+#######################ENCUESTA#######################
+@app.route("/preguntas", methods=['GET', 'POST'])
+def preguntas():
+    if request.method == 'POST':
         return redirect(url_for('preguntas'))
     
     return render_template('preguntas.html')
