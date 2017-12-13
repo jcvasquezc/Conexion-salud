@@ -6,11 +6,10 @@ import pandas as pd
 import base64
 import os
 import numpy as np
-from utils import get_data_map, get_radar
+from utils import get_data_map, get_radar, compute_indicator_map
 import unidecode
 import pymongo
-from pymongo import MongoClient
-
+from pymongo import MongoClient #Manejos de base de datos
 import pprint
 
 
@@ -63,10 +62,9 @@ datamap, layoutmap=get_data_map([4.6], [-74], [8], ['Bogotá'],[2], mapbox_acces
 
 ############## data radar
 
-refh=[0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
-refl=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+refh=[0., 0., 0., 0., 0., 0.]
 
-data_ips_radar=[0.7, 0.2, 0.8, 0.95, 0.7, 0.7]
+data_ips_radar=[0., 0., 0., 0., 0., 0.]
 legends_radar=['Equipos \r\n conectados', 'Ancho de \r\n banda', 'Empleados \r\n con equipos', 'Empleados \r\n conectados','Conexiones/\r\nEmpleado', 'Equipos \r\n conectados', 'Ancho de \r\n banda']
 data_radar, layout_radar=get_radar(refh, data_ips_radar, legends_radar)
 
@@ -84,25 +82,24 @@ labels = [['1-5','6-10','11-20','>20'],
 values = [[4500,2500,1053,500],[4500,2500,1053,500,500], [4500,2500,1053,500,200], [4500,2500,1053,500,450], [4500,2500,1053,500,50]]
 
 
+client = MongoClient('localhost', 27017)
+#
+##Crear database
+db = client.IPS_DEMODB
 
-client = MongoClient()
-db = client['IPS_DEMODB']
+##Crear colección
+IPS_data  = db.IPS_Demo_collection
 
-collection=db["IPS_Demo_collection"]
-
-
-
-print(collection.count())
 
 
 app.layout = html.Div([
     html.Title("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas"),
 
-    html.Div([("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas")], style={"padding":padding, "font-size":"180%", 'display': 'inline-block', "align-content":"center"}),
+    html.Div([("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas")], style={"padding":padding, "font-size":"180%", 'display': 'inline-block', "align":"middle"}),
 
     html.Div([html.Img(src='data:image/png;base64,{}'.format(encoded_image1.decode()), style={"padding":padding2,'width': '10%', 'display': 'inline-block', 'columnCount': 3}),
-            html.Img(src='data:image/png;base64,{}'.format(encoded_image2.decode()), style={'width': '15%', 'display': 'inline-block', 'columnCount': 3}),
-            html.Img(src='data:image/png;base64,{}'.format(encoded_image3.decode()), style={'width': '30%', 'display': 'inline-block', 'columnCount': 3}),
+            html.Img(src='data:image/png;base64,{}'.format(encoded_image2.decode()), style={"padding":padding2,'width': '15%', 'display': 'inline-block', 'columnCount': 3}),
+            html.Img(src='data:image/png;base64,{}'.format(encoded_image3.decode()), style={"padding":padding2,'width': '30%', 'display': 'inline-block', 'columnCount': 3}),
             ]),
 
     html.Div(["\n"]),
@@ -118,7 +115,7 @@ app.layout = html.Div([
         html.Label(["IPS"]),
         dcc.Dropdown(id="ips",
             options=[{'label': "IPS", "value": "IPS"}]),
-    ],style={'padding':padding,'columnCount': 2}),
+    ],style={'padding':padding,'columnCount': 3}),
 
 
     html.Div([
@@ -128,14 +125,13 @@ app.layout = html.Div([
             """
                 Porcentaje de municipios conectados a internet: '{}'
 
-                Porcentaje de municipios que cuentan con conexión inalambrica (Wifi): '{}'
+                Porcentaje de municipios conectados a internet en el departamento: '{}'
 
-                Porcentaje de municipios que cuentan con servidores para manejo de hisoria clínica: '{}'
+                Porcentaje de municipios con un ancho de banda superior a 10Mbps: '{}'
 
-                Porcentaje de municipios que cuentan con una dirección IP pública: '{}'
-
-            """.replace('   ', '').format('0.0%', '0.0%', '0.0%', '0.0%'), id="porc"),
-        ], style={'width':'100%', 'display': 'inline-block'}),
+                Porcentaje de municipios con un ancho de banda superior a 10Mbps en el departamento: '{}'
+            """.replace('   ', '').format('0.0%', '0.0%', '0.0%', '0.0%')),
+        ], id="porc", style={'width':'100%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(id='radar',
@@ -226,31 +222,34 @@ def update_map(dpto):
             #print(citiesIPS[k], pos_map)
             pmap=np.intersect1d(pos_map, pos_dep)
             if len(pos_map)>0 and len(pos_dep)>0 and dptos_all[k]==dpto:
-                try:
+                # try:
+                for docs in IPS_data.find({"Municipio": cities_all[k], "Departamento": dpto}):
+                    name, prob, nivel=compute_indicator_map(docs)
+                    sizemap.append(int(np.ceil((prob*30)))+4)
+                    nivelmap.append(int(nivel))
                     latmap.append(lat[pmap[0]])
                     lonmap.append(lon[pmap[0]])
-                    prob=np.random.rand(1)
-                    sizemap.append(int(np.ceil((prob*30)))+4)
-                    nivelmap.append(int(3*np.random.rand(1))+1)
-                    textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
-                except:
-                    print(cities_all[k])
+
+                    textmap.append(cities_all[k]+' \n\r '+name+' \n\r Indicador conectividad='+str(np.round(prob,3)))
+                # except:
+                #     print(cities_all[k])
     else:
         for k in range(len(cities_all)):
             pos_map=np.where(city_map==cities_all[k])[0]
             pos_dep=np.where(dpto_map==dptos_all[k])[0]
             #print(citiesIPS[k], pos_map)
             pmap=np.intersect1d(pos_map, pos_dep)
-            if len(pos_map)>0 and len(pos_dep)>0:
-                try:
+            if len(pmap)>0:
+                #try:
+                for docs in IPS_data.find({"Municipio": cities_all[k]}):
+                    name, prob, nivel=compute_indicator_map(docs)
                     latmap.append(lat[pmap[0]])
                     lonmap.append(lon[pmap[0]])
-                    prob=np.random.rand(1)
                     sizemap.append(int(np.ceil((prob*30)))+4)
-                    nivelmap.append(int(3*np.random.rand(1))+1)
-                    textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
-                except:
-                    print(cities_all[k])
+                    nivelmap.append(int(nivel))
+                    textmap.append(cities_all[k]+'\n\r'+name+" \n\r Indicador conectividad="+str(np.round(prob,3)))
+                #except:
+                    #print(cities_all[k])
 
 
     datamap, layoutmap=get_data_map(latmap, lonmap, sizemap, textmap, nivelmap, mapbox_access_token)
@@ -264,13 +263,131 @@ def update_map(dpto):
      [dash.dependencies.Input('dpto', 'value'),
       ])
 def update_mpio_drop(dpto):
-
+    global dpto_c
     pos_dpto=np.where(dpto==dpto_map)
     cities_dr=city_map[pos_dpto[0]].values
     print(cities_dr)
+    dpto_c=dpto
     return [{'label': cities_dr[i], "value": cities_dr[i]} for i in range(len(cities_dr))]
 
 
+@app.callback(
+     dash.dependencies.Output('ips', 'options'),
+     [dash.dependencies.Input('mpio', 'value'),
+      ])
+def update_ips_drop(mpio):
+    global dpto_c
+    ips_list=[]
+    for docs in IPS_data.find({"Municipio": mpio, "Departamento": dpto_c}):
+        ips_list.append(docs["IPS"])
+    return [{'label': ips_list[i], "value": ips_list[i]} for i in range(len(ips_list))]
+
+
+
+@app.callback(
+     dash.dependencies.Output('radar', 'figure'),
+     [dash.dependencies.Input('ips', 'value'),
+      ])
+def update_radar_ips(ips):
+    global dpto_c
+    ips_list=[]
+    for docs in IPS_data.find({"IPS": ips}):
+        pprint.pprint(docs)
+        axis1=docs["Respuestas"]["p2"]/4
+        axis2=docs["Respuestas"]["p4"]/5
+        axis3=docs["Respuestas"]["p5"]/5
+        axis4=docs["Respuestas"]["p6"]/5
+        axis5=docs["Respuestas"]["p7"]/5
+        nivel=docs["Nivel"]
+    data_ips=[axis1, axis2, axis3, axis4, axis5, axis1]
+
+    ax1ref=[]
+    ax2ref=[]
+    ax3ref=[]
+    ax4ref=[]
+    ax5ref=[]
+    for docs in IPS_data.find({"Nivel": nivel}):
+        ax1ref.append(docs["Respuestas"]["p2"]/4)
+        ax2ref.append(docs["Respuestas"]["p4"]/5)
+        ax3ref.append(docs["Respuestas"]["p5"]/5)
+        ax4ref.append(docs["Respuestas"]["p6"]/5)
+        ax5ref.append(docs["Respuestas"]["p7"]/5)
+    ax1ref=np.asarray(ax1ref)
+    ax2ref=np.asarray(ax2ref)
+    ax3ref=np.asarray(ax3ref)
+    ax4ref=np.asarray(ax4ref)
+    ax5ref=np.asarray(ax5ref)
+
+    ref=[ax1ref.mean(), ax2ref.mean(), ax3ref.mean(), ax4ref.mean(), ax5ref.mean(), ax1ref.mean()]
+
+    ax1ref=[]
+    ax2ref=[]
+    ax3ref=[]
+    ax4ref=[]
+    ax5ref=[]
+    for docs in IPS_data.find({"Nivel": nivel,  "Departamento": dpto_c}):
+        ax1ref.append(docs["Respuestas"]["p2"]/4)
+        ax2ref.append(docs["Respuestas"]["p4"]/5)
+        ax3ref.append(docs["Respuestas"]["p5"]/5)
+        ax4ref.append(docs["Respuestas"]["p6"]/5)
+        ax5ref.append(docs["Respuestas"]["p7"]/5)
+    ax1ref=np.asarray(ax1ref)
+    ax2ref=np.asarray(ax2ref)
+    ax3ref=np.asarray(ax3ref)
+    ax4ref=np.asarray(ax4ref)
+    ax5ref=np.asarray(ax5ref)
+
+    refdpto=[ax1ref.mean(), ax2ref.mean(), ax3ref.mean(), ax4ref.mean(), ax5ref.mean(), ax1ref.mean()]
+
+
+    data_radar, layout_radar=get_radar(ref, data_ips, legends_radar, refdpto=refdpto)
+    return {'data': data_radar, 'layout': go.Layout(layout_radar)}
+
+
+@app.callback(
+     dash.dependencies.Output('porc', 'children'),
+     [dash.dependencies.Input('dpto', 'value'),
+      ])
+def update_markdown(dpto):
+
+    contips1=0.
+    contips=0.
+    contips2=0.
+    for docs in IPS_data.find({}):
+        axis1=docs["Respuestas"]["p1"]
+        axis5=int(docs["Respuestas"]["p5"])
+        if axis1=="SI":
+            contips1=contips1+1
+        if axis5>=4:
+            contips2=contips2+1
+        contips=contips+1
+    percIPSc=np.round(100*contips1/contips,2)
+    percIPSbw=np.round(100*contips2/contips,2)
+
+    contips1d=0.
+    contipsd=0.
+    contips2d=0.
+    for docs in IPS_data.find({"Departamento": dpto}):
+        axis1=docs["Respuestas"]["p1"]
+        axis5=int(docs["Respuestas"]["p5"])
+        if axis1=="SI":
+            contips1d=contips1d+1
+        if axis5>=4:
+            contips2d=contips2d+1
+        contipsd=contipsd+1
+    percIPScd=np.round(100*contips1d/contipsd,2)
+    percIPSbwd=np.round(100*contips2d/contipsd,2)
+
+    return [dcc.Markdown(
+                """
+                    Porcentaje de municipios conectados a internet: '{}'
+
+                    Porcentaje de municipios conectados a internet en el departamento: '{}'
+
+                    Porcentaje de municipios con un ancho de banda superior a 10Mbps: '{}'
+
+                    Porcentaje de municipios con un ancho de banda superior a 10Mbps en el departamento: '{}'
+                """.replace('   ', '').format(str(percIPSc), str(percIPScd), str(percIPSbw), str(percIPSbwd)))]
 
 
 

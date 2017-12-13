@@ -38,7 +38,7 @@ IPS_data  = db.IPS_Demo_collection
 info_IPS = pd.read_csv(main_path+'/demo/listaDB.csv')
 #Obtener departamentos
 df = pd.DataFrame(info_IPS)
-
+df=df.replace(np.nan,"NO REGISTRA")
 #Respuestas binarias tipo SI/NO
 bin_res = ['SI','NO']
 #Respuesta de selección multiple
@@ -57,30 +57,23 @@ for idx_ips in range(0,df.shape[0]):
     nit = list(ips['NIT'])[0]
     car = list(ips['Caracter'])[0]
     ger = list(ips['Gerente'])[0]
-    hab_opt = list(ips['Habilitada'])[0]
     niv_opt = list(ips['Nivel'])[0]
     addr = list(ips['Direccion'])[0]
     tel = list(ips['Telefono'])[0]
     email = list(ips['Email'])[0]
-    usrname = ['Gerente'+str(idx_ips)][0]
-    usrid = 1127710000+idx_ips
-    usrjob = 'Gerente'
 
-    IPS_index_data = {"Nombre IPS":name,
+
+    IPS_index_data = {"IPS":name,
                   "NIT":str(nit),
-                  "Caracter":car,
-                  "Nombre del gerente":ger,
-                  "Nivel de IPS":str(niv_opt),
-                  "Habilitada":hab_opt,
+                  "Carácter":car,
+                  "Gerente":ger,
+                  "Nivel":str(niv_opt),
                   "Departamento":dpto,
-                  "Ciudad":city,
+                  "Municipio":city,
                   "Dirección":addr,
-                  "Telefono":str(tel),
+                  "Teléfono":str(tel),
                   "e-mail":email,
-                  "Nombre del responsable":usrname,
-                  "ID del responsable":str(usrid),
-                  "Cargo del responsable":usrjob}
-
+                  }
     #Respuestas encuesta.
     res={'p1':bin_res[randint(0,1)],
          'p2':randint(1,4),
