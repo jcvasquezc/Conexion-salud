@@ -80,12 +80,12 @@
 				</div>
 			</div>
 
-			<form  action="preguntas" class="login" method="post" >
+			<form  action="registro" class="login" method="post" >
 				<div class="row">
 					<p class="title">Registrar IPS</p>
-					<label for="dpto">Seleccione su Departamento</label>
+					<label for="reg_dpto">Seleccione su Departamento</label>
 					<br>
-					<select id="dpto" name="dpto" onchange="setlist(this,'city')" required>
+					<select id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
 						<option  value = "">Seleccionar</option>
 						{% for value in dptos %}
 							<option  value = "{{value}}">{{value}}</option>
@@ -93,9 +93,9 @@
 					</select> 					
 					<br>
 					<!-- Campo para ciudad -->
-					<label for="city">Seleccione su Municipio</label>
+					<label for="reg_city">Seleccione su Municipio</label>
 					<br>
-					<select id="city" name="city" required>
+					<select id="reg_city" name="reg_city" required>
 						<option  value ="">Seleccionar</option>
 					</select>
 					<button type="submit" class="state">Ingresar</button>

@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-       <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-       <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
-       <link rel="stylesheet" href="static/bootstrap-theme.min.css">
-       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<link rel="stylesheet" href="static/reg_style.css">
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
 
@@ -59,6 +60,12 @@
                     }
                 }
             }
+		
+		function setfields()
+		{
+			alert("Hola");
+			
+		}
     </script>
     <!-- Funciones javascript -->
 
@@ -83,57 +90,82 @@
 
     </div>
 
-    <div class="container">
-
-
-    <h3>Registro de IPS</h3>
-
-    <form  action="preguntas" method="post">
-
+    <div class="wrapper">
+    <form  action="preguntas" class="register" method="post">
+		
+    	<p class="title">Registro de IPS</p>
+		
         <!-- COMIENZA: Campos: Departamento, ciudad -->		
         <div class = "row">
             <!-- Campo para departamento -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<label for = "dpto">Departamento</label>
-			  	<br>
-				<select id = "dpto" name = "dpto" onchange="setlist(this,'city')" required>
-			  	<br>
-                <option  value = "">Seleccionar</option>
-                {% for value in dptos %}
-                    <option  value = "{{value}}">{{value}}</option>
-                {% endfor %}
-                </select>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label>Departamento: </label><p>{{dpto}}</p>			  	
             </div>
             <!-- Campo para ciudad -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              	<label for="city">Municipio</label>
-			   	<br>
-                <select id="city" name="city" required>
-                    <option  value ="">Seleccionar</option>
-                </select>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label>Municipio: </label><p>{{city}}</p>
             </div>
         </div>		
         <!-- TERMINA: Campos: Departamento, ciudad -->
 		
 		<br>
         
-		<!-- COMIENZA: Campos: Nombre IPS  y NIT -->
+		<!-- COMIENZA: Campos: Nombre IPS-->
         
 		<div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <!--Campo para el Nombre de la IPS -->
-              <label for="name">Nombre de la IPS:</label>
-			  <br>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre de la IPS" required>
-            </div>
+				<!--Campo para el Nombre de la IPS -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<label>Nombre de la IPS:</label>
+				<br>				
+				<input list="reg_ips" autofocus>
+				<datalist id="reg_ips" name="reg_ips" onblur="setfields()" placeholder="Nombre de IPS" required>
+					{% for value in IPS %}
+						<option  value = "{{value}}">{{value}}</option>
+					{% endfor %}
+				</datalist> 
+			</div>
+        </div>
+        
+		<!-- TERMINA: Campos: Nombre IPS -->
+
+        <br>
+
+        <!-- COMIENZA: Campos: nombre gerente, Nivel-->
+        <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <!--Campo para el NIT -->
-              <label for="nit">NIT</label>
+              <label>NIT</label>
 			  <br>
-              <input type="tel" class="form-control" id="nit" name="nit" placeholder="NIT" required>
+              <input type="text" id="nit" name="nit" placeholder="NIT" required>
             </div>
-            <!-- Campo para caracter de la IPS-->
+			<!--Nombre del gerente-->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <label>Nombre del gerente</label>
+			    <br>
+                <input type="text"  id="ger" name="ger" placeholder="Nombre del gerente">
+            </div>
+            <!-- campo para Nivel de la IPS -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">			
+				<label>Nivel de la IPS</label>
+				<br>
+				<label class="radio-inline">
+					<input type="radio" id="opt_niv1" name="nivel" value="1" required>1
+				</label>
+				<label class="radio-inline">
+					<input type="radio" id="opt_niv2" name="nivel" value="2" >2				
+				</label>
+				<label class="radio-inline">
+					<input type="radio" id="opt_niv3" name="nivel" value="3" >3
+				</label>
+            </div>
+        </div>
+        <!-- TERMINA: nombre gerente, Nivel-->
+
+        <br>
+		
+		<div class="row">			
+            <!-- Campo para caracter de la IPS-->
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<label for="car">Carácter de la IPS</label>
 				<br>
 				<select name="car" required>
@@ -143,53 +175,31 @@
 					<option id="car" name="car" value="indigena">Indígena</option>
 					<option id="car" name="car" value="municipal">Municipal</option>
 					<option id="car" name="car" value="nacional">Nacional</option>
-				</select>
+				</select>				
             </div>
-        </div>
-        
-		<!-- TERMINA: Campos: Nombre IPS, NIT, carácter -->
-
-        <br>
-
-        <!-- COMIENZA: Campos: nombre gerente, Nivel-->
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="ger">Nombre del gerente</label>
-			    <br>
-                <input type="text" class="form-control" id="ger" name="ger" placeholder="Nombre del gerente">
-            </div>
-            <!-- campo para Nivel de la IPS -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<label for="niv">Nivel de la IPS</label>
-				<br>
-				<input type="radio" id="opt_niv1" name="nivel" value="1" required> 1
-				<input type="radio" id="opt_niv2" name="nivel" value="2" > 2
-				<input type="radio" id="opt_niv3" name="nivel" value="3" > 3
-            </div>
-        </div>
-        <!-- TERMINA: nombre gerente, Nivel-->
-
-        <br>
-
-        <!-- COMIENZA: Campos: Telefono, email, direccion -->
-        <div class="row">
             <!-- campo para telefono -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <label for="tel">Teléfono de la IPS</label>
 			  <br>
-              <input type="tel" class="form-control" id="tel" name="tel" placeholder="Teléfono de la IPS">
+              <input type="tel"  id="tel" name="tel" placeholder="Teléfono de la IPS">
             </div>
+		</div>
+		
+		<br>
+		
+        <!-- COMIENZA: Campos: Telefono, email, direccion -->
+        <div class="row">
             <!-- campo para email -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <label for="email">Email de la IPS:</label>
 			  <br>
-              <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com">
+              <input type="text"  id="email" name="email" placeholder="ejemplo@mail.com">
             </div>
             <!-- Campo para direccion -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <label for="addr">Dirección de la IPS</label>
 			  <br>
-              <input type="text" class="form-control" id="addr" name="addr" placeholder="Dirección de la IPS" required>
+              <input type="text"  id="addr" name="addr" placeholder="Dirección de la IPS" required>
             </div>
         </div>
         <!-- TERMINA: Campos: telefono, email, direccion -->
@@ -200,21 +210,21 @@
         <div class="row">
             <!-- campo nombre responsable -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="username">Responsable de la encuesta</label>
+              <label for="username">Persona enlace</label>
 			  <br>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de responsable" required>
+              <input type="text"  id="username" name="username" placeholder="Nombre de responsable" required>
             </div>
             <!-- campo id -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="userid">Cedula de ciudadania</label>
+              <label>Cedula de ciudadania</label>
 			  <br>
-              <input type="tel" class="form-control" id="userid" name="userid" placeholder="C.C" required>
+              <input type="text"  id="userid" name="userid" placeholder="C.C" required>
             </div>
             <!-- campo cargo -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="userjob">Cargo que desempeña en la IPS</label>
+              <label for="userjob">Cargo</label>
 			  <br>
-              <input type="text" class="form-control" id="userjob" name="userjob" placeholder="Cargo" required>
+              <input type="text"  id="userjob" name="userjob" placeholder="Cargo" required>
             </div>
         </div>
         <!-- TERMINA: Campos: responsable encuesta, id y cargo -->
@@ -225,11 +235,11 @@
 		<div class="row">
 			<!-- Boton para continuar a la encuesta -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<button type="submit" class="btn btn-success">Registrar IPS</button>
+				<button type="submit" class="state">Registrar IPS</button>
 			</div>
 			<!-- Boton para ver resultados -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<a type="button" class="btn btn-success" href="http://127.0.0.1:8050/">Ver los resultados</a>
+				<button type="button" class="state" href="http://127.0.0.1:8050/">Ver los resultados</button>
 			</div>
 		</div>
 		<!-- TERMINA: Botones -->

@@ -1,4 +1,11 @@
-# pythonspot.com
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Dec  12 14:44:02 2017
+
+@author: gita
+"""
+
 from flask import Flask, render_template, flash, request,session, redirect,url_for
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient #Manejos de base de datos
@@ -31,12 +38,13 @@ client = MongoClient()
 
 #Crear database
 db = client.IPS_database
+#client.drop_database('IPS_database')
+
+#Crear colección
+IPS_data  = db.IPS_collection
 
 ##Delete collection
 #db.Index_collection.drop()
-
-#Crear colección
-IPS_data  = db.Index_collection
 
 #Crear indice basado en NIT
 #db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
@@ -55,33 +63,44 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/", methods=['GET', 'POST'])
-def index():
-#    form = ReusableForm(request.form)
-
-    #Obtener lista de IPS    
-    lista_IPS = pd.read_csv(main_path+'/static/listaDB.csv')
-    tablaIPS = pd.DataFrame(lista_IPS)
-    IPS_dpto = list(np.unique(tablaIPS['Departamento']))
-    
+def index():    
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
     #Obtener departamentos
     df = pd.DataFrame(lista_dptos)
-    dptos = list(np.unique(lista_dptos['Departamento']))
+    del  df['lat'] 
+    del  df['lon'] 
+    del  df['ID'] 
+    del  df['ID2']
+    df = df.dropna()
+    dptos = list(np.unique(df['Departamento']))
     #Crear diccionario de ciudades
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-        
         
     if request.method == 'POST':
         return redirect(url_for('index'))
     
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
     
-#######################ENCUESTA#######################
+######################################################
 @app.route("/registro", methods=['GET', 'POST'])
-def registro():
+def registro():    
+    if request.method == 'POST': 
+        dpto = request.form['reg_dpto']
+        city = request.form['reg_city']  
+        IPS = []
+#        dict_IPS = {}      
+        for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
+            IPS.append(docs['IPS'])           
+#            dict_IPS[docs['IPS']] = docs  
+#        return redirect(url_for('registro'))
+    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS})
+
+#######################ENCUESTA#######################
+@app.route("/preguntas", methods=['GET', 'POST'])
+def preguntas():
     if request.method == 'POST':
         #Datos IPS
         name = request.form['name']
@@ -110,13 +129,6 @@ def registro():
         for docs in IPS_data.find():
             pprint.pprint(docs)
             print('--------------------------------')
-        return redirect(url_for('registro'))
-    
-    return render_template('registro.html')
-#######################ENCUESTA#######################
-@app.route("/preguntas", methods=['GET', 'POST'])
-def preguntas():
-    if request.method == 'POST':
         return redirect(url_for('preguntas'))
     
     return render_template('preguntas.html')

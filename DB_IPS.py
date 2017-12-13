@@ -27,10 +27,10 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
+#client.drop_database('IPS_database')
 
 ##Crear colección
 IPS_data  = db.IPS_collection
-
 ##Delete collection
 ##db.IPS_collection.drop()
 
@@ -38,7 +38,7 @@ IPS_data  = db.IPS_collection
 info_IPS = pd.read_csv(main_path+'/static/listaDB.csv')
 #Obtener departamentos
 df = pd.DataFrame(info_IPS)
-#Reemplzar datos faltantes
+#Reemplazar datos faltantes
 df = df.replace(np.nan,'NO REGISTRA')
 
 for idx_ips in range(0,df.shape[0]):
@@ -50,10 +50,7 @@ for idx_ips in range(0,df.shape[0]):
     car = list(ips['Caracter'])[0]
     ger = list(ips['Gerente'])[0]
     niv_opt = list(ips['Nivel'])[0]
-    addr = list(ips['Direccion'])[0]
-#    tel = list(ips['Telefono'])[0]
-#    email = list(ips['Email'])[0]
-    
+    addr = list(ips['Direccion'])[0]    
     email = list(ips['Email'])[0]
     tel = list(ips['Telefono'])[0]
     tel = tel.replace('\n',' ')        
