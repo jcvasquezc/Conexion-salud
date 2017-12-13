@@ -11,10 +11,27 @@
     </head>
 	
    <script>
-   function myFunction() 
+	   //Mostrar opcion para borrar adjunto
+	   function enb_dis(btn_att,btn_del)
+	   {
+			var x = document.getElementById(btn_att);
+			var input = document.getElementById(btn_del); 
+			if ('files' in x) 
+			{ 
+			   input.disabled = false; 
+			   input.focus();
+			}
+			else
+			{
+			   input.disabled = true;
+			}
+	   }
+	   
+	   //Borrar archivo adjunto
+	   function delete_attached(btn_del,name) 
 		{
-			var x = document.getElementById("myFile");
-			x.disabled = true;
+			document.getElementById(name).value = "";
+			document.getElementById(btn_del).disabled = true;
 		}
    </script>	
 	
@@ -43,7 +60,7 @@
 <!--<div class="container mx-auto">-->
 <div class="container">
 	
-  <form  action="analisis" method="post">	  
+  <form enctype=multipart/form-data action="analisis" method="post">	  
 		<!--Campo para pregunta 1-->  
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -56,8 +73,12 @@
 				<br>
 				<input type="radio" id="question1" name="question1" value="NO" > No
 				<br><br>
-				<!--Boton para adjuntar archivo-->
-				<input type="file" id="file_question1" class="btn btn-default" accept="image/*,video/*">
+				<!--Boton para adjuntar archivo-->				
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
+				<br><br>
+				<button type="button" id="del_p1" class="btn btn-danger" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
+				
 			</div>
 		</div>	  
 		
@@ -78,7 +99,11 @@
 				<br>
 				<input type="radio" id="question2" name="question2" value="4" > Más de 20
 				<br><br>
-				<button type="file" id="file_question2" class="btn btn-default" >Adjuntar soporte </button>
+				<!--Boton para adjuntar archivo-->
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+				<br><br>
+				<button type="button" id="del_p2" class="btn btn-danger" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
 
@@ -96,7 +121,11 @@
 				<br>
 				<input type="radio" id="question3" name="question3" value="NO" > No
 				<br><br>
-				<button type="file" id="file_question3" class="btn btn-default" >Adjuntar soporte </button>
+				<!--Boton para adjuntar archivo-->
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
+				<br><br>
+				<button type="button" id="del_p3" class="btn btn-danger" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
 		
@@ -122,7 +151,11 @@
 				<br>				
 				<input id="name2" name="name2" disabled="disabled"/></label>
 				<br><br>
-				<button type="file" id="file_question3" class="btn btn-default" >Adjuntar soporte </button>
+				<!--Boton para adjuntar archivo-->
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
+				<br><br>
+				<button type="button" id="del_p4" class="btn btn-danger" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
 
@@ -146,7 +179,10 @@
 				<input type="radio" id="question5" name="question5" value="5" > Mayor a 20 Mbps
 				<br><br>
 				<!--Boton para adjuntar archivos-->
-				<button type="file" id="file_question5" class="btn btn-default" >Adjuntar soporte </button>
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
+				<br><br>
+				<button type="button" id="del_p5" class="btn btn-danger" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
 			</div>
 
 		</div>
@@ -171,7 +207,10 @@
 				<input type="radio" id="question6" name="question6" value="5" > Mayor a 100
 				<br><br>
 				<!--Boton para adjuntar archivos-->
-				<button type="file" id="file_question6" class="btn btn-default" >Adjuntar soporte </button>
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
+				<br><br>
+				<button type="button" id="del_p6" class="btn btn-danger" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
 		
@@ -195,34 +234,41 @@
 				<input type="radio" id="question7" name="question7" value="5" > Mayor a 100
 				<br><br>
 				<!--Boton para adjuntar archivos-->
-				<button type="file" id="file_question7" class="btn btn-default" >Adjuntar soporte </button>
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
+				<br><br>
+				<button type="button" id="del_p7" class="btn btn-danger" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
 
 		<br>
 
-		<!--Campo para pregunta 9--> 
+		<!--Campo para pregunta 8--> 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question8"><h4>8. ¿Quién provee los recursos para el pago de la conectividad a internet en su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<label><input type="checkbox" name="cboxq9" value="1"> Ente gubernamental</label>
+				<label><input type="checkbox" name="cboxq8" value="1"> Ente gubernamental</label>
 				<br>
-				<label><input type="checkbox" name="cboxq9" value="2"> Entes privados</label>
+				<label><input type="checkbox" name="cboxq8" value="2"> Entes privados</label>
 				<br>
-				<label><input type="checkbox" name="cboxq9" value="3"> Recursos propios de la IPS</label>
+				<label><input type="checkbox" name="cboxq8" value="3"> Recursos propios de la IPS</label>
 				<br>
-				<label><input type="checkbox" name="cboxq9" value="4"> Donaciones</label>
+				<label><input type="checkbox" name="cboxq8" value="4"> Donaciones</label>
 				<br>
-				<label><input type="checkbox" name="cboxq9" value="5" onclick="var input = document.getElementById('name3'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
+				<label><input type="checkbox" name="cboxq8" value="5" onclick="var input = document.getElementById('name3'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
 				<br>
 					<input id="name3" name="name3" disabled="disabled"/></label>
 				<br><br>
-				<button type="file" id="file_question7" class="btn btn-default" >Adjuntar soporte </button>
+				<!--Boton para adjuntar archivo-->
+				<label>Adjuntar soporte:</label>
+				<input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
+				<br><br>
+				<button type="button" id="del_p8" class="btn btn-danger" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
-
+	<br><br>
     <a class="btn btn-success" href="/">Volver</a>
     <button type="submit" class="btn btn-success">Ver los resultados</button>
 

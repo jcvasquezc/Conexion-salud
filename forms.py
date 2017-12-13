@@ -11,18 +11,20 @@ import pprint
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
+from werkzeug.utils import secure_filename
 
+#Directorio de proyecto
+main_path = os.path.dirname(os.path.abspath(__file__))
 
 # App config.
 DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
-
-
-#Directorio de proyecto
-main_path = os.path.dirname(os.path.abspath(__file__))
-
+#Carpeta para adjuntar archivos
+UPLOAD_FOLDER = main_path+'/uploads'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','mp4'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #Crear Base de datos
 #Crear cliente
 client = MongoClient()
@@ -47,6 +49,10 @@ class ReusableForm(Form):
     tel = IntegerField('Teléfono:', validators=[validators.required(), validators.NumberRange(min=0000, max=9999999999, message="Por favor introduzca un teléfono valido")])
     email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35, message="Por favor introduzca un email valido")])
 
+#Extensiones permitidas
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -115,10 +121,25 @@ def preguntas():
 #######################ENCUESTA#######################
 @app.route("/analisis", methods=['GET', 'POST'])
 def analisis():
-    if request.method == 'POST':           
+    if request.method == 'POST':   
+        for idx in range(1,9):
+            #Verificacion de archivos adjuntos
+            if 'file_p'+str(idx) not in request.files:
+                flash('No file part')
+#                return redirect(request.url)
+            file = request.files['file_p'+str(idx)]
+            #En caso de no adjuntar datos
+            if file.filename == '':
+                flash('No selected file')
+#                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#                return redirect(url_for('analisis',filename=filename))    
+        
         print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
         return redirect(url_for('analisis'))
     return render_template('analisis.html')
-    
+
 if __name__ == "__main__":
     app.run()
