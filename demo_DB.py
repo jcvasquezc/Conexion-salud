@@ -23,7 +23,7 @@ main_path = os.path.dirname(os.path.abspath(__file__))
 
 ##Crear Base de datos
 ##Crear cliente
-client = MongoClient()
+client = MongoClient('localhost', 27017)
 #
 ##Crear database
 db = client.IPS_DEMODB
@@ -71,7 +71,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Caracter":car,
                   "Nombre del gerente":ger,
                   "Nivel de IPS":str(niv_opt),
-                  "Habilitada":hab_opt,                      
+                  "Habilitada":hab_opt,
                   "Departamento":dpto,
                   "Ciudad":city,
                   "Dirección":addr,
@@ -80,7 +80,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Nombre del responsable":usrname,
                   "ID del responsable":str(usrid),
                   "Cargo del responsable":usrjob}
-    
+
     #Respuestas encuesta.
     res={'p1':bin_res[randint(0,1)],
          'p2':randint(1,4),
@@ -90,10 +90,10 @@ for idx_ips in range(0,df.shape[0]):
          'p6':randint(1,5),
          'p7':randint(1,5),
          'p8':randint(1,5),}
-    
+
     IPS_index_data['Respuestas'] = res
 
-    IPS_data.insert_one(IPS_index_data).inserted_id  
+    IPS_data.insert_one(IPS_index_data).inserted_id
 
 for docs in IPS_data.find({"Departamento": "Amazonas"}):
     pprint.pprint(docs)

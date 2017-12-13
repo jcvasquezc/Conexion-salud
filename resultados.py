@@ -6,16 +6,18 @@ import pandas as pd
 import base64
 import os
 import numpy as np
-from utils import get_data_map, get_data_radar
+from utils import get_data_map, get_radar
 import unidecode
+import pymongo
+from pymongo import MongoClient
 
-df = pd.read_csv(
-    'https://raw.githubusercontent.com/plotly/'
-    'datasets/master/gapminderDataFiveYear.csv')
+import pprint
+
 
 app = dash.Dash()
 
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+
 
 
 
@@ -26,12 +28,13 @@ main_path = os.path.dirname(os.path.abspath(__file__))
 lista_dptos = pd.read_csv(main_path+'/static/lista_dptos.csv')
 dfd = pd.DataFrame(lista_dptos)
 dptos = list(np.unique(lista_dptos['Departamento']))
+dptos=["TODOS"]+dptos
+
 citiesIPS=list(np.unique(lista_dptos['Municipio']))
 
 
 dptos_all=list(lista_dptos['Departamento'])
 cities_all=list(lista_dptos['Municipio'])
-
 
 img1file="./static/udea.jpg"
 img2file="./static/colciencias.png"
@@ -42,7 +45,7 @@ lon=[str(dfpmap["lon"][j]) for j in range(len(dfpmap["lon"]))]
 
 
 
-city_map=dfpmap["MUNICIPIO"]
+city_map=dfpmap["Municipio"]
 dpto_map=dfpmap["Departamento"]
 
 encoded_image1=base64.b64encode(open(img1file, 'rb').read())
@@ -54,7 +57,7 @@ token='pk.eyJ1IjoiamN2YXNxdWV6YyIsImEiOiJjajhpOHJzYzEwd2lhMndteGE3dXdoZ2JwIn0.FX
 
 mapbox_access_token = token
 
-datamap, layoutmap=get_data_map([4.6], [-74], [8], ['Bogotá'], mapbox_access_token)
+datamap, layoutmap=get_data_map([4.6], [-74], [8], ['Bogotá'],[2], mapbox_access_token)
 
 
 
@@ -64,9 +67,8 @@ refh=[0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
 refl=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
 
 data_ips_radar=[0.7, 0.2, 0.8, 0.95, 0.7, 0.7]
-data_radar, layout_radar=get_data_radar(refh, refl, data_ips_radar)
-
-
+legends_radar=['Equipos \r\n conectados', 'Ancho de \r\n banda', 'Empleados \r\n con equipos', 'Empleados \r\n conectados','Conexiones/\r\nEmpleado', 'Equipos \r\n conectados', 'Ancho de \r\n banda']
+data_radar, layout_radar=get_radar(refh, data_ips_radar, legends_radar)
 
 
 ### estilos
@@ -83,6 +85,16 @@ values = [[4500,2500,1053,500],[4500,2500,1053,500,500], [4500,2500,1053,500,200
 
 
 
+client = MongoClient()
+db = client['IPS_DEMODB']
+
+collection=db["IPS_Demo_collection"]
+
+
+
+print(collection.count())
+
+
 app.layout = html.Div([
     html.Title("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas"),
 
@@ -97,10 +109,21 @@ app.layout = html.Div([
 
 
     html.Div([
-        html.Div([
         html.Label(["Departamento"]),
         dcc.Dropdown(id="dpto",
             options=[{'label': dptos[i], "value": dptos[i]} for i in range(len(dptos))]),
+        html.Label(["Municipio"]),
+        dcc.Dropdown(id="mpio",
+            options=[{'label': "Municipio", "value": "Municipio"}]),
+        html.Label(["IPS"]),
+        dcc.Dropdown(id="ips",
+            options=[{'label': "IPS", "value": "IPS"}]),
+    ],style={'padding':padding,'columnCount': 2}),
+
+
+    html.Div([
+        html.Div([
+
         dcc.Markdown(
             """
                 Porcentaje de municipios conectados a internet: '{}'
@@ -116,7 +139,7 @@ app.layout = html.Div([
 
         html.Div([
          dcc.Graph(id='radar',
-             figure={'data': data_radar, 'layout': layout_radar}
+             figure={'data': data_radar, 'layout': go.Layout(layout_radar)}
              ),
         ], style={'width':'100%', 'display': 'inline-block'}),
 
@@ -195,26 +218,60 @@ def update_map(dpto):
     lonmap=[]
     sizemap=[]
     textmap=[]
-    for k in range(len(cities_all)):
-        pos_map=np.where(city_map==cities_all[k])[0]
-        pos_dep=np.where(dpto_map==dptos_all[k])[0]
-        #print(citiesIPS[k], pos_map)
-        if len(pos_map)>0 and len(pos_dep)>0:
-            latmap.append(lat[pos_map[0]])
-            lonmap.append(lon[pos_map[0]])
-            prob=np.random.rand(1)
-            sizemap.append(int(np.ceil((prob*30)))+4)
-            textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
-        else:
-            print(cities_all[k], dptos_all[k])
+    nivelmap=[]
+    if dpto!="TODOS":
+        for k in range(len(cities_all)):
+            pos_map=np.where(city_map==cities_all[k])[0]
+            pos_dep=np.where(dpto_map==dptos_all[k])[0]
+            #print(citiesIPS[k], pos_map)
+            pmap=np.intersect1d(pos_map, pos_dep)
+            if len(pos_map)>0 and len(pos_dep)>0 and dptos_all[k]==dpto:
+                try:
+                    latmap.append(lat[pmap[0]])
+                    lonmap.append(lon[pmap[0]])
+                    prob=np.random.rand(1)
+                    sizemap.append(int(np.ceil((prob*30)))+4)
+                    nivelmap.append(int(3*np.random.rand(1))+1)
+                    textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
+                except:
+                    print(cities_all[k])
+    else:
+        for k in range(len(cities_all)):
+            pos_map=np.where(city_map==cities_all[k])[0]
+            pos_dep=np.where(dpto_map==dptos_all[k])[0]
+            #print(citiesIPS[k], pos_map)
+            pmap=np.intersect1d(pos_map, pos_dep)
+            if len(pos_map)>0 and len(pos_dep)>0:
+                try:
+                    latmap.append(lat[pmap[0]])
+                    lonmap.append(lon[pmap[0]])
+                    prob=np.random.rand(1)
+                    sizemap.append(int(np.ceil((prob*30)))+4)
+                    nivelmap.append(int(3*np.random.rand(1))+1)
+                    textmap.append(cities_all[k]+'\n\r'+"Indicador conectividad="+str(np.round(prob[0],3)))
+                except:
+                    print(cities_all[k])
 
 
-    datamap, layoutmap=get_data_map(latmap, lonmap, sizemap, textmap, mapbox_access_token)
+    datamap, layoutmap=get_data_map(latmap, lonmap, sizemap, textmap, nivelmap, mapbox_access_token)
 
     return {
-        'data': datamap,
-            'layout': layoutmap
-    }
+            'data': datamap,
+            'layout':layoutmap }
+
+@app.callback(
+     dash.dependencies.Output('mpio', 'options'),
+     [dash.dependencies.Input('dpto', 'value'),
+      ])
+def update_mpio_drop(dpto):
+
+    pos_dpto=np.where(dpto==dpto_map)
+    cities_dr=city_map[pos_dpto[0]].values
+    print(cities_dr)
+    return [{'label': cities_dr[i], "value": cities_dr[i]} for i in range(len(cities_dr))]
+
+
+
 
 
 
