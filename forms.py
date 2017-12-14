@@ -118,9 +118,9 @@ def preguntas():
         addr = request.form['addr']
         tel = request.form['tel']
         email = request.form['email']
-        username = request.form["username"]
-        userid = request.form["userid"]
-        userjob = request.form["userjob"]
+        username = request.form['username']
+        userid = request.form['userid']
+        userjob = request.form['userjob']
         
         IPS_index_data = {"IPS":name,
                       "NIT":nit,

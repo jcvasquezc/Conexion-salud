@@ -96,8 +96,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label>Nombre de la IPS:</label>
 				<br>				
-				<input list="reg_ips" type="text" autofocus onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
-				<datalist id="reg_ips" name="reg_ips">
+				<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
+				<datalist id="reg_ips">
 					{% for value in IPS %}
 						<option  value = "{{value}}">{{value}}</option>
 					{% endfor %}
