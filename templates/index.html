@@ -20,8 +20,8 @@
                 var idx = val.selectedIndex;
                 //Obtener arreglo de "Municipios" a partir del valor seleccionado
                 var which = val.options[idx].value;
-                cList = cityLists[which];
-
+			   	cList = cityLists[which];
+			
                 var cSelect = document.getElementById(elm_id);
                 var len = cSelect.options.length;
                 while (cSelect.options.length > 0) {
@@ -59,6 +59,7 @@
                     }
                 }
             }
+		
     </script>
     <!-- Funciones javascript -->
 
@@ -83,7 +84,7 @@
 			<form  action="registro" class="login" method="post" >
 				<div class="row">
 					<p class="title">Registrar IPS</p>
-					<label for="reg_dpto">Seleccione su Departamento</label>
+					<label for="reg_dpto">Departamento</label>
 					<br>
 					<select id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
 						<option  value = "">Seleccionar</option>
@@ -93,11 +94,12 @@
 					</select> 					
 					<br>
 					<!-- Campo para ciudad -->
-					<label for="reg_city">Seleccione su Municipio</label>
+					<label for="reg_city">Municipio</label>
 					<br>
 					<select id="reg_city" name="reg_city" required>
 						<option  value ="">Seleccionar</option>
-					</select>
+					</select> 	
+					<br> 
 					<button type="submit" class="state">Ingresar</button>
 				</div>
 			</form>

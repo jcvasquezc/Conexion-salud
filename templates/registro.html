@@ -13,124 +13,110 @@
 
     <!-- Funciones javascript -->
     <script type="text/javascript">
-        //Diccionario de "Departamentos" y "Municipios" creados en Python.
-        var cityLists = {{cities|safe}}
-        function setlist(val,elm_id)
+                //Diccionario de "Departamentos" y "Municipios" creados en Python.
+        var IPSLists = {{dict_IPS|safe}}
+        function setfields(val)
         {
-                //Obtener indice del "Departamento" en el arreglo "cityLists"
-                var idx = val.selectedIndex;
-                //Obtener arreglo de "Municipios" a partir del valor seleccionado
-                var which = val.options[idx].value;
-                cList = cityLists[which];
-
-                var cSelect = document.getElementById(elm_id);
-                var len = cSelect.options.length;
-                while (cSelect.options.length > 0) {
-                cSelect.remove(0);
-                }
-
-				//Crear lista de cuidades
-                var newOption;
-				//Crear opción por defecto
-				newOption = document.createElement("option");
-				newOption.value = "";
-				newOption.text = "Seleccionar";
-				try
-                    {
-                        cSelect.add(newOption);  //this will fail in DOM browsers but is needed for IE
-                    }
-				catch (e)
-                    {
-                        cSelect.appendChild(newOption);
-                    }
-				//Crear lista de municipios
-                for (var i=0; i<cList.length; i++)
-                {
-                    newOption = document.createElement("option");
-                    newOption.value = cList[i];
-                    newOption.text = cList[i];
-
-                    try
-                    {
-                        cSelect.add(newOption);  //this will fail in DOM browsers but is needed for IE
-                    }
-                    catch (e)
-                    {
-                        cSelect.appendChild(newOption);
-                    }
-                }
-            }
-		
-		function setfields()
-		{
-			alert("Hola");
-			
+			cList = IPSLists[val];
+			if (val!="")
+			{					
+				document.getElementById("nit").value=cList[0];
+				document.getElementById("nit").text=cList[0];
+				document.getElementById("car").value=cList[1];
+				document.getElementById("ger").value=cList[2];
+				document.getElementById("ger").text=cList[2];
+				document.getElementById("nivel".concat(cList[3])).checked=true;
+				document.getElementById("addr").value=cList[6];
+				document.getElementById("addr").text=cList[6];
+				document.getElementById("tel").value=cList[7];
+				document.getElementById("tel").text=cList[7];
+				document.getElementById("email").value=cList[8];
+				document.getElementById("email").text=cList[8];
+				
+				
+			}
+			else
+			{				
+				document.getElementById("nit").value='';
+				document.getElementById("nit").text='';
+				document.getElementById("car").value='';
+				document.getElementById("ger").value='';
+				document.getElementById("ger").text='';
+				document.getElementById("nivel1").checked=false;
+				document.getElementById("nivel2").checked=false;
+				document.getElementById("nivel3").checked=false;
+				document.getElementById("tel").value='';
+				document.getElementById("tel").text='';
+				document.getElementById("email").value='';
+				document.getElementById("email").text='';
+				document.getElementById("addr").value='';
+				document.getElementById("addr").text='';	
+			}
 		}
+
     </script>
     <!-- Funciones javascript -->
 
-    <div class="jumbotron text-center">
-      <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
-
-	<br>
-
-	<!--Logos-->
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="static/udea.jpg" width="30%">
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-         <img src="static/colciencias.png"  width="40%">
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-         <img src="static/mintic.png"  width="100%">
-      </div>
-    </div>
-    <!--Logos-->
-
-    </div>
-
     <div class="wrapper">
+			<div class="jumbotron text-center">
+				<h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/udea.jpg" width="30%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/colciencias.png"  width="40%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/mintic.png"  width="100%">
+					</div>
+				</div>
+			</div>
     <form  action="preguntas" class="register" method="post">
 		
     	<p class="title">Registro de IPS</p>
-		
-        <!-- COMIENZA: Campos: Departamento, ciudad -->		
+			
         <div class = "row">
             <!-- Campo para departamento -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label>Departamento: </label><p>{{dpto}}</p>			  	
+				<label >Departamento: </label><p>{{dpto}}</p>			  	
             </div>
             <!-- Campo para ciudad -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<label>Municipio: </label><p>{{city}}</p>
             </div>
         </div>		
-        <!-- TERMINA: Campos: Departamento, ciudad -->
 		
 		<br>
-        
-		<!-- COMIENZA: Campos: Nombre IPS-->
-        
+                
 		<div class="row">
 				<!--Campo para el Nombre de la IPS -->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label>Nombre de la IPS:</label>
 				<br>				
-				<input list="reg_ips" autofocus>
-				<datalist id="reg_ips" name="reg_ips" onblur="setfields()" placeholder="Nombre de IPS" required>
+				<input list="reg_ips" type="text" autofocus onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
+				<datalist id="reg_ips" name="reg_ips">
 					{% for value in IPS %}
 						<option  value = "{{value}}">{{value}}</option>
 					{% endfor %}
 				</datalist> 
 			</div>
         </div>
-        
-		<!-- TERMINA: Campos: Nombre IPS -->
+		
+		<br>
+		
+		<div class="row">
+			<!--Nombre del gerente-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Nombre del gerente</label>
+			    <br>
+                <input type="text"  id="ger" name="ger" placeholder="Nombre del gerente">
+            </div>
+		</div>      
 
         <br>
 
-        <!-- COMIENZA: Campos: nombre gerente, Nivel-->
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <!--Campo para el NIT -->
@@ -138,75 +124,60 @@
 			  <br>
               <input type="text" id="nit" name="nit" placeholder="NIT" required>
             </div>
-			<!--Nombre del gerente-->
+            <!-- Campo para caracter de la IPS-->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <label>Nombre del gerente</label>
-			    <br>
-                <input type="text"  id="ger" name="ger" placeholder="Nombre del gerente">
+				<label for="car">Carácter de la IPS</label>
+				<br>
+				<select id="car" name="car" required>
+					<option value="">Seleccionar</option>
+					<option value="DEPARTAMENTAL">DEPARTAMENTAL</option>
+					<option value="DISTRITAL">DISTRITAL</option>
+					<option value="INDIGENA">INDIGENA</option>
+					<option value="MUNICIPAL">MUNICIPAL</option>
+					<option value="NACIONAL">NACIONAL</option>
+				</select>				
             </div>
             <!-- campo para Nivel de la IPS -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">			
 				<label>Nivel de la IPS</label>
 				<br>
 				<label class="radio-inline">
-					<input type="radio" id="opt_niv1" name="nivel" value="1" required>1
+					<input type="radio" id="nivel1" name="nivel" value="1" required>1
 				</label>
 				<label class="radio-inline">
-					<input type="radio" id="opt_niv2" name="nivel" value="2" >2				
+					<input type="radio" id="nivel2" name="nivel" value="2" >2				
 				</label>
 				<label class="radio-inline">
-					<input type="radio" id="opt_niv3" name="nivel" value="3" >3
+					<input type="radio" id="nivel3" name="nivel" value="3" >3
 				</label>
             </div>
         </div>
-        <!-- TERMINA: nombre gerente, Nivel-->
 
         <br>
 		
 		<div class="row">			
-            <!-- Campo para caracter de la IPS-->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label for="car">Carácter de la IPS</label>
-				<br>
-				<select name="car" required>
-					<option id="car" name="car" value="">Seleccionar</option>
-					<option id="car" name="car" value="departamental">Departamental</option>
-					<option id="car" name="car" value="distrital">Distrital</option>
-					<option id="car" name="car" value="indigena">Indígena</option>
-					<option id="car" name="car" value="municipal">Municipal</option>
-					<option id="car" name="car" value="nacional">Nacional</option>
-				</select>				
-            </div>
             <!-- campo para telefono -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="tel">Teléfono de la IPS</label>
 			  <br>
-              <input type="tel"  id="tel" name="tel" placeholder="Teléfono de la IPS">
+              <input type="text"  id="tel" name="tel" placeholder="Teléfono de la IPS">
             </div>
-		</div>
-		
-		<br>
-		
-        <!-- COMIENZA: Campos: Telefono, email, direccion -->
-        <div class="row">
             <!-- campo para email -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="email">Email de la IPS:</label>
 			  <br>
               <input type="text"  id="email" name="email" placeholder="ejemplo@mail.com">
             </div>
             <!-- Campo para direccion -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="addr">Dirección de la IPS</label>
 			  <br>
               <input type="text"  id="addr" name="addr" placeholder="Dirección de la IPS" required>
             </div>
         </div>
-        <!-- TERMINA: Campos: telefono, email, direccion -->
 
         <br>
 
-        <!-- COMIENZA: Campos: responsable encuesta, id y cargo -->
         <div class="row">
             <!-- campo nombre responsable -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -227,7 +198,6 @@
               <input type="text"  id="userjob" name="userjob" placeholder="Cargo" required>
             </div>
         </div>
-        <!-- TERMINA: Campos: responsable encuesta, id y cargo -->
 
         <br>
 

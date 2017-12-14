@@ -78,7 +78,7 @@ def index():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-        
+            
     if request.method == 'POST':
         return redirect(url_for('index'))
     
@@ -89,46 +89,51 @@ def index():
 def registro():    
     if request.method == 'POST': 
         dpto = request.form['reg_dpto']
-        city = request.form['reg_city']  
+        city = request.form['reg_city'] 
+        
         IPS = []
-#        dict_IPS = {}      
+        dict_IPS = {}
         for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
-            IPS.append(docs['IPS'])           
-#            dict_IPS[docs['IPS']] = docs  
+            IPS.append(docs['IPS'])
+            templist = []
+            for key, value in docs.items():
+                if key not in ['IPS','_id']:
+                    templist.append(value)
+            dict_IPS[docs['IPS']] = templist
 #        return redirect(url_for('registro'))
-    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS})
+    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
 
 #######################ENCUESTA#######################
 @app.route("/preguntas", methods=['GET', 'POST'])
 def preguntas():
     if request.method == 'POST':
         #Datos IPS
-        name = request.form['name']
-        nit = request.form['nit']
-        car = request.form['car']
-        ger = request.form['ger']
-        niv_opt = request.form['nivel']
+#        name = request.form['name']
+#        nit = request.form['nit']
+#        car = request.form['car']
+#        ger = request.form['ger']
+#        niv_opt = request.form['nivel']
         dpto = request.form['dpto']
         city = request.form['city']
-        addr = request.form['addr']
-        tel = request.form['tel']
-        email = request.form['email']
-        
-        IPS_index_data = {"IPS":name,
-                      "NIT":nit,
-                      "Carácter":car,
-                      "Gerente":ger,
-                      "Nivel":niv_opt,
-                      "Departamento":dpto,
-                      "Municipio":city,
-                      "Dirección":addr,
-                      "Teléfono":tel,
-                      "e-mail":email}
-
-        IPS_data.insert_one(IPS_index_data).inserted_id
-        for docs in IPS_data.find():
-            pprint.pprint(docs)
-            print('--------------------------------')
+#        addr = request.form['addr']
+#        tel = request.form['tel']
+#        email = request.form['email']
+        print(dpto,city)
+#        IPS_index_data = {"IPS":name,
+#                      "NIT":nit,
+#                      "Carácter":car,
+#                      "Gerente":ger,
+#                      "Nivel":niv_opt,
+#                      "Departamento":dpto,
+#                      "Municipio":city,
+#                      "Dirección":addr,
+#                      "Teléfono":tel,
+#                      "e-mail":email}
+#
+#        IPS_data.insert_one(IPS_index_data).inserted_id
+#        for docs in IPS_data.find():
+#            pprint.pprint(docs)
+#            print('--------------------------------')
         return redirect(url_for('preguntas'))
     
     return render_template('preguntas.html')
