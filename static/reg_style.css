@@ -24,7 +24,7 @@ body {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 3%;
   background: rgba(4, 40, 68, 0.85);
 }
 
@@ -32,9 +32,9 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 2px 2px 5px 5px;
-  padding: 10px 50px 20px 50px;
-  width: 90%;
-  max-width: 720px;
+  padding: 10% 5% 10% 5%;
+  width: 80%;
+  max-width: 90%;
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;

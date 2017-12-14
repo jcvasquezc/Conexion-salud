@@ -108,33 +108,40 @@ def registro():
 def preguntas():
     if request.method == 'POST':
         #Datos IPS
-#        name = request.form['name']
-#        nit = request.form['nit']
-#        car = request.form['car']
-#        ger = request.form['ger']
-#        niv_opt = request.form['nivel']
+        name = request.form['reg_ips']
+        nit = request.form['nit']
+        car = request.form['car']
+        ger = request.form['ger']
+        niv_opt = request.form['nivel']
         dpto = request.form['dpto']
         city = request.form['city']
-#        addr = request.form['addr']
-#        tel = request.form['tel']
-#        email = request.form['email']
-        print(dpto,city)
-#        IPS_index_data = {"IPS":name,
-#                      "NIT":nit,
-#                      "Carácter":car,
-#                      "Gerente":ger,
-#                      "Nivel":niv_opt,
-#                      "Departamento":dpto,
-#                      "Municipio":city,
-#                      "Dirección":addr,
-#                      "Teléfono":tel,
-#                      "e-mail":email}
-#
-#        IPS_data.insert_one(IPS_index_data).inserted_id
-#        for docs in IPS_data.find():
-#            pprint.pprint(docs)
-#            print('--------------------------------')
-        return redirect(url_for('preguntas'))
+        addr = request.form['addr']
+        tel = request.form['tel']
+        email = request.form['email']
+        username = request.form["username"]
+        userid = request.form["userid"]
+        userjob = request.form["userjob"]
+        
+        IPS_index_data = {"IPS":name,
+                      "NIT":nit,
+                      "Carácter":car,
+                      "Gerente":ger,
+                      "Nivel":niv_opt,
+                      "Departamento":dpto,
+                      "Municipio":city,
+                      "Dirección":addr,
+                      "Teléfono":tel,
+                      "e-mail":email,
+                      "Encargado":username,
+                      "ID encargado":userid,
+                      "Cargo encargado":userjob}
+        
+        temp = IPS_data.find({"NIT":nit}).count()
+        if temp!=0:            
+            IPS_data.update_one({"NIT":nit},{"$set":IPS_index_data})
+        else:
+            IPS_data.insert_one(IPS_index_data).inserted_id
+#        return redirect(url_for('preguntas'))
     
     return render_template('preguntas.html')
 

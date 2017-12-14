@@ -75,16 +75,17 @@
 			</div>
     <form  action="preguntas" class="register" method="post">
 		
-    	<p class="title">Registro de IPS</p>
-			
+    	<p class="title">Registro de IPS</p>			
         <div class = "row">
             <!-- Campo para departamento -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label >Departamento: </label><p>{{dpto}}</p>			  	
+				<label >Departamento: </label>			  	
+				<input type="text" id="dpto" name="dpto" value="{{dpto}}" readonly="true">
             </div>
             <!-- Campo para ciudad -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label>Municipio: </label><p>{{city}}</p>
+				<label>Municipio: </label>
+				<input type="text" id="city" name="city" value="{{city}}" readonly="true">
             </div>
         </div>		
 		
@@ -111,7 +112,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>Nombre del gerente</label>
 			    <br>
-                <input type="text"  id="ger" name="ger" placeholder="Nombre del gerente">
+                <input type="text" id="ger" name="ger" placeholder="Nombre del gerente" required>
             </div>
 		</div>      
 
@@ -160,20 +161,20 @@
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="tel">Teléfono de la IPS</label>
 			  <br>
-              <input type="text"  id="tel" name="tel" placeholder="Teléfono de la IPS">
+              <input type="text"  id="tel" name="tel" placeholder="Teléfono de la IPS" required>
             </div>
             <!-- campo para email -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="email">Email de la IPS:</label>
 			  <br>
-              <input type="text"  id="email" name="email" placeholder="ejemplo@mail.com">
+              <input type="text"  id="email" name="email" placeholder="ejemplo@mail.com" required>
             </div>
             <!-- Campo para direccion -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="addr">Dirección de la IPS</label>
 			  <br>
               <input type="text"  id="addr" name="addr" placeholder="Dirección de la IPS" required>
-            </div>
+            </div> 
         </div>
 
         <br>
@@ -181,9 +182,9 @@
         <div class="row">
             <!-- campo nombre responsable -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="username">Persona enlace</label>
+              <label>Persona enlace</label>
 			  <br>
-              <input type="text"  id="username" name="username" placeholder="Nombre de responsable" required>
+              <input type="text"  id="username" name="username" placeholder="Nombre enlace" required>
             </div>
             <!-- campo id -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -193,7 +194,7 @@
             </div>
             <!-- campo cargo -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="userjob">Cargo</label>
+              <label>Cargo</label>
 			  <br>
               <input type="text"  id="userjob" name="userjob" placeholder="Cargo" required>
             </div>
