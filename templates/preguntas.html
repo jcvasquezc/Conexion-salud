@@ -4,21 +4,22 @@
 		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/login_style.css">
 		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-	
+
    <script>
 	   //Mostrar opcion para borrar adjunto
 	   function enb_dis(btn_att,btn_del)
 	   {
 			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del); 
-			if ('files' in x) 
-			{ 
-			   input.disabled = false; 
+			var input = document.getElementById(btn_del);
+			if ('files' in x)
+			{
+			   input.disabled = false;
 			   input.focus();
 			}
 			else
@@ -26,22 +27,22 @@
 			   input.disabled = true;
 			}
 	   }
-	   
+
 	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name) 
+	   function delete_attached(btn_del,name)
 		{
 			document.getElementById(name).value = "";
 			document.getElementById(btn_del).disabled = true;
 		}
-   </script>	
-	
-<body>
+   </script>
 
+<body>
+<div class="wrapper">
 <div class="jumbotron text-center">
 	<h2>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</h2>
 	<h3>Preguntas acerca del estado de conectividad en su IPS</h3>
 	<h3>IPS:  </h3>
-		
+
 	<!--Logos-->
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -58,39 +59,39 @@
 </div>
 
 <!--<div class="container mx-auto">-->
-<div class="container">
-	
-  <form enctype=multipart/form-data action="analisis" method="post">	  
-		<!--Campo para pregunta 1-->  
+<!--<div class="container">-->
+
+  <form enctype=multipart/form-data action="analisis" class="login" method="post">
+		<!--Campo para pregunta 1-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question1"><h4>1. ¿Cuenta su IPS con conexión a internet?</h4></label>
 				<!--Burbuja de ayuda-->
 				<a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question1" name="question1" value="SI" required> Si
 				<br>
 				<input type="radio" id="question1" name="question1" value="NO" > No
 				<br><br>
-				<!--Boton para adjuntar archivo-->				
+				<!--Boton para adjuntar archivo-->
 				<label>Adjuntar soporte:</label>
 				<input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
 				<br><br>
 				<button type="button" id="del_p1" class="btn btn-danger" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
-				
+
 			</div>
-		</div>	  
-		
+		</div>
+
 		<br>
-		
-		<!--Campo para pregunta 2--> 
+
+		<!--Campo para pregunta 2-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question2"><h4>2. ¿Cuántos equipos se encuentran conectados a internet?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question2" name="question2" value="1" required> Entre 1 y 5
 				<br>
 				<input type="radio" id="question2" name="question2" value="2" > Entre 6 y 10
@@ -108,15 +109,15 @@
 		</div>
 
 		<br>
-		
-		<!--Campo para pregunta 3--> 
+
+		<!--Campo para pregunta 3-->
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question3"><h4>3. ¿Cuentan con conexión de internet inalambrica (Wifi) en su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question3" name="question3" value="SI" required> Si
 				<br>
 				<input type="radio" id="question3" name="question3" value="NO" > No
@@ -128,10 +129,10 @@
 				<button type="button" id="del_p3" class="btn btn-danger" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
-		
+
 		<br>
-		
-		<!--Campo para pregunta 4--> 
+
+		<!--Campo para pregunta 4-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question4"><h4>4. ¿Con qué otros servicios de TIC cuenta su IPS?</h4></label>
@@ -148,7 +149,7 @@
 				<label><input type="checkbox" name="question4" value="5"> Direcciones IP públicas</label>
 				<br>
 				<label><input type="checkbox" name="question4" value="6" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro
-				<br>				
+				<br>
 				<input id="name2" name="name2" disabled="disabled"/></label>
 				<br><br>
 				<!--Boton para adjuntar archivo-->
@@ -160,14 +161,14 @@
 		</div>
 
 		<br>
-		
-		<!--Campo para pregunta 5--> 
+
+		<!--Campo para pregunta 5-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question5"><h4>5. ¿Cuál es el ancho de banda de la conexión a internet en su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question5" name="question5" value="1" required> Menor a 1 Mbps
 				<br>
 				<input type="radio" id="question5" name="question5" value="2" > Entre 2 y 5 Mbps
@@ -186,16 +187,16 @@
 			</div>
 
 		</div>
-		
+
 		<br>
 
-		<!--Campo para pregunta 6--> 
+		<!--Campo para pregunta 6-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question6"><h4>6. ¿Cuántas personas/empleados hay en su IPS que usen equipos de computo?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question6" name="question6" value="1" required> Entre 1 y 10
 				<br>
 				<input type="radio" id="question6" name="question6" value="2" > Entre 11 y 30
@@ -213,16 +214,16 @@
 				<button type="button" id="del_p6" class="btn btn-danger" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
 			</div>
 		</div>
-		
+
 		<br>
 
-		<!--Campo para pregunta 7--> 
+		<!--Campo para pregunta 7-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question7"><h4>7. ¿Cuántas personas/empleados tienen acceso a internet en su IPS?</h4></label>
 				<a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a>
 				<br>
-				<!--Opciones de respuesta-->				
+				<!--Opciones de respuesta-->
 				<input type="radio" id="question7" name="question7" value="1" required> Entre 1 y 10
 				<br>
 				<input type="radio" id="question7" name="question7" value="2" > Entre 11 y 30
@@ -243,7 +244,7 @@
 
 		<br>
 
-		<!--Campo para pregunta 8--> 
+		<!--Campo para pregunta 8-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<label for="question8"><h4>8. ¿Quién provee los recursos para el pago de la conectividad a internet en su IPS?</h4></label>
