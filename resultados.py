@@ -70,8 +70,8 @@ data_radar, layout_radar=get_radar(refh, data_ips_radar, legends_radar)
 
 
 ### estilos
-padding= ['0%' '10%' '0%' '10%']
-padding2= ['0%' '0%' '0%' '10%']
+padding= ['0%' '0%' '0%' '0%']
+padding2= ['0%' '0%' '0%' '0%']
 padding3= ['0%' '0%' '0%' '5%']
 border='thin lightgrey solid'
 
@@ -93,16 +93,16 @@ IPS_data  = db.IPS_Demo_collection
 
 
 app.layout = html.Div([
-    html.Title("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas"),
-
-    html.Div([("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas")], style={"padding":padding, "font-size":"180%", 'display': 'inline-block', "align":"middle"}),
-
-    html.Div([html.Img(src='data:image/png;base64,{}'.format(encoded_image1.decode()), style={"padding":padding2,'width': '10%', 'display': 'inline-block', 'columnCount': 3}),
-            html.Img(src='data:image/png;base64,{}'.format(encoded_image2.decode()), style={"padding":padding2,'width': '15%', 'display': 'inline-block', 'columnCount': 3}),
-            html.Img(src='data:image/png;base64,{}'.format(encoded_image3.decode()), style={"padding":padding2,'width': '30%', 'display': 'inline-block', 'columnCount': 3}),
-            ]),
-
-    html.Div(["\n"]),
+    # html.Title("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas"),
+    #
+    # html.Div([("Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas")], style={"padding":padding, "font-size":"180%", 'display': 'inline-block', "align":"middle"}),
+    #
+    # html.Div([html.Img(src='data:image/png;base64,{}'.format(encoded_image1.decode()), style={"padding":padding2,'width': '10%', 'display': 'inline-block', 'columnCount': 3}),
+    #         html.Img(src='data:image/png;base64,{}'.format(encoded_image2.decode()), style={"padding":padding2,'width': '15%', 'display': 'inline-block', 'columnCount': 3}),
+    #         html.Img(src='data:image/png;base64,{}'.format(encoded_image3.decode()), style={"padding":padding2,'width': '30%', 'display': 'inline-block', 'columnCount': 3}),
+    #         ]),
+    #
+    # html.Div(["\n"]),
 
 
     html.Div([
@@ -137,7 +137,7 @@ app.layout = html.Div([
          dcc.Graph(id='radar',
              figure={'data': data_radar, 'layout': go.Layout(layout_radar)}
              ),
-        ], style={'width':'100%', 'display': 'inline-block'}),
+        ], style={'width':'80%', 'display': 'inline-block'}),
 
         html.Div([
          dcc.Graph(id='map',
@@ -229,7 +229,6 @@ def update_map(dpto):
                     nivelmap.append(int(nivel))
                     latmap.append(lat[pmap[0]])
                     lonmap.append(lon[pmap[0]])
-
                     textmap.append(cities_all[k]+' \n\r '+name+' \n\r Indicador conectividad='+str(np.round(prob,3)))
                 # except:
                 #     print(cities_all[k])
@@ -251,7 +250,6 @@ def update_map(dpto):
                 #except:
                     #print(cities_all[k])
 
-
     datamap, layoutmap=get_data_map(latmap, lonmap, sizemap, textmap, nivelmap, mapbox_access_token)
 
     return {
@@ -266,7 +264,6 @@ def update_mpio_drop(dpto):
     global dpto_c
     pos_dpto=np.where(dpto==dpto_map)
     cities_dr=city_map[pos_dpto[0]].values
-    print(cities_dr)
     dpto_c=dpto
     return [{'label': cities_dr[i], "value": cities_dr[i]} for i in range(len(cities_dr))]
 
@@ -292,14 +289,13 @@ def update_radar_ips(ips):
     global dpto_c
     ips_list=[]
     for docs in IPS_data.find({"IPS": ips}):
-        pprint.pprint(docs)
         axis1=docs["Respuestas"]["p2"]/4
         axis2=docs["Respuestas"]["p4"]/5
         axis3=docs["Respuestas"]["p5"]/5
         axis4=docs["Respuestas"]["p6"]/5
         axis5=docs["Respuestas"]["p7"]/5
         nivel=docs["Nivel"]
-    data_ips=[axis1, axis2, axis3, axis4, axis5, axis1]
+        data_ips=[axis1, axis2, axis3, axis4, axis5, axis1]
 
     ax1ref=[]
     ax2ref=[]
@@ -368,6 +364,7 @@ def update_markdown(dpto):
     contipsd=0.
     contips2d=0.
     for docs in IPS_data.find({"Departamento": dpto}):
+
         axis1=docs["Respuestas"]["p1"]
         axis5=int(docs["Respuestas"]["p5"])
         if axis1=="SI":

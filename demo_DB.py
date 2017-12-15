@@ -32,7 +32,7 @@ db = client.IPS_DEMODB
 IPS_data  = db.IPS_Demo_collection
 
 ##Delete collection
-##db.IPS_Demo_collection.drop()
+db.IPS_Demo_collection.drop()
 
 #Obtener lista de departamento y ciudades
 info_IPS = pd.read_csv(main_path+'/demo/listaDB.csv')
@@ -88,6 +88,6 @@ for idx_ips in range(0,df.shape[0]):
 
     IPS_data.insert_one(IPS_index_data).inserted_id
 
-for docs in IPS_data.find({"Departamento": "Amazonas"}):
+for docs in IPS_data.find({}):
     pprint.pprint(docs)
     print('--------------------------------')
