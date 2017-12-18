@@ -1,0 +1,4 @@
+Tipo,Pregunta,Respuestas
+radio,Nivel de atención en salud,Nivel I;Nivel II;Nivel III; Nivel IV
+checkbox,Tipos de atención brindados en esta institución:,Ambulatorios;Internació;Quirúrgico;Emergencia
+checkbox,Su prestador de servicios es:,Hospital;Centro médico / Centro odontológico;Laboratorio Clínico;Centro Radiológico;Farmacias 
