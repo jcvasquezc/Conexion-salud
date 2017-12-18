@@ -1,0 +1,44 @@
+<div class "row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a class="state" href="/">Volver</a>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a type="btn_att submit" class="state" href="preguntas">Continuar</button>
+  </div>
+</div>
+<br>
+<div class "row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <button type="submit" class="state">Ver los resultados</button>
+  </div>
+</div>
+</div>
+</form>
+
+<br>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+
+      {% for message in messages %}
+          {% if "Error" not in message[1]: %}
+              <div class="alert alert-info">
+              <strong>Success! </strong> {{ message[1] }}
+              </div>
+          {% endif %}
+
+          {% if "Error" in message[1]: %}
+              <div class="alert alert-warning">
+              {{ message[1] }}
+              </div>
+          {% endif %}
+      {% endfor %}
+          {% endif %}
+      {% endwith %}
+
+
+
+
+
+</div>
+</body>
+</html>

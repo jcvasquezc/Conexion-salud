@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/preg_style.css">
+    <link rel="stylesheet" href="static/radio_checks.css">
+		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+   <script>
+	   //Mostrar opcion para borrar adjunto
+	   function enb_dis(btn_att,btn_del)
+	   {
+			var x = document.getElementById(btn_att);
+			var input = document.getElementById(btn_del);
+			if ('files' in x)
+			{
+			   input.disabled = false;
+			   input.focus();
+			}
+			else
+			{
+			   input.disabled = true;
+			}
+	   }
+	   //Borrar archivo adjunto
+	   function delete_attached(btn_del,name)
+		{
+			document.getElementById(name).value = "";
+			document.getElementById(btn_del).disabled = true;
+		}
+   </script>
+
+<body>
+<div class="wrapper">
+  <div class="jumbotron text-center">
+    <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/udea.jpg" width="30%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/colciencias.png"  width="40%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/mintic.png"  width="100%">
+      </div>
+    </div>
+  </div>
+
+
+
+  <form enctype=multipart/form-data action="analisis" class="register" method="post">
+      <p class="title"> MÓDULO 2: Terminología y definiciones</p>

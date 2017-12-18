@@ -63,14 +63,14 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/", methods=['GET', 'POST'])
-def index():    
+def index():
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
     #Obtener departamentos
     df = pd.DataFrame(lista_dptos)
-    del  df['lat'] 
-    del  df['lon'] 
-    del  df['ID'] 
+    del  df['lat']
+    del  df['lon']
+    del  df['ID']
     del  df['ID2']
     df = df.dropna()
     dptos = list(np.unique(df['Departamento']))
@@ -78,19 +78,19 @@ def index():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
-            
+
     if request.method == 'POST':
         return redirect(url_for('index'))
-    
+
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
-    
+
 ######################################################
 @app.route("/registro", methods=['GET', 'POST'])
-def registro():    
-    if request.method == 'POST': 
+def registro():
+    if request.method == 'POST':
         dpto = request.form['reg_dpto']
-        city = request.form['reg_city'] 
-        
+        city = request.form['reg_city']
+
         IPS = []
         dict_IPS = {}
         for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
@@ -102,11 +102,11 @@ def registro():
             dict_IPS[docs['IPS']] = templist
 #        return redirect(url_for('registro'))
     return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
- 
+
 ######################################################
 @app.route("/loginIPS", methods=['GET', 'POST'])
-def loginIPS():    
-#    if request.method == 'POST': 
+def loginIPS():
+#    if request.method == 'POST':
     return render_template('loginIPS.html')
 
 #######################ENCUESTA#######################
@@ -127,7 +127,7 @@ def preguntas():
         username = request.form['username']
         usermail = request.form['usermail']
         userjob = request.form['userjob']
-        
+
         IPS_index_data = {"IPS":name,
                       "NIT":nit,
                       "Carácter":car,
@@ -141,20 +141,20 @@ def preguntas():
                       "Encargado":username,
                       "Email encargado":usermail,
                       "Cargo encargado":userjob}
-        
+
         temp = IPS_data.find({"NIT":nit}).count()
-        if temp!=0:            
+        if temp!=0:
             IPS_data.update_one({"NIT":nit},{"$set":IPS_index_data})
         else:
             IPS_data.insert_one(IPS_index_data).inserted_id
 #        return redirect(url_for('preguntas'))
-    
+
     return render_template('preguntas.html')
 
 #######################ENCUESTA#######################
 @app.route("/analisis", methods=['GET', 'POST'])
 def analisis():
-    if request.method == 'POST':   
+    if request.method == 'POST':
         for idx in range(1,9):
             #Verificacion de archivos adjuntos
             if 'file_p'+str(idx) not in request.files:
@@ -168,11 +168,21 @@ def analisis():
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#                return redirect(url_for('analisis',filename=filename))    
-        
+#                return redirect(url_for('analisis',filename=filename))
+
         print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
         return redirect(url_for('analisis'))
     return render_template('analisis.html')
+
+
+@app.route("/preguntas_mod1", methods=['GET', 'POST'])
+def preguntas_mod1():
+    return render_template('preguntas_mod1.html')
+
+@app.route("/preguntas_mod2", methods=['GET', 'POST'])
+def preguntas_mod2():
+    return render_template('preguntas_mod2.html')
+
 
 if __name__ == "__main__":
     app.run()
