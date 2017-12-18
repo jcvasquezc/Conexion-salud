@@ -7,7 +7,7 @@ input,Si es su prestador de servicios un Centro médico / Centro odontológico [
 input,Si es su prestador de servicios un Laboratorio Clínico [LAB] responda:,Número de bacteriólogos:;Número muestras procesadas/año:,Ayudaa,si
 input,Si es su prestador de servicios un Centro Radiológico [RAD] responda:,Número de radiólogos:;Número de exámenes radiológicos/año:,Ayudaa,si
 input,Si es su prestador de servicios una Farmacias [FAR] responda:,Número de farmaceutas:;Número de prescripciones médicas procesadas/año:,Ayudaa,si
-input,¿Cuántos Profesionales de la salud están laborando en la institución?,Médico General:;Médico Especialista:;Odontólogo:;Nutricionista:;Psicólogo:;Bacteriólogo:;Químico Farmacéutico:;Otros:;Cuantos:,Ayudaa,si
-input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Enfermero(a):;Enfermero(a) Jefe:;Paramédico:;Instrumentador:;Auxiliar / Camillero:;Técnico Farmacéutico:;Otros:;Cuantos:,Ayudaa,si
-input,¿Cuántos Profesionales NO afines a la salud están laborando en su institución?,Ingeniero:;Contador:;Abogado:;Licenciado:;Periodista:;Publicista:;Físico:;Otros:;Cuantos:,Ayudaa,si
-input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Técnologo:;Técnico:;Agente:;Auxiliar administrativo:;Auxiliar operativo:;Servicios generales:;Otros:;Cuantos,Ayudaa,si
+input,¿Cuántos Profesionales de la salud están laborando en la institución?,Médico General:;Médico Especialista:;Odontólogo:;Nutricionista:;Psicólogo:;Bacteriólogo:;Químico Farmacéutico:;Otros:,Ayudaa,si
+input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Enfermero(a):;Enfermero(a) Jefe:;Paramédico:;Instrumentador:;Auxiliar / Camillero:;Técnico Farmacéutico:;Otros:,Ayudaa,si
+input,¿Cuántos Profesionales NO afines a la salud están laborando en su institución?,Ingeniero:;Contador:;Abogado:;Licenciado:;Periodista:;Publicista:;Físico:;Otros:,Ayudaa,si
+input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Técnologo:;Técnico:;Agente:;Auxiliar administrativo:;Auxiliar operativo:;Servicios generales:;Otros:,Ayudaa,si
