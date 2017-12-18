@@ -10,33 +10,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="static/jscripts.js"></script>
     </head>
-
-   <script>
-	   //Mostrar opcion para borrar adjunto
-	   function enb_dis(btn_att,btn_del)
-	   {
-			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del);
-			if ('files' in x)
-			{
-			   input.disabled = false;
-			   input.focus();
-			}
-			else
-			{
-			   input.disabled = true;
-			}
-	   }
-	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name)
-		{
-			document.getElementById(name).value = "";
-			document.getElementById(btn_del).disabled = true;
-		}
-   </script>
-
 <body>
+	
 <div class="wrapper">
   <div class="jumbotron text-center">
     <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
@@ -267,15 +244,14 @@
 			</div>
 		</div>
 	<br><hr>
-  <div class "row">
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <a class="state" href="/">Volver</a>
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state" href="http://127.0.0.1:8050/">Ver los resultados</button>
-  </div>
-    </div>
-</div>
+	<div class= "row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<button onclick="goBack()" class="state">Volver</button>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<button type="submit" class="state" href="http://127.0.0.1:8050/">Ver los resultados</button>
+		</div>
+	</div>
   </form>
 
   <br>

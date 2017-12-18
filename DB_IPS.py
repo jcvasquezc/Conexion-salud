@@ -67,7 +67,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Municipio":city,
                   "Dirección":addr,
                   "Teléfono":str(tel),
-                  "e-mail":email}
+                  "email":email}
 
 
     IPS_data.insert_one(IPS_index_data).inserted_id  

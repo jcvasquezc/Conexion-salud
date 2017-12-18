@@ -102,6 +102,12 @@ def registro():
             dict_IPS[docs['IPS']] = templist
 #        return redirect(url_for('registro'))
     return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
+ 
+######################################################
+@app.route("/loginIPS", methods=['GET', 'POST'])
+def loginIPS():    
+#    if request.method == 'POST': 
+    return render_template('loginIPS.html')
 
 #######################ENCUESTA#######################
 @app.route("/preguntas", methods=['GET', 'POST'])
@@ -119,7 +125,7 @@ def preguntas():
         tel = request.form['tel']
         email = request.form['email']
         username = request.form['username']
-        userid = request.form['userid']
+        usermail = request.form['usermail']
         userjob = request.form['userjob']
         
         IPS_index_data = {"IPS":name,
@@ -133,7 +139,7 @@ def preguntas():
                       "Teléfono":tel,
                       "e-mail":email,
                       "Encargado":username,
-                      "ID encargado":userid,
+                      "Email encargado":usermail,
                       "Cargo encargado":userjob}
         
         temp = IPS_data.find({"NIT":nit}).count()
