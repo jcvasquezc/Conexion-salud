@@ -59,6 +59,7 @@
   <form enctype=multipart/form-data action="analisis" class="register" method="post">
       <p class="title"> MÓDULO 1: Descripción de la institución de salud</p>
 
+<<<<<<< HEAD
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question1"><h4>1. Nivel de atención en salud</h4></label>
@@ -617,6 +618,1172 @@
 </div>
 <br><hr>
 <div class "row">
+=======
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question1"><h4>1. Nivel de atención en salud</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+	 <input type="radio" class="option-input radio" id="question1" name="question1" value="1" required>Nivel I<br>
+
+	 <input type="radio" class="option-input radio" id="question2" name="question1" value="2" required>Nivel II<br>
+
+	 <input type="radio" class="option-input radio" id="question3" name="question1" value="3" required>Nivel III<br>
+
+	 <input type="radio" class="option-input radio" id="question4" name="question1" value="4" required>Nivel IV<br>
+
+    <br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis("file_p1","del_p1")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p1" class="state" onclick="delete_attached("del_p1","file_p1")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question2"><h4>2. Tipos de atención brindados en esta institución:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq2" value="1"> Ambulatorios</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq2" value="2"> Internació</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq2" value="3"> Quirúrgico</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq2" value="4"> Emergencia</label><br>
+
+    <br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis("file_p2","del_p2")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p2" class="state" onclick="delete_attached("del_p2","file_p2")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question3"><h4>3. Su prestador de servicios es:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq3" value="1"> Hospital</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq3" value="2"> Centro médico / Centro odontológico</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq3" value="3"> Laboratorio Clínico</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq3" value="4"> Centro Radiológico</label><br>
+
+    <label><input type="checkbox" ondragover=""class="option-input checkbox" name="cboxq3" value="5"> Farmacias </label><br>
+
+    <br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis("file_p3","del_p3")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p3" class="state" onclick="delete_attached("del_p3","file_p3")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question4"><h4>4. Si es su prestador de servicios un Hospital [HOS] responda</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de camas:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q4f1" name="q4f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de médicos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q4f2" name="q4f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de pacientes intrahospitalarios/año:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q4f3" name="q4f3" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis("file_p4","del_p4")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p4" class="state" onclick="delete_attached("del_p4","file_p4")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question5"><h4>5. Si es su prestador de servicios un Centro médico / Centro odontológico [CM/CO] responda:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de médicos/odontólogo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q5f1" name="q5f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de pacientes/año:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q5f2" name="q5f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis("file_p5","del_p5")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question6"><h4>6. Si es su prestador de servicios un Laboratorio Clínico [LAB] responda:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de bacteriólogos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q6f1" name="q6f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número muestras procesadas/año:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q6f2" name="q6f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis("file_p6","del_p6")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p6" class="state" onclick="delete_attached("del_p6","file_p6")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question7"><h4>7. Si es su prestador de servicios un Centro Radiológico [RAD] responda:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de radiólogos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q7f1" name="q7f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de exámenes radiológicos/año:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q7f2" name="q7f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis("file_p7","del_p7")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p7" class="state" onclick="delete_attached("del_p7","file_p7")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question8"><h4>8. Si es su prestador de servicios una Farmacias [FAR] responda:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de farmaceutas:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q8f1" name="q8f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Número de prescripciones médicas procesadas/año:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q8f2" name="q8f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis("file_p8","del_p8")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p8" class="state" onclick="delete_attached("del_p8","file_p8")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question9"><h4>9. ¿Cuántos Profesionales de la salud están laborando en la institución?</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Médico General:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f1" name="q9f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Médico Especialista:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f2" name="q9f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Odontólogo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f3" name="q9f3" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Nutricionista:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f4" name="q9f4" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Psicólogo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f5" name="q9f5" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Bacteriólogo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f6" name="q9f6" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Químico Farmacéutico:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f7" name="q9f7" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Otro:</label>
+
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <input type="text" id="q9f8" name="q9f8" placeholder="Cuál?" required><br>
+
+    <input id="name9" name="name9"  placeholder="Cuántos?"/></label>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Cuantos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q9f9" name="q9f9" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p9" name="file_p9" accept="image/*,video/*" onchange="enb_dis("file_p9","del_p9")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p9" class="state" onclick="delete_attached("del_p9","file_p9")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question10"><h4>10. ¿Cuántos Técnicos de la salud están laborando en su institución?:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Enfermero(a):</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f1" name="q10f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Enfermero(a) Jefe:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f2" name="q10f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Paramédico:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f3" name="q10f3" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Instrumentador:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f4" name="q10f4" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Auxiliar / Camillero:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f5" name="q10f5" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Técnico Farmacéutico:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f6" name="q10f6" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Otro:</label>
+
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <input type="text" id="q10f7" name="q10f7" placeholder="Cuál?" required><br>
+
+    <input id="name10" name="name10"  placeholder="Cuántos?"/></label>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Cuantos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q10f8" name="q10f8" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p10" name="file_p10" accept="image/*,video/*" onchange="enb_dis("file_p10","del_p10")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p10" class="state" onclick="delete_attached("del_p10","file_p10")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question11"><h4>11. ¿Cuántos Profesionales NO afines a la salud están laborando en su institución?</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Ingeniero:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f1" name="q11f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Contador:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f2" name="q11f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Abogado:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f3" name="q11f3" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Licenciado:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f4" name="q11f4" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Periodista:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f5" name="q11f5" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Publicista:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f6" name="q11f6" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Físico:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f7" name="q11f7" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Otro:</label>
+
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <input type="text" id="q11f8" name="q11f8" placeholder="Cuál?" required><br>
+
+    <input id="name11" name="name11"  placeholder="Cuántos?"/></label>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Cuantos:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q11f9" name="q11f9" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p11" name="file_p11" accept="image/*,video/*" onchange="enb_dis("file_p11","del_p11")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p11" class="state" onclick="delete_attached("del_p11","file_p11")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <label for="question12"><h4>12. ¿Cuántos Técnicos de la salud están laborando en su institución?:</h4></label>
+
+    <a href="#" data-toggle="tooltip" title="Ayudaaaaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Técnologo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f1" name="q12f1" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Técnico:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f2" name="q12f2" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Agente:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f3" name="q12f3" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Auxiliar administrativo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f4" name="q12f4" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Auxiliar operativo:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f5" name="q12f5" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Servicios generales:</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f6" name="q12f6" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Otro:</label>
+
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <input type="text" id="q12f7" name="q12f7" placeholder="Cuál?" required><br>
+
+    <input id="name12" name="name12"  placeholder="Cuántos?"/></label>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+      <label>Cuantos</label>
+
+  </div>
+
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+    <input type="text" id="q12f8" name="q12f8" placeholder="0" required><br>
+
+  </div>
+
+</div>
+
+    <br>
+
+<div class="row">
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <label>Adjuntar soporte:</label>
+
+    <input type="file" id="file_p12" name="file_p12" accept="image/*,video/*" onchange="enb_dis("file_p12","del_p12")"/>
+
+    <br><br>
+
+    <button type="button" id="del_p12" class="state" onclick="delete_attached("del_p12","file_p12")" disabled="disabled">Eliminar soporte</button>
+
+  </div>
+
+</div>
+
+<br><hr>
+
+<div class "row">
+>>>>>>> 80bb7ec5a1659599bbcd2b23e49e5d1c6e40c053
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <a class="state" href="/">Volver</a>
   </div>
