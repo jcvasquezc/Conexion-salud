@@ -183,6 +183,12 @@ def preguntas_mod1():
 def preguntas_mod2():
     return render_template('preguntas_mod2.html')
 
+@app.route("/preguntas_mod3", methods=['GET', 'POST'])
+def preguntas_mod3():
+    return render_template('preguntas_mod3.html')
+
+
+
 
 if __name__ == "__main__":
     app.run()

@@ -13,7 +13,7 @@ checkbox,¿Cuáles fueron las principales barreras durante la implementación de
 checkbox,¿Qué tipo de problemas enfrenta en la actualidad el sistema de Historia Clínica Digital?,Sistemas de información con procesos tediosos y poco estructurados;Personal con poca habilidad;Otros:,Escoja las opciones que considere necesarias de acuerdo con su criterio y conocimiento,NO
 radio,"¿Su sistema de Historia Clínica Digital está separado del sistema administrativo (facturación, elegibilidad, autorización de servicio)?",SI;NO,Ayuda,SI
 checkbox,¿Qué otros sistemas de información no integrados a la Historia Clínica Digital tiene la institución?,Laboratorio;Inventarios;RIS/PAC;Control de Personal y Visitantes;Otros:,Ayuda,SI
-radio,¿Qué proporción de los usuarios tienen hoy su Historia Clínica Digital? ,20% o menos de los usuarios;Entre 21% y 40% de los usuarios;Entre 41% y 60% de los usuarios;Entre 61% y 80% de los usuarios;Entre 81% y 100% de los usuarios;,Ayuda,SI
+radio,¿Qué proporción de los usuarios tienen hoy su Historia Clínica Digital? ,20% o menos de los usuarios;Entre 21% y 40% de los usuarios;Entre 41% y 60% de los usuarios;Entre 61% y 80% de los usuarios;Entre 81% y 100% de los usuarios,Ayuda,SI
 checkbox,¿En cuáles de los siguientes servicios se tiene acceso a las funcionalidades de Historia Clínica Digital?,Ambulatorios;Internación;Quirúrgico;Urgencias,Ayuda,SI
 radio,¿Cuántas veces han cambiado de proveedor de sistema de Historia Clínica Digital?,Nunca;Una vez;Dos veces;Tres o más veces,Ayuda,SI
 radio,¿Tiene planes de implementar la Historia Clínica Digital?,SI;NO,Ayuda,NO

@@ -1,0 +1,45 @@
+Tipo,Pregunta,Respuestas,Ayuda,Adjuntar
+radio,"¿La Institución cuenta con área, departamento o dirección de sistemas de información?",SI;NO,Ayuda,SI
+radio,¿Qué porcentaje del presupuesto de la institución fue asignado a tecnologías de la información y la comunicación en los últimos 12 meses?,"Menos de 1,5%;Entre 1,5% y 3%;De 3 a 6%;Más de 6%;No sabe",Ayuda,SI
+radio,¿En los últimos 12 meses su institución cuenta con computadores como herramienta tecnológica básica para el desarrollo de su plataforma estratégica?,SI;NO,Ayuda,SI
+radio,SI SU RESPUESTA A LA PREGUNTA (3) ES NEGATIVA (NO) ¿Por cuáles razones en los consultorios de su institución NO se usó computadores en los últimos 12 meses? ,La institución no necesita computadoras en los consultorios; Alto costo de adquisición de computadoras para los consultorios;Alto costo de mantenimiento de computadoras;El costo-beneficio del uso de computadoras no compensa;Poca habilidad del personal con el uso de computadoras;Otro,Ayuda,NO
+input,"SI SU RESPUESTA A LA PREGUNTA (3) ES POSITIVA (SI), ¿Cuántos computadores tiene la institución?",PC de escritorio; PC portatil,Ayuda,SI
+input,¿Cuántos equipos móviles que tiene la institución?,Tablet;Phablet,Ayuda,SI
+input,¿Cuántos equipos de impresión que tiene la institución?,Impresora Matriz de Punto;Impresora POS (Térmica/MP);Impresora Inyección de tinta;Impresora Láser B/N;Impresora Láser Color; Impresora LED B/N;Impresora LED Color,Ayuda,SI
+radio,¿La institución tiene una red interna / intranet dentro de la institución? ,SI;NO,Ayuda,SI
+radio,¿La Institución cuenta con alguna persona especializada o a cargo del área de Tecnologías de la Información y la comunicación (TIC) o informática?,SI;NO,Ayuda,SI
+radio,¿Cuántas personas trabajan en el área de tecnologías de la información y la comunicación (TIC) o informática?,De 1 a 3;De 3 a 5;De 5 a 10;Más de 10;No sabe,Ayuda,SI
+checkbox,¿En qué servicio o área de la institución se hace uso de tecnologías de la información y la comunicación (TIC) en el desarrollo de su trabajo?,Hospitalización;Cirugía;Unidad de cuidados intensivos;Unidad de cuidados especiales;Central de referencia;Admisiones;Área financiera;Laboratorio;Farmacia;Radiología;Consulta externa,Ayuda,SI
+radio,¿Cuál es el máximo nivel de educación de la persona responsable de las tecnologías de la información y la comunicación (TIC) o informática en la institución?,Sin instrucción;Primaria incompleta;Primaria completa;Estudios Técnicos;Estudios Tecnológicos;Estudios universitarios;Posgrado (maestría Doctorado Especialización MBA etc.);Postdoctorado;No sabe,Ayuda,SI
+radio,"Si tiene formación educativa, ¿en cuál de las siguientes áreas realizó el grado? ","Ciencias de la Salud o Ciencias Biológicas;Administración, Contabilidad y Economía;Ciencias Exactas o Computación;Humanidades y Ciencias Sociales;Otro",Ayuda,SI
+radio,En los últimos 12 meses el soporte técnico y mantenimiento de la institución fue realizada la mayor parte de las veces por:,Por personal interno de la institución;Por uno o varios prestadores de servicios contratados por la institución;Por voluntarios;Por otras organizaciones;No sabe,Ayuda,SI
+radio,¿Cuántas empresas del área de las tecnologías de la información y la comunicación (TICs) prestan servicios a la institución?,1 a 3;4 a 6;Más de 6;No sabe,Ayuda,SI
+input,¿Con cuál de los siguientes equipos de cómputo cuenta la institución para la atención de usuarios?,Computadora de escritorio;Computadora portátil;Tablet;PDA o agendas electrónicas;Otros:,Ayuda,SI
+input,Indique el número de personas empleadas que utilizan al menos una vez por semana una computadora (de escritorio portátil tableta u otros dispositivos),Profesionales de salud;Profesionales no afines a salud;Técnicos de salud;Técnicos no afines a salud;Otros,Ayuda,NO
+input,¿La institución cuenta con acceso a internet?,SI;NO,Ayuda,SI
+text,Responda a las preguntas 19 a  29 sólo si su institución cuenta con acceso a internet,,,
+radio,¿Cuáles de los siguientes tipos de conexión a internet utilizó la institución en los últimos 12 meses? ,Acceso discado o conexión discada vía teléfono;Conexión ADSL;Conexión vía fibra óptica 1 2 98 99;Conexión vía satélite;Conexión Móvil o modem 3G,Ayuda,SI
+radio,Su conexión es financiada por:,Conexión pagada por la institución;Conexión subsidiada por el ministerio MinTIC;Otro,Ayuda,SI
+radio,Indique el ancho de banda de la red de internet de la institución,Menos de 256 Kbps;Entre 256 Kbps y 2 Mbps;Entre 2 Mbps y 10 Mbps;10 Mbps o más,Ayuda,SI
+radio,¿La Institución cuenta con una red LAN?,SI;NO,Ayuda,SI
+input,¿Cuántos puntos de red LAN tiene la institución?,Cuantos,Ayuda,SI
+radio,¿Cuál es  la capa de centro de conexión de la red LAN?,Capa 2 (Switch);Capa 3 (Swich + Enrutador);Capa 4 (Capa 3 + Filtros),Ayuda,SI
+radio,¿Cuál es la categoría de cableado red LAN?,Categoría 5E;Categoría 6;Categoría 7,Ayuda,SI
+radio,¿Cuál es la velocidad de Conexión de la red LAN?,10 Mbps;10/100 Mbps;10/100/1000 Mbps;Más de 1 Gbps,Ayuda,SI
+radio,¿La institución cuenta con redes inalámbricas?,SI;NO,Ayuda,SI
+radio,¿Cuál es el protocolo de seguridad de la red inalámbrica?,Libre;WEP;WPA;WPA2;Portal Cautivo,Ayuda,SI
+radio,La cobertura de la red inalámbrica en la institución es:,Total;Zonal,Ayuda,SI
+radio,¿La institución cuenta con soporte electrónico ininterrumpido-UPS?,SI;NO,Ayuda,SI
+radio,¿La institución cuenta con planta eléctrica?,SI;NO,Ayuda,SI
+radio,¿La institución tiene polo/malla a tierra?,SI;NO,Ayuda,SI
+radio,¿La institución cuenta con pararrayos?,SI;NO,Ayuda,SI
+radio,"En promedio, ¿cuántos cortes de energía eléctrica al mes tiene la institución?",1 a 5;6 a 10;11 a 15;16 a 20;21 a 30;Más de 31,Ayuda,SI
+input,"En promedio, ¿cuánto es el consumo eléctrico de la institución al mes en Kwh?",Cantidad,Ayuda,SI
+radio,¿La Institución cuenta con página o sitio web?,SI;NO,Ayuda,SI
+checkbox,¿Qué tipo de cosas se pueden hacer desde la página o sitio web?,Leer información de la institución incluyendo los médicos y los horarios;El usuario puede hacer reserva de horas con médicos;El usuario puede ver alguna parte de su Historia clinica;El usuario puede ver toda su Historia Clínica,Ayuda,SI
+radio,"¿En los próximos 12 meses, esta institución tiene intención de crear o modificar las prestaciones de su sitio web? ",SI;NO,Ayuda,NO
+checkbox,¿Cuáles de los siguientes servicios están disponible en esta institución?,Educación a distancia en salud;Actividades de investigación a distancia;Interacción en tiempo real (teleconferencia) ;Interacción que no sea en tiempo real (vía correo electrónico – email);Monitoreo de pacientes a distancia,Ayuda,SI
+radio,¿La institución dispone de equipamientos para la realización de teleconferencias? (Considerar videoconferencias y conferencias web),SI;NO,Ayuda,SI
+radio,¿La institución de salud presta servicios de telemedicina?,SI;NO,Ayuda,SI
+checkbox,¿Cuáles de los siguientes servicios de Telemedicina provee su institución? ,Radiología;Patología;Dermatología;Psiquiatría;Cardiología;Ultrasonografía;Mamografía;Cirugía;Consulta;Oftalmología;Nefrología;Obstetricia/Ginecología;Diabetes;Monitoreo de pacientes;Pediatría;Cuidados en el hogar;Neurología;Neurocirugía;Tratamiento de accidente cardiovascular;Urología;Oncología;Otorrinolaringología;Otro,Ayuda,SI
+radio,¿La institución ha implementado los lineamientos de la Estrategia de Gobierno En Línea para sitios web?,SI;NO,Ayuda,SI

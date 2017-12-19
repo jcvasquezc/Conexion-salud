@@ -247,6 +247,8 @@ def update_map(dpto):
                     sizemap.append(int(np.ceil((prob*30)))+4)
                     nivelmap.append(int(nivel))
                     textmap.append(cities_all[k]+'\n\r'+name+" \n\r Indicador conectividad="+str(np.round(prob,3)))
+                    if float(lat[pmap[0]])>1000 or float(lon[pmap[0]])>1000:
+                        print(lat[pmap[0]], lon[pmap[0]], cities_all[k], np.round(prob,3))
                 #except:
                     #print(cities_all[k])
 

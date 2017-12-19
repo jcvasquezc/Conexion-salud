@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/preg_style.css">
+    <link rel="stylesheet" href="static/radio_checks.css">
+		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+   <script>
+	   //Mostrar opcion para borrar adjunto
+	   function enb_dis(btn_att,btn_del)
+	   {
+			var x = document.getElementById(btn_att);
+			var input = document.getElementById(btn_del);
+			if ('files' in x)
+			{
+			   input.disabled = false;
+			   input.focus();
+			}
+			else
+			{
+			   input.disabled = true;
+			}
+	   }
+	   //Borrar archivo adjunto
+	   function delete_attached(btn_del,name)
+		{
+			document.getElementById(name).value = "";
+			document.getElementById(btn_del).disabled = true;
+		}
+   </script>
+
+<body>
+<div class="wrapper">
+  <div class="jumbotron text-center">
+    <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/udea.jpg" width="30%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/colciencias.png"  width="40%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/mintic.png"  width="100%">
+      </div>
+    </div>
+  </div>
+
+
+
+  <form enctype=multipart/form-data action="analisis" class="register" method="post">
+      <p class="title"> MÓDULO 3. Infraestructura TIC</p>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question1"><h4>1. ¿La Institución cuenta con área, departamento o dirección de sistemas de información?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question1" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question1" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
+    <br><br>
+    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question2"><h4>2. ¿Qué porcentaje del presupuesto de la institución fue asignado a tecnologías de la información y la comunicación en los últimos 12 meses?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question2" value="1" required>Menos de 1,5%<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question2" value="2" required>Entre 1,5% y 3%<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question2" value="3" required>De 3 a 6%<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question2" value="4" required>Más de 6%<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question2" value="5" required>No sabe<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+    <br><br>
+    <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question3"><h4>3. ¿En los últimos 12 meses su institución cuenta con computadores como herramienta tecnológica básica para el desarrollo de su plataforma estratégica?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question3" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question3" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
+    <br><br>
+    <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question4"><h4>4. SI SU RESPUESTA A LA PREGUNTA (3) ES NEGATIVA (NO) ¿Por cuáles razones en los consultorios de su institución NO se usó computadores en los últimos 12 meses? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question4" value="1" required>La institución no necesita computadoras en los consultorios<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question4" value="2" required> Alto costo de adquisición de computadoras para los consultorios<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question4" value="3" required>Alto costo de mantenimiento de computadoras<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question4" value="4" required>El costo-beneficio del uso de computadoras no compensa<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question4" value="5" required>Poca habilidad del personal con el uso de computadoras<br>
+    <input type="radio" class="option-input radio" id="question6" name="question4" value="6" onclick="var input = document.getElementById('name1'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name1" name="name1" disabled="disabled"/><br>
+    <br>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question5"><h4>5. SI SU RESPUESTA A LA PREGUNTA (3) ES POSITIVA (SI), ¿Cuántos computadores tiene la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>PC de escritorio</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q5f1" name="q5f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label> PC portatil</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q5f2" name="q5f2" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
+    <br><br>
+    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question6"><h4>6. ¿Cuántos equipos móviles que tiene la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Tablet</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q6f1" name="q6f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Phablet</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q6f2" name="q6f2" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
+    <br><br>
+    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question7"><h4>7. ¿Cuántos equipos de impresión que tiene la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora Matriz de Punto</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f1" name="q7f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora POS (Térmica/MP)</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f2" name="q7f2" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora Inyección de tinta</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f3" name="q7f3" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora Láser B/N</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f4" name="q7f4" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora Láser Color</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f5" name="q7f5" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label> Impresora LED B/N</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f6" name="q7f6" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Impresora LED Color</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q7f7" name="q7f7" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
+    <br><br>
+    <button type="button" id="del_p7" class="state" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question8"><h4>8. ¿La institución tiene una red interna / intranet dentro de la institución? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question8" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question8" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
+    <br><br>
+    <button type="button" id="del_p8" class="state" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question9"><h4>9. ¿La Institución cuenta con alguna persona especializada o a cargo del área de Tecnologías de la Información y la comunicación (TIC) o informática?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question9" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question9" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p9" name="file_p9" accept="image/*,video/*" onchange="enb_dis('file_p9','del_p9')"/>
+    <br><br>
+    <button type="button" id="del_p9" class="state" onclick="delete_attached('del_p9','file_p9')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question10"><h4>10. ¿Cuántas personas trabajan en el área de tecnologías de la información y la comunicación (TIC) o informática?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question10" value="1" required>De 1 a 3<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question10" value="2" required>De 3 a 5<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question10" value="3" required>De 5 a 10<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question10" value="4" required>Más de 10<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question10" value="5" required>No sabe<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p10" name="file_p10" accept="image/*,video/*" onchange="enb_dis('file_p10','del_p10')"/>
+    <br><br>
+    <button type="button" id="del_p10" class="state" onclick="delete_attached('del_p10','file_p10')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question11"><h4>11. ¿En qué servicio o área de la institución se hace uso de tecnologías de la información y la comunicación (TIC) en el desarrollo de su trabajo?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="1"> Hospitalización</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="2"> Cirugía</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="3"> Unidad de cuidados intensivos</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="4"> Unidad de cuidados especiales</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="5"> Central de referencia</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="6"> Admisiones</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="7"> Área financiera</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="8"> Laboratorio</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="9"> Farmacia</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="10"> Radiología</label><br>
+    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="11"> Consulta externa</label><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p11" name="file_p11" accept="image/*,video/*" onchange="enb_dis('file_p11','del_p11')"/>
+    <br><br>
+    <button type="button" id="del_p11" class="state" onclick="delete_attached('del_p11','file_p11')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question12"><h4>12. ¿Cuál es el máximo nivel de educación de la persona responsable de las tecnologías de la información y la comunicación (TIC) o informática en la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question12" value="1" required>Sin instrucción<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question12" value="2" required>Primaria incompleta<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question12" value="3" required>Primaria completa<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question12" value="4" required>Estudios Técnicos<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question12" value="5" required>Estudios Tecnológicos<br>
+	 <input type="radio" class="option-input radio" id="question6" name="question12" value="6" required>Estudios universitarios<br>
+	 <input type="radio" class="option-input radio" id="question7" name="question12" value="7" required>Posgrado (maestría Doctorado Especialización MBA etc.)<br>
+	 <input type="radio" class="option-input radio" id="question8" name="question12" value="8" required>Postdoctorado<br>
+	 <input type="radio" class="option-input radio" id="question9" name="question12" value="9" required>No sabe<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p12" name="file_p12" accept="image/*,video/*" onchange="enb_dis('file_p12','del_p12')"/>
+    <br><br>
+    <button type="button" id="del_p12" class="state" onclick="delete_attached('del_p12','file_p12')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question13"><h4>13. Si tiene formación educativa, ¿en cuál de las siguientes áreas realizó el grado? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question13" value="1" required>Ciencias de la Salud o Ciencias Biológicas<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question13" value="2" required>Administración, Contabilidad y Economía<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question13" value="3" required>Ciencias Exactas o Computación<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question13" value="4" required>Humanidades y Ciencias Sociales<br>
+    <input type="radio" class="option-input radio" id="question5" name="question13" value="5" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name2" name="name2" disabled="disabled"/><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p13" name="file_p13" accept="image/*,video/*" onchange="enb_dis('file_p13','del_p13')"/>
+    <br><br>
+    <button type="button" id="del_p13" class="state" onclick="delete_attached('del_p13','file_p13')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question14"><h4>14. En los últimos 12 meses el soporte técnico y mantenimiento de la institución fue realizada la mayor parte de las veces por:</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question14" value="1" required>Por personal interno de la institución<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question14" value="2" required>Por uno o varios prestadores de servicios contratados por la institución<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question14" value="3" required>Por voluntarios<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question14" value="4" required>Por otras organizaciones<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question14" value="5" required>No sabe<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p14" name="file_p14" accept="image/*,video/*" onchange="enb_dis('file_p14','del_p14')"/>
+    <br><br>
+    <button type="button" id="del_p14" class="state" onclick="delete_attached('del_p14','file_p14')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question15"><h4>15. ¿Cuántas empresas del área de las tecnologías de la información y la comunicación (TICs) prestan servicios a la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question15" value="1" required>1 a 3<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question15" value="2" required>4 a 6<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question15" value="3" required>Más de 6<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question15" value="4" required>No sabe<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p15" name="file_p15" accept="image/*,video/*" onchange="enb_dis('file_p15','del_p15')"/>
+    <br><br>
+    <button type="button" id="del_p15" class="state" onclick="delete_attached('del_p15','file_p15')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question16"><h4>16. ¿Con cuál de los siguientes equipos de cómputo cuenta la institución para la atención de usuarios?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Computadora de escritorio</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q16f1" name="q16f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Computadora portátil</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q16f2" name="q16f2" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Tablet</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q16f3" name="q16f3" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>PDA o agendas electrónicas</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q16f4" name="q16f4" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+      <label>Otro:</label>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <input type="text" id="q16f5" name="q16f5" placeholder="Cuál?" required><br>
+    <input id="name16" name="name16"  placeholder="Cuántos?"/></label>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p16" name="file_p16" accept="image/*,video/*" onchange="enb_dis('file_p16','del_p16')"/>
+    <br><br>
+    <button type="button" id="del_p16" class="state" onclick="delete_attached('del_p16','file_p16')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question17"><h4>17. Indique el número de personas empleadas que utilizan al menos una vez por semana una computadora (de escritorio portátil tableta u otros dispositivos)</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Profesionales de salud</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q17f1" name="q17f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Profesionales no afines a salud</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q17f2" name="q17f2" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Técnicos de salud</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q17f3" name="q17f3" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Técnicos no afines a salud</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q17f4" name="q17f4" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Otros</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q17f5" name="q17f5" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question18"><h4>18. ¿La institución cuenta con acceso a internet?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>SI</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q18f1" name="q18f1" placeholder="0" required><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>NO</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q18f2" name="q18f2" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p18" name="file_p18" accept="image/*,video/*" onchange="enb_dis('file_p18','del_p18')"/>
+    <br><br>
+    <button type="button" id="del_p18" class="state" onclick="delete_attached('del_p18','file_p18')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question19"><h4>19. Responda a las preguntas 19 a  29 sólo si su institución cuenta con acceso a internet</h4></label>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question20"><h4>20. ¿Cuáles de los siguientes tipos de conexión a internet utilizó la institución en los últimos 12 meses? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question20" value="1" required>Acceso discado o conexión discada vía teléfono<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question20" value="2" required>Conexión ADSL<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question20" value="3" required>Conexión vía fibra óptica 1 2 98 99<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question20" value="4" required>Conexión vía satélite<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question20" value="5" required>Conexión Móvil o modem 3G<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p20" name="file_p20" accept="image/*,video/*" onchange="enb_dis('file_p20','del_p20')"/>
+    <br><br>
+    <button type="button" id="del_p20" class="state" onclick="delete_attached('del_p20','file_p20')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question21"><h4>21. Su conexión es financiada por:</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question21" value="1" required>Conexión pagada por la institución<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question21" value="2" required>Conexión subsidiada por el ministerio MinTIC<br>
+    <input type="radio" class="option-input radio" id="question3" name="question21" value="3" onclick="var input = document.getElementById('name4'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name4" name="name4" disabled="disabled"/><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p21" name="file_p21" accept="image/*,video/*" onchange="enb_dis('file_p21','del_p21')"/>
+    <br><br>
+    <button type="button" id="del_p21" class="state" onclick="delete_attached('del_p21','file_p21')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question22"><h4>22. Indique el ancho de banda de la red de internet de la institución</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question22" value="1" required>Menos de 256 Kbps<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question22" value="2" required>Entre 256 Kbps y 2 Mbps<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question22" value="3" required>Entre 2 Mbps y 10 Mbps<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question22" value="4" required>10 Mbps o más<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p22" name="file_p22" accept="image/*,video/*" onchange="enb_dis('file_p22','del_p22')"/>
+    <br><br>
+    <button type="button" id="del_p22" class="state" onclick="delete_attached('del_p22','file_p22')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question23"><h4>23. ¿La Institución cuenta con una red LAN?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question23" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question23" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p23" name="file_p23" accept="image/*,video/*" onchange="enb_dis('file_p23','del_p23')"/>
+    <br><br>
+    <button type="button" id="del_p23" class="state" onclick="delete_attached('del_p23','file_p23')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question24"><h4>24. ¿Cuántos puntos de red LAN tiene la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Cuantos</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q24f1" name="q24f1" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p24" name="file_p24" accept="image/*,video/*" onchange="enb_dis('file_p24','del_p24')"/>
+    <br><br>
+    <button type="button" id="del_p24" class="state" onclick="delete_attached('del_p24','file_p24')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question25"><h4>25. ¿Cuál es  la capa de centro de conexión de la red LAN?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question25" value="1" required>Capa 2 (Switch)<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question25" value="2" required>Capa 3 (Swich + Enrutador)<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question25" value="3" required>Capa 4 (Capa 3 + Filtros)<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p25" name="file_p25" accept="image/*,video/*" onchange="enb_dis('file_p25','del_p25')"/>
+    <br><br>
+    <button type="button" id="del_p25" class="state" onclick="delete_attached('del_p25','file_p25')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question26"><h4>26. ¿Cuál es la categoría de cableado red LAN?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question26" value="1" required>Categoría 5E<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question26" value="2" required>Categoría 6<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question26" value="3" required>Categoría 7<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p26" name="file_p26" accept="image/*,video/*" onchange="enb_dis('file_p26','del_p26')"/>
+    <br><br>
+    <button type="button" id="del_p26" class="state" onclick="delete_attached('del_p26','file_p26')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question27"><h4>27. ¿Cuál es la velocidad de Conexión de la red LAN?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question27" value="1" required>10 Mbps<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question27" value="2" required>10/100 Mbps<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question27" value="3" required>10/100/1000 Mbps<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question27" value="4" required>Más de 1 Gbps<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p27" name="file_p27" accept="image/*,video/*" onchange="enb_dis('file_p27','del_p27')"/>
+    <br><br>
+    <button type="button" id="del_p27" class="state" onclick="delete_attached('del_p27','file_p27')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question28"><h4>28. ¿La institución cuenta con redes inalámbricas?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question28" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question28" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p28" name="file_p28" accept="image/*,video/*" onchange="enb_dis('file_p28','del_p28')"/>
+    <br><br>
+    <button type="button" id="del_p28" class="state" onclick="delete_attached('del_p28','file_p28')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question29"><h4>29. ¿Cuál es el protocolo de seguridad de la red inalámbrica?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question29" value="1" required>Libre<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question29" value="2" required>WEP<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question29" value="3" required>WPA<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question29" value="4" required>WPA2<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question29" value="5" required>Portal Cautivo<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p29" name="file_p29" accept="image/*,video/*" onchange="enb_dis('file_p29','del_p29')"/>
+    <br><br>
+    <button type="button" id="del_p29" class="state" onclick="delete_attached('del_p29','file_p29')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question30"><h4>30. La cobertura de la red inalámbrica en la institución es:</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question30" value="1" required>Total<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question30" value="2" required>Zonal<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p30" name="file_p30" accept="image/*,video/*" onchange="enb_dis('file_p30','del_p30')"/>
+    <br><br>
+    <button type="button" id="del_p30" class="state" onclick="delete_attached('del_p30','file_p30')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question31"><h4>31. ¿La institución cuenta con soporte electrónico ininterrumpido-UPS?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question31" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question31" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p31" name="file_p31" accept="image/*,video/*" onchange="enb_dis('file_p31','del_p31')"/>
+    <br><br>
+    <button type="button" id="del_p31" class="state" onclick="delete_attached('del_p31','file_p31')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question32"><h4>32. ¿La institución cuenta con planta eléctrica?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question32" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question32" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p32" name="file_p32" accept="image/*,video/*" onchange="enb_dis('file_p32','del_p32')"/>
+    <br><br>
+    <button type="button" id="del_p32" class="state" onclick="delete_attached('del_p32','file_p32')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question33"><h4>33. ¿La institución tiene polo/malla a tierra?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question33" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question33" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p33" name="file_p33" accept="image/*,video/*" onchange="enb_dis('file_p33','del_p33')"/>
+    <br><br>
+    <button type="button" id="del_p33" class="state" onclick="delete_attached('del_p33','file_p33')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question34"><h4>34. ¿La institución cuenta con pararrayos?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question34" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question34" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p34" name="file_p34" accept="image/*,video/*" onchange="enb_dis('file_p34','del_p34')"/>
+    <br><br>
+    <button type="button" id="del_p34" class="state" onclick="delete_attached('del_p34','file_p34')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question35"><h4>35. En promedio, ¿cuántos cortes de energía eléctrica al mes tiene la institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question35" value="1" required>1 a 5<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question35" value="2" required>6 a 10<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question35" value="3" required>11 a 15<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question35" value="4" required>16 a 20<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question35" value="5" required>21 a 30<br>
+	 <input type="radio" class="option-input radio" id="question6" name="question35" value="6" required>Más de 31<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p35" name="file_p35" accept="image/*,video/*" onchange="enb_dis('file_p35','del_p35')"/>
+    <br><br>
+    <button type="button" id="del_p35" class="state" onclick="delete_attached('del_p35','file_p35')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question36"><h4>36. En promedio, ¿cuánto es el consumo eléctrico de la institución al mes en Kwh?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+      <label>Cantidad</label>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+    <input type="text" id="q36f1" name="q36f1" placeholder="0" required><br>
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p36" name="file_p36" accept="image/*,video/*" onchange="enb_dis('file_p36','del_p36')"/>
+    <br><br>
+    <button type="button" id="del_p36" class="state" onclick="delete_attached('del_p36','file_p36')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question37"><h4>37. ¿La Institución cuenta con página o sitio web?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question37" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question37" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p37" name="file_p37" accept="image/*,video/*" onchange="enb_dis('file_p37','del_p37')"/>
+    <br><br>
+    <button type="button" id="del_p37" class="state" onclick="delete_attached('del_p37','file_p37')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question38"><h4>38. ¿Qué tipo de cosas se pueden hacer desde la página o sitio web?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="1"> Leer información de la institución incluyendo los médicos y los horarios</label><br>
+    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="2"> El usuario puede hacer reserva de horas con médicos</label><br>
+    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="3"> El usuario puede ver alguna parte de su Historia clinica</label><br>
+    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="4"> El usuario puede ver toda su Historia Clínica</label><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p38" name="file_p38" accept="image/*,video/*" onchange="enb_dis('file_p38','del_p38')"/>
+    <br><br>
+    <button type="button" id="del_p38" class="state" onclick="delete_attached('del_p38','file_p38')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question39"><h4>39. ¿En los próximos 12 meses, esta institución tiene intención de crear o modificar las prestaciones de su sitio web? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question39" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question39" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question40"><h4>40. ¿Cuáles de los siguientes servicios están disponible en esta institución?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="1"> Educación a distancia en salud</label><br>
+    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="2"> Actividades de investigación a distancia</label><br>
+    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="3"> Interacción en tiempo real (teleconferencia) </label><br>
+    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="4"> Interacción que no sea en tiempo real (vía correo electrónico – email)</label><br>
+    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="5"> Monitoreo de pacientes a distancia</label><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p40" name="file_p40" accept="image/*,video/*" onchange="enb_dis('file_p40','del_p40')"/>
+    <br><br>
+    <button type="button" id="del_p40" class="state" onclick="delete_attached('del_p40','file_p40')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question41"><h4>41. ¿La institución dispone de equipamientos para la realización de teleconferencias? (Considerar videoconferencias y conferencias web)</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question41" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question41" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p41" name="file_p41" accept="image/*,video/*" onchange="enb_dis('file_p41','del_p41')"/>
+    <br><br>
+    <button type="button" id="del_p41" class="state" onclick="delete_attached('del_p41','file_p41')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question42"><h4>42. ¿La institución de salud presta servicios de telemedicina?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question42" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question42" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p42" name="file_p42" accept="image/*,video/*" onchange="enb_dis('file_p42','del_p42')"/>
+    <br><br>
+    <button type="button" id="del_p42" class="state" onclick="delete_attached('del_p42','file_p42')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question43"><h4>43. ¿Cuáles de los siguientes servicios de Telemedicina provee su institución? </h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="1"> Radiología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="2"> Patología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="3"> Dermatología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="4"> Psiquiatría</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="5"> Cardiología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="6"> Ultrasonografía</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="7"> Mamografía</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="8"> Cirugía</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="9"> Consulta</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="10"> Oftalmología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="11"> Nefrología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="12"> Obstetricia/Ginecología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="13"> Diabetes</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="14"> Monitoreo de pacientes</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="15"> Pediatría</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="16"> Cuidados en el hogar</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="17"> Neurología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="18"> Neurocirugía</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="19"> Tratamiento de accidente cardiovascular</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="20"> Urología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="21"> Oncología</label><br>
+    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="22"> Otorrinolaringología</label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question43" name="cboxq43" value="23" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p43" name="file_p43" accept="image/*,video/*" onchange="enb_dis('file_p43','del_p43')"/>
+    <br><br>
+    <button type="button" id="del_p43" class="state" onclick="delete_attached('del_p43','file_p43')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question44"><h4>44. ¿La institución ha implementado los lineamientos de la Estrategia de Gobierno En Línea para sitios web?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="question1" name="question44" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question44" value="2" required>NO<br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p44" name="file_p44" accept="image/*,video/*" onchange="enb_dis('file_p44','del_p44')"/>
+    <br><br>
+    <button type="button" id="del_p44" class="state" onclick="delete_attached('del_p44','file_p44')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class "row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a class="state" href="/">Volver</a>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a type="btn_att submit" class="state" href="analisis">Continuar</button>
+  </div>
+</div>
+<br>
+<div class "row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <button type="submit" class="state">Ver los resultados</button>
+  </div>
+</div>
+</div>
+</form>
+
+<br>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+
+      {% for message in messages %}
+          {% if "Error" not in message[1]: %}
+              <div class="alert alert-info">
+              <strong>Success! </strong> {{ message[1] }}
+              </div>
+          {% endif %}
+
+          {% if "Error" in message[1]: %}
+              <div class="alert alert-warning">
+              {{ message[1] }}
+              </div>
+          {% endif %}
+      {% endfor %}
+          {% endif %}
+      {% endwith %}
+
+
+
+
+
+</div>
+</body>
+</html>
