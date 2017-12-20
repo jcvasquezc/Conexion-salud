@@ -19,7 +19,7 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 from werkzeug.utils import secure_filename
-
+import hashlib
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -57,13 +57,7 @@ class ReusableForm(Form):
     tel = IntegerField('Teléfono:', validators=[validators.required(), validators.NumberRange(min=0000, max=9999999999, message="Por favor introduzca un teléfono valido")])
     email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35, message="Por favor introduzca un email valido")])
 
-#Extensiones permitidas
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-@app.route("/", methods=['GET', 'POST'])
-def index():
+def set_dptos():
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
     #Obtener departamentos
@@ -78,7 +72,34 @@ def index():
     cities = {}
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
+    return dptos,cities
+    
 
+#Extensiones permitidas
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+#Codificar contrasenna Jason Vanzin
+def hash_pass(password):
+    hash_password = hashlib.sha1(password.encode('utf-8')).digest()
+    hash_password = hashlib.sha1(hash_password).hexdigest()
+    hash_password = '*' + hash_password.upper()
+    return hash_password
+
+#Verificar credenciales Jason Vanzin
+def get_credentials(nit):
+    temp = IPS_data.find({"NIT":nit}).count()
+    if temp == 0:
+        return 0
+    else:
+        results = IPS_data.find({"NIT":nit})[0]
+        user = results['Usuarios']
+        return user[0]['password']
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    dptos,cities = set_dptos()
     if request.method == 'POST':
         return redirect(url_for('index'))
 
@@ -106,7 +127,18 @@ def registro():
 ######################################################
 @app.route("/loginIPS", methods=['GET', 'POST'])
 def loginIPS():
-#    if request.method == 'POST':
+    if request.method == 'POST':
+        dptos,cities = set_dptos()
+        usr = request.form['usrlog']
+        userpass = request.form['passlog']
+        #Verificar contrasenna
+        credentials = get_credentials(usr)
+        error = ''
+        if hash_pass(userpass) != credentials:
+            error = ' (Usuario o Contraseña incorrecto)'
+#            return redirect(url_for('index.html',error=error)
+            return render_template('index.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
+    
     return render_template('loginIPS.html')
 
 #######################ENCUESTA#######################
@@ -118,36 +150,41 @@ def preguntas():
         nit = request.form['nit']
         car = request.form['car']
         ger = request.form['ger']
-        niv_opt = request.form['nivel']
+        #niv_opt = request.form['nivel']
         dpto = request.form['dpto']
         city = request.form['city']
         addr = request.form['addr']
         tel = request.form['tel']
-        email = request.form['email']
+        email = request.form['Email']
         username = request.form['username']
         usermail = request.form['usermail']
         userjob = request.form['userjob']
-
+        userpass = request.form['reg_pass']
+        
+        #Verificar contrasenna
+        credentials = get_credentials(nit)
+        if credentials==0 or hash_pass(userpass) != credentials:
+            return render_template('registro.html')
+#        Validar informacion basica de la IPS
         IPS_index_data = {"IPS":name,
                       "NIT":nit,
                       "Carácter":car,
                       "Gerente":ger,
-                      "Nivel":niv_opt,
                       "Departamento":dpto,
                       "Municipio":city,
                       "Dirección":addr,
                       "Teléfono":tel,
-                      "e-mail":email,
+                      "Email":email,
                       "Encargado":username,
-                      "Email encargado":usermail,
-                      "Cargo encargado":userjob}
+                      "Email Encargado":usermail,
+                      "Cargo Encargado":userjob}
 
         temp = IPS_data.find({"NIT":nit}).count()
         if temp!=0:
             IPS_data.update_one({"NIT":nit},{"$set":IPS_index_data})
         else:
             IPS_data.insert_one(IPS_index_data).inserted_id
-#        return redirect(url_for('preguntas'))
+        return redirect(url_for('preguntas'))
 
     return render_template('preguntas.html')
 
@@ -182,6 +219,11 @@ def preguntas_mod1():
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
 def preguntas_mod2():
     return render_template('preguntas_mod2.html')
+
+@app.route("/preguntas_mod3", methods=['GET', 'POST'])
+def preguntas_mod3():
+    return render_template('preguntas_mod3.html')
+
 
 
 if __name__ == "__main__":

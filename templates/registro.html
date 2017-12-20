@@ -70,16 +70,11 @@
 		
 		<div class="row">
 			<!--Nombre del gerente-->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <label>Nombre del gerente</label>
 			    <br>
                 <input type="text" id="ger" name="ger" placeholder="Nombre del gerente" required>
-            </div>
-		</div>      
-
-        <br>
-
-        <div class="row">
+            </div>     
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <!--Campo para el NIT -->
               <label>NIT</label>
@@ -100,6 +95,7 @@
 				</select>				
             </div>
             <!-- campo para Nivel de la IPS -->
+			<!--
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">			
 				<label>Nivel de la IPS</label>
 				<br>
@@ -113,6 +109,7 @@
 					<input type="radio" id="nivel3" name="nivel" value="3" >3
 				</label>
             </div>
+			-->
         </div>
 
         <br>
@@ -128,7 +125,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <label for="email">Email de la IPS:</label>
 			  <br>
-              <input type="text"  id="email" name="email" placeholder="ejemplo@mail.com" required>
+              <input type="text"  id="Email" name="Email" placeholder="ejemplo@mail.com" required>
             </div>
             <!-- Campo para direccion -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -163,6 +160,16 @@
 
         <br>
 
+		
+        <div class="row">
+            <!-- contraseña asignada a cada IPS -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label>Contraseña asignada</label>
+			  <br>
+              <input type="password"  id="reg_pass" name="reg_pass" placeholder="Contraseña asignada" required>
+            </div>
+        </div>
+		
 		<!-- COMIENZA: Botones -->
 		<div class="row">
 			<!-- Boton para continuar a la encuesta -->

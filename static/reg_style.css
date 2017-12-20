@@ -64,21 +64,21 @@ body {
   transform: rotateZ(-45deg);
 }
 
-.register input {
+.register input[type=text], select {
   display: block;
-  padding: 15px 10px;
+  padding: 12px 10px;
   margin-bottom: 10px;
   width: 100%;
   border: 1px solid #ddd;
+  border-color: #2196F3;
   transition: border-width 0.2s ease;
   border-radius: 2px;
-  color: #444;
+  background: #ffffff;
 }
 
-.register input[type=text], select {
+.register input[type=password] {
   display: block;
-  padding: 10px 10px;
-  margin-bottom: 10px;
+  padding: 12px 10px;
   width: 100%;
   border: 1px solid #ddd;
   border-color: #2196F3;

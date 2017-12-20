@@ -60,7 +60,7 @@ function setlist(val,elm_id)
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------*/
-//registro.html
+//registro.html; DB_IPS.py; forms.py
 //Esta función se utiliza para autcompletar datos de registro en 
 //caso de que la IPS se encuentre en la base de datos.
 function setfields(val)
@@ -68,20 +68,24 @@ function setfields(val)
 	cList = IPSLists[val];
 	if (val!="")
 	{					
-		document.getElementById("nit").value=cList[0];
-		document.getElementById("nit").text=cList[0];
-		document.getElementById("car").value=cList[1];
-		document.getElementById("ger").value=cList[2];
-		document.getElementById("ger").text=cList[2];
-		document.getElementById("nivel".concat(cList[3])).checked=true;
-		document.getElementById("addr").value=cList[6];
-		document.getElementById("addr").text=cList[6];
-		document.getElementById("tel").value=cList[7];
-		document.getElementById("tel").text=cList[7];
-		document.getElementById("email").value=cList[8];
-		document.getElementById("email").text=cList[8];
-
-
+		document.getElementById("ger").value=cList[0];
+		document.getElementById("ger").text=cList[0];
+		document.getElementById("nit").value=cList[1];
+		document.getElementById("nit").text=cList[1];
+		document.getElementById("car").value=cList[2];
+		document.getElementById("tel").value=cList[3];
+		document.getElementById("tel").text=cList[3];
+		document.getElementById("Email").value=cList[4];
+		document.getElementById("Email").text=cList[4];
+		document.getElementById("addr").value=cList[5];
+		document.getElementById("addr").text=cList[5];
+		document.getElementById("username").value=cList[6];
+		document.getElementById("username").text=cList[6];
+		document.getElementById("usermail").value=cList[7];
+		document.getElementById("usermail").text=cList[7];
+		document.getElementById("userjob").value=cList[8];
+		document.getElementById("userjob").text=cList[8];
+		//document.getElementById("nivel".concat(cList[3])).checked=true;
 	}
 	else
 	{				
@@ -90,15 +94,21 @@ function setfields(val)
 		document.getElementById("car").value='';
 		document.getElementById("ger").value='';
 		document.getElementById("ger").text='';
-		document.getElementById("nivel1").checked=false;
-		document.getElementById("nivel2").checked=false;
-		document.getElementById("nivel3").checked=false;
+		//document.getElementById("nivel1").checked=false;
+		//document.getElementById("nivel2").checked=false;
+		//document.getElementById("nivel3").checked=false;
 		document.getElementById("tel").value='';
 		document.getElementById("tel").text='';
-		document.getElementById("email").value='';
-		document.getElementById("email").text='';
+		document.getElementById("Email").value='';
+		document.getElementById("Email").text='';
 		document.getElementById("addr").value='';
-		document.getElementById("addr").text='';	
+		document.getElementById("addr").text='';
+		document.getElementById("username").value='';
+		document.getElementById("username").text='';
+		document.getElementById("usermail").value='';
+		document.getElementById("usermail").text='';
+		document.getElementById("userjob").value='';
+		document.getElementById("userjob").text='';	
 	}
 }
 
