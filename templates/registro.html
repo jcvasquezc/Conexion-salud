@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<link rel="stylesheet" href="static/reg_style.css">
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="static/jscripts.js"></script>
+    </head>
+    <body>
+
+    <!-- Funciones javascript -->
+    <script type="text/javascript">
+        var IPSLists = {{dict_IPS|safe}}
+    </script>
+    <!-- Funciones javascript -->
+
+    <div class="wrapper">
+			<div class="jumbotron text-center">
+				<h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/udea.jpg" width="30%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/colciencias.png"  width="40%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/mintic.png"  width="100%">
+					</div>
+				</div>
+			</div>
+    <form  action="preguntas_mod1" class="register" method="post">
+		
+    	<p class="title">Registro de IPS</p>			
+        <div class = "row">
+            <!-- Campo para departamento -->
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label >Departamento: </label>			  	
+				<input type="text" id="dpto" name="dpto" value="{{dpto}}" readonly="true">
+            </div>
+            <!-- Campo para ciudad -->
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label>Municipio: </label>
+				<input type="text" id="city" name="city" value="{{city}}" readonly="true">
+            </div>
+        </div>		
+		
+		<br>
+                
+		<div class="row">
+				<!--Campo para el Nombre de la IPS -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<label>Nombre de la IPS:</label>
+				<br>				
+				<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
+				<datalist id="reg_ips">
+					{% for value in IPS %}
+						<option  value = "{{value}}">{{value}}</option>
+					{% endfor %}
+				</datalist> 
+			</div>
+        </div>
+		
+		<br>
+		
+		<div class="row">
+			<!--Nombre del gerente-->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <label>Nombre del gerente</label>
+			    <br>
+                <input type="text" id="ger" name="ger" placeholder="Nombre del gerente" required>
+            </div>     
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <!--Campo para el NIT -->
+              <label>NIT</label>
+			  <br>
+              <input type="text" id="nit" name="nit" placeholder="NIT" required>
+            </div>
+            <!-- Campo para caracter de la IPS-->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<label for="car">Carácter de la IPS</label>
+				<br>
+				<select id="car" name="car" required>
+					<option value="">Seleccionar</option>
+					<option value="DEPARTAMENTAL">DEPARTAMENTAL</option>
+					<option value="DISTRITAL">DISTRITAL</option>
+					<option value="INDIGENA">INDIGENA</option>
+					<option value="MUNICIPAL">MUNICIPAL</option>
+					<option value="NACIONAL">NACIONAL</option>
+				</select>				
+            </div>
+            <!-- campo para Nivel de la IPS -->
+			<!--
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">			
+				<label>Nivel de la IPS</label>
+				<br>
+				<label class="radio-inline">
+					<input type="radio" id="nivel1" name="nivel" value="1" required>1
+				</label>
+				<label class="radio-inline">
+					<input type="radio" id="nivel2" name="nivel" value="2" >2				
+				</label>
+				<label class="radio-inline">
+					<input type="radio" id="nivel3" name="nivel" value="3" >3
+				</label>
+            </div>
+			-->
+        </div>
+
+        <br>
+		
+		<div class="row">			
+            <!-- campo para telefono -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label for="tel">Teléfono de la IPS</label>
+			  <br>
+              <input type="text"  id="tel" name="tel" placeholder="Teléfono de la IPS" required>
+            </div>
+            <!-- campo para email -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label for="email">Email de la IPS:</label>
+			  <br>
+              <input type="text"  id="Email" name="Email" placeholder="ejemplo@mail.com" required>
+            </div>
+            <!-- Campo para direccion -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label for="addr">Dirección de la IPS</label>
+			  <br>
+              <input type="text"  id="addr" name="addr" placeholder="Dirección de la IPS" required>
+            </div> 
+        </div>
+
+        <br>
+
+        <div class="row">
+            <!-- campo nombre responsable -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label>Persona enlace</label>
+			  <br>
+              <input type="text"  id="username" name="username" placeholder="Nombre enlace" required>
+            </div>
+            <!-- campo correo -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label>Email de persona enlace</label>
+			  <br>
+              <input type="text"  id="usermail" name="usermail" placeholder="ejemplo@mail.com" required>
+            </div>
+            <!-- campo cargo -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label>Cargo</label>
+			  <br>
+              <input type="text"  id="userjob" name="userjob" placeholder="Cargo" required>
+            </div>
+        </div>
+
+        <br>
+
+		
+        <div class="row">
+            <!-- contraseña asignada a cada IPS -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <label>Contraseña asignada</label>
+			  <br>
+              <input type="password"  id="reg_pass" name="reg_pass" placeholder="Contraseña asignada" required>
+            </div>
+        </div>
+		
+		<!-- COMIENZA: Botones -->
+		<div class="row">
+			<!-- Boton para continuar a la encuesta -->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<button type="submit" class="state">Registrar IPS</button>
+			</div>
+			<!-- Boton para regresar-->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<button onclick="goBack()" class="state">Volver</button>
+			</div>
+		</div>
+		<!-- TERMINA: Botones -->
+
+    </form>
+
+    <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+<br>
+
+</div>
+</body>
+</html>
