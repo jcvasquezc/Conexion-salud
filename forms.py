@@ -20,6 +20,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from werkzeug.utils import secure_filename
 import hashlib
+from utils import send_email
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -73,7 +74,7 @@ def set_dptos():
     for idx in dptos:
         cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
     return dptos,cities
-    
+
 
 #Extensiones permitidas
 def allowed_file(filename):
@@ -138,7 +139,8 @@ def loginIPS():
             error = ' (Usuario o Contraseña incorrecto)'
 #            return redirect(url_for('index.html',error=error)
             return render_template('index.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
-    
+
+
     return render_template('loginIPS.html')
 
 #######################ENCUESTA#######################
@@ -160,7 +162,7 @@ def preguntas():
         usermail = request.form['usermail']
         userjob = request.form['userjob']
         userpass = request.form['reg_pass']
-        
+
         #Verificar contrasenna
         credentials = get_credentials(nit)
         if credentials==0 or hash_pass(userpass) != credentials:
@@ -214,6 +216,31 @@ def analisis():
 
 @app.route("/preguntas_mod1", methods=['GET', 'POST'])
 def preguntas_mod1():
+    if request.method == 'POST':
+        name_gerente = request.form['gerente']
+        email_gerente= request.form['email1']
+        nombre_mod2 = request.form['nombre_mod2']
+        email_2= request.form['email2']
+        nombre_mod3 = request.form['nombre_mod3']
+        email_3= request.form['email3']
+        nombre_mod4 = request.form['nombre_mod4']
+        email_4= request.form['email4']
+        nombre_mod5 = request.form['nombre_mod5']
+        email_5= request.form['email5']
+        nombre_mod6 = request.form['nombre_mod6']
+        email_6= request.form['email6']
+
+        nombre_mod7=[request.form['nombre_mod7_'+str(i)] for i in range(1,5)]
+        email_7=[request.form['email7_'+str(i)] for i in range(1,5)]
+
+        nombres=np.hstack((name_gerente, nombre_mod2, nombre_mod3, nombre_mod4, nombre_mod5, nombre_mod6, nombre_mod7))
+        emails=np.hstack((email_gerente, email_2, email_3, email_4, email_5, email_6, email_7))
+
+        for j in range(len(nombres)):
+            print(emails[j])
+            send_email(emails[j])
+
+
     return render_template('preguntas_mod1.html')
 
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
@@ -225,10 +252,6 @@ def preguntas_mod3():
     return render_template('preguntas_mod3.html')
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 88df40b1e66955a04d201f445b2d84f9ced0f830
 
 if __name__ == "__main__":
     app.run()

@@ -1,68 +1,182 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-	<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Encuesta MinTIC</title>
+        <style type="text/css">
+        body {margin: 0; padding: 0; min-width: 100%!important;}
+        .content {width: 100%; max-width: 600px;}
+	.button {text-align: center; font-size: 18px; font-family: sans-serif; font-weight: bold; padding: 0 30px 0 30px;}
+	.button a {color: #ffffff; text-decoration: none;}
+	.innerpadding {padding: 30px 30px 30px 30px;}
+	.borderbottom {border-bottom: 1px solid #f2eeed;}
+	.h2 {padding: 0 50px 15px 0; font-size: 24px; line-height: 28px; font-weight: bold;font-family: sans-serif; align: "center"}
+  .h2c {padding: 20px 30px 15px 30px; font-size: 30px; line-height: 28px; font-weight: bold;font-family: serif; align: center}
+	.bodycopy {font-size: 20px; line-height: 22px;font-family: sans-serif; text-align: justify}
+	.footer {padding: 20px 30px 15px 30px;}
+	.footercopy {font-family: sans-serif; font-size: 14px; color: #ffffff;}
+	.footercopy a {color: #ffffff; text-decoration: underline;}
+	@media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
+	body[yahoo] .buttonwrapper {background-color: transparent!important;}
+	body[yahoo] .button a {background-color: #e05443; padding: 15px 15px 13px!important; display: block!important;}
+	}
+        </style>
 
-		<link rel="stylesheet" href="static/login_style.css">
-		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
-		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="static/jscripts.js"></script>
-		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-	</head>
 
-	<body>
-		<!-- Funciones javascript -->
-		<script type="text/javascript">
-			var cityLists = {{cities|safe}}
-		</script>
-		<!-- Funciones javascript -->
+    </head>
+    <body yahoo bgcolor="#f6f8f1">
 
-		<div class="wrapper">
-			<div class="jumbotron text-center">
-				<h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
-				<br>
-				<div class="row">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/udea.jpg" width="30%">
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/colciencias.png"  width="40%">
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/mintic.png"  width="100%">
-					</div>
-				</div>
-			</div>
 
-			<div class="container" style="width:100%">
-			<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<form  action="registro" class="login" method="post" >
-				<p class="title">Registrar IPS</p>
-				<label for="reg_dpto">Departamento</label>
-				<br>
-				<select style="padding: 13.5px;" id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
-					<option  value = "">Seleccionar</option>
-					{% for value in dptos %}
-						<option  value = "{{value}}">{{value}}</option>
-					{% endfor %}
-				</select>
-				<br>
-				<!-- Campo para ciudad -->
-				<label for="reg_city">Municipio</label>
-				<br>
-				<select style="padding: 13.5px;" id="reg_city" name="reg_city" required>
-					<option  value ="">Seleccionar</option>
-				</select>
-				<br>
-				<button type="submit" class="state">Registro</button>
-			</form>
-			</div>
 
-			</div>
-			</div>
-			</div>
-		</div>
-	</body>
+
+
+        <table width="100%" bgcolor="#f6f8f1" border="0" cellpadding="0" cellspacing="0">
+
+          <tr >
+
+              <td class="h2c"> Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</td>
+              <br>
+
+    	    </tr>
+          <tr>               <td align="center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Escudo-UdeA.svg/202px-Escudo-UdeA.svg.png" width="10%">
+
+                            <img src="http://scienti.colciencias.gov.co:8084/publindex/images/logo-colciencias.jpg"  width="20%">
+
+                            <img src="http://www.unab.edu.co/sites/default/files/archivos/publicacion_noticias/mintic.png"  width="20%">
+                        </td></tr>
+
+            <tr>
+                <td>
+		<!--[if (gte mso 9)|(IE)]>
+		<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+		    <tr>
+			<td>
+			    <![endif]-->
+		            <table class="content" align="center" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+				    <td class="innerpadding borderbottom">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					    <tr>
+						<td class="h2">
+						    Hola XXXXXXXXXXXXXXXXXXXXXXXXX,
+						</td>
+					    </tr>
+					    <tr>
+						<td class="bodycopy">
+							De acuerdo con un programa del ministerio de las tecnologías de comunicaciones (TIC) que busca evaluar el estado de conectividad y alacnce tecnológico en su IPS. Usted a sido seleccionado para llenar una encuesta acerca del estado tecnológico de su lugar de trabajo
+						</td>
+					    </tr>
+
+					    <tr>
+						<td class="bodycopy" style="padding: 20px 0 0 0;">
+						Por favor dirigirse al siguiente enlace donde usted podrá participar llenando la encuesta
+						</td>
+					    </tr>
+
+              <tr><td class="bodycopy" style="padding: 20px 0 0 0;">
+                <a href="https://127.0.0.0:5000/">Llene la encuesta aquí</a>
+              </td></tr>
+
+              <tr><td class="bodycopy" style="padding: 20px 0 0 0;">
+                Para acceder a la encuesta por favor utilice los siguientes datos
+              </td></tr>
+
+              <tr><td class="bodycopy" style="padding: 20px 0 0 0;">
+                NIT: XXXXXXXXXXXXXXXXXXXXXXX
+              </td></tr>
+
+              <tr><td class="bodycopy" style="padding: 20px 0 0 0;">
+                contraseña: XXXXXXXXXXXXXXXXXXXXXXX
+              </td></tr>
+
+			</tr>
+
+
+
+					    <tr>
+						<td class="bodycopy" style="padding: 20px 0 0 0;">
+							Por favor diligencie esta encuesta lo más pronto posible, y ante cualquier inquietud no dude en ponerse en contacto con nosotros.
+							<ul>
+							<li>Telefono: 2565555</li>
+              <li>correo electrónico: example@email.com</li>
+							</ul>
+						</td>
+					    </tr>
+
+
+
+
+
+					    <tr>
+						<td class="bodycopy" style="padding: 20px 0 0 0;">
+							Muchas gracias
+						</td>
+					    </tr>
+
+
+
+
+
+
+					</table>
+				    </td>
+				</tr>
+
+
+				<tr>
+				    <td class="footer" bgcolor="#888888">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					    <tr>
+						<td align="center" class="footercopy">
+						   Trabajo relizado por la Universidad de Antioquia en conjunto con el ministerio de TICs y Colciencias<br/>
+						</td>
+					    </tr>
+					    <tr>
+						<td align="center" style="padding: 20px 0 0 0;">
+						    <table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+							    <td width="50" style="text-align: center; padding: 0 10px 0 10px;">
+								<a href="https://www.udea.edu.co/">
+								    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Escudo-UdeA.svg/202px-Escudo-UdeA.svg.png" width="50" height="50" alt="UdeA" border="0" />
+								</a>
+							    </td>
+							    <td width="50" style="text-align: center; padding: 0 10px 0 10px;">
+								<a href="http://www.mintic.gov.co/portal/604/w3-channel.html">
+								    <img src="http://www.unab.edu.co/sites/default/files/archivos/publicacion_noticias/mintic.png" width="200" height="50" alt="MinTIC" border="0" />
+								</a>
+							    </td>
+
+                  <td width="50" style="text-align: center; padding: 0 10px 0 10px;">
+								<a href="http://www.colciencias.gov.co/">
+								    <img src="http://scienti.colciencias.gov.co:8084/publindex/images/logo-colciencias.jpg" width="300" height="80" alt="Colciencias" border="0" />
+								</a>
+							    </td>
+							</tr>
+						    </table>
+						</td>
+					    </tr>
+					</table>
+				    </td>
+				</tr>
+
+
+
+		            </table>
+
+
+
+                </td>
+
+            </tr>
+
+
+
+
+
+        </table>
+
+
+
+    </body>
 </html>
