@@ -2,6 +2,23 @@ import plotly.graph_objs as go
 import numpy as np
 from pymongo import MongoClient
 
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
+
+
+def send_email():
+    sg = sendgrid.SendGridAPIClient(apikey="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")
+    from_email = Email("test@example.com")
+    to_email = Email("juancamilo0628@gmail.com")
+    subject = "Sending with SendGrid is Fun"
+    content = Content("text/plain", "and easy to do anywhere, even with Python")
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+
 
 def remove_db(name_db):
     client=MongoClient()
@@ -44,7 +61,7 @@ def get_data_map(lati, longi, sizem, textm, nivel, mapbox_access_token):
         title="Estado de conectividad de IPS públicas en Colombia",
         hovermode='closest',
         autosize=False,
-        width=600,
+        width='30%',
         height=800,
         mapbox=dict(
             accesstoken=mapbox_access_token,
@@ -454,7 +471,7 @@ def get_radar(ref, val, legends, refdpto=[0,0,0,0,0,0]):
       "autosize": False,
       "height": 700,
       "hovermode": "closest",
-      "width": 600,
+      "width": "40%",
       #"title":"Conectividad de su IPS",
 
       "xaxis": {

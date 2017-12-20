@@ -10,3 +10,288 @@
   {% endif %}
 {% endwith %}
 {% block body %}{% endblock %}
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+  <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="static/preg_style.css">
+  <link rel="stylesheet" href="static/radio_checks.css">
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	<body>
+
+		<div class="wrapper">
+			<div class="jumbotron text-center">
+				<h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/udea.jpg" width="30%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/colciencias.png"  width="40%">
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<img src="static/mintic.png"  width="100%">
+					</div>
+				</div>
+			</div>
+
+      <form enctype=multipart/form-data action="analisis" class="register" method="post">
+        <p class="title">Seleccione al personal de la IPS encargado de responder cada uno de los módulos de la encuesta</p>
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 1: Descripción de la institución de salud
+            <a href="#" data-toggle="tooltip" title="Este módulo debe responderlo el gerente de la insitución "><i class="fa fa-question-circle" style=font-size:24px></i></a>
+          </h2></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label for="nombre">Nombre y apellidos</label>
+		          <br>
+            <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label for="email">Correo electrónico:</label>
+		          <br>
+            <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label for="cargo">Cargo</label>
+		          <br>
+            <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+          </div>
+      </div>
+      <br><hr>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>MÓDULO 2: Terminología y definiciones
+          <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </h2></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label for="nombre">Nombre y apellidos</label>
+            <br>
+          <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label for="email">Correo electrónico:</label>
+            <br>
+          <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label for="cargo">Cargo</label>
+            <br>
+          <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+        </div>
+    </div>
+    <br><hr>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2>MÓDULO 3. Infraestructura TIC
+        <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+      </h2></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label for="nombre">Nombre y apellidos</label>
+          <br>
+        <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label for="email">Correo electrónico:</label>
+          <br>
+        <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label for="cargo">Cargo</label>
+          <br>
+        <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+      </div>
+  </div>
+  <br><hr>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2>MÓDULO 4. Servicios Electrónicos
+      <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h2></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <label for="nombre">Nombre y apellidos</label>
+        <br>
+      <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <label for="email">Correo electrónico:</label>
+        <br>
+      <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <label for="cargo">Cargo</label>
+        <br>
+      <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+    </div>
+</div>
+<br><hr>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h2>MÓDULO 5. Aplicación de la Historia Clínica Digital
+    <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+</h2>  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<br><hr>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h2>MÓDULO 6. Aplicación de la Historia Clínica Digital
+    <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+  </h2></div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<br><hr>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h2>MÓDULO 7. Habilidades en el uso de TICs
+    <a href="#" data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con Tecnologías y servicios en el Hogar del talento humano que labora en la institución. Debe responderlo personal de todos los campos de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
+  </h2></div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="nombre">Nombre y apellidos</label>
+      <br>
+    <input type="text"  id="gerente" name="gerente" placeholder="Nombre" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="email">Correo electrónico:</label>
+      <br>
+    <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" required>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <label for="cargo">Cargo</label>
+      <br>
+    <input type="text"  id="cargo" name="cargo" placeholder="Cargo" required>
+  </div>
+</div>
+<br><hr>
+
+  <button type="submit" class="state">analisis</button>
+      </form>
+
+		</div>
+	</body>
+</html>

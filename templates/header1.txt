@@ -57,4 +57,4 @@
 
 
   <form enctype=multipart/form-data action="analisis" class="register" method="post">
-      <p class="title"> MÓDULO 2: Terminología y definiciones</p>
+      <p class="title"> MÓDULO 3. Infraestructura TIC</p>

@@ -1,7 +1,9 @@
 import pandas as pd
 
 
-df=pd.read_csv('./static/encuestaMod2.csv')
+
+
+df=pd.read_csv('./static/encuestaMod3.csv')
 df.head
 Nq=len(df)
 l=0
@@ -11,7 +13,7 @@ for j in range(Nq):
         pregunta.append('<div class="row">')
         pregunta.append('  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">')
         pregunta.append('    <label for="question'+str(j+1)+'"><h4>'+str(j+1)+'. '+df['Pregunta'][j]+'</h4></label>')
-        pregunta.append('    <a href="#" data-toggle="tooltip" title=""'+df["Ayuda"][j]+'""><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
+        pregunta.append('    <a href="#" data-toggle="tooltip" title="'+df["Ayuda"][j]+'"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
         pregunta.append('  </div>')
         pregunta.append('</div>')
         pregunta.append('<div class="row">')
@@ -20,8 +22,7 @@ for j in range(Nq):
         for k in range(len(respuestas)):
             if respuestas[k]=='Otro' or respuestas[k]=='Otros:':
                 l=l+1
-                pregunta.append('    <label><input type="checkbox" class="option-input checkbox" id="question'+str(j+1)+'" name="cboxq'+str(j+1)+'" value="'+str(k+1)+'" onclick="var input=document.getElementById(\'name'+str(l)+'\'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id=" name'+str(l)+'" name=" name'+str(l)+'" disabled="disabled"/></label><br>')
-                print(pregunta[-1])
+                pregunta.append('    <label><input type="checkbox" class="option-input checkbox" id="question'+str(j+1)+'" name="cboxq'+str(j+1)+'" value="'+str(k+1)+'" onclick="var input=document.getElementById(\'name'+str(l)+'\'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name'+str(l)+'" name="name'+str(l)+'" disabled="disabled"/></label><br>')
             else:
                 pregunta.append('    <label><input type="checkbox" id="question'+str(j+1)+'" ondragover="" class="option-input checkbox" name="cboxq'+str(j+1)+'" value="'+str(k+1)+'"> '+respuestas[k]+'</label><br>')
         pregunta.append('    <br>')
@@ -41,7 +42,7 @@ for j in range(Nq):
         pregunta.append('<div class="row">')
         pregunta.append('  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">')
         pregunta.append('    <label for="question'+str(j+1)+'"><h4>'+str(j+1)+'. '+df['Pregunta'][j]+'</h4></label>')
-        pregunta.append('    <a href="#" data-toggle="tooltip" title=""'+df["Ayuda"][j]+'""><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
+        pregunta.append('    <a href="#" data-toggle="tooltip" title="'+df["Ayuda"][j]+'"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
         pregunta.append('  </div>')
         pregunta.append('</div>')
         pregunta.append('<div class="row">')
@@ -70,7 +71,7 @@ for j in range(Nq):
         pregunta.append('<div class="row">')
         pregunta.append('  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">')
         pregunta.append('    <label for="question'+str(j+1)+'"><h4>'+str(j+1)+'. '+df['Pregunta'][j]+'</h4></label>')
-        pregunta.append('    <a href="#" data-toggle="tooltip" title=""'+df["Ayuda"][j]+'""><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
+        pregunta.append('    <a href="#" data-toggle="tooltip" title="'+df["Ayuda"][j]+'"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>')
         pregunta.append('  </div>')
         pregunta.append('</div>')
         respuestas=df["Respuestas"][j].split(';')
@@ -115,7 +116,6 @@ for j in range(Nq):
         pregunta.append('<br><hr>')
 
 
-
 header1=open('./templates/header1.txt', 'r')
 header1txt=header1.read()
 
@@ -123,17 +123,17 @@ header2=open('./templates/header2.txt', 'r')
 header2txt=header2.read()
 
 
-file_preg = open('./templates/preguntas_mod2.html','w')
+file_preg = open('./templates/preguntas_mod3.html','w')
 
 file_preg.write(header1txt)
-file_preg.write('\n\r')
+file_preg.write('\n')
 
 for j in range(len(pregunta)):
     file_preg.write(pregunta[j])
-    file_preg.write('\n\r')
+    file_preg.write('\n')
 
 file_preg.write(header2txt)
-file_preg.write('\n\r')
+file_preg.write('\n')
 
 
 file_preg.close()

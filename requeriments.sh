@@ -8,4 +8,4 @@ pip install dash-html-components==0.8.0
 pip install dash-core-components==0.14.0
 pip install plotly --upgrade
 pip install unidecode
-
+pip install sendgrid
