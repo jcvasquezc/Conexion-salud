@@ -7,12 +7,16 @@ import os
 from sendgrid.helpers.mail import *
 
 
-def send_email():
-    sg = sendgrid.SendGridAPIClient(apikey="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")
-    from_email = Email("test@example.com")
-    to_email = Email("juancamilo0628@gmail.com")
-    subject = "Sending with SendGrid is Fun"
-    content = Content("text/plain", "and easy to do anywhere, even with Python")
+def send_email(to_email, file_email="./templates/email.html"):
+
+    emailcontent=open(file_email, 'r')
+    emailcontenttxt=emailcontent.read()
+    print(emailcontenttxt)
+    sg = sendgrid.SendGridAPIClient(apikey="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")
+    from_email = Email("info@encuesta_tic.com")
+    to_email = Email(to_email)
+    subject = " Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas "
+    content = Content("text/html", (emailcontenttxt))
     mail = Mail(from_email, subject, to_email, content)
     response = sg.client.mail.send.post(request_body=mail.get())
     print(response.status_code)
