@@ -10,4 +10,4 @@ pip install plotly --upgrade
 pip install unidecode
 pip install sendgrid
 
-export SENDGRID_API_KEY='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'
+
