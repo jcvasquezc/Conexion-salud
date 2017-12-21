@@ -224,11 +224,5 @@ def preguntas_mod2():
 def preguntas_mod3():
     return render_template('preguntas_mod3.html')
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 88df40b1e66955a04d201f445b2d84f9ced0f830
-
 if __name__ == "__main__":
     app.run()
