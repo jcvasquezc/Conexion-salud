@@ -26,6 +26,7 @@ main_path = os.path.dirname(os.path.abspath(__file__))
 
 # App config.
 DEBUG = True
+usr=''
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
@@ -128,6 +129,7 @@ def registro():
 ######################################################
 @app.route("/loginIPS", methods=['GET', 'POST'])
 def loginIPS():
+    global usr
     if request.method == 'POST':
         dptos,cities = set_dptos()
         usr = request.form['usrlog']
@@ -135,6 +137,8 @@ def loginIPS():
         #Verificar contrasenna
         credentials = get_credentials(usr)
         error = ''
+
+        print(usr, credentials)
         if hash_pass(userpass) != credentials:
             error = ' (Usuario o Contraseña incorrecto)'
 #            return redirect(url_for('index.html',error=error)
@@ -216,6 +220,7 @@ def analisis():
 
 @app.route("/preguntas_mod1", methods=['GET', 'POST'])
 def preguntas_mod1():
+    global usr
     if request.method == 'POST':
         name_gerente = request.form['gerente']
         email_gerente= request.form['email1']
@@ -235,10 +240,11 @@ def preguntas_mod1():
 
         nombres=np.hstack((name_gerente, nombre_mod2, nombre_mod3, nombre_mod4, nombre_mod5, nombre_mod6, nombre_mod7))
         emails=np.hstack((email_gerente, email_2, email_3, email_4, email_5, email_6, email_7))
-
+        key_pass=get_credentials(usr)
         for j in range(len(nombres)):
-            print(emails[j])
-            send_email(emails[j])
+            if len(emails[j])>0:
+                print(emails[j], nombres[j], usr, key_pass)
+                send_email(emails[j], nombres[j], usr, key_pass)
 
 
     return render_template('preguntas_mod1.html')

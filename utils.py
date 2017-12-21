@@ -7,13 +7,16 @@ import os
 from sendgrid.helpers.mail import *
 
 
-def send_email(to_email, file_email="./templates/email.html"):
+def send_email(to_email, nombres, nit, key_pass, file_email="./templates/email.html"):
 
     emailcontent=open(file_email, 'r')
     emailcontenttxt=emailcontent.read()
-    print(emailcontenttxt)
-    sg = sendgrid.SendGridAPIClient(apikey="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")
-    from_email = Email("info@encuesta_tic.com")
+    #emailcontenttxt=''.join(emailcontenttxt)
+    emailcontenttxt=emailcontenttxt.replace("NOMBRE EMPLEADO!", nombres)
+    emailcontenttxt=emailcontenttxt.replace("nit_ips", str(nit))
+    emailcontenttxt=emailcontenttxt.replace("key_pass", str(key_pass))
+    sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+    from_email = Email("no_responder@encuesta_tic.com")
     to_email = Email(to_email)
     subject = " Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas "
     content = Content("text/html", (emailcontenttxt))
