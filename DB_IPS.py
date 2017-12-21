@@ -68,7 +68,7 @@ for idx_ips in range(0,df.shape[0]):
     usrjob = list(ips['Cargo Encargado'])[0]
     
     #Ingreso de usuario para login
-    IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)
+    #IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)
     temppass = nit[-4:]
     userpass = car[1]+temppass[3]+temppass[0]+car[-1:]+temppass[1]+temppass[2]+car[len(car)-2]+car[0]
     dfpass = pd.DataFrame(np.reshape([dpto,city,nit,userpass],(1,4)))
