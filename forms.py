@@ -20,7 +20,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 from werkzeug.utils import secure_filename
 import hashlib
-from utils import send_email
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -144,7 +143,6 @@ def loginIPS():
 #            return redirect(url_for('index.html',error=error)
             return render_template('index.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
 
-
     return render_template('loginIPS.html')
 
 #######################ENCUESTA#######################
@@ -256,8 +254,6 @@ def preguntas_mod2():
 @app.route("/preguntas_mod3", methods=['GET', 'POST'])
 def preguntas_mod3():
     return render_template('preguntas_mod3.html')
-
-
 
 if __name__ == "__main__":
     app.run()
