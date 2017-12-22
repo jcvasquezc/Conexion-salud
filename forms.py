@@ -20,6 +20,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from werkzeug.utils import secure_filename
 import hashlib
+from utils import send_email
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -166,9 +167,9 @@ def preguntas():
         userpass = request.form['reg_pass']
 
         #Verificar contrasenna
-        credentials = get_credentials(nit)
-        if credentials==0 or hash_pass(userpass) != credentials:
-            return render_template('registro.html')
+#        credentials = get_credentials(nit)
+#        if credentials==0 or hash_pass(userpass) != credentials:
+#            return render_template('registro.html')
 #        Validar informacion basica de la IPS
         IPS_index_data = {"IPS":name,
                       "NIT":nit,

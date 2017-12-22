@@ -27,12 +27,12 @@ client = MongoClient('localhost', 27017)
 #
 ##Crear database
 db = client.IPS_DEMODB
-
+#client.drop_database('IPS_DEMODB')
 ##Crear colección
 IPS_data  = db.IPS_Demo_collection
 
 ##Delete collection
-db.IPS_Demo_collection.drop()
+#db.IPS_Demo_collection.drop()
 
 #Obtener lista de departamento y ciudades
 info_IPS = pd.read_csv(main_path+'/demo/listaDB.csv')
@@ -57,7 +57,7 @@ for idx_ips in range(0,df.shape[0]):
     nit = list(ips['NIT'])[0]
     car = list(ips['Caracter'])[0]
     ger = list(ips['Gerente'])[0]
-    #niv_opt = list(ips['Nivel'])[0]
+    niv_opt = list(ips['Nivel'])[0]
     addr = list(ips['Direccion'])[0]
     tel = list(ips['Telefono'])[0]
     email = list(ips['Email'])[0]
@@ -67,7 +67,7 @@ for idx_ips in range(0,df.shape[0]):
                   "NIT":str(nit),
                   "Carácter":car,
                   "Gerente":ger,
-                  #"Nivel":str(niv_opt),
+                  "Nivel":str(niv_opt),
                   "Departamento":dpto,
                   "Municipio":city,
                   "Dirección":addr,
