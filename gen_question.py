@@ -3,12 +3,13 @@ import pandas as pd
 
 
 
-df=pd.read_csv('./static/encuestaMod3.csv')
+df=pd.read_csv('./static/encuestaMod1.csv')
 df.head
 Nq=len(df)
 l=0
 pregunta=[]
 for j in range(Nq):
+    print(j+1)
     if df["Tipo"][j]=="checkbox":
         pregunta.append('<div class="row">')
         pregunta.append('  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">')
@@ -76,6 +77,7 @@ for j in range(Nq):
         pregunta.append('</div>')
         respuestas=df["Respuestas"][j].split(';')
         for k in range(len(respuestas)):
+
             if respuestas[k]=='Otro' or respuestas[k]=='Otros:':
                 l=l+1
                 pregunta.append('<div class="row">')
@@ -123,7 +125,7 @@ header2=open('./templates/header2.txt', 'r')
 header2txt=header2.read()
 
 
-file_preg = open('./templates/preguntas_mod3.html','w')
+file_preg = open('./templates/preguntas_mod1.html','w')
 
 file_preg.write(header1txt)
 file_preg.write('\n')

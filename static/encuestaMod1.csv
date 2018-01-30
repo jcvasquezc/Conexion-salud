@@ -1,13 +1,7 @@
 Tipo,Pregunta,Respuestas,Ayuda,Adjuntar
-radio,Nivel de atención en salud,Nivel I;Nivel II;Nivel III;Nivel IV,Ayudaa,si
-checkbox,Tipos de atención brindados en esta institución:,Ambulatorios;Internació;Quirúrgico;Emergencia,Ayudaa,si
-checkbox,Su prestador de servicios es:,Hospital;Centro médico / Centro odontológico;Laboratorio Clínico;Centro Radiológico;Farmacias ,Ayudaa,si
-input,Si es su prestador de servicios un Hospital [HOS] responda,Número de camas:;Número de médicos:;Número de pacientes intrahospitalarios/año:,Ayudaa,si
-input,Si es su prestador de servicios un Centro médico / Centro odontológico [CM/CO] responda:,Número de médicos/odontólogo:;Número de pacientes/año:,Ayudaa,si
-input,Si es su prestador de servicios un Laboratorio Clínico [LAB] responda:,Número de bacteriólogos:;Número muestras procesadas/año:,Ayudaa,si
-input,Si es su prestador de servicios un Centro Radiológico [RAD] responda:,Número de radiólogos:;Número de exámenes radiológicos/año:,Ayudaa,si
-input,Si es su prestador de servicios una Farmacias [FAR] responda:,Número de farmaceutas:;Número de prescripciones médicas procesadas/año:,Ayudaa,si
-input,¿Cuántos Profesionales de la salud están laborando en la institución?,Médico General:;Médico Especialista:;Odontólogo:;Nutricionista:;Psicólogo:;Bacteriólogo:;Químico Farmacéutico:;Otros:,Ayudaa,si
-input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Enfermero(a):;Enfermero(a) Jefe:;Paramédico:;Instrumentador:;Auxiliar / Camillero:;Técnico Farmacéutico:;Otros:,Ayudaa,si
-input,¿Cuántos Profesionales NO afines a la salud están laborando en su institución?,Ingeniero:;Contador:;Abogado:;Licenciado:;Periodista:;Publicista:;Físico:;Otros:,Ayudaa,si
-input,¿Cuántos Técnicos de la salud están laborando en su institución?:,Técnologo:;Técnico:;Agente:;Auxiliar administrativo:;Auxiliar operativo:;Servicios generales:;Otros:,Ayudaa,si
+checkbox,Tipos de atención brindados en esta institución:,Ambulatorios;Internación;Quirúrgicos;Emergencias,Ayudaa,si
+input,Si es su prestador de servicios un Hospital [HOS] responda,Número de camas:;Número de camas en la unidad de cuidados intensivos:;Número de médicos generales:;Número de médicos especialistas /subespecialistas:;Promedio de pacientes hospitalizados/año en los últimos tres años: ,Ayudaa,si
+input,¿Cuántos Profesionales de la salud están laborando en la institución?,Médico(a) General:;Médico(a) Especialista:;Odontólogo(a):;Nutricionista:;Enfermero(a) Profesional:;Fisioterapeuta:;Fonoaudiólogo(a):;Instrumentador;Optómetra:;Psicólogo:;Bacteriólogo:;Químico Farmacéutico:;Otros:,Ayudaa,si
+input,¿Cuántos auxiliares/técnicos/tecnólogos de la salud están laborando en su institución?,Auxiliar de Enfermería:;Auxiliar de Salud Oral:;Auxiliar de Salud Publica:;Auxiliar de Servicios farmacéuticos:;Técnico en atención prehospitalaria:;Tecnólogo en atención prehospitalaria:;Tecnólogo en regencia de farmacia:;Tecnólogo en radiodiagnóstico y radioterapia:;Tecnólogo en radiología e imágenes diagnósticas:;Otros:,Ayudaa,si
+input,¿Cuántos Profesionales NO afines a la salud están laborando en su institución?,Administrador:;Ingeniero:;Biongeniero o Biomedico:;Contador:;Abogado:;Periodista:;Publicista:;Físico:;Otros:,Ayudaa,si
+input,¿Cuántos profesionales están laborando en el área administrativa en su institución?,Directivos:;Gerentes de información en salud:;Agente:;Auxilar Administrativo:;Auxiliar operativo:;Servicios Generales:;Otros:,Ayuda,si

@@ -1,0 +1,16 @@
+Tipo,Pregunta,Respuestas,Ayuda,Adjuntar
+text,Tecnologías y servicios para el talento humano que labora en la institución,,,
+radio,¿Hay computadores disponibles para el personal (Talento humano) que labora en la institución? Computadores que puedan ser utilizados en los períodos de descanso.,SI;NO,Ayuda,SI
+checkbox,¿Qué tipo de computadores o PC posee la institución?,Computador de escritorio;Computador Portatil,Ayuda,SI
+input,"En promedio, ¿Cuántos computadores posee la institución?",Computador de escritorio;Computador Portatil,Ayuda,SI
+checkbox,¿Cuál es el uso que el personal de la institución da a los computadores?,Personal;Familiar;Laboral;Otro  ¿Cuál?,Ayuda,SI
+radio,"En promedio, ¿cuál es el grado de conocimientos del personal de la institución en el uso de computadores?",Experto;Avanzado;Intermedio;Básico,Ayuda,SI
+checkbox,"¿El personal de la institución, sabe cómo activar y desactivar en el celular y/ o computador las siguientes funciones?",Redes WiFi/Datos ;Compartir Internet ;GPS;Rotar Pantalla;Seguridad Bloqueo (Clave/Patrón) ;Bloquear Aplicaciones ;Modo Avión;Volumen/lenciar ;Capturar Pantalla ;Bluetooth;ncronización Automática;Ahorrador de Energía ;Resetear el Dispotivo ,Ayuda,SI
+checkbox,¿Cuál es el programa o aplicación más utilizada en los computadores de la institución?,"MS Word;MS Excel;MS PowerPoint;MS Publisher;Adobe Acrobat;Otro, ¿Cuál?;",Ayuda,SI
+text,Dispositivo Móvil / Celular,,Ayuda,SI
+radio,¿La institución dispone de planes de celular Inteligente (Smartphone) para sus colaboradores?,SI;NO,Ayuda,SI
+input,Marca y modelo del celular:,Samsung;Iphone;Sony;Motorola;Nokia;HTC;LG Electronics;Huawei;Asus;Alcatel;Lanix;Blu;One+;Otro Cual?,Ayuda,SI
+checkbox,¿Cuál es el proveedor del servicio de internet móvil de la institución?,Claro;Teléfonica/Movistar;Une;ETB;EPM;Otro Cuál,Ayuda,SI
+radio,¿Cuál es el tipo de plan con el operador del servicio de telefonía móvil?,Prepago;Postpago,Ayuda,SI
+checkbox,¿La institución cuenta con alguna de las siguientes aplicaciones?,Facebook;Instagram;WhatsApp;YouTube;Google+;Twitter;MySpace;Snapchat;Otro. ¿Cuál;,Ayuda,SI
+checkbox,"SI SU RESPUESTA A LA PREGUNTA (12) ES POSITIVA (SI), ¿Cuál es la aplicación más utilizada por la institución?",Facebook;Instagram;WhatsApp;YouTube;Skype;Twitter;Telegram;SnapChat;MySpace;Spotify;Dezeer;TuneIN Radio;Netflix;Fox Play;Otro. ¿Cuál?;,Ayuda,SI

@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/preg_style.css">
+    <link rel="stylesheet" href="static/radio_checks.css">
+		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+   <script>
+	   //Mostrar opcion para borrar adjunto
+	   function enb_dis(btn_att,btn_del)
+	   {
+			var x = document.getElementById(btn_att);
+			var input = document.getElementById(btn_del);
+			if ('files' in x)
+			{
+			   input.disabled = false;
+			   input.focus();
+			}
+			else
+			{
+			   input.disabled = true;
+			}
+	   }
+	   //Borrar archivo adjunto
+	   function delete_attached(btn_del,name)
+		{
+			document.getElementById(name).value = "";
+			document.getElementById(btn_del).disabled = true;
+		}
+   </script>
+
+<body>
+<div class="wrapper">
+  <div class="jumbotron text-center">
+    <h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/udea.jpg" width="30%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/colciencias.png"  width="40%">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <img src="static/mintic.png"  width="100%">
+      </div>
+    </div>
+  </div>
+
+
+
+  <form enctype=multipart/form-data action="analisis" class="register" method="post">
+      <p class="title"> MÓDULO 3. Infraestructura TIC</p>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question1"><h4>1. ¿Qué tipo de estándares técnicos (de formato, estructura) utiliza en la implementación y uso de la Historia Clínica Digital?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="1"> HL7</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="2"> ISO</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="3"> IEEE</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="4"> DICOM</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="5"> Otros ¿Cuál?</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question1" ondragover="" class="option-input checkbox" name="cboxq1" value="6"> </label><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
+    <br><br>
+    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza en la implementación y uso de la Historia Clínica Digital?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="1"> CUP</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="2"> CIE-10</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="3"> SNOMED</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="4"> LOINC</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="5"> NCPDP,</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="cboxq2" value="6"> Otros: ¿Cuál? </label><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+    <br><br>
+    <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question3"><h4>3. ¿A qué nivel se utilizan los estándares internacionales en cada una de las áreas de la Historia Clínica Digital?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question1" name="question3" value="1" required>Totalmente estandarizada<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question2" name="question3" value="2" required>Bastante estandarizada<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question3" name="question3" value="3" required>Poco estandarizada<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question4" name="question3" value="4" required>Nada estandarizada<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question5" name="question3" value="5" required><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
+    <br><br>
+    <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question4" ondragover="" class="option-input checkbox" name="cboxq4" value="1"> SI</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question4" ondragover="" class="option-input checkbox" name="cboxq4" value="2"> NO</label><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
+    <br><br>
+    <button type="button" id="del_p4" class="state" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question5"><h4>5. ¿Conoce el marco de interoperabilidad del Estado colombiano?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="1"> SI</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="2"> NO</label><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
+    <br><br>
+    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question6"><h4>6. ¿Qué tipo de métodos utiliza para obtener consentimiento informado del paciente/afiliado para el uso e intercambio de información para el manejo y tratamiento de enfermedades?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question1" name="question6" value="1" required>Físicos<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question2" name="question6" value="2" required>Electrónicos<br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
+    <br><br>
+    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question7"><h4>7. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="1"> Identificación y/o autenticación</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="2"> Autorización y control de acceso </label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="3"> Auditoria</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="4"> Encriptación de la información in-situ </label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="5"> Encriptación de la información en intercambio </label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="6"> Monitoreo de ataques cibernéticos</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="7"> Ninguno</label><br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="8"> Otros. ¿Cuáles?</label><br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
+    <br><br>
+    <button type="button" id="del_p7" class="state" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question8"><h4>8. ¿Qué tipo de red de intercambio de información (internet/telecomunicaciones) utiliza para comunicarse y enviar/recibir electrónicamente información de historias clínicas?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question1" name="question8" value="1" required>Conexiones dedicadas<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question2" name="question8" value="2" required>Redes privadas virtuales<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question3" name="question8" value="3" required>Redes públicas<br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
+    <br><br>
+    <button type="button" id="del_p8" class="state" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question9"><h4>9. ¿La institución tiene un plan de gestión del cambio para la adopción de nuevas tecnologías, procesos o procedimientos como la Historia Clínica Digital?</h4></label>
+    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question1" name="question9" value="1" required>SI<br>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question2" name="question9" value="2" required>NO<br>
+  </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p9" name="file_p9" accept="image/*,video/*" onchange="enb_dis('file_p9','del_p9')"/>
+    <br><br>
+    <button type="button" id="del_p9" class="state" onclick="delete_attached('del_p9','file_p9')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+<br><hr>
+<div class "row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a class="state" href="/">Volver</a>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <a type="btn_att submit" class="state" href="preguntas">Continuar</button>
+  </div>
+</div>
+<br>
+<div class "row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <button type="submit" class="state">Ver los resultados</button>
+  </div>
+</div>
+</div>
+</form>
+
+<br>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+
+      {% for message in messages %}
+          {% if "Error" not in message[1]: %}
+              <div class="alert alert-info">
+              <strong>Success! </strong> {{ message[1] }}
+              </div>
+          {% endif %}
+
+          {% if "Error" in message[1]: %}
+              <div class="alert alert-warning">
+              {{ message[1] }}
+              </div>
+          {% endif %}
+      {% endfor %}
+          {% endif %}
+      {% endwith %}
+
+
+
+
+
+</div>
+</body>
+</html>
+
