@@ -33,7 +33,19 @@
 		{
 			document.getElementById(name).value = "";
 			document.getElementById(btn_del).disabled = true;
-		}
+    }
+    
+
+    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
+      
+      
+      if (questionIDYesNO.checked) {
+        $(questionIDYes).removeClass("hidden");
+        $(questionIDNO).addClass("hidden");
+
+      }
+
+    }
    </script>
 
 <body>
@@ -67,18 +79,10 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question1" value="1" required>Infraestructura tecnológica especializada en salud que administra la información sanitaria de los usuarios del sistema de salud dentro de los términos estrictamente necesarios para garantizar la seguridad y la calidad de la atención a los pacientes.<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question1" value="2" required>Base de datos relacional, que utiliza métodos computacionales para almacenamiento y utilización de la historia clínica.<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question1" value="3" required>Sistema de recolección de información en salud<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question1" value="4" required>No tiene claro el concepto.<br>
-  </div>
     <br>
   </div>
 </div>
@@ -91,21 +95,11 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question2" value="1" required>Muy bajo (menos del 10% de las entidades)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question2" value="2" required>Bajo (10-30%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question2" value="3" required>Mediano (31-50%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question2" value="4" required>Alto (51-70%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question5" name="question2" value="5" required>Muy alto (más del 70%)<br>
-  </div>
     <br>
   </div>
 </div>
@@ -118,21 +112,11 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question3" value="1" required>Muy bajo (menos del 10% de las entidades)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question3" value="2" required>Bajo (10-30%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question3" value="3" required>Mediano (31-50%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question3" value="4" required>Alto (51-70%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question5" name="question3" value="5" required>Muy alto (más del 70%)<br>
-  </div>
     <br>
   </div>
 </div>
@@ -145,45 +129,31 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question4" value="1" required>Muy bajo (menos del 10% de las entidades)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question4" value="2" required>Bajo (10-30%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question4" value="3" required>Mediano (31-50%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question4" value="4" required>Alto (51-70%)<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question5" name="question4" value="5" required>Muy alto (más del 70%)<br>
-  </div>
     <br>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>5. Identificación Usuario/Paciente</h4></label>
+    <label for="question5"><h4>Identificación Usuario/Paciente</h4></label>
   </div>
 </div>
-<br><hr>
+<hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>6. Identificación del usuario</h4></label>
+    <label for="question6"><h4>5. Identificación del usuario</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question6" value="1" required>Tipo y número de documento de identidadcarnet<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+	 <input type="radio" class="option-input radio" id="question1" name="question6" value="1" required>Tipo y número de documento de identidad, carnet<br>
 	 <input type="radio" class="option-input radio" id="question2" name="question6" value="2" required>Biométrico<br>
-  </div>
     <input type="radio" class="option-input radio" id="question3" name="question6" value="3" onclick="var input = document.getElementById('name1'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name1" name="name1" disabled="disabled"/><br>
     <br>
   </div>
@@ -199,22 +169,16 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7"><h4>7. Identificación de Paciente</h4></label>
+    <label for="question7"><h4>6. Identificación de Paciente</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question7" value="1" required>Etiqueta<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question7" value="2" required>Manilla<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question7" value="3" required>Carnet<br>
-  </div>
-    <input type="radio" class="option-input radio" id="question4" name="question7" value="4" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name2" name="name2" disabled="disabled"/><br>
+   <input type="radio" class="option-input radio" id="question4" name="question7" value="4" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name2" name="name2" disabled="disabled"/><br>
     <br>
   </div>
 </div>
@@ -229,27 +193,17 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>8. Tecnología de identificación del paciente</h4></label>
+    <label for="question8"><h4>7. Tecnología de identificación del paciente</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question8" value="1" required>Manual<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question8" value="2" required>Impresión Simple<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question8" value="3" required>Impresión + Código de Barras<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question8" value="4" required>RFID<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question5" name="question8" value="5" required>Impresión + Código de Barras + RFID<br>
-  </div>
     <input type="radio" class="option-input radio" id="question6" name="question8" value="6" onclick="var input = document.getElementById('name3'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name3" name="name3" disabled="disabled"/><br>
     <br>
   </div>
@@ -265,57 +219,39 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question9"><h4>9. Descripción del nivel de adopción de Historia Clínica Digital en su institución</h4></label>
+    <label for="question9"><h4>Descripción del nivel de adopción de Historia Clínica Digital en su institución</h4></label>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question10"><h4>10. ¿Cuenta con algún software o aplicación en las siguientes áreas?</h4></label>
+    <label for="question10"><h4>8. ¿Cuenta con algún software o aplicación en las siguientes áreas?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="1"> Farmacia</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="2"> Laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="3"> Imagenología</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="4"> Hemoderivados</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="5"> Fisioterapia</label><br>
-  </div>
     <br>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question11"><h4>11. ¿Cuáles de estas herramientas electrónicas utiliza la institución?</h4></label>
+    <label for="question11"><h4>9. ¿Cuáles de estas herramientas electrónicas utiliza la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="1"> Firma electrónica</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="2"> Archivos y mensajes de correo electrónico cifrados, enviados o recibidos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="3"> Protección CON contraseña para archivos enviados o recibidos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="4"> Protección por contraseña para acceso al sistema 1 2 98 99</label><br>
-  </div>
     <br>
   </div>
 </div>
@@ -330,17 +266,17 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question12"><h4>12. ¿Tiene su organización en la actualidad un sistema de Historia Clínica Digital?</h4></label>
+    <label for="question12"><h4>10. ¿Tiene su organización en la actualidad un sistema de Historia Clínica Digital?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question12" value="1" required>SI<br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	 <input type="radio" class="option-input radio" id="question1" name="question12" value="1"  onclick="yesnoCheck(this, q13container, q11container);" required>SI<br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question12" value="2" required>NO<br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	 <input type="radio" class="option-input radio" id="question2" name="question12" value="2" onclick="yesnoCheck(this, q11container, q13container);" required>NO<br>
   </div>
     <br>
   </div>
@@ -353,1419 +289,1319 @@
     <button type="button" id="del_p12" class="state" onclick="delete_attached('del_p12','file_p12')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question13"><h4>13. ¿Tiene planes de implementar la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question13" value="1" required>SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question13" value="2" required>NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question14"><h4>14. ¿En cuánto tiempo tiene planificado implementar la Historia Clínica Digital (meses/años)?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question14" value="1" required>No está planeado<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question14" value="2" required>De 1 año a 2 años<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question14" value="3" required>De 6 meses a 1año
-<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question14" value="4" required>Menos de 6 meses<br>
-  </div>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question15"><h4>15. indique el monto aproximado de la inversión en la adopción de Historia Clínica Digital en su institución COP </h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Monto</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q15f1" name="q15f1" placeholder="0" required><br>
-</div>
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p15" name="file_p15" accept="image/*,video/*" onchange="enb_dis('file_p15','del_p15')"/>
-    <br><br>
-    <button type="button" id="del_p15" class="state" onclick="delete_attached('del_p15','file_p15')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question16"><h4>16. ¿Qué tipo de sistema de Historia Clínica Digital utiliza su institución?:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question16" value="1" required>CNT<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question16" value="2" required> Dinámica Gerencial<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question16" value="3" required>Hosvital<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question16" value="4" required>HeOn<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question5" name="question16" value="5" required>SAHI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question6" name="question16" value="6" required>Xenco<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question7" name="question16" value="7" required>CitiSalud<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question8" name="question16" value="8" required>Punto Exe<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question9" name="question16" value="9" required>Hospitec<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question10" name="question16" value="10" required>Hipócrates<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question11" name="question16" value="11" required>SAP<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question12" name="question16" value="12" required>Servinte<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question13" name="question16" value="13" required>SysNet<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question14" name="question16" value="14" required>eSalud<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question15" name="question16" value="15" required>Escafandra<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question16" name="question16" value="16" required>iMedical<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question17" name="question16" value="17" required>OasisCom<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question18" name="question16" value="18" required>FormPlus<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question19" name="question16" value="19" required>Manager Clinic<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question20" name="question16" value="20" required>Gomedisys<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question21" name="question16" value="21" required>SIO Salud<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question22" name="question16" value="22" required>SISFIN<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question23" name="question16" value="23" required>IPSoft<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question24" name="question16" value="24" required>Rocky<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question25" name="question16" value="25" required>Gemar<br>
-  </div>
-    <input type="radio" class="option-input radio" id="question26" name="question16" value="26" onclick="var input = document.getElementById('name4'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name4" name="name4" disabled="disabled"/><br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p16" name="file_p16" accept="image/*,video/*" onchange="enb_dis('file_p16','del_p16')"/>
-    <br><br>
-    <button type="button" id="del_p16" class="state" onclick="delete_attached('del_p16','file_p16')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question17"><h4>17. ¿Cuál es la Arquitectura del sistema de Historia Clínica Digital que utiliza su institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question17" value="1" required>Stand Alone<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question17" value="2" required>Cliente – Servidor<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question17" value="3" required>Web<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question17" value="4" required>SOA<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p17" name="file_p17" accept="image/*,video/*" onchange="enb_dis('file_p17','del_p17')"/>
-    <br><br>
-    <button type="button" id="del_p17" class="state" onclick="delete_attached('del_p17','file_p17')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question18"><h4>18. ¿Hace cuánto tiempo tiene el sistema de Historia Clínica Digital?:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question18" value="1" required>Menos a 1 año<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question18" value="2" required>1 año a 2 años<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question18" value="3" required>2años a 3 años<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question18" value="4" required>Más de 3 años<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p18" name="file_p18" accept="image/*,video/*" onchange="enb_dis('file_p18','del_p18')"/>
-    <br><br>
-    <button type="button" id="del_p18" class="state" onclick="delete_attached('del_p18','file_p18')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question19"><h4>19. ¿Cuántas veces han cambiado de proveedor de sistema de Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question19" value="1" required>Nunca<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question19" value="2" required>Una vez<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question19" value="3" required>Dos veces<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question19" value="4" required>Tres o más veces<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p19" name="file_p19" accept="image/*,video/*" onchange="enb_dis('file_p19','del_p19')"/>
-    <br><br>
-    <button type="button" id="del_p19" class="state" onclick="delete_attached('del_p19','file_p19')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question20"><h4>20. ¿Qué tipo de problemas enfrenta en la actualidad el sistema de Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Escoja las opciones que considere necesarias de acuerdo con su criterio y conocimiento"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question20" ondragover="" class="option-input checkbox" name="cboxq20" value="1"> Sistemas de información con procesos tediosos y poco estructurados</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question20" ondragover="" class="option-input checkbox" name="cboxq20" value="2"> Personal con poca habilidad</label><br>
-  </div>
-    <label><input type="checkbox" class="option-input checkbox" id="question20" name="cboxq20" value="3" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question21"><h4>21. ¿Su sistema de Historia Clínica Digital está separado del sistema administrativo (facturación, elegibilidad, autorización de servicio)?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question21" value="1" required>SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question21" value="2" required>NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p21" name="file_p21" accept="image/*,video/*" onchange="enb_dis('file_p21','del_p21')"/>
-    <br><br>
-    <button type="button" id="del_p21" class="state" onclick="delete_attached('del_p21','file_p21')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question22"><h4>22. ¿Qué otros sistemas de información no integrados a la Historia Clínica Digital tiene la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="1"> Laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="2"> Inventarios</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="3"> RIS/PAC</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="4"> Control de Personal y Visitantes</label><br>
-  </div>
-    <label><input type="checkbox" class="option-input checkbox" id="question22" name="cboxq22" value="5" onclick="var input=document.getElementById('name6'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name6" name="name6" disabled="disabled"/></label><br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p22" name="file_p22" accept="image/*,video/*" onchange="enb_dis('file_p22','del_p22')"/>
-    <br><br>
-    <button type="button" id="del_p22" class="state" onclick="delete_attached('del_p22','file_p22')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question23"><h4>23. ¿Qué porcentaje de los usuarios tienen hoy su Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question23" value="1" required>20% o menos de los usuarios<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question23" value="2" required>Entre 21% y 40% de los usuarios<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question23" value="3" required>Entre 41% y 60% de los usuarios<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question23" value="4" required>Entre 61% y 80% de los usuarios<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question5" name="question23" value="5" required>Entre 81% y 100% de los usuarios<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p23" name="file_p23" accept="image/*,video/*" onchange="enb_dis('file_p23','del_p23')"/>
-    <br><br>
-    <button type="button" id="del_p23" class="state" onclick="delete_attached('del_p23','file_p23')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question24"><h4>24. ¿En cuáles de los siguientes servicios se tiene acceso a las funcionalidades de Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="1"> Ambulatorios</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="2"> Internación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="3"> Quirúrgico</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="4"> Urgencias</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p24" name="file_p24" accept="image/*,video/*" onchange="enb_dis('file_p24','del_p24')"/>
-    <br><br>
-    <button type="button" id="del_p24" class="state" onclick="delete_attached('del_p24','file_p24')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question25"><h4>25. ¿Cuáles fueron los estímulos para decidir implementar la Historia Clínica Digital en la institución?:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="1"> Normativa</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="2"> Tendencia nacional</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="3"> Seguridad del paciente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="4"> Política de conservación del medio ambiente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="5"> Exigencia de entes territoriales</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="6"> Equilibrio en tema de costo – efectividad</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="7"> Ahorro de tiempo</label><br>
-  </div>
-    <label><input type="checkbox" class="option-input checkbox" id="question25" name="cboxq25" value="8" onclick="var input=document.getElementById('name7'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name7" name="name7" disabled="disabled"/></label><br>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question26"><h4>26. ¿Cuáles fueron las principales barreras durante la implementación de la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="1"> Tiempo</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="2"> Ausencia de un profesional líder en el tema</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="3"> Inversión financiera</label><br>
-  </div>
-    <label><input type="checkbox" class="option-input checkbox" id="question26" name="cboxq26" value="4" onclick="var input=document.getElementById('name8'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name8" name="name8" disabled="disabled"/></label><br>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question27"><h4>27. Características y consideraciones de la implementación de Historia Clínica Digital en la organización</h4></label>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question28"><h4>28. ¿Qué tipo de módulos incluye la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="1"> Módulos básicos semiológicos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="2"> Módulos de codificación de tratamiento y servicios</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="3"> Módulos de soporte de toma de decisiones clínicas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="4"> Módulos de manejo y consolidación de medicamentos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="5"> Módulos de manejo de salud poblacional, </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="6"> Módulos de medición y control de calidad de servicio, </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="7"> Módulos de investigación clínica.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="8"> Otros. ¿Cuáles?</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="9"> </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question29"><h4>29. ¿En qué grado está integrada el área de FARMACIA a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question29" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question29" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question29" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question29" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p29" name="file_p29" accept="image/*,video/*" onchange="enb_dis('file_p29','del_p29')"/>
-    <br><br>
-    <button type="button" id="del_p29" class="state" onclick="delete_attached('del_p29','file_p29')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question30"><h4>30. ¿En qué grado está integrada el área de LABORATORIO CLÍNICO a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question30" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question30" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question30" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question30" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p30" name="file_p30" accept="image/*,video/*" onchange="enb_dis('file_p30','del_p30')"/>
-    <br><br>
-    <button type="button" id="del_p30" class="state" onclick="delete_attached('del_p30','file_p30')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question31"><h4>31. ¿En qué grado está integrada el área de IMAGENOLOGÍA a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question31" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question31" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question31" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question31" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p31" name="file_p31" accept="image/*,video/*" onchange="enb_dis('file_p31','del_p31')"/>
-    <br><br>
-    <button type="button" id="del_p31" class="state" onclick="delete_attached('del_p31','file_p31')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question32"><h4>32. ¿En qué grado está integrada el área de HEMODERIVADOS a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question32" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question32" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question32" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question32" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p32" name="file_p32" accept="image/*,video/*" onchange="enb_dis('file_p32','del_p32')"/>
-    <br><br>
-    <button type="button" id="del_p32" class="state" onclick="delete_attached('del_p32','file_p32')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question33"><h4>33. ¿En qué grado está integrada el área de NUTRICIÓN a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question33" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question33" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question33" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question33" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p33" name="file_p33" accept="image/*,video/*" onchange="enb_dis('file_p33','del_p33')"/>
-    <br><br>
-    <button type="button" id="del_p33" class="state" onclick="delete_attached('del_p33','file_p33')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question34"><h4>34. ¿En qué grado está integrada el área de FISIOTERAPIA a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question34" value="1" required>Nada integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question34" value="2" required>Poco integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question34" value="3" required>Bastante integrada<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question34" value="4" required>Totalmente integrada<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p34" name="file_p34" accept="image/*,video/*" onchange="enb_dis('file_p34','del_p34')"/>
-    <br><br>
-    <button type="button" id="del_p34" class="state" onclick="delete_attached('del_p34','file_p34')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question35"><h4>35. Especialmente cuando se habla de las aplicaciones utilizadas para Laboratorio, ya sea interno como externo de la institución, ¿cuáles de los procesos son realizados a través de la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="cboxq35" value="1"> Asignar a cada muestra la identificación del paciente y el estudio realizar (Log in de muestras) </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="cboxq35" value="2"> Resultado del análisis de las muestras</label><br>
-  </div>
-    <label><input type="checkbox" class="option-input checkbox" id="question35" name="cboxq35" value="3" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p35" name="file_p35" accept="image/*,video/*" onchange="enb_dis('file_p35','del_p35')"/>
-    <br><br>
-    <button type="button" id="del_p35" class="state" onclick="delete_attached('del_p35','file_p35')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question36"><h4>36. Especialmente cuando se habla de las aplicaciones utilizadas para Farmacia, ya sea interna como externa de la institución, ¿cuáles de los procesos son realizados a través de la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="1"> Ingreso de la prescripción asociando, paciente y el médico prescriptor y/o el servicio que la genero</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="2"> Registro de la dispensación del producto al paciente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="3"> Se compara la medicación recetada con la medicación administrada al paciente, como por ejemplo código de barras</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="4"> Otros</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p36" name="file_p36" accept="image/*,video/*" onchange="enb_dis('file_p36','del_p36')"/>
-    <br><br>
-    <button type="button" id="del_p36" class="state" onclick="delete_attached('del_p36','file_p36')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question37"><h4>37. ¿Las imágenes diagnósticas que se realizan en la institución están integradas a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question37" value="1" required>SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question37" value="2" required>NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p37" name="file_p37" accept="image/*,video/*" onchange="enb_dis('file_p37','del_p37')"/>
-    <br><br>
-    <button type="button" id="del_p37" class="state" onclick="delete_attached('del_p37','file_p37')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question38"><h4>38. SI SU RESPUESTA A LA PREGUNTA (33) ES POSITIVA (SI), ¿cuáles de las siguientes imágenes diagnósticas que se realizan en la institución están integradas a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="1"> Placas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="2"> Mamografías</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="3"> Resonancias</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="4"> Tomografías</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="5"> Ecografía</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="6"> Ninguna</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="7"> Otras</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p38" name="file_p38" accept="image/*,video/*" onchange="enb_dis('file_p38','del_p38')"/>
-    <br><br>
-    <button type="button" id="del_p38" class="state" onclick="delete_attached('del_p38','file_p38')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question39"><h4>39. Los informes/lecturas de las imágenes que se realizan en la institución están integrados a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question39" value="1" required>SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question39" value="2" required>NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p39" name="file_p39" accept="image/*,video/*" onchange="enb_dis('file_p39','del_p39')"/>
-    <br><br>
-    <button type="button" id="del_p39" class="state" onclick="delete_attached('del_p39','file_p39')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question40"><h4>40. ¿Qué tipo de mecanismos electrónicos (formato, estructura, codificación, imagen) utiliza para generar, recibir y manejar los resultados, y para enviar las órdenes de exámenes a los laboratorios clínicos y centros radiológicos? </h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="1"> Correo electrónico</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="2"> PISIS</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="3"> DICOM</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="4"> LOINC</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="5"> ¿Otros ¿Cuál?</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p40" name="file_p40" accept="image/*,video/*" onchange="enb_dis('file_p40','del_p40')"/>
-    <br><br>
-    <button type="button" id="del_p40" class="state" onclick="delete_attached('del_p40','file_p40')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question41"><h4>41. ¿Debería la Historia Clínica Digital incluir este tipo de mecanismos (de solicitud, de recepción de resultados, de sistema de apoyo de decisiones clínicas)?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question41" value="1" required>SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question41" value="2" required>NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p41" name="file_p41" accept="image/*,video/*" onchange="enb_dis('file_p41','del_p41')"/>
-    <br><br>
-    <button type="button" id="del_p41" class="state" onclick="delete_attached('del_p41','file_p41')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question42"><h4>42. ¿ Cuáles de los siguientes trámites ofrece la institución vía internet?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="1"> Agendar consultas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="2"> Agendar examenes</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="3"> Visualizar resultados de examenes</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="4"> Ver su historia</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="5"> Agregar información a las Historia por parte del paciente</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p42" name="file_p42" accept="image/*,video/*" onchange="enb_dis('file_p42','del_p42')"/>
-    <br><br>
-    <button type="button" id="del_p42" class="state" onclick="delete_attached('del_p42','file_p42')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question43"><h4>43. De los siguientes datos sobre un determinado paciente ¿cuáles de ellos están integrados a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="1"> Datos de identificación del paciente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="2"> Dirección, teléfono fecha de nacimiento</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="3"> Admisión, transferencia y alta</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="4"> Diagnóstico, problemas, o condiciones de salud de un paciente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="5"> Principales motivos que llevaron al paciente a atenderse o consultar</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="6"> Resultados de análisis de laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="7"> Reporte de exámenes radiológicos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="8"> Imágenes de exámenes radiológicos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="9"> Lista de medicamentos prescritos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="10"> Alergias</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="11"> Signos vitales del paciente</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="12"> Historial o anotaciones clínicas sobre la atención</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="13"> Anotaciones de enfermería</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="14"> Datos de vacunación del paciente</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p43" name="file_p43" accept="image/*,video/*" onchange="enb_dis('file_p43','del_p43')"/>
-    <br><br>
-    <button type="button" id="del_p43" class="state" onclick="delete_attached('del_p43','file_p43')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question44"><h4>44. La Historia Clínica Digital permite alguna de las siguientes tareas</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="1"> Visualizar o listar pacientes filtrando por diagnóstico</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="2"> Visualizar o listar pacientes filtrando por resultados de análisis de laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="3"> Visualizar o listar los pacientes que hacen uso de determinada medicación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="4"> Proporcionar informes de alta de los pacientes</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="5"> Visualizar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros médicos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="6"> Visualizar los resultados de análisis de laboratorio de un paciente determinado</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="7"> Visualizar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="8"> Agendar consultas, exámenes y cirugía ambulatorios</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="9"> Agendar consultas exámenes y cirugías en internación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="10"> Prescribir exámenes de laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="11"> Prescribir exámenes radiológicos o de imagenología</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="12"> Prescribir medicación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="13"> Referencia y contra-referencia</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="14"> Ingreso de anotaciones o notas de evolución en las consultas ambulatorias</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="15"> Ingreso de anotaciones o notas de evolución en las consultas de internaciónIngreso de altas de internación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="16"> Codificar la información clínica</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p44" name="file_p44" accept="image/*,video/*" onchange="enb_dis('file_p44','del_p44')"/>
-    <br><br>
-    <button type="button" id="del_p44" class="state" onclick="delete_attached('del_p44','file_p44')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question45"><h4>45. La Historia Clínica Digital puede ser consultada:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="1"> En un solo local dentro de la institución centros de consulta, policlínico.En algunos puntos dentro de la institución centros de consulta, policlínico.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="2"> En todos los puntos dentro de la institución: centros de consulta, policlínico.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="3"> Desde fuera de la institución</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p45" name="file_p45" accept="image/*,video/*" onchange="enb_dis('file_p45','del_p45')"/>
-    <br><br>
-    <button type="button" id="del_p45" class="state" onclick="delete_attached('del_p45','file_p45')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question46"><h4>46. La Historia Clínica Digital de la institución permite alguna de las siguientes funciones:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="1"> Guías clínicas, prácticas recomendadas o protocolos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="2"> Recordatorios y alertas de tratamientos prolongados</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="3"> Recordatorios y alertas de interacción entre medicamentos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="4"> Recordatorios y alertas de dosificación de medicamentos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="5"> Recordatorios y alertas de alergia a medicamentos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="6"> Recordatorios y alertas de interferencia de medicamentos en exámenes de laboratorio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="7"> Recordatorios y alertas de contraindicaciones por segmentos: diferentes edades, sexo o estados como embarazo, etc.</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p46" name="file_p46" accept="image/*,video/*" onchange="enb_dis('file_p46','del_p46')"/>
-    <br><br>
-    <button type="button" id="del_p46" class="state" onclick="delete_attached('del_p46','file_p46')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question47"><h4>47. La Historia Clínica Digital de la institución permite alguna de las siguientes funciones:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="1"> Enviar o recibir información clínica para profesionales de la salud de otras instituciones</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="2"> Enviar o recibir referencias de pacientes con otras instituciones, de forma electrónica</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="3"> Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="4"> Enviar o recibir información sobre los medicamentos prescriptos a un paciente.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="5"> Enviar o recibir resultados de exámenes de laboratorio con otras instituciones</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="6"> Enviar o recibir resultados (informes) de exámenes de imagen con otras instituciones</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="7"> Enviar o recibir resultados (imágenes) de exámenes de imagen con otras instituciones</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="8"> Enviar o recibir plan de cuidados de enfermería</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p47" name="file_p47" accept="image/*,video/*" onchange="enb_dis('file_p47','del_p47')"/>
-    <br><br>
-    <button type="button" id="del_p47" class="state" onclick="delete_attached('del_p47','file_p47')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question48"><h4>48. Aplicación administrativa</h4></label>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question49"><h4>49. ¿Cuáles son las funcionalidades administrativas que ofrece el sistema de Historia Clínica Digital de la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="1"> Realización del cuadro de turnos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="2"> Calculo de horas laborales</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="3"> Pago de nómina</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="4"> Liquidación del personal</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="5"> Presentación de informes y/ o actas.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="6"> Otro ¿Cuál?</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="7"> </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p49" name="file_p49" accept="image/*,video/*" onchange="enb_dis('file_p49','del_p49')"/>
-    <br><br>
-    <button type="button" id="del_p49" class="state" onclick="delete_attached('del_p49','file_p49')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question50"><h4>50. ¿Qué tipo de módulos administrativos incluye la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="1"> Portal del usuario</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="2"> Facturación y autorizaciones.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="3"> Control de costo y utilización de servicios.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="4"> Intercambio de información entre prestadores y aseguradoras.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="5"> </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p50" name="file_p50" accept="image/*,video/*" onchange="enb_dis('file_p50','del_p50')"/>
-    <br><br>
-    <button type="button" id="del_p50" class="state" onclick="delete_attached('del_p50','file_p50')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question51"><h4>51. ¿En sus interacciones con las aseguradoras de salud que tipo de sistemas de información y herramientas electrónicas utiliza para ejecutar funciones administrativas?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="1"> Confirmación de afiliación.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="2"> Verificación de elegibilidad a servicios.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="3"> Solicitud y recibo de confirmación de aprobación de servicios específicos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="4"> Facturación y pago</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="5"> </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p51" name="file_p51" accept="image/*,video/*" onchange="enb_dis('file_p51','del_p51')"/>
-    <br><br>
-    <button type="button" id="del_p51" class="state" onclick="delete_attached('del_p51','file_p51')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question52"><h4>52. Aplicación en salud pública</h4></label>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question53"><h4>53. ¿Qué tipo de módulos incluye la Historia Clínica Digital para el manejo de la salud pública?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="1"> Gestión de riesgo.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="2"> Prevención y manejo de condiciones de salud pública</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="3"> Análisis predictivo.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="4"> Reporte de casos de vigilancia epidemiológica a entes locales, territoriales y nacionales</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="5"> Otro ¿Cuál?</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="6"> </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p53" name="file_p53" accept="image/*,video/*" onchange="enb_dis('file_p53','del_p53')"/>
-    <br><br>
-    <button type="button" id="del_p53" class="state" onclick="delete_attached('del_p53','file_p53')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question54"><h4>54. En sus interacciones con las entidades de salud pública, ¿qué tipo de sistemas de información y herramientas electrónicas utiliza para recoger, agregar y generar reportes periódicos de enfermedades de reporte obligatorio?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="1"> SIVIGILA</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="2"> CRUE</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="3"> SISPRO</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p54" name="file_p54" accept="image/*,video/*" onchange="enb_dis('file_p54','del_p54')"/>
-    <br><br>
-    <button type="button" id="del_p54" class="state" onclick="delete_attached('del_p54','file_p54')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question55"><h4>55. Los principales beneficios que conlleva la implementación de un sistema de Historia Clínica Digital a la organización, ¿está relacionado con alguna de las siguientes áreas?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="1"> Clínicas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="2"> Administrativa</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="3"> Reporte externo</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="4"> Salud pública</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="5"> Academia/ investigación</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="6"> Costos</label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p55" name="file_p55" accept="image/*,video/*" onchange="enb_dis('file_p55','del_p55')"/>
-    <br><br>
-    <button type="button" id="del_p55" class="state" onclick="delete_attached('del_p55','file_p55')" disabled="disabled">Eliminar soporte</button>
+
+
+
+<div class="hidden" id="q11container">
+
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question13"><h4>11. ¿Tiene planes de implementar la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question13" value="1" required>SI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question13" value="2" required>NO<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question14"><h4>12. ¿En cuánto tiempo tiene planificado implementar la Historia Clínica Digital (meses/años)?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question14" value="1" required>No está planeado<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question14" value="2" required>De 1 año a 2 años<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question3" name="question14" value="3" required>De 6 meses a 1año
+  <br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question4" name="question14" value="4" required>Menos de 6 meses<br>
+    </div>
+      <br>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="hidden" id="q13container">
+
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question15"><h4>13. indique el monto aproximado de la inversión en la adopción de Historia Clínica Digital en su institución COP </h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <label>Monto</label>
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+      <input type="text" id="q15f1" name="q15f1" placeholder="0" required><br>
+    </div>
+  </div>
+      <br>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p15" name="file_p15" accept="image/*,video/*" onchange="enb_dis('file_p15','del_p15')"/>
+      <br><br>
+      <button type="button" id="del_p15" class="state" onclick="delete_attached('del_p15','file_p15')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question16"><h4>14. ¿Qué tipo de sistema de Historia Clínica Digital utiliza su institución?:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question16" value="1" required>CNT<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question16" value="2" required> Dinámica Gerencial<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question3" name="question16" value="3" required>Hosvital<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question4" name="question16" value="4" required>HeOn<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question5" name="question16" value="5" required>SAHI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question6" name="question16" value="6" required>Xenco<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question7" name="question16" value="7" required>CitiSalud<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question8" name="question16" value="8" required>Punto Exe<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question9" name="question16" value="9" required>Hospitec<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question10" name="question16" value="10" required>Hipócrates<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question11" name="question16" value="11" required>SAP<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question12" name="question16" value="12" required>Servinte<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question13" name="question16" value="13" required>SysNet<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question14" name="question16" value="14" required>eSalud<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question15" name="question16" value="15" required>Escafandra<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question16" name="question16" value="16" required>iMedical<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question17" name="question16" value="17" required>OasisCom<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question18" name="question16" value="18" required>FormPlus<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question19" name="question16" value="19" required>Manager Clinic<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question20" name="question16" value="20" required>Gomedisys<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question21" name="question16" value="21" required>SIO Salud<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question22" name="question16" value="22" required>SISFIN<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question23" name="question16" value="23" required>IPSoft<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question24" name="question16" value="24" required>Rocky<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question25" name="question16" value="25" required>Gemar<br>
+    </div>
+      <input type="radio" class="option-input radio" id="question26" name="question16" value="26" onclick="var input = document.getElementById('name4'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name4" name="name4" disabled="disabled"/><br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p16" name="file_p16" accept="image/*,video/*" onchange="enb_dis('file_p16','del_p16')"/>
+      <br><br>
+      <button type="button" id="del_p16" class="state" onclick="delete_attached('del_p16','file_p16')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question17"><h4>15. ¿Cuál es la Arquitectura del sistema de Historia Clínica Digital que utiliza su institución?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question17" value="1" required>Stand Alone<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question17" value="2" required>Cliente – Servidor<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question3" name="question17" value="3" required>Web<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question4" name="question17" value="4" required>SOA<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p17" name="file_p17" accept="image/*,video/*" onchange="enb_dis('file_p17','del_p17')"/>
+      <br><br>
+      <button type="button" id="del_p17" class="state" onclick="delete_attached('del_p17','file_p17')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question18"><h4>16. ¿Hace cuánto tiempo tiene el sistema de Historia Clínica Digital?:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question18" value="1" required>Menos a 1 año<br>
+    <input type="radio" class="option-input radio" id="question2" name="question18" value="2" required>1 año a 2 años<br>
+    <input type="radio" class="option-input radio" id="question3" name="question18" value="3" required>2años a 3 años<br>
+    <input type="radio" class="option-input radio" id="question4" name="question18" value="4" required>Más de 3 años<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p18" name="file_p18" accept="image/*,video/*" onchange="enb_dis('file_p18','del_p18')"/>
+      <br><br>
+      <button type="button" id="del_p18" class="state" onclick="delete_attached('del_p18','file_p18')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question19"><h4>17. ¿Cuántas veces han cambiado de proveedor de sistema de Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question19" value="1" required>Nunca<br>
+    <input type="radio" class="option-input radio" id="question2" name="question19" value="2" required>Una vez<br>
+    <input type="radio" class="option-input radio" id="question3" name="question19" value="3" required>Dos veces<br>
+    <input type="radio" class="option-input radio" id="question4" name="question19" value="4" required>Tres o más veces<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p19" name="file_p19" accept="image/*,video/*" onchange="enb_dis('file_p19','del_p19')"/>
+      <br><br>
+      <button type="button" id="del_p19" class="state" onclick="delete_attached('del_p19','file_p19')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question20"><h4>18. ¿Qué tipo de problemas enfrenta en la actualidad el sistema de Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Escoja las opciones que considere necesarias de acuerdo con su criterio y conocimiento"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label><input type="checkbox" id="question20" ondragover="" class="option-input checkbox" name="cboxq20" value="1"> Sistemas de información con procesos tediosos y poco estructurados</label><br>
+      <label><input type="checkbox" id="question20" ondragover="" class="option-input checkbox" name="cboxq20" value="2"> Personal con poca habilidad</label><br>
+      <label><input type="checkbox" class="option-input checkbox" id="question20" name="cboxq20" value="3" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+      <br>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question21"><h4>19. ¿Su sistema de Historia Clínica Digital está separado del sistema administrativo (facturación, elegibilidad, autorización de servicio)?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question21" value="1" required>SI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question21" value="2" required>NO<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p21" name="file_p21" accept="image/*,video/*" onchange="enb_dis('file_p21','del_p21')"/>
+      <br><br>
+      <button type="button" id="del_p21" class="state" onclick="delete_attached('del_p21','file_p21')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question22"><h4>20. ¿Qué otros sistemas de información no integrados a la Historia Clínica Digital tiene la institución?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="1"> Laboratorio</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="2"> Inventarios</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="3"> RIS/PAC</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question22" ondragover="" class="option-input checkbox" name="cboxq22" value="4"> Control de Personal y Visitantes</label><br>
+    </div>
+      <label><input type="checkbox" class="option-input checkbox" id="question22" name="cboxq22" value="5" onclick="var input=document.getElementById('name6'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name6" name="name6" disabled="disabled"/></label><br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p22" name="file_p22" accept="image/*,video/*" onchange="enb_dis('file_p22','del_p22')"/>
+      <br><br>
+      <button type="button" id="del_p22" class="state" onclick="delete_attached('del_p22','file_p22')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question23"><h4>21. ¿Qué porcentaje de los usuarios tienen hoy su Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question23" value="1" required>20% o menos de los usuarios<br>
+    <input type="radio" class="option-input radio" id="question2" name="question23" value="2" required>Entre 21% y 40% de los usuarios<br>
+    <input type="radio" class="option-input radio" id="question3" name="question23" value="3" required>Entre 41% y 60% de los usuarios<br>
+    <input type="radio" class="option-input radio" id="question4" name="question23" value="4" required>Entre 61% y 80% de los usuarios<br>
+    <input type="radio" class="option-input radio" id="question5" name="question23" value="5" required>Entre 81% y 100% de los usuarios<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p23" name="file_p23" accept="image/*,video/*" onchange="enb_dis('file_p23','del_p23')"/>
+      <br><br>
+      <button type="button" id="del_p23" class="state" onclick="delete_attached('del_p23','file_p23')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question24"><h4>22. ¿En cuáles de los siguientes servicios se tiene acceso a las funcionalidades de Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="1"> Ambulatorios</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="2"> Internación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="3"> Quirúrgico</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question24" ondragover="" class="option-input checkbox" name="cboxq24" value="4"> Urgencias</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p24" name="file_p24" accept="image/*,video/*" onchange="enb_dis('file_p24','del_p24')"/>
+      <br><br>
+      <button type="button" id="del_p24" class="state" onclick="delete_attached('del_p24','file_p24')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question25"><h4>23. ¿Cuáles fueron los estímulos para decidir implementar la Historia Clínica Digital en la institución?:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="1"> Normativa</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="2"> Tendencia nacional</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="3"> Seguridad del paciente</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="4"> Política de conservación del medio ambiente</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="5"> Exigencia de entes territoriales</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="6"> Equilibrio en tema de costo – efectividad</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question25" ondragover="" class="option-input checkbox" name="cboxq25" value="7"> Ahorro de tiempo</label><br>
+    </div>
+      <label><input type="checkbox" class="option-input checkbox" id="question25" name="cboxq25" value="8" onclick="var input=document.getElementById('name7'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name7" name="name7" disabled="disabled"/></label><br>
+      <br>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question26"><h4>24. ¿Cuáles fueron las principales barreras durante la implementación de la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="1"> Tiempo</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="2"> Ausencia de un profesional líder en el tema</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="cboxq26" value="3"> Inversión financiera</label><br>
+    </div>
+      <label><input type="checkbox" class="option-input checkbox" id="question26" name="cboxq26" value="4" onclick="var input=document.getElementById('name8'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name8" name="name8" disabled="disabled"/></label><br>
+      <br>
+    </div>
+  </div>
+
+
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question27"><h4>Características y consideraciones de la implementación de Historia Clínica Digital en la organización</h4></label>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question28"><h4>25. ¿Qué tipo de módulos incluye la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="1"> Módulos básicos semiológicos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="2"> Módulos de codificación de tratamiento y servicios</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="3"> Módulos de soporte de toma de decisiones clínicas</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="4"> Módulos de manejo y consolidación de medicamentos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="5"> Módulos de manejo de salud poblacional, </label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="6"> Módulos de medición y control de calidad de servicio, </label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="7"> Módulos de investigación clínica.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question28" ondragover="" class="option-input checkbox" name="cboxq28" value="8" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+      </div>
+      <br>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question29"><h4>26. ¿En qué grado está integrada el área de FARMACIA a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question29" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question29" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question29" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question29" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p29" name="file_p29" accept="image/*,video/*" onchange="enb_dis('file_p29','del_p29')"/>
+      <br><br>
+      <button type="button" id="del_p29" class="state" onclick="delete_attached('del_p29','file_p29')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question30"><h4>27. ¿En qué grado está integrada el área de LABORATORIO CLÍNICO a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question30" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question30" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question30" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question30" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p30" name="file_p30" accept="image/*,video/*" onchange="enb_dis('file_p30','del_p30')"/>
+      <br><br>
+      <button type="button" id="del_p30" class="state" onclick="delete_attached('del_p30','file_p30')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question31"><h4>28. ¿En qué grado está integrada el área de IMAGENOLOGÍA a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question31" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question31" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question31" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question31" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p31" name="file_p31" accept="image/*,video/*" onchange="enb_dis('file_p31','del_p31')"/>
+      <br><br>
+      <button type="button" id="del_p31" class="state" onclick="delete_attached('del_p31','file_p31')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question32"><h4>29. ¿En qué grado está integrada el área de HEMODERIVADOS a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question32" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question32" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question32" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question32" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p32" name="file_p32" accept="image/*,video/*" onchange="enb_dis('file_p32','del_p32')"/>
+      <br><br>
+      <button type="button" id="del_p32" class="state" onclick="delete_attached('del_p32','file_p32')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question33"><h4>30. ¿En qué grado está integrada el área de NUTRICIÓN a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question33" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question33" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question33" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question33" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p33" name="file_p33" accept="image/*,video/*" onchange="enb_dis('file_p33','del_p33')"/>
+      <br><br>
+      <button type="button" id="del_p33" class="state" onclick="delete_attached('del_p33','file_p33')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question34"><h4>31. ¿En qué grado está integrada el área de FISIOTERAPIA a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question34" value="1" required>Nada integrada<br>
+    <input type="radio" class="option-input radio" id="question2" name="question34" value="2" required>Poco integrada<br>
+    <input type="radio" class="option-input radio" id="question3" name="question34" value="3" required>Bastante integrada<br>
+    <input type="radio" class="option-input radio" id="question4" name="question34" value="4" required>Totalmente integrada<br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p34" name="file_p34" accept="image/*,video/*" onchange="enb_dis('file_p34','del_p34')"/>
+      <br><br>
+      <button type="button" id="del_p34" class="state" onclick="delete_attached('del_p34','file_p34')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question35"><h4>32. Especialmente cuando se habla de las aplicaciones utilizadas para Laboratorio, ya sea interno como externo de la institución, ¿cuáles de los procesos son realizados a través de la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="cboxq35" value="1"> Asignar a cada muestra la identificación del paciente y el estudio realizar (Log in de muestras) </label><br>
+      <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="cboxq35" value="2"> Resultado del análisis de las muestras</label><br>
+      <label><input type="checkbox" class="option-input checkbox" id="question35" name="cboxq35" value="3" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p35" name="file_p35" accept="image/*,video/*" onchange="enb_dis('file_p35','del_p35')"/>
+      <br><br>
+      <button type="button" id="del_p35" class="state" onclick="delete_attached('del_p35','file_p35')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question36"><h4>33. Especialmente cuando se habla de las aplicaciones utilizadas para Farmacia, ya sea interna como externa de la institución, ¿cuáles de los procesos son realizados a través de la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="1"> Ingreso de la prescripción asociando, paciente y el médico prescriptor y/o el servicio que la genero</label><br>
+      <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="2"> Registro de la dispensación del producto al paciente</label><br>
+      <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="3"> Se compara la medicación recetada con la medicación administrada al paciente, como por ejemplo código de barras</label><br>
+      <label><input type="checkbox" id="question36" ondragover="" class="option-input checkbox" name="cboxq36" value="4" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otros<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p36" name="file_p36" accept="image/*,video/*" onchange="enb_dis('file_p36','del_p36')"/>
+      <br><br>
+      <button type="button" id="del_p36" class="state" onclick="delete_attached('del_p36','file_p36')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question37"><h4>34. ¿Las imágenes diagnósticas que se realizan en la institución están integradas a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question37" value="1" onclick="yesnoCheck(this, q35container, q36container);" required>SI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question37" value="2" onclick="yesnoCheck(this, q36container, q35container);" required>NO<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p37" name="file_p37" accept="image/*,video/*" onchange="enb_dis('file_p37','del_p37')"/>
+      <br><br>
+      <button type="button" id="del_p37" class="state" onclick="delete_attached('del_p37','file_p37')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+
+  <div class="hidden" id="q36container"></div>
+
+  <div class="hidden" id="q35container">
+
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question38"><h4>35. ¿cuáles de las siguientes imágenes diagnósticas que se realizan en la institución están integradas a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="1"> Placas</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="2"> Mamografías</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="3"> Resonancias</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="4"> Tomografías</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="5"> Ecografía</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="6"> Ninguna</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question38" ondragover="" class="option-input checkbox" name="cboxq38" value="7"> Otras</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p38" name="file_p38" accept="image/*,video/*" onchange="enb_dis('file_p38','del_p38')"/>
+      <br><br>
+      <button type="button" id="del_p38" class="state" onclick="delete_attached('del_p38','file_p38')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+
+</div>
+
+
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question39"><h4>36. Los informes/lecturas de las imágenes que se realizan en la institución están integrados a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question39" value="1" required>SI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question39" value="2" required>NO<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p39" name="file_p39" accept="image/*,video/*" onchange="enb_dis('file_p39','del_p39')"/>
+      <br><br>
+      <button type="button" id="del_p39" class="state" onclick="delete_attached('del_p39','file_p39')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question40"><h4>37. ¿Qué tipo de mecanismos electrónicos (formato, estructura, codificación, imagen) utiliza para generar, recibir y manejar los resultados, y para enviar las órdenes de exámenes a los laboratorios clínicos y centros radiológicos? </h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="1"> Correo electrónico</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="2"> PISIS</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="3"> DICOM</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="4"> LOINC</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question40" ondragover="" class="option-input checkbox" name="cboxq40" value="5" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+
+    </div>
+
+
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p40" name="file_p40" accept="image/*,video/*" onchange="enb_dis('file_p40','del_p40')"/>
+      <br><br>
+      <button type="button" id="del_p40" class="state" onclick="delete_attached('del_p40','file_p40')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question41"><h4>38. ¿Debería la Historia Clínica Digital incluir este tipo de mecanismos (de solicitud, de recepción de resultados, de sistema de apoyo de decisiones clínicas)?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question1" name="question41" value="1" required>SI<br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="radio" class="option-input radio" id="question2" name="question41" value="2" required>NO<br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p41" name="file_p41" accept="image/*,video/*" onchange="enb_dis('file_p41','del_p41')"/>
+      <br><br>
+      <button type="button" id="del_p41" class="state" onclick="delete_attached('del_p41','file_p41')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question42"><h4>39. ¿ Cuáles de los siguientes trámites ofrece la institución vía internet?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="1"> Agendar consultas</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="2"> Agendar examenes</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="3"> Visualizar resultados de examenes</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="4"> Ver su historia</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question42" ondragover="" class="option-input checkbox" name="cboxq42" value="5"> Agregar información a las Historia por parte del paciente</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p42" name="file_p42" accept="image/*,video/*" onchange="enb_dis('file_p42','del_p42')"/>
+      <br><br>
+      <button type="button" id="del_p42" class="state" onclick="delete_attached('del_p42','file_p42')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question43"><h4>40. De los siguientes datos sobre un determinado paciente ¿cuáles de ellos están integrados a la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="1"> Datos de identificación del paciente</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="2"> Dirección, teléfono fecha de nacimiento</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="3"> Admisión, transferencia y alta</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="4"> Diagnóstico, problemas, o condiciones de salud de un paciente</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="5"> Principales motivos que llevaron al paciente a atenderse o consultar</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="6"> Resultados de análisis de laboratorio</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="7"> Reporte de exámenes radiológicos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="8"> Imágenes de exámenes radiológicos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="9"> Lista de medicamentos prescritos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="10"> Alergias</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="11"> Signos vitales del paciente</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="12"> Historial o anotaciones clínicas sobre la atención</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="13"> Anotaciones de enfermería</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question43" ondragover="" class="option-input checkbox" name="cboxq43" value="14"> Datos de vacunación del paciente</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p43" name="file_p43" accept="image/*,video/*" onchange="enb_dis('file_p43','del_p43')"/>
+      <br><br>
+      <button type="button" id="del_p43" class="state" onclick="delete_attached('del_p43','file_p43')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question44"><h4>41. La Historia Clínica Digital permite alguna de las siguientes tareas</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="1"> Visualizar o listar pacientes filtrando por diagnóstico</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="2"> Visualizar o listar pacientes filtrando por resultados de análisis de laboratorio</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="3"> Visualizar o listar los pacientes que hacen uso de determinada medicación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="4"> Proporcionar informes de alta de los pacientes</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="5"> Visualizar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros médicos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="6"> Visualizar los resultados de análisis de laboratorio de un paciente determinado</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="7"> Visualizar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="8"> Agendar consultas, exámenes y cirugía ambulatorios</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="9"> Agendar consultas exámenes y cirugías en internación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="10"> Prescribir exámenes de laboratorio</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="11"> Prescribir exámenes radiológicos o de imagenología</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="12"> Prescribir medicación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="13"> Referencia y contra-referencia</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="14"> Ingreso de anotaciones o notas de evolución en las consultas ambulatorias</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="15"> Ingreso de anotaciones o notas de evolución en las consultas de internaciónIngreso de altas de internación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question44" ondragover="" class="option-input checkbox" name="cboxq44" value="16"> Codificar la información clínica</label><br>
+    </div>
+      <br>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p44" name="file_p44" accept="image/*,video/*" onchange="enb_dis('file_p44','del_p44')"/>
+      <br><br>
+      <button type="button" id="del_p44" class="state" onclick="delete_attached('del_p44','file_p44')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question45"><h4>42. La Historia Clínica Digital puede ser consultada:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="1"> En un solo local dentro de la institución centros de consulta, policlínico.En algunos puntos dentro de la institución centros de consulta, policlínico.</label><br>
+      <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="2"> En todos los puntos dentro de la institución: centros de consulta, policlínico.</label><br>
+      <label><input type="checkbox" id="question45" ondragover="" class="option-input checkbox" name="cboxq45" value="3"> Desde fuera de la institución</label><br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p45" name="file_p45" accept="image/*,video/*" onchange="enb_dis('file_p45','del_p45')"/>
+      <br><br>
+      <button type="button" id="del_p45" class="state" onclick="delete_attached('del_p45','file_p45')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question46"><h4>43. La Historia Clínica Digital de la institución permite alguna de las siguientes funciones:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="1"> Guías clínicas, prácticas recomendadas o protocolos</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="2"> Recordatorios y alertas de tratamientos prolongados</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="3"> Recordatorios y alertas de interacción entre medicamentos</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="4"> Recordatorios y alertas de dosificación de medicamentos</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="5"> Recordatorios y alertas de alergia a medicamentos</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="6"> Recordatorios y alertas de interferencia de medicamentos en exámenes de laboratorio</label><br>
+      <label><input type="checkbox" id="question46" ondragover="" class="option-input checkbox" name="cboxq46" value="7"> Recordatorios y alertas de contraindicaciones por segmentos: diferentes edades, sexo o estados como embarazo, etc.</label><br>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p46" name="file_p46" accept="image/*,video/*" onchange="enb_dis('file_p46','del_p46')"/>
+      <br><br>
+      <button type="button" id="del_p46" class="state" onclick="delete_attached('del_p46','file_p46')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question47"><h4>44. La Historia Clínica Digital de la institución permite alguna de las siguientes funciones:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="1"> Enviar o recibir información clínica para profesionales de la salud de otras instituciones</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="2"> Enviar o recibir referencias de pacientes con otras instituciones, de forma electrónica</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="3"> Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="4"> Enviar o recibir información sobre los medicamentos prescriptos a un paciente.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="5"> Enviar o recibir resultados de exámenes de laboratorio con otras instituciones</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="6"> Enviar o recibir resultados (informes) de exámenes de imagen con otras instituciones</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="7"> Enviar o recibir resultados (imágenes) de exámenes de imagen con otras instituciones</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question47" ondragover="" class="option-input checkbox" name="cboxq47" value="8"> Enviar o recibir plan de cuidados de enfermería</label><br>
+    </div>
+      <br>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p47" name="file_p47" accept="image/*,video/*" onchange="enb_dis('file_p47','del_p47')"/>
+      <br><br>
+      <button type="button" id="del_p47" class="state" onclick="delete_attached('del_p47','file_p47')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question48"><h4>Aplicación administrativa</h4></label>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question49"><h4>45. ¿Cuáles son las funcionalidades administrativas que ofrece el sistema de Historia Clínica Digital de la institución?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="1"> Realización del cuadro de turnos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="2"> Calculo de horas laborales</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="3"> Pago de nómina</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="4"> Liquidación del personal</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="5"> Presentación de informes y/ o actas.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question49" ondragover="" class="option-input checkbox" name="cboxq49" value="6" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+
+    </div>
+
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p49" name="file_p49" accept="image/*,video/*" onchange="enb_dis('file_p49','del_p49')"/>
+      <br><br>
+      <button type="button" id="del_p49" class="state" onclick="delete_attached('del_p49','file_p49')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question50"><h4>46. ¿Qué tipo de módulos administrativos incluye la Historia Clínica Digital?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="1"> Portal del usuario</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="2"> Facturación y autorizaciones.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="3"> Control de costo y utilización de servicios.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question50" ondragover="" class="option-input checkbox" name="cboxq50" value="4"> Intercambio de información entre prestadores y aseguradoras.</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p50" name="file_p50" accept="image/*,video/*" onchange="enb_dis('file_p50','del_p50')"/>
+      <br><br>
+      <button type="button" id="del_p50" class="state" onclick="delete_attached('del_p50','file_p50')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question51"><h4>47. ¿En sus interacciones con las aseguradoras de salud que tipo de sistemas de información y herramientas electrónicas utiliza para ejecutar funciones administrativas?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="1"> Confirmación de afiliación.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="2"> Verificación de elegibilidad a servicios.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="3"> Solicitud y recibo de confirmación de aprobación de servicios específicos</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question51" ondragover="" class="option-input checkbox" name="cboxq51" value="4"> Facturación y pago</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p51" name="file_p51" accept="image/*,video/*" onchange="enb_dis('file_p51','del_p51')"/>
+      <br><br>
+      <button type="button" id="del_p51" class="state" onclick="delete_attached('del_p51','file_p51')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question52"><h4>Aplicación en salud pública</h4></label>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question53"><h4>48. ¿Qué tipo de módulos incluye la Historia Clínica Digital para el manejo de la salud pública?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="1"> Gestión de riesgo.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="2"> Prevención y manejo de condiciones de salud pública</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="3"> Análisis predictivo.</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="4"> Reporte de casos de vigilancia epidemiológica a entes locales, territoriales y nacionales</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question53" ondragover="" class="option-input checkbox" name="cboxq53" value="5" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name9" name="name9" disabled="disabled"/></label><br>
+    </div>
+      <br>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p53" name="file_p53" accept="image/*,video/*" onchange="enb_dis('file_p53','del_p53')"/>
+      <br><br>
+      <button type="button" id="del_p53" class="state" onclick="delete_attached('del_p53','file_p53')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question54"><h4>49. En sus interacciones con las entidades de salud pública, ¿qué tipo de sistemas de información y herramientas electrónicas utiliza para recoger, agregar y generar reportes periódicos de enfermedades de reporte obligatorio?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="1"> SIVIGILA</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="2"> CRUE</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question54" ondragover="" class="option-input checkbox" name="cboxq54" value="3"> SISPRO</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p54" name="file_p54" accept="image/*,video/*" onchange="enb_dis('file_p54','del_p54')"/>
+      <br><br>
+      <button type="button" id="del_p54" class="state" onclick="delete_attached('del_p54','file_p54')" disabled="disabled">Eliminar soporte</button>
+    </div>
+  </div>
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question55"><h4>50. Los principales beneficios que conlleva la implementación de un sistema de Historia Clínica Digital a la organización, ¿está relacionado con alguna de las siguientes áreas?</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="1"> Clínicas</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="2"> Administrativa</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="3"> Reporte externo</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="4"> Salud pública</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="5"> Academia/ investigación</label><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question55" ondragover="" class="option-input checkbox" name="cboxq55" value="6"> Costos</label><br>
+    </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p55" name="file_p55" accept="image/*,video/*" onchange="enb_dis('file_p55','del_p55')"/>
+      <br><br>
+      <button type="button" id="del_p55" class="state" onclick="delete_attached('del_p55','file_p55')" disabled="disabled">Eliminar soporte</button>
+    </div>
   </div>
 </div>
 <br><hr>
