@@ -3,6 +3,7 @@
 	<head>
 
 		<link rel="stylesheet" href="static/login_style.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,7 +18,13 @@
 			var cityLists = {{cities|safe}}
 		</script>
 		<!-- Funciones javascript -->
-		
+              
+		<div class="topnav" id="myTopnav">	
+                <a href="/">
+                    <img src="static/Logos_header.png" width="80%" class="img-responsive">
+                </a>
+        </div>
+
 		<div class="wrapper">
 	
 			<div class="container" style="width:100%">
@@ -39,7 +46,7 @@
                         <option  value ="">Seleccionar</option>
                     </select> 
                     <br> 						
-                    <button type="submit" class="state">Registro</button>
+                    <button type="submit" class="state">Continuar</button>
                 </form>		
 			</div>
 		</div>

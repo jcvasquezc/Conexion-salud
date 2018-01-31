@@ -263,19 +263,19 @@ def preguntas_mod2():
 
 @app.route("/preguntas_mod3", methods=['GET', 'POST'])
 def preguntas_mod3():
-return render_template('preguntas_mod3.html')
+    return render_template('preguntas_mod3.html')
 
 @app.route("/preguntas_mod4", methods=['GET', 'POST'])
 def preguntas_mod4():
-return render_template('preguntas_mod4.html')
+    return render_template('preguntas_mod4.html')
 
 @app.route("/preguntas_mod5", methods=['GET', 'POST'])
 def preguntas_mod5():
-return render_template('preguntas_mod5.html')
+    return render_template('preguntas_mod5.html')
 
 @app.route("/preguntas_mod6", methods=['GET', 'POST'])
 def preguntas_mod6():
-return render_template('preguntas_mod6.html')
+    return render_template('preguntas_mod6.html')
 
 if __name__ == "__main__":
     app.run()
