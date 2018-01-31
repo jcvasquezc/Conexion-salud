@@ -3,7 +3,7 @@ import pandas as pd
 
 
 
-df=pd.read_csv('./static/encuestaMod1.csv')
+df=pd.read_csv('./static/encuestaMod5.csv')
 df.head
 Nq=len(df)
 l=0
@@ -125,7 +125,7 @@ header2=open('./templates/header2.txt', 'r')
 header2txt=header2.read()
 
 
-file_preg = open('./templates/preguntas_mod1.html','w')
+file_preg = open('./templates/preguntas_mod5.html','w')
 
 file_preg.write(header1txt)
 file_preg.write('\n')

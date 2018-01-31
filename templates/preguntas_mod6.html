@@ -33,7 +33,19 @@
 		{
 			document.getElementById(name).value = "";
 			document.getElementById(btn_del).disabled = true;
-		}
+    }
+    
+    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
+      
+      
+      if (questionIDYesNO.checked) {
+        $(questionIDYes).removeClass("hidden");
+        $(questionIDNO).addClass("hidden");
+
+      }
+
+    }
+
    </script>
 
 <body>
@@ -57,17 +69,19 @@
 
 
   <form enctype=multipart/form-data action="analisis" class="register" method="post">
-      <p class="title"> MÓDULO 3. Infraestructura TIC</p>
+      <p class="title"> 
+        MÓDULO 6. Habilidades en el uso de TIC
+        </p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. Tecnologías y servicios para el talento humano que labora en la institución</h4></label>
+    <label for="question1"><h4>Tecnologías y servicios para el talento humano que labora en la institución</h4></label>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>2. ¿Hay computadores disponibles para el personal (Talento humano) que labora en la institución? Computadores que puedan ser utilizados en los períodos de descanso.</h4></label>
+    <label for="question2"><h4>1. ¿Hay computadores disponibles para el personal (Talento humano) que labora en la institución? Computadores que puedan ser utilizados en los períodos de descanso.</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -90,10 +104,16 @@
     <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
+
+
+
+
+
+
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>3. ¿Qué tipo de computadores o PC posee la institución?</h4></label>
+    <label for="question3"><h4>2. ¿Qué tipo de computadores o PC posee la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -119,10 +139,12 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>4. En promedio, ¿Cuántos computadores posee la institución?</h4></label>
+    <label for="question4"><h4>3. En promedio, ¿Cuántos computadores posee la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
+<div class="row">
+
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Computador de escritorio</label>
   </div>
@@ -134,6 +156,7 @@
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
     <input type="text" id="q4f2" name="q4f2" placeholder="0" required><br>
+</div>
 </div>
     <br>
 <div class="row">
@@ -147,7 +170,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>5. ¿Cuál es el uso que el personal de la institución da a los computadores?</h4></label>
+    <label for="question5"><h4>4. ¿Cuál es el uso que el personal de la institución da a los computadores?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -163,11 +186,12 @@
     <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="3"> Laboral</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="4"> Otro  ¿Cuál?</label><br>
-  </div>
-    <br>
+    <label><input type="checkbox" class="option-input checkbox" id="question5" name="cboxq5" value="4" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+
   </div>
 </div>
+</div>
+
 <div class="row">
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <label>Adjuntar soporte:</label>
@@ -179,24 +203,16 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>6. En promedio, ¿cuál es el grado de conocimientos del personal de la institución en el uso de computadores?</h4></label>
+    <label for="question6"><h4>5. En promedio, ¿cuál es el grado de conocimientos del personal de la institución en el uso de computadores?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question1" name="question6" value="1" required>Experto<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question2" name="question6" value="2" required>Avanzado<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question3" name="question6" value="3" required>Intermedio<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 	 <input type="radio" class="option-input radio" id="question4" name="question6" value="4" required>Básico<br>
-  </div>
     <br>
   </div>
 </div>
@@ -211,49 +227,49 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7"><h4>7. ¿El personal de la institución, sabe cómo activar y desactivar en el celular y/ o computador las siguientes funciones?</h4></label>
+    <label for="question7"><h4>6. ¿El personal de la institución, sabe cómo activar y desactivar en el celular y/ o computador las siguientes funciones?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="1"> Redes WiFi/Datos </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="2"> Compartir Internet </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="3"> GPS</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="4"> Rotar Pantalla</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="5"> Seguridad Bloqueo (Clave/Patrón) </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="6"> Bloquear Aplicaciones </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="7"> Modo Avión</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="8"> Volumen/lenciar </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="9"> Capturar Pantalla </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="10"> Bluetooth</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="11"> ncronización Automática</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="12"> Ahorrador de Energía </label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="13"> Resetear el Dispotivo </label><br>
   </div>
     <br>
@@ -270,7 +286,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>8. ¿Cuál es el programa o aplicación más utilizada en los computadores de la institución?</h4></label>
+    <label for="question8"><h4>7. ¿Cuál es el programa o aplicación más utilizada en los computadores de la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -292,10 +308,7 @@
     <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="5"> Adobe Acrobat</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="6"> Otro, ¿Cuál?</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="7"> </label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question8" name="cboxq8" value="6" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
   </div>
     <br>
   </div>
@@ -311,13 +324,13 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question9"><h4>9. Dispositivo Móvil / Celular</h4></label>
+    <label for="question9"><h4>Dispositivo Móvil / Celular</h4></label>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question10"><h4>10. ¿La institución dispone de planes de celular Inteligente (Smartphone) para sus colaboradores?</h4></label>
+    <label for="question10"><h4>8. ¿La institución dispone de planes de celular Inteligente (Smartphone) para sus colaboradores?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -343,10 +356,11 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question11"><h4>11. Marca y modelo del celular:</h4></label>
+    <label for="question11"><h4>9. Marca y modelo del celular:</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
+<div class="row">
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Samsung</label>
   </div>
@@ -425,11 +439,15 @@
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
     <input type="text" id="q11f13" name="q11f13" placeholder="0" required><br>
 </div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Otro Cual?</label>
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+  <label>Otro</label>
+</div>
+<div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+<input type="text" id="q11f13" name="q11f14" placeholder="Cual" required><br>
+</div>
+<div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+  <input type="text" id="q11f13" name="q11f15" placeholder="0" required><br>
   </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f14" name="q11f14" placeholder="0" required><br>
 </div>
     <br>
 <div class="row">
@@ -443,7 +461,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question12"><h4>12. ¿Cuál es el proveedor del servicio de internet móvil de la institución?</h4></label>
+    <label for="question12"><h4>10. ¿Cuál es el proveedor del servicio de internet móvil de la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -465,7 +483,7 @@
     <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="5"> EPM</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="6"> Otro Cuál</label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question12" name="cboxq12" value="5" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
   </div>
     <br>
   </div>
@@ -481,7 +499,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question13"><h4>13. ¿Cuál es el tipo de plan con el operador del servicio de telefonía móvil?</h4></label>
+    <label for="question13"><h4>11. ¿Cuál es el tipo de plan con el operador del servicio de telefonía móvil?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -507,7 +525,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question14"><h4>14. ¿La institución cuenta con alguna de las siguientes aplicaciones?</h4></label>
+    <label for="question14"><h4>12. ¿La institución cuenta con alguna de las siguientes aplicaciones?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -538,10 +556,8 @@
     <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="8"> Snapchat</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="9"> Otro. ¿Cuál</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="10"> </label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question14" name="cboxq14" value="9" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+
   </div>
     <br>
   </div>
@@ -554,10 +570,12 @@
     <button type="button" id="del_p14" class="state" onclick="delete_attached('del_p14','file_p14')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
+
+
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question15"><h4>15. SI SU RESPUESTA A LA PREGUNTA (12) ES POSITIVA (SI), ¿Cuál es la aplicación más utilizada por la institución?</h4></label>
+    <label for="question15"><h4>13. ¿Cuál es la aplicación más utilizada por la institución?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -606,10 +624,8 @@
     <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="14"> Fox Play</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="15"> Otro. ¿Cuál?</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="16"> </label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question15" name="cboxq15" value="9" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+
   </div>
     <br>
   </div>

@@ -1,10 +1,10 @@
 Tipo,Pregunta,Respuestas,Ayuda,Adjuntar
-checkbox,"¿Qué tipo de estándares técnicos (de formato, estructura) utiliza en la implementación y uso de la Historia Clínica Digital?",HL7;ISO;IEEE;DICOM;Otros ¿Cuál?;,Ayuda,SI
-checkbox,¿Qué tipo de estándares de codificación utiliza en la implementación y uso de la Historia Clínica Digital?,"CUP;CIE-10;SNOMED;LOINC;NCPDP,;Otros: ¿Cuál? ",Ayuda,SI
+checkbox,"¿Qué tipo de estándares técnicos (de formato, estructura) utiliza en la implementación y uso de la Historia Clínica Digital?",HL7;ISO;IEEE;DICOM;Otros;,Ayuda,SI
+checkbox,¿Qué tipo de estándares de codificación utiliza en la implementación y uso de la Historia Clínica Digital?,"CUP;CIE-10;SNOMED;LOINC;NCPDP,;Otros;",Ayuda,SI
 radio,¿A qué nivel se utilizan los estándares internacionales en cada una de las áreas de la Historia Clínica Digital?,Totalmente estandarizada;Bastante estandarizada;Poco estandarizada;Nada estandarizada;,Ayuda,SI
-checkbox,¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?,SI;NO,Ayuda,SI
-checkbox,¿Conoce el marco de interoperabilidad del Estado colombiano?,SI;NO,Ayuda,SI
+radio,¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?,SI;NO,Ayuda,SI
+radio,¿Conoce el marco de interoperabilidad del Estado colombiano?,SI;NO,Ayuda,SI
 radio,¿Qué tipo de métodos utiliza para obtener consentimiento informado del paciente/afiliado para el uso e intercambio de información para el manejo y tratamiento de enfermedades?,Físicos;Electrónicos,Ayuda,SI
-checkbox,¿Qué métodos técnicos utiliza para el control de la seguridad de la información?,Identificación y/o autenticación;Autorización y control de acceso ;Auditoria;Encriptación de la información in-situ ;Encriptación de la información en intercambio ;Monitoreo de ataques cibernéticos;Ninguno;Otros. ¿Cuáles?,Ayuda,SI
+checkbox,¿Qué métodos técnicos utiliza para el control de la seguridad de la información?,Identificación y/o autenticación;Autorización y control de acceso ;Auditoria;Encriptación de la información in-situ ;Encriptación de la información en intercambio ;Monitoreo de ataques cibernéticos;Ninguno;Otros;,Ayuda,SI
 radio,¿Qué tipo de red de intercambio de información (internet/telecomunicaciones) utiliza para comunicarse y enviar/recibir electrónicamente información de historias clínicas?,Conexiones dedicadas;Redes privadas virtuales;Redes públicas,Ayuda,SI
 radio,"¿La institución tiene un plan de gestión del cambio para la adopción de nuevas tecnologías, procesos o procedimientos como la Historia Clínica Digital?",SI;NO,Ayuda,SI

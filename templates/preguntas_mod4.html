@@ -33,7 +33,21 @@
 		{
 			document.getElementById(name).value = "";
 			document.getElementById(btn_del).disabled = true;
-		}
+    }
+    
+
+    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
+      
+      
+      if (questionIDYesNO.checked) {
+        $(questionIDYes).removeClass("hidden");
+        $(questionIDNO).addClass("hidden");
+
+      }
+
+    }
+
+
    </script>
 
 <body>
@@ -57,7 +71,8 @@
 
 
   <form enctype=multipart/form-data action="analisis" class="register" method="post">
-      <p class="title"> MÓDULO 3. Infraestructura TIC</p>
+      <p class="title"> MÓDULO 4. Servicios Electrónicos
+      </p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -223,24 +238,23 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="1"> Todos los registros son electrónicos.</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="2"> La mayoría de los registros son electrónicos, pero existen algunos registros en papel.</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="3"> La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="4"> Todos los registros se encuentran en papel</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="5"> Otro. ¿Cuál?</label><br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <label><input type="checkbox" class="option-input checkbox" id="question7" name="cboxq7" value="5" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="6"> </label><br>
-  </div>
+
     <br>
   </div>
 </div>
@@ -286,36 +300,32 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="1"> Informaciones clínicas para profesionales de la salud de otras instituciones de salud</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="2"> Derivaciones de pacientes a otras instituciones de forma electrónica</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="3"> Informes sobre la asistencia suministrada al paciente en el momento en el que le dieron de alta o fue transferido a otra IPS</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="4"> Lista de todos los medicamentos recetados al paciente para otras IPS</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="5"> Resultados de pruebas de laboratorio del paciente para otras IPS.</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="6"> Resultados de pruebas de imagen del paciente para otras IPS</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="7"> Plan de cuidados de la enfermería</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="8"> Otros. ¿Cuáles?</label><br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <label><input type="checkbox" class="option-input checkbox" id="question9" name="cboxq7" value="8" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="cboxq9" value="9"> </label><br>
-  </div>
+
     <br>
-  </div>
 </div>
 <div class="row">
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -334,36 +344,34 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="1"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="1"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="2"> Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="3"> Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="4"> Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="5"> Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="6"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="7"> Gestión de Eventos y Seguridad de la Información (SIEM)</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="8"> Ninguno</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="9"> Otros. ¿Cuáles?</label><br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <label><input type="checkbox" class="option-input checkbox" id="question10" name="cboxq10" value="9" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="cboxq10" value="10"> </label><br>
-  </div>
+
     <br>
   </div>
 </div>
@@ -384,33 +392,31 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="1"> Gestión de citas</label><br>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="1"> Gestión de citas</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="2"> Recordatorio de citas</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="3"> Servicio de información de pacientes general</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="4"> Servicio de información general sobre atención del establecimiento</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="5"> Línea telefónica gratuita para emergencias</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="6"> Movilización de la comunidad y promoción de la salud</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="7"> Ninguno</label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="8"> Otros. ¿Cuáles?</label><br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <label><input type="checkbox" class="option-input checkbox" id="question11" name="cboxq11" value="8" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="cboxq11" value="9"> </label><br>
-  </div>
+
     <br>
   </div>
 </div>
@@ -431,24 +437,12 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="1"> Concertación de citas médicas (agenda electrónica)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="1"> Concertación de citas médicas (agenda electrónica)</label><br>
     <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="2"> Concertación de pruebas </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="3"> Visualización de resultados de medios diagnósticos</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="4"> Visualización de historia clínica o expediente clínico </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
     <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="5"> Inserción, por el paciente, de informaciones en su historia clínica</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="6"> </label><br>
-  </div>
+
     <br>
   </div>
 </div>
