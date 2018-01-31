@@ -2,9 +2,10 @@
 <html>
 	<head>
 
-		<link rel="stylesheet" href="static/login_style.css">
+		<link rel="stylesheet" href="static/index_style.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="static/jscripts.js"></script>
@@ -14,69 +15,33 @@
 	<body>
 		<!-- Funciones javascript -->
 		<script type="text/javascript">
-			var cityLists = {{cities|safe}}
+
 		</script>
 		<!-- Funciones javascript -->
 
-		
-		<div class="wrapper">	
-			<div class="jumbotron text-center">
-				<h2>Estudio sobre el nivel de madurez del <br> ecosistema de TIC en las IPS públicas</h2>
-				<br>
-				<div class="row">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/udea.jpg" width="30%">
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/colciencias.png"  width="40%">
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<img src="static/mintic.png"  width="100%">
-					</div>
-				</div>
-			</div>
+
+		<div class="topnav" id="myTopnav">	
+			<a href="/">
+				<img src="static/Logo_Blanco_MinTIC_nuevo.png" width="60%" class="img-responsive">
+			</a>		
+			<a href="#" >Registrar IPS</a>
+			<a href="#">Ingresar</a>
+			<a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a>
+		</div>
 	
-			<div class="container" style="width:100%">
-			<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<form  action="registro" class="login" method="post" >						
-				<p class="title">Registrar IPS</p>
-				<label for="reg_dpto">Departamento</label>
-				<br>
-				<select style="padding: 13.5px;" id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
-					<option  value = "">Seleccionar</option>
-					{% for value in dptos %}
-						<option  value = "{{value}}">{{value}}</option>
-					{% endfor %}
-				</select> 	
-				<br>
-				<!-- Campo para ciudad -->
-				<label for="reg_city">Municipio</label>
-				<br>
-				<select style="padding: 13.5px;" id="reg_city" name="reg_city" required>
-					<option  value ="">Seleccionar</option>
-				</select> 
-				<br> 						
-				<button type="submit" class="state">Registro</button>
-			</form>		
-			</div>
+		<title>
 			
-			
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<form  action="loginIPS" class="login" method="post" >
-				<p class="title">Ingresar <font color="red">{{error}}</font></p>
-				<label>Usuario</label>
-				<input type="text" id="usrlog" name="usrlog" placeholder="Escriba su usuario" required>
-				<br>
-				<label>Contraseña</label>
-				<input type="password" id="passlog" name="passlog" placeholder="Escriba su contraseña" required>
-				<br>
-				<button type="submit" class="state">Conectar</button>
-			</form>
-			</div>
+		</title>
+
+
+		<div class="wrapper">		
+				<p class="title">Nivel de madurez del ecosistema de TIC en las IPS públicas</title></p>
+			<form  class="idx_sty">						
 				
-			</div>
-			</div>
+				<p>
+					La información ha diligenciar en esta encuesta busca caracterizar el nivel de madurez del ecosistema de Tecnologías de la Información y las Comunicaciones – TIC - en las Instituciones Prestadoras de Servicios de Salud - IPS - de la red pública nacional en Colombia. Esta información será la línea base para la formulación de políticas públicas y la toma de decisiones sectoriales en pro del fortalecimiento y la mejora en la prestación de los servicios de salud en el país.
+				</p>
+			</form>
 		</div>
 	</body>
 </html>

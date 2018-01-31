@@ -36,7 +36,7 @@
 			</div>
     <form  action="preguntas" class="register" method="post">
 
-    	<p class="title">Registro de IPS</p>
+    	<p class="title">INFORMACIÓN GENERAL DE LA INSTITUCIÓN DE SALUD</p>
         <div class = "row">
             <!-- Campo para departamento -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -53,9 +53,9 @@
 		<br>
 
 		<div class="row">
-				<!--Campo para el Nombre de la IPS -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<label>Nombre de la IPS:</label>
+			<!--Campo para el Nombre de la IPS -->
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+				<label>Nombre del prestador de servicios:</label>
 				<br>
 				<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
 				<datalist id="reg_ips">
@@ -64,111 +64,91 @@
 					{% endfor %}
 				</datalist>
 			</div>
+			<!--Número de sedes asociadas-->
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                <label>N° de sedes</label>
+			    <br>
+                <input type="tel" id="reg_numsede" name="reg_numsede" placeholder="N° de sedes">
+            </div>	
+			<!-- campo para Nivel de atención del prestador de servicios-->			
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<label>Nivel</label>
+				<br>				
+				<select id="nivel" name="nivel" required>
+					<option value="">Seleccionar</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+            </div>
         </div>
 
 		<br>
 
-		<div class="row">
-			<!--Nombre del gerente-->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <label>Nombre del gerente</label>
-			    <br>
-                <input type="text" id="ger" name="ger" placeholder="Nombre del gerente" required>
-            </div>
+		<div class="row">		
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <!--Campo para el NIT -->
-              <label>NIT</label>
+              <label>NIT del prestador de servicios</label>
 			  <br>
-              <input type="text" id="nit" name="nit" placeholder="NIT" required>
-            </div>
-            <!-- Campo para caracter de la IPS-->
+              <input type="tel" id="nit" name="nit" placeholder="NIT" required>
+            </div>			
+            <!-- Campo para Naturaleza Jurídica del prestador de servicios-->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<label for="car">Carácter de la IPS</label>
+				<label for="car">Naturaleza Jurídica</label>
 				<br>
-				<select id="car" name="car" required>
-					<option value="">Seleccionar</option>
-					<option value="DEPARTAMENTAL">DEPARTAMENTAL</option>
-					<option value="DISTRITAL">DISTRITAL</option>
-					<option value="INDIGENA">INDIGENA</option>
-					<option value="MUNICIPAL">MUNICIPAL</option>
-					<option value="NACIONAL">NACIONAL</option>
-				</select>
+				<input type="text" id="reg_natjur" name="reg_natjur" placeholder="Naturaleza Jurídica">
             </div>
-            <!-- campo para Nivel de la IPS -->
-			<!--
+            <!-- Campo para Clase del prestador de servicios-->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<label>Nivel de la IPS</label>
+				<label for="car">Clase de Prestador</label>
 				<br>
-				<label class="radio-inline">
-					<input type="radio" id="nivel1" name="nivel" value="1" required>1
-				</label>
-				<label class="radio-inline">
-					<input type="radio" id="nivel2" name="nivel" value="2" >2
-				</label>
-				<label class="radio-inline">
-					<input type="radio" id="nivel3" name="nivel" value="3" >3
-				</label>
+				<input type="text" id="reg_clase" name="reg_clase" placeholder="Clase de Prestador de servicios">
             </div>
-			-->
-        </div>
+		</div>
 
         <br>
 
 		<div class="row">
-            <!-- campo para telefono -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="tel">Teléfono de la IPS</label>
-			  <br>
-              <input type="text"  id="tel" name="tel" placeholder="Teléfono de la IPS" required>
+			<!--Nombre de la sede asociada-->
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <label>Nombre de la sede asociada (Si aplica)</label>
+			    <br>
+                <input type="text" id="reg_sede" name="reg_sede" placeholder="Nombre de la sede asociada">
             </div>
-            <!-- campo para email -->
+			<!--Código de la sede asociada-->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="email">Email de la IPS:</label>
-			  <br>
-              <input type="text"  id="Email" name="Email" placeholder="ejemplo@mail.com" required>
+                <label>Código de la sede</label>
+			    <br>
+                <input type="tel" id="reg_sede" name="reg_sede" placeholder="Código de la sede">
             </div>
-            <!-- Campo para direccion -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="addr">Dirección de la IPS</label>
-			  <br>
-              <input type="text"  id="addr" name="addr" placeholder="Dirección de la IPS" required>
-            </div>
-        </div>
+	   </div>
+		
+		<br>
 
-        <br>
-
+		<!-- RESPONSABLE DE LA ENCUESTA -->	
+		<p class="title">INFORMACIÓN DE LA PERSONA ENCARGADA DE LA ENCUESTA</p>
         <div class="row">
             <!-- campo nombre responsable -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label>Persona enlace</label>
+              <label>Nombre de la persona encargada</label>
 			  <br>
-              <input type="text"  id="username" name="username" placeholder="Nombre enlace" required>
+              <input type="text"  id="username" name="username" placeholder="Nombre de la persona encargada" required>
             </div>
             <!-- campo correo -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label>Email de persona enlace</label>
+              <label>Email de la persona encargada</label>
 			  <br>
               <input type="text"  id="usermail" name="usermail" placeholder="ejemplo@mail.com" required>
             </div>
             <!-- campo cargo -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label>Cargo</label>
+              <label>Cargo de la persona encargada</label>
 			  <br>
-              <input type="text"  id="userjob" name="userjob" placeholder="Cargo" required>
+              <input type="text"  id="userjob" name="userjob" placeholder="Cargo que ocupa en la IPS" required>
             </div>
         </div>
 
         <br>
-
-
-        <div class="row">
-            <!-- contraseña asignada a cada IPS -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label>Contraseña asignada</label>
-			  <br>
-              <input type="password"  id="reg_pass" name="reg_pass" placeholder="Contraseña asignada" >
-            </div>
-        </div>
 
 		<!-- COMIENZA: Botones -->
 		<div class="row">

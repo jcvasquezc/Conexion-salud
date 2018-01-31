@@ -108,6 +108,15 @@ def index():
     return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
 ######################################################
+@app.route("/Registrar_IPS", methods=['GET', 'POST'])
+def Registrar_IPS():
+    dptos,cities = set_dptos()
+    if request.method == 'POST':
+        return redirect(url_for('registro'))
+    return render_template('Registrar_IPS.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+######################################################
+######################################################
 @app.route("/registro", methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
@@ -254,7 +263,19 @@ def preguntas_mod2():
 
 @app.route("/preguntas_mod3", methods=['GET', 'POST'])
 def preguntas_mod3():
-    return render_template('preguntas_mod3.html')
+return render_template('preguntas_mod3.html')
+
+@app.route("/preguntas_mod4", methods=['GET', 'POST'])
+def preguntas_mod4():
+return render_template('preguntas_mod4.html')
+
+@app.route("/preguntas_mod5", methods=['GET', 'POST'])
+def preguntas_mod5():
+return render_template('preguntas_mod5.html')
+
+@app.route("/preguntas_mod6", methods=['GET', 'POST'])
+def preguntas_mod6():
+return render_template('preguntas_mod6.html')
 
 if __name__ == "__main__":
     app.run()
