@@ -17,11 +17,11 @@ body {
   width: 100%;
   min-height: 100%;
   padding: 2%;
-  background: rgba(4, 40, 68, 0.85);
+	background:#042653;
 }
 
 .wrapper .title{
-  color: rgb(255, 255, 255);
+  color: rgb(66, 65, 65);
   font-size: 40px;
   font-weight: bold;
   justify-content: center;
@@ -94,8 +94,8 @@ body {
 }
 
 .idx_sty .title {
-  color: rgb(255, 255, 255);
-  font-size: 1.2em;
+  color:  #444;
+  font-size: 40px;
   font-weight: bold;
   margin: 10px 0 30px 0;
   border-bottom: 1px solid #eee;

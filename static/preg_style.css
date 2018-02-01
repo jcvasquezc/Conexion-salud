@@ -44,7 +44,7 @@ body {
   width: 100%;
   min-height: 100%;
   padding: 3%;
-  background: rgba(4, 40, 68, 0.85);
+	background:#042653;
 }
 
 .register {
