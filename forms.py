@@ -136,6 +136,24 @@ def registro():
     return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
 
 ######################################################
+@app.route("/Ingresar", methods=['GET', 'POST'])
+def Ingresar():
+    global usr
+    if request.method == 'POST':
+        usr = request.form['usrlog']
+        userpass = request.form['passlog']
+        #Verificar contrasenna
+        credentials = get_credentials(usr)
+        error = ''
+
+        print(usr, credentials)
+        if hash_pass(userpass) != credentials:
+            error = ' (Usuario o Contraseña incorrecto)'
+#            return redirect(url_for('index.html',error=error)
+            return render_template('Ingresar.html',error=error)
+
+    return render_template('Ingresar.html')
+
 @app.route("/loginIPS", methods=['GET', 'POST'])
 def loginIPS():
     global usr
@@ -151,7 +169,7 @@ def loginIPS():
         if hash_pass(userpass) != credentials:
             error = ' (Usuario o Contraseña incorrecto)'
 #            return redirect(url_for('index.html',error=error)
-            return render_template('index.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
+            return render_template('Ingresar.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
 
     return render_template('loginIPS.html')
 
