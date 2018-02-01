@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 	<head>
-
 		<link rel="stylesheet" href="static/login_style.css">
 		<link rel="stylesheet" href="static/header-login-signup.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
@@ -11,7 +10,7 @@
 		<script src="static/jscripts.js"></script>
 		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>		 
 	</head>		
-	
+
 	<body>
 		<!-- Funciones javascript -->
 		<script type="text/javascript">
@@ -20,36 +19,34 @@
 		<!-- Funciones javascript -->
         
 		<div class="topnav" id="myTopnav">				
-				<div class="logo">
-					<a href="/">
-					<img src="static/Logos_header.png" class="img-responsive">
-					</a>
-				</div>
+			<div class="logo">
+				<a href="/">
+				<img src="static/Logos_header.png" class="img-responsive">
+				</a>
+			</div>
 		</div>
 
-		<div class="wrapper">	
-			<div class="container" style="width:100%">
-                <form  action="registro" class="login" method="post" >						
-                    <p class="title">Registrar IPS</p>
-                    <label for="reg_dpto">Departamento</label>
-                    <br>
-                    <select style="padding: 13.5px;" id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
-                        <option  value = "">Seleccionar</option>
-                        {% for value in dptos %}
-                            <option  value = "{{value}}">{{value}}</option>
-                        {% endfor %}
-                    </select> 	
-                    <br>
-                    <!-- Campo para ciudad -->
-                    <label for="reg_city">Municipio</label>
-                    <br>
-                    <select style="padding: 13.5px;" id="reg_city" name="reg_city" required>
-                        <option  value ="">Seleccionar</option>
-                    </select> 
-                    <br> 						
-                    <button type="submit" class="state">Continuar</button>
-                </form>		
-			</div>
+		<div class="wrapper">					
+			<form  action="registro" class="login" method="post" >						
+                <p class="title">Registrar IPS</p>
+                <label for="reg_dpto">Departamento</label>
+                <br>
+                <select style="padding: 13.5px;" id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
+                    <option  value = "">Seleccionar</option>
+                    {% for value in dptos %}
+                        <option  value = "{{value}}">{{value}}</option>
+                    {% endfor %}
+                </select> 	
+                <br>
+                <!-- Campo para ciudad -->
+                <label for="reg_city">Municipio</label>
+                <br>
+                <select style="padding: 13.5px;" id="reg_city" name="reg_city" required>
+                    <option  value ="">Seleccionar</option>
+                </select> 
+                <br> 						
+                <button type="submit">Continuar</button>
+            </form>	
 		</div>
 	</body>
 </html>

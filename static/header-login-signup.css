@@ -1,4 +1,4 @@
-  /* Add a black background color to the top navigation */
+ /* Add a black background color to the top navigation */
  .topnav {
 	overflow: hidden;
 	background-color:#031336;
@@ -41,6 +41,19 @@ topnav on small screens */
 	display: none;
 } 
 
+.topnav .logo_nav img {
+	float: left;
+	display: block;
+	width: 100%;
+}
+.topnav .logo_nav a {
+	background-color: transparent;
+	border-color: transparent;
+	float: left;
+	display: block;
+	opacity: 1;
+}
+
 .topnav .logo img {
 	float: left;
 	display: block;
@@ -79,6 +92,10 @@ topnav on small screens */
 	}
 
 	.topnav .logo img {
+		width: 100%;
+	}
+	/*Logo en el con barra de navegacion*/
+	.topnav .logo_nav img {
 		width: 80%;
 	}
   }

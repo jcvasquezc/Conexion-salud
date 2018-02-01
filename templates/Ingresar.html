@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+
+		<link rel="stylesheet" href="static/login_style.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="static/jscripts.js"></script>
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>		 
+	</head>		
+	
+	<body>
+		<!-- Funciones javascript -->
+		<script type="text/javascript">
+			var cityLists = {{cities|safe}}
+		</script>
+		<!-- Funciones javascript -->
+        
+		<div class="topnav" id="myTopnav">				
+                <div class="logo">
+                    <a href="/">
+                    <img src="static/Logos_header.png" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+    
+		<div class="wrapper">	
+            <form  action="loginIPS" class="login" method="post" >
+                <p class="title">Ingresar <font color="red">{{error}}</font></p>
+                <label>Usuario</label>
+                <input type="text" id="usrlog" name="usrlog" placeholder="Escriba su usuario" required>
+                <br>
+                <label>Contraseña</label>
+                <input type="password" id="passlog" name="passlog" placeholder="Escriba su contraseña" required>
+                <br>
+                <button type="submit" class="state">Conectar</button>
+            </form>	
+		</div>
+	</body>
+</html>
