@@ -191,7 +191,14 @@ def preguntas():
                       "Email":email,
                       "Encargado":username,
                       "Email Encargado":usermail,
-                      "Cargo Encargado":userjob}
+                      "Cargo Encargado":userjob,
+                      "Resultados Modulo 1":{},
+                      "Resultados Modulo 2":{},
+                      "Resultados Modulo 3":{},
+                      "Resultados Modulo 4":{},
+                      "Resultados Modulo 5":{},
+                      "Resultados Modulo 6":{},
+                      }
 
         temp = IPS_data.find({"NIT":nit}).count()
         if temp!=0:
@@ -276,6 +283,51 @@ def preguntas_mod5():
 @app.route("/preguntas_mod6", methods=['GET', 'POST'])
 def preguntas_mod6():
     return render_template('preguntas_mod6.html')
+
+@app.route("/validar<modulo>", methods=['GET', 'POST'])
+def validar(modulo):
+    global usr
+    if request.method == 'POST':
+        data_enc=[]
+        print("MODULO: ", modulo)
+        print(request.form)
+        dict_encuesta={}
+        for j in request.form:
+            dict_encuesta[j]=request.form[j]
+        print(dict_encuesta)
+        
+        
+        temp = IPS_data.find({"NIT":usr})
+        Ntemp=temp.count()
+        if Ntemp!=0:
+
+            IPS_data.find_and_modify(query={'NIT':usr}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
+       
+        else:
+            IPS_index_data = {"IPS":"name",
+                "NIT":000,
+                "Carácter":"car",
+                "Gerente":"ger",
+                "Departamento":"dpto",
+                "Municipio":"city",
+                "Dirección":"addr",
+                "Teléfono":"tel",
+                "Email":"email",
+                "Encargado":"username",
+                "Email Encargado":"usermail",
+                "Cargo Encargado":"userjob",
+                "Resultados Modulo "+str(modulo):dict_encuesta
+                }
+            IPS_data.insert_one(IPS_index_data).inserted_id
+
+
+    return render_template('validar.html')
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run()
