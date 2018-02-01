@@ -44,6 +44,7 @@ body {
 
 .idx_sty input[type=text], select {
   display: block;
+  font-size: 10px;
   padding: 15px 10px;
   width: 100%;
   border: 1px solid #ddd;
