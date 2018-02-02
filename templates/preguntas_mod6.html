@@ -63,7 +63,7 @@
 
 
 
-  <form enctype=multipart/form-data action="analisis" class="register" method="post">
+  <form enctype=multipart/form-data action="validar6" class="register" method="post">
       <p class="title"> 
         MÓDULO 6. Habilidades en el uso de TIC
         </p>
@@ -83,10 +83,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question2" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question1" value="SI" >SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question2" value="2" required>NO<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question1" value="NO" >NO<br>
   </div>
     <br>
   </div>
@@ -115,10 +115,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="cboxq3" value="1"> Computador de escritorio</label><br>
+    <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question2" value="Computador de escritorio"> Computador de escritorio</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="cboxq3" value="2"> Computador Portatil</label><br>
+    <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question2" value="Computador Portatil"> Computador Portatil</label><br>
   </div>
     <br>
   </div>
@@ -144,13 +144,13 @@
       <label>Computador de escritorio</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q4f1" name="q4f1" placeholder="0" required><br>
+    <input type="text" id="q4f1" name="question3_PC_escritorio" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Computador Portatil</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q4f2" name="q4f2" placeholder="0" required><br>
+    <input type="text" id="q4f2" name="question3_PC_portatil" placeholder="0" ><br>
 </div>
 </div>
     <br>
@@ -172,16 +172,16 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="1"> Personal</label><br>
+    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="question4" value="Personal"> Personal</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="2"> Familiar</label><br>
+    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="question4" value="Familiar"> Familiar</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="cboxq5" value="3"> Laboral</label><br>
+    <label><input type="checkbox" id="question5" ondragover="" class="option-input checkbox" name="question4" value="Laboral"> Laboral</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input checkbox" id="question5" name="cboxq5" value="4" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question5" name="question4" value="Otro" onclick="var input=document.getElementById('question4_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question4_otro" name="question4_otro" disabled="disabled"/></label><br>
 
   </div>
 </div>
@@ -204,10 +204,10 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question6" value="1" required>Experto<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question6" value="2" required>Avanzado<br>
-	 <input type="radio" class="option-input radio" id="question3" name="question6" value="3" required>Intermedio<br>
-	 <input type="radio" class="option-input radio" id="question4" name="question6" value="4" required>Básico<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question5" value="Experto" >Experto<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question5" value="Avanzado" >Avanzado<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question5" value="Intermedio" >Intermedio<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question5" value="Básico" >Básico<br>
     <br>
   </div>
 </div>
@@ -229,43 +229,43 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="1"> Redes WiFi/Datos </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Redes WiFi/Datos"> Redes WiFi/Datos </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="2"> Compartir Internet </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Compartir Internet"> Compartir Internet </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="3"> GPS</label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="GPS"> GPS</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="4"> Rotar Pantalla</label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Rotar Pantalla"> Rotar Pantalla</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="5"> Seguridad Bloqueo (Clave/Patrón) </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Seguridad Bloqueo (Clave/Patrón)"> Seguridad Bloqueo (Clave/Patrón) </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="6"> Bloquear Aplicaciones </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Bloquear Aplicaciones"> Bloquear Aplicaciones </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="7"> Modo Avión</label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Modo Avión"> Modo Avión</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="8"> Volumen/lenciar </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Volumen/silenciar"> Volumen/silenciar </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="9"> Capturar Pantalla </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Capturar Pantalla"> Capturar Pantalla </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="10"> Bluetooth</label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Bluetooth"> Bluetooth</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="11"> ncronización Automática</label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Sincronización Automática"> Sincronización Automática</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="12"> Ahorrador de Energía </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Ahorrador de Energía"> Ahorrador de Energía </label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="cboxq7" value="13"> Resetear el Dispotivo </label><br>
+    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question6" value="Resetear el Dispotivo"> Resetear el Dispotivo </label><br>
   </div>
     <br>
   </div>
@@ -288,22 +288,22 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="1"> MS Word</label><br>
+    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="question7" value="MS Word"> MS Word</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="2"> MS Excel</label><br>
+    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="question7" value="MS Excel"> MS Excel</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="3"> MS PowerPoint</label><br>
+    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="question7" value="MS PowerPoint"> MS PowerPoint</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="4"> MS Publisher</label><br>
+    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="question7" value="MS Publisher"> MS Publisher</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="cboxq8" value="5"> Adobe Acrobat</label><br>
+    <label><input type="checkbox" id="question8" ondragover="" class="option-input checkbox" name="question7" value="Adobe Acrobat"> Adobe Acrobat</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input checkbox" id="question8" name="cboxq8" value="6" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question8" name="question7" value="Otro" onclick="var input=document.getElementById('question7_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question7_otro" name="question7_otro" disabled="disabled"/></label><br>
   </div>
     <br>
   </div>
@@ -332,10 +332,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question10" value="1" required>SI<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question8" value="SI" >SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question10" value="2" required>NO<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question8" value="NO" >NO<br>
   </div>
     <br>
   </div>
@@ -360,88 +360,88 @@
       <label>Samsung</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f1" name="q11f1" placeholder="0" required><br>
+    <input type="text" id="q11f1" name="question9_Samsung" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Iphone</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f2" name="q11f2" placeholder="0" required><br>
+    <input type="text" id="q11f2" name="question9_iphone" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Sony</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f3" name="q11f3" placeholder="0" required><br>
+    <input type="text" id="q11f3" name="question9_sony" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Motorola</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f4" name="q11f4" placeholder="0" required><br>
+    <input type="text" id="q11f4" name="question9_motorola" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Nokia</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f5" name="q11f5" placeholder="0" required><br>
+    <input type="text" id="q11f5" name="question9_nokia" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>HTC</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f6" name="q11f6" placeholder="0" required><br>
+    <input type="text" id="q11f6" name="question9_htc" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>LG Electronics</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f7" name="q11f7" placeholder="0" required><br>
+    <input type="text" id="q11f7" name="question9_LG" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Huawei</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f8" name="q11f8" placeholder="0" required><br>
+    <input type="text" id="q11f8" name="question9_huawei" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Asus</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f9" name="q11f9" placeholder="0" required><br>
+    <input type="text" id="q11f9" name="question9_asus" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Alcatel</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f10" name="q11f10" placeholder="0" required><br>
+    <input type="text" id="q11f10" name="question9_alcatel" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Lanix</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f11" name="q11f11" placeholder="0" required><br>
+    <input type="text" id="q11f11" name="question9_lanix" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>Blu</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f12" name="q11f12" placeholder="0" required><br>
+    <input type="text" id="q11f12" name="question9_blu" placeholder="0" ><br>
 </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
       <label>One+</label>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q11f13" name="q11f13" placeholder="0" required><br>
+    <input type="text" id="q11f13" name="question9_one" placeholder="0" ><br>
 </div>
 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
   <label>Otro</label>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-<input type="text" id="q11f13" name="q11f14" placeholder="Cual" required><br>
+<input type="text" id="q11f13" name="question9_otro" placeholder="Cual" ><br>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-  <input type="text" id="q11f13" name="q11f15" placeholder="0" required><br>
+  <input type="text" id="q11f13" name="question9_otro_cantidad" placeholder="0" ><br>
   </div>
 </div>
     <br>
@@ -463,22 +463,22 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="1"> Claro</label><br>
+    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question10" value="Claro"> Claro</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="2"> Teléfonica/Movistar</label><br>
+    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question10" value="Teléfonica/Movistar"> Teléfonica/Movistar</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="3"> Une</label><br>
+    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question10" value="Une"> Une</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="4"> ETB</label><br>
+    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question10" value="ETB"> ETB</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="cboxq12" value="5"> EPM</label><br>
+    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question10" value="EPM"> EPM</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input checkbox" id="question12" name="cboxq12" value="5" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question12" name="question10" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
   </div>
     <br>
   </div>
@@ -501,10 +501,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question13" value="1" required>Prepago<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question11" value="Prepago" >Prepago<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question13" value="2" required>Postpago<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question11" value="Postpago" >Postpago<br>
   </div>
     <br>
   </div>
@@ -527,31 +527,31 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="1"> Facebook</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="Facebook"> Facebook</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="2"> Instagram</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="Instagram"> Instagram</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="3"> WhatsApp</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="WhatsApp"> WhatsApp</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="4"> YouTube</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="YouTube"> YouTube</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="5"> Google+</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="Google+"> Google+</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="6"> Twitter</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="Twitter"> Twitter</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="7"> MySpace</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="MySpace"> MySpace</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="cboxq14" value="8"> Snapchat</label><br>
+    <label><input type="checkbox" id="question14" ondragover="" class="option-input checkbox" name="question12" value="Snapchat"> Snapchat</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input checkbox" id="question14" name="cboxq14" value="9" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question14" name="question12" value="Otro" onclick="var input=document.getElementById('question12_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question12_otro" name="question12_otro" disabled="disabled"/></label><br>
 
   </div>
     <br>
@@ -577,49 +577,49 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="1"> Facebook</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Facebook"> Facebook</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="2"> Instagram</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Instagram"> Instagram</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="3"> WhatsApp</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="WhatsApp"> WhatsApp</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="4"> YouTube</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="YouTube"> YouTube</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="5"> Skype</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Skype"> Skype</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="6"> Twitter</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Twitter"> Twitter</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="7"> Telegram</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Telegram"> Telegram</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="8"> SnapChat</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="SnapChat"> SnapChat</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="9"> MySpace</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="MySpace"> MySpace</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="10"> Spotify</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Spotify"> Spotify</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="11"> Dezeer</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Dezeer"> Dezeer</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="12"> TuneIN Radio</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="TuneIN Radio"> TuneIN Radio</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="13"> Netflix</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Netflix"> Netflix</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="cboxq15" value="14"> Fox Play</label><br>
+    <label><input type="checkbox" id="question15" ondragover="" class="option-input checkbox" name="question13" value="Fox Play"> Fox Play</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input checkbox" id="question15" name="cboxq15" value="9" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="name5" name="name5" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question15" name="question13" value="Otro" onclick="var input=document.getElementById('question13_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question13_otro" name="question13_otro" disabled="disabled"/></label><br>
 
   </div>
     <br>
@@ -639,7 +639,7 @@
     <a class="state" href="/">Volver</a>
   </div>
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="preguntas">Continuar</button>
+    <a type="btn_att submit" class="state" href="validar6">Continuar</button>
   </div>
 </div>
 <br>
