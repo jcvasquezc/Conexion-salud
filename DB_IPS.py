@@ -52,20 +52,30 @@ for idx_ips in range(0,df.shape[0]):
     ips = df.iloc[[idx_ips]]
     dpto = list(ips['Departamento'])[0]
     city = list(ips['Municipio'])[0]
-    name = list(ips['IPS'])[0]
+    codhab = list(ips['Código habilitacion'])[0]
+    nompre = list(ips['Nombre prestador'])[0]
     nit = str(list(ips['NIT'])[0])
-    car = list(ips['Caracter'])[0]
-    ger = list(ips['Gerente'])[0]
-    addr = list(ips['Direccion'])[0]    
-    email = list(ips['Email'])[0]
+    razsoc = list(ips['Razón social'])[0]
+    clprcod = list(ips['clpr codigo'])[0]
+    clprnam = list(ips['clpr nombre'])[0]
+    ese = list(ips['ese'])[0]
+    addr = list(ips['Direccion'])[0] 
     tel = str(list(ips['Telefono'])[0])
-    tel = tel.replace('\n',' ')        
+    tel = tel.replace('\n',' ')     
+    fax = str(list(ips['fax'])[0])
+    fax = tel.replace('\n',' ')   
+    email = list(ips['Email'])[0]   
     email = email.replace('\n',' ')    
-    email = email.replace(';','')
+    email = email.replace(';','')   
+    ger = list(ips['Gerente'])[0]  
+    niv = list(ips['nivel'])[0]      
+    car = list(ips['caracter'])[0]
+#    hab = list(ips['habilitada'])[0]
 #    email = email.split(' ')
     usr = list(ips['Encargado'])[0]
     usrmail = list(ips['Email Encargado'])[0]
     usrjob = list(ips['Cargo Encargado'])[0]
+    
     
     #Ingreso de usuario para login
     #IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)

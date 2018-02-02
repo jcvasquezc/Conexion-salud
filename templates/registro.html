@@ -1,14 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-		<link rel="stylesheet" href="static/reg_style.css">
 		<link rel="stylesheet" href="static/header-login-signup.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="static/login_style.css">
 		<script src="static/jscripts.js"></script>
     </head>
     <body>
@@ -30,23 +29,8 @@
     <div class="wrapper">
     <form  action="preguntas" class="register" method="post">
 
-    	<p class="title">INFORMACIÓN GENERAL DE LA INSTITUCIÓN DE SALUD</p>
-        <div class = "row">
-            <!-- Campo para departamento -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label >Departamento: </label>
-				<input type="text" id="dpto" name="dpto" value="{{dpto}}" readonly="true">
-            </div>
-            <!-- Campo para ciudad -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<label>Municipio: </label>
-				<input type="text" id="city" name="city" value="{{city}}" readonly="true">
-            </div>
-        </div>
-
-		<br>
-
-		<div class="row">
+    	<p class="title">DATOS GENERALES DE LA INSTITUCIÓN PRESTADORA DE SALUD</p>
+        <div class="row">
 			<!--Campo para el Nombre de la IPS -->
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 				<label>Nombre del prestador de servicios:</label>
@@ -101,19 +85,30 @@
 		</div>
 
         <br>
+        
+        <!-- DATOS DE LA SEDE-->
+        <p class="title">DATOS DE LA SEDE</p>
+        <div class = "row">
+            <!-- Campo para departamento -->
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <label >Departamento: </label>
+                <input type="text" id="dpto" name="dpto" value="{{dpto}}" readonly="true">
+            </div>
+            <!-- Campo para ciudad -->
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <label>Municipio: </label>
+                <input type="text" id="city" name="city" value="{{city}}" readonly="true">
+            </div>
+        </div>
+    
+        <br>
 
 		<div class="row">
 			<!--Nombre de la sede asociada-->
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                <label>Nombre de la sede asociada (Si aplica)</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Nombre de la sede asociada</label>
 			    <br>
                 <input type="text" id="reg_sede" name="reg_sede" placeholder="Nombre de la sede asociada">
-            </div>
-			<!--Código de la sede asociada-->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <label>Código de la sede</label>
-			    <br>
-                <input type="tel" id="reg_sede" name="reg_sede" placeholder="Código de la sede">
             </div>
 	   </div>
 		
@@ -148,11 +143,11 @@
 		<div class="row">
 			<!-- Boton para continuar a la encuesta -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<button type="submit" class="state">Registrar IPS</button>
+				<button type="submit" class="button">Registrar IPS</button>
 			</div>
 			<!-- Boton para regresar-->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<button onclick="goBack()" class="state">Volver</button>
+				<button onclick="goBack()" class="button">Volver</button>
 			</div>
 		</div>
 		<!-- TERMINA: Botones -->
