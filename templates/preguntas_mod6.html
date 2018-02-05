@@ -48,6 +48,15 @@
 
     }
 
+
+
+    $(function() {
+      setTimeout(function() {
+       $('#form_mod6').submit();
+      }, 20000);
+    });
+    
+    
    </script>
 
 <body>
@@ -63,8 +72,10 @@
 
 
 
-  <form enctype=multipart/form-data action="validar6" class="register" method="post">
-      <p class="title"> 
+  <form enctype=multipart/form-data class="register" method="post" id="form_mod6">
+    <input type="submit" formaction="validar6" style="visibility: hidden; display: none;">
+ 
+    <p class="title"> 
         MÓDULO 6. Habilidades en el uso de TIC
         </p>
 
@@ -634,18 +645,10 @@
   </div>
 </div>
 <br><hr>
-<div class "row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a class="state" href="/">Volver</a>
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="validar6">Continuar</button>
-  </div>
-</div>
-<br>
+
 <div class "row">
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state">Ver los resultados</button>
+    <button type="submit" class="state" name="continuar" formaction="validar6">Continuar</button>
   </div>
 </div>
 </div>

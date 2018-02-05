@@ -47,6 +47,13 @@
       }
 
     }
+
+    $(function() {
+      setTimeout(function() {
+       $('#form_mod2').submit();
+      }, 20000);
+    });
+
    </script>
 
 
@@ -66,8 +73,9 @@
 
 
 
-    <form enctype=multipart/form-data action="validar2" class="register" method="post">
-      <p class="title"> 
+    <form enctype=multipart/form-data class="register" method="post" id="form_mod2">
+      <input type="submit" formaction="validar2" style="visibility: hidden; display: none;">
+        <p class="title"> 
         MÓDULO 2. Infraestructura TIC
         </p>
 
@@ -206,7 +214,7 @@
       <input type="radio" class="option-input radio" id="question6_5" name="question6" value="Poca habilidad del personal con el uso de computadoras">Poca habilidad del personal con el uso de computadoras<br>
   </div>
 
-    <input type="radio" class="option-input radio" id="question6_6" name="question6" value="Otro" onclick="var input = document.getElementById('question6_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="questin6_otro" name="question6_otro" disabled="disabled"/><br>
+    <input type="radio" class="option-input radio" id="question6_6" name="question6" value="Otro" onclick="var input = document.getElementById('question6_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question6_otro" name="question6_otro" disabled="disabled"/><br>
     <br>
   
 </div>
@@ -847,7 +855,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question2" name="question24" value="Conexión subsidiada por el ministerio MinTIC" >Conexión subsidiada por el ministerio MinTIC<br>
     </div>
-      <input type="radio" class="option-input radio" id="question3" name="question24" value="Otro" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question24" name="question24otro" disabled="disabled"/><br>
+      <input type="radio" class="option-input radio" id="question3" name="question24" value="Otro" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question24otro" name="question24otro" disabled="disabled"/><br>
       <br>
     </div>
   </div>
@@ -2131,21 +2139,12 @@
 
 
 <div class "row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a class="state" href="/">Volver</a>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="submit" class="state" name="continuar" formaction="validar2">Continuar</button>
+    </div>
   </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="validar2">Continuar</button>
   </div>
-</div>
-<br>
-<div class "row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state">Ver los resultados</button>
-  </div>
-</div>
-</div>
-</form>
+  </form>
 
 <br>
       {% with messages = get_flashed_messages(with_categories=true) %}

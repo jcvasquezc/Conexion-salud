@@ -50,6 +50,12 @@
     }
 
 
+    $(function() {
+      setTimeout(function() {
+       $('#form_mod4').submit();
+      }, 20000);
+    });
+
    </script>
 
 <body>
@@ -65,9 +71,10 @@
 
 
 
-  <form enctype=multipart/form-data action="validar4" class="register" method="post">
+  <form enctype=multipart/form-data class="register" method="post" id="form_mod4">
+    <input type="submit" formaction="validar4" style="visibility: hidden; display: none;">
       <p class="title"> MÓDULO 4. Servicios Electrónicos
-      </p>
+    </p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -246,7 +253,7 @@
     <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Todos los registros se encuentran en papel"> Todos los registros se encuentran en papel</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question7" name="question7" value="Otro" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question7_otro" name="question7_otro" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question7" name="question7" value="Otro" onclick="var input=document.getElementById('question7_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question7_otro" name="question7_otro" disabled="disabled"/></label><br>
 
   </div>
 
@@ -317,7 +324,7 @@
     <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Plan de cuidados de la enfermería"> Plan de cuidados de la enfermería</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question9" name="question9" value="Otro" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question9_otro" name="question9_otro" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question9" name="question9" value="Otro" onclick="var input=document.getElementById('question9_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question9_otro" name="question9_otro" disabled="disabled"/></label><br>
   </div>
 
     <br>
@@ -364,7 +371,7 @@
     <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Ninguno"> Ninguno</label><br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question10" name="question10" value="Otro" onclick="var input=document.getElementById('name5'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
+    <label><input type="checkbox" class="option-input checkbox" id="question10" name="question10" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
   </div>
 
     <br>
@@ -451,22 +458,12 @@
 </div>
 <br><hr>
 <div class "row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a class="state" href="/">Volver</a>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="submit" class="state" name="continuar" formaction="validar4">Continuar</button>
+    </div>
   </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="validar4">Continuar</button>
   </div>
-</div>
-<br>
-<div class "row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state">Ver los resultados</button>
-  </div>
-</div>
-</div>
-</form>
-
+  </form>
 <br>
       {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}

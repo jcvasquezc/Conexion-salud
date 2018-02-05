@@ -1,4 +1,4 @@
-*{font-family: 'Roboto', sans-serif;}
+/*{font-family: 'Roboto', sans-serif;}*/
 
 @keyframes click-wave {
   0% {
@@ -72,7 +72,7 @@
 .option-input.radio::after {
   border-radius: 50%;
 }
-
+/*
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -90,3 +90,4 @@ body label {
   display: block;
   line-height: 40px;
 }
+*/

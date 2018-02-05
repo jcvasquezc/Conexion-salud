@@ -5,12 +5,11 @@
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
     <link rel="stylesheet" href="static/preg_style.css">
-    <link rel="stylesheet" href="static/radio_checks.css">
     <link rel="stylesheet" href="static/header-login-signup.css">
-
 		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/radio_checks.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
@@ -35,7 +34,14 @@
 		{
 			document.getElementById(name).value = "";
 			document.getElementById(btn_del).disabled = true;
-		}
+    }
+    
+
+    $(function() {
+      setTimeout(function() {
+       $('#form_mod5').submit();
+      }, 20000);
+    });
    </script>
 
 <body>
@@ -52,8 +58,10 @@
 
 
 
-  <form enctype=multipart/form-data action="validar5" class="register" method="post">
-      <p class="title"> MÓDULO 3. Infraestructura TIC</p>
+  <form enctype=multipart/form-data class="register" method="post" id="form_mod5">
+    <input type="submit" formaction="validar5" style="visibility: hidden; display: none;">
+
+      <p class="title"> MÓDULO 5. Estándares e Interoperabilidad </p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -269,22 +277,16 @@
   </div>
 </div>
 <br><hr>
+
+
+
 <div class "row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a class="state" href="/">Volver</a>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="submit" class="state" name="continuar" formaction="validar5">Continuar</button>
+    </div>
   </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="preguntas">Continuar</button>
   </div>
-</div>
-<br>
-<div class "row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state">Ver los resultados</button>
-  </div>
-</div>
-</div>
-</form>
+  </form>
 
 <br>
       {% with messages = get_flashed_messages(with_categories=true) %}

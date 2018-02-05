@@ -48,6 +48,13 @@
       }
 
     }
+
+    $(function() {
+      setTimeout(function() {
+       $('#form_mod3').submit();
+      }, 20000);
+    });
+
    </script>
 
 <body>
@@ -64,7 +71,8 @@
 
 
 
-  <form enctype=multipart/form-data action="validar3" class="register" method="post">
+  <form enctype=multipart/form-data class="register" method="post" id="form_mod3">
+    <input type="submit" formaction="validar3" style="visibility: hidden; display: none;">
       <p class="title"> MÓDULO 3. Infraestructura TIC</p>
 
 <div class="row">
@@ -923,7 +931,7 @@
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="question32" value="Asignar a cada muestra la identificación del paciente y el estudio realizar (Log in de muestras)"> Asignar a cada muestra la identificación del paciente y el estudio realizar (Log in de muestras) </label><br>
       <label><input type="checkbox" id="question35" ondragover="" class="option-input checkbox" name="question32" value="Resultado del análisis de las muestras"> Resultado del análisis de las muestras</label><br>
-      <label><input type="checkbox" class="option-input checkbox" id="question35" name="question32" value="Otro" onclick="var input=document.getElementById('name9'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question32_otro" name="question32_otro" disabled="disabled"/></label><br>
+      <label><input type="checkbox" class="option-input checkbox" id="question35" name="question32" value="Otro" onclick="var input=document.getElementById('question32_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question32_otro" name="question32_otro" disabled="disabled"/></label><br>
       <br>
     </div>
   </div>
@@ -1599,22 +1607,15 @@
   </div>
 </div>
 <br><hr>
+
 <div class "row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a class="state" href="/">Volver</a>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="submit" class="state" name="continuar" formaction="validar3">Continuar</button>
+    </div>
   </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a type="btn_att submit" class="state" href="validar3">Continuar</button>
   </div>
-</div>
-<br>
-<div class "row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state">Ver los resultados</button>
-  </div>
-</div>
-</div>
-</form>
+  </form>
+
 
 <br>
       {% with messages = get_flashed_messages(with_categories=true) %}
