@@ -82,7 +82,7 @@ for idx_ips in range(0,df.shape[0]):
     car = list(ips['caracter'])[0]
     fech_rad = str(list(ips['fecha radicacion'])[0])
     fech_ven = str(list(ips['fecha vencimiento'])[0])
-    dv = str(list(ips['dv'])[0])
+    dv = str(list(ips['dv'])[0])#Ultimo numero en el nit
     clasepr = list(ips['clase persona'])[0]
     naju = list(ips['naju nombre'])[0]
     numsedpri = str(list(ips['numero sede principal'])[0])

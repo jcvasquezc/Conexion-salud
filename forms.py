@@ -295,7 +295,6 @@ def preguntas_mod6():
 
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 def validar(modulo):
-    global usr
     if request.method == 'POST':
         data_enc=[]
         print("MODULO: ", modulo)
@@ -305,12 +304,13 @@ def validar(modulo):
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         
+        usr =   Users_data.find({"usuario":usr})[0]
         
-        temp = IPS_data.find({"NIT":usr})
+        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
         else:
             IPS_index_data = {"IPS":"name",
