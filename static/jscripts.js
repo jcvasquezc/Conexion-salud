@@ -2,6 +2,11 @@ function goBack() {
     window.history.back();
 }
 
+/*Alertas*/
+function alerta(msg) {
+    alert(msg);
+}
+
 /*-------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
@@ -26,7 +31,7 @@ function setlist(val,elm_id)
 		var idx = val.selectedIndex;
 		//Obtener arreglo de "Municipios" a partir del valor seleccionado
 		var which = val.options[idx].value;
-		cList = cityLists[which];//cityLists está definida en "index.html"
+		cList = cityLists[which];//cityLists está definida en "registro.html"
 
 		var cSelect = document.getElementById(elm_id);
 		var len = cSelect.options.length;

@@ -32,7 +32,7 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 #Carpeta para adjuntar archivos
 UPLOAD_FOLDER = main_path+'/uploads'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','mp4'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #Crear Base de datos
 #Crear cliente
@@ -44,20 +44,13 @@ db = client.IPS_database
 
 #Crear colección
 IPS_data  = db.IPS_collection
+Users_data = db.Users_collection
 
 ##Delete collection
 #db.Index_collection.drop()
 
 #Crear indice basado en NIT
 #db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
-
-class ReusableForm(Form):
-    name = TextField('Nombre:', validators=[validators.required()])
-    dpto = TextField('Departamento:', validators=[validators.required()])
-    city = TextField('Ciudad:', validators=[validators.required()])
-    addr = TextField('Dirección:', validators=[validators.required()])
-    tel = IntegerField('Teléfono:', validators=[validators.required(), validators.NumberRange(min=0000, max=9999999999, message="Por favor introduzca un teléfono valido")])
-    email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35, message="Por favor introduzca un email valido")])
 
 def set_dptos():
     #Obtener lista de departamento y ciudades
@@ -82,77 +75,70 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-#Codificar contrasenna Jason Vanzin
-def hash_pass(password):
-    hash_password = hashlib.sha1(password.encode('utf-8')).digest()
-    hash_password = hashlib.sha1(hash_password).hexdigest()
-    hash_password = '*' + hash_password.upper()
+#def new_user(nit):
+#    # Creates a new user for the company passed into the function if it doesn't already exist. se
+#    import hashlib
+#    user_data = {}
+#    user_data['username'] =  input("Please enter your desired username: ").lower()
+#    while user_exists(company.upper(), user_data['username']):
+#        user_data['username'] = input("Username already exist. Please try a different username: ").lower()
+#    password = input("Please enter a password: ")
+#    user_data['password'] = hash_pass(password)
+#    user_data['email'] = input("Please enter your email address: ")
+#    update_result = update_mongo_document(company.upper(), 'user', '$push', user_data)
+#    
+    
+#Codificar contrasenna
+def hash_pass(password,salt):
+    salt_hash = hashlib.blake2b(salt=salt)
+    salt_hash.update(password.encode('utf-8'))
+    hash_password = salt_hash.digest()
     return hash_password
 
-#Verificar credenciales Jason Vanzin
-def get_credentials(nit):
-    temp = IPS_data.find({"NIT":nit}).count()
+#Verificar credenciales
+def get_credentials(usr):
+    temp = Users_data.find({"usuario":usr}).count()
     if temp == 0:
         return 0
     else:
-        results = IPS_data.find({"NIT":nit})[0]
-        user = results['Usuarios']
-        return user[0]['password']
-
+        results = Users_data.find({"usuario":usr})[0]
+        return results      
+######################################################
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    dptos,cities = set_dptos()
+#    dptos,cities = set_dptos()
     if request.method == 'POST':
         return redirect(url_for('index'))
 
-    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
-
-######################################################
-@app.route("/Registrar_IPS", methods=['GET', 'POST'])
-def Registrar_IPS():
-    dptos,cities = set_dptos()
+#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+    return render_template('index.html')
+###################################################3##
+@app.route("/Ingresar", methods=['GET', 'POST'])
+def Ingresar():
     if request.method == 'POST':
-        return redirect(url_for('registro'))
-    return render_template('Registrar_IPS.html', **{"dptos":dptos},cities=json.dumps(cities))
-
-######################################################
+        return redirect(url_for('Ingresar'))
+    return render_template('Ingresar.html')
 ######################################################
 @app.route("/registro", methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
-        dpto = request.form['reg_dpto']
-        city = request.form['reg_city']
+#        dpto = request.form['reg_dpto']
+#        city = request.form['reg_city']
 
-        IPS = []
-        dict_IPS = {}
-        for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
-            IPS.append(docs['IPS'])
-            templist = []
-            for key, value in docs.items():
-                if key not in ['IPS','_id']:
-                    templist.append(value)
-            dict_IPS[docs['IPS']] = templist
-#        return redirect(url_for('registro'))
-    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
+#        IPS = []
+#        dict_IPS = {}
+#        for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
+#            IPS.append(docs['IPS'])
+#            templist = []
+#            for key, value in docs.items():
+#                if key not in ['IPS','_id']:
+#                    templist.append(value)
+#            dict_IPS[docs['IPS']] = templist
+        return redirect(url_for('registro'))
+#    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
+    return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
 
 ######################################################
-@app.route("/Ingresar", methods=['GET', 'POST'])
-def Ingresar():
-    global usr
-    if request.method == 'POST':
-        usr = request.form['usrlog']
-        userpass = request.form['passlog']
-        #Verificar contrasenna
-        credentials = get_credentials(usr)
-        error = ''
-
-        print(usr, credentials)
-        if hash_pass(userpass) != credentials:
-            error = ' (Usuario o Contraseña incorrecto)'
-#            return redirect(url_for('index.html',error=error)
-            return render_template('Ingresar.html',error=error)
-
-    return render_template('Ingresar.html')
 
 @app.route("/loginIPS", methods=['GET', 'POST'])
 def loginIPS():
@@ -164,12 +150,17 @@ def loginIPS():
         #Verificar contrasenna
         credentials = get_credentials(usr)
         error = ''
-
-        print(usr, credentials)
-        if hash_pass(userpass) != credentials:
+        #Verificarcontrasennas
+        if hash_pass(userpass,credentials['salt']) != credentials['password']:
             error = ' (Usuario o Contraseña incorrecto)'
 #            return redirect(url_for('index.html',error=error)
             return render_template('Ingresar.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
+        
+        #Verificar si es necesario registrar
+        ips_nit = IPS_data.find({"NIT":credentials['IPS_NIT']})[0]
+        if len(ips_nit['Encargado de Encuesta'])==0:
+            return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+        
 
     return render_template('loginIPS.html')
 

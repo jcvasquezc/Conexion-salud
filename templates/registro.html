@@ -14,10 +14,10 @@
 
     <!-- Funciones javascript -->
     <script type="text/javascript">
-        var IPSLists = {{dict_IPS|safe}}
+        var cityLists = {{cities|safe}}
     </script>
     <!-- Funciones javascript -->
-        
+    
 		<div class="topnav" id="myTopnav">				
 				<div class="logo">
 					<a href="/">
@@ -34,13 +34,13 @@
 			<!--Campo para el Nombre de la IPS -->
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 				<label>Nombre del prestador de servicios:</label>
-				<br>
-				<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" onchange="setfields(this.value)" placeholder="Nombre de IPS" required>
+                <br>
+                <input type="text" id="reg_ips" name="reg_ips" placeholder="Nombre de IPS" required>				<!--<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" placeholder="Nombre de IPS" required>
 				<datalist id="reg_ips">
 					{% for value in IPS %}
 						<option  value = "{{value}}">{{value}}</option>
 					{% endfor %}
-				</datalist>
+				</datalist>-->
 			</div>
 			<!--Número de sedes asociadas-->
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
@@ -91,13 +91,21 @@
         <div class = "row">
             <!-- Campo para departamento -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label >Departamento: </label>
-                <input type="text" id="dpto" name="dpto" value="{{dpto}}" readonly="true">
+                <label for="reg_dpto">Departamento</label>
+                <select  id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
+                    <option  value = "">Seleccionar</option>
+                    {% for value in dptos %}
+                    <option  value = "{{value}}">{{value}}</option>
+                    {% endfor %}
+                </select> 
             </div>
             <!-- Campo para ciudad -->
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label>Municipio: </label>
-                <input type="text" id="city" name="city" value="{{city}}" readonly="true">
+                <label for="reg_city">Municipio</label>
+                <br>
+                <select  id="reg_city" name="reg_city" required>
+                    <option  value ="">Seleccionar</option>
+                </select> 
             </div>
         </div>
     
@@ -178,4 +186,8 @@
 
 </div>
 </body>
+<!-- Funciones javascript -->
+<script type="text/javascript">
+alerta("Antes de comenzar la encuesta, es necesario validar la siguiente información");
+</script>
 </html>

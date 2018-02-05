@@ -1,0 +1,8 @@
+adm = Administrador
+sup = Encargado encuesta
+emp1 = Encargado de modulo 1
+emp2 = Encargado de modulo 2
+emp3 = Encargado de modulo 3
+emp4 = Encargado de modulo 4
+emp5 = Encargado de modulo 5
+emp6 = Encargado de modulo 6
