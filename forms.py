@@ -7,7 +7,7 @@ Created on Tue Dec  12 14:44:02 2017
 """
 
 from flask import Flask, render_template, flash, request, redirect,url_for, make_response
-from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin
+from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin, current_user
 from pymongo import MongoClient #Manejos de base de datos
 import pandas as pd
 import numpy as np
@@ -158,7 +158,11 @@ def Ingresar():
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
             login_user(user)
-            
+            usr_id = current_user.id
+            print(usr_id)
+            print(Users_data.find()[0])
+            usr =   Users_data.find({'user_id':usr_id})[0]
+            print(usr)
             #Verificar si es necesario registrar
             ips_nit = IPS_data.find({"NIT":Users_data.find({"usuario":username})[0]['IPS_NIT']})[0]
             if len(ips_nit['Encargado de Encuesta'])==0:
@@ -290,6 +294,7 @@ def analisis():
 
 
 @app.route("/preguntas_mod1", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod1():
     global usr
     if request.method == 'POST':
@@ -326,7 +331,10 @@ def preguntas_mod1():
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
 
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
@@ -335,12 +343,10 @@ def preguntas_mod1():
             IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 2": dict_encuesta}}, upsert=False, full_response= True)
         
 
-
-
-
     return render_template('preguntas_mod1.html')
 
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod2():
 
     if request.method == 'POST':
@@ -350,8 +356,10 @@ def preguntas_mod2():
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
-
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
@@ -362,6 +370,7 @@ def preguntas_mod2():
     return render_template('preguntas_mod2.html')
 
 @app.route("/preguntas_mod3", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod3():
     if request.method == 'POST':
         data_enc=[]
@@ -370,8 +379,10 @@ def preguntas_mod3():
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
-
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
@@ -382,6 +393,7 @@ def preguntas_mod3():
     return render_template('preguntas_mod3.html')
 
 @app.route("/preguntas_mod4", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod4():
 
     if request.method == 'POST':
@@ -391,8 +403,10 @@ def preguntas_mod4():
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
-
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
@@ -402,6 +416,7 @@ def preguntas_mod4():
     return render_template('preguntas_mod4.html')
 
 @app.route("/preguntas_mod5", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod5():
     if request.method == 'POST':
         data_enc=[]
@@ -410,8 +425,10 @@ def preguntas_mod5():
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
-
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
@@ -422,8 +439,9 @@ def preguntas_mod5():
     return render_template('preguntas_mod5.html')
 
 @app.route("/preguntas_mod6", methods=['GET', 'POST'])
+@login_required
 def preguntas_mod6():
-
+    nquestion=0
     if request.method == 'POST':
         form_mod6 = request.form
         nquestion=0
@@ -436,7 +454,11 @@ def preguntas_mod6():
                 nquestion=nquestion+1
 
         print(dict_encuesta)
-        usr =   Users_data.find({"usuario":"838000096"})[0]
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
+        print(usr)       
 
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
@@ -447,6 +469,7 @@ def preguntas_mod6():
     return render_template('preguntas_mod6.html', nquestion=nquestion)
 
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
+@login_required
 def validar(modulo):
 
     print(request.method)
@@ -454,37 +477,28 @@ def validar(modulo):
         data_enc=[]
         print("MODULO: ", modulo)
         print(request.form)
+        
+        
+        usr_id = current_user.id
+        print(usr_id)
+        
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
+        print(usr)       
+        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        print(temp)
+        Ntemp=temp.count()
+        print(Ntemp)
         dict_encuesta={}
+        print(usr['IPS_NIT'])
+        dict_encuesta["NIT"]=usr['IPS_NIT']
         for j in request.form:
             dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
-        
-        usr =   Users_data.find({"usuario":"838000096"})[0]
-        
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
-        Ntemp=temp.count()
-        if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
+        IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
-        else:
-            IPS_index_data = {"IPS":"name",
-                "NIT":000,
-                "Carácter":"car",
-                "Gerente":"ger",
-                "Departamento":"dpto",
-                "Municipio":"city",
-                "Dirección":"addr",
-                "Teléfono":"tel",
-                "Email":"email",
-                "Encargado":"username",
-                "Email Encargado":"usermail",
-                "Cargo Encargado":"userjob",
-                "Resultados Modulo "+str(modulo):dict_encuesta
-                }
-            IPS_data.insert_one(IPS_index_data).inserted_id
-
-
+        return render_template('validar.html')
     return render_template('validar.html')
 
 
