@@ -1,0 +1,3 @@
+admin = Administrador
+manager = Manejo y supervision de modulos
+member = Encargado de modulo

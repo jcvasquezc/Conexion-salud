@@ -6,27 +6,23 @@ Created on Tue Dec  12 14:44:02 2017
 @author: gita
 """
 
-from flask import Flask, render_template, flash, request,session, redirect,url_for, Response, make_response
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
+from flask import Flask, render_template, flash, request, redirect,url_for, make_response
+from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin
 from pymongo import MongoClient #Manejos de base de datos
-import pymongo
 import pandas as pd
 import numpy as np
 import os
 import json
-import pprint
-from dash.dependencies import Input, Output
-import dash_core_components as dcc
-import dash_html_components as html
 from werkzeug.utils import secure_filename
 import hashlib
 from utils import send_email
+
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
 
 # App config.
 DEBUG = True
-usr=''
+#LOGIN_DISABLED = True #Solo habilitar para pruebas.
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
@@ -34,7 +30,8 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 UPLOAD_FOLDER = main_path+'/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#Crear Base de datos
+
+#Base de datos
 #Crear cliente
 client = MongoClient()
 
@@ -46,12 +43,45 @@ db = client.IPS_database
 IPS_data  = db.IPS_collection
 Users_data = db.Users_collection
 
+#Manejo de usuarios
+login_manager = LoginManager()
+login_manager.init_app(app)#Configurar app para login
+login_manager.login_view = "Ingresar" #ir a esta html cuando se requiera el login
+
+
+#Cargar usuarios
+
+
 ##Delete collection
 #db.Index_collection.drop()
 
 #Crear indice basado en NIT
 #db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
 
+class User(UserMixin):    
+    def __init__(self,usr_id):
+        self.id = usr_id
+
+    def __repr__(self):
+        return '<User {}>'.format(self.usr_id)
+
+users=[]
+for docs in Users_data.find():
+    usr_id=docs["user_id"]
+    users.append(User(usr_id))
+
+@login_manager.user_loader
+def load_user(usr_id):
+    return User(usr_id)
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
+#Obtener listas de departamentos y ciudades
 def set_dptos():
     #Obtener lista de departamento y ciudades
     lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
@@ -87,41 +117,68 @@ def allowed_file(filename):
 #    user_data['email'] = input("Please enter your email address: ")
 #    update_result = update_mongo_document(company.upper(), 'user', '$push', user_data)
 #    
-    
+####################################
 #Codificar contrasenna
 def hash_pass(password,salt):
     salt_hash = hashlib.blake2b(salt=salt)
     salt_hash.update(password.encode('utf-8'))
     hash_password = salt_hash.digest()
     return hash_password
-
+########################################################
 #Verificar credenciales
-def get_credentials(usr):
+def get_credentials(usr,userpass):    
     temp = Users_data.find({"usuario":usr}).count()
+    print(temp)
     if temp == 0:
-        return 0
+        return False
     else:
         results = Users_data.find({"usuario":usr})[0]
-        return results      
+        if hash_pass(userpass,results['salt']) == results['password']:
+            return True
+        return False
 ######################################################
 @app.route("/", methods=['GET', 'POST'])
 def index():
 #    dptos,cities = set_dptos()
     if request.method == 'POST':
         return redirect(url_for('index'))
-
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
     return render_template('index.html')
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
-def Ingresar():
+def Ingresar():    
     if request.method == 'POST':
-        return redirect(url_for('Ingresar'))
+        username = request.form['usrlog']
+        userpass = request.form['passlog']
+        credentials = get_credentials(username,userpass)
+        error = ''
+        #Verificarcontrasennas
+#        print(credentials)
+        if credentials:
+            user_id = Users_data.find({"usuario":username})[0]['user_id']
+            user = User(user_id)
+            login_user(user)
+            
+            #Verificar si es necesario registrar
+            ips_nit = IPS_data.find({"NIT":Users_data.find({"usuario":username})[0]['IPS_NIT']})[0]
+            if len(ips_nit['Encargado de Encuesta'])==0:
+                dptos,cities = set_dptos()
+                return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+            else:            
+                return render_template('loginIPS.html')
+        else:
+            error = ' (Usuario o Contraseña incorrecto)'
+#            return redirect(url_for('index.html',error=error)
+            return render_template('Ingresar.html',error=error)
+#        return redirect(url_for('Ingresar'))
     return render_template('Ingresar.html')
+
 ######################################################
 @app.route("/registro", methods=['GET', 'POST'])
+@login_required
 def registro():
-    if request.method == 'POST':
+    if request.method == 'POST':        
+        dptos,cities = set_dptos()
 #        dpto = request.form['reg_dpto']
 #        city = request.form['reg_city']
 
@@ -141,26 +198,16 @@ def registro():
 ######################################################
 
 @app.route("/loginIPS", methods=['GET', 'POST'])
+@login_required
 def loginIPS():
-    global usr
     if request.method == 'POST':
-        dptos,cities = set_dptos()
-        usr = request.form['usrlog']
-        userpass = request.form['passlog']
-        #Verificar contrasenna
-        credentials = get_credentials(usr)
-        error = ''
-        #Verificarcontrasennas
-        if hash_pass(userpass,credentials['salt']) != credentials['password']:
-            error = ' (Usuario o Contraseña incorrecto)'
-#            return redirect(url_for('index.html',error=error)
-            return render_template('Ingresar.html',error=error,**{"dptos":dptos},cities=json.dumps(cities))
-        
-        #Verificar si es necesario registrar
-        ips_nit = IPS_data.find({"NIT":credentials['IPS_NIT']})[0]
-        if len(ips_nit['Encargado de Encuesta'])==0:
-            return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
-        
+#        Verificar si es necesario registrar
+#        n
+#        ips_nit = IPS_data.find({"NIT":nit})[0]
+#        if len(ips_nit['Encargado de Encuesta'])==0:
+#            dptos,cities = set_dptos()
+#            return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+        return render_template('loginIPS.html')
 
     return render_template('loginIPS.html')
 

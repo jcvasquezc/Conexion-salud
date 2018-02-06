@@ -6,7 +6,7 @@ Created on Tue Dec  12 14:44:02 2017
 @author: gita
 """
 
-from flask import Flask, render_template, flash, request,session, redirect,url_for
+from flask import Flask, render_template, flash, request,session, redirect,url_for, make_response
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient,ASCENDING #Manejos de base de datos
 import pandas as pd
@@ -38,7 +38,7 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
-client.drop_database('IPS_database')
+#client.drop_database('IPS_database')
 
 ##Crear colecciones
 IPS_data  = db.IPS_collection
@@ -131,7 +131,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Resultados Modulo 6":{},
                   }
 
-    Users_IPS = {usertag:nit, "password":hpassw,"salt":salt,"IPS_NIT":nit,'level':'sup'}
+    Users_IPS = {usertag:nit, "password":hpassw,"salt":salt,"IPS_NIT":nit,'role':'manager','user_id':int(str(nit+'01'))}
     
     #Llenar base de datos
     IPS_data.insert_one(IPS_index_data).inserted_id  
