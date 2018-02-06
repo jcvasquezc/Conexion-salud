@@ -1,0 +1,280 @@
+<!doctype html>
+<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+  <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="static/preg_style.css">
+  <link rel="stylesheet" href="static/radio_checks.css">
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/header-login-signup.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	<body>
+      <div class="topnav" id="myTopnav">				
+          <div class="logo">
+            <a href="/">
+            <img src="static/Logos_header.png" class="img-responsive">
+            </a>
+          </div>
+      </div>
+		<div class="wrapper">
+
+
+      <form enctype=multipart/form-data action="admin" class="register" method="post">
+        <h1 class="title">Resultados</h1>
+
+
+        <br><hr>
+
+        <h2>Número de IPS registradas: {{Nregistered}}</h2>
+        <br>
+
+        <table class="table" style=" max-height: 200px;">
+
+            <thead>
+                <tr>
+                    <th>Departamento</th>
+                    <th>Municipio</th> 
+                    <th>IPS</th>
+                    <th>Enlace</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                    {% for value in tab_reg %}
+                    <tr>
+                        <td>{{value[0]}}</td>
+                        <td>{{value[1]}}</td>
+                        <td>{{value[2]}}</td>
+                        <td>{{value[3]}}</td>
+                    </tr>                
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+
+
+        <br><hr>
+
+        <h2>Número de IPS faltantes: {{Nmiss}}</h2>
+        <br>
+
+        <table class="table" style=" max-height: 200px;">
+
+            <thead>
+                <tr>
+                    <th>Departamento</th>
+                    <th>Municipio</th> 
+                    <th>IPS</th>
+                    <th>Enlace</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                {% for value in tab_miss %}
+                    <tr>
+                        <td>{{value[0]}}</td>
+                        <td>{{value[1]}}</td>
+                        <td>{{value[2]}}</td>
+                        <td>{{value[3]}}</td>
+                    </tr>                
+                {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 1: Descripción de la institución de salud
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="container" style="width:100%">
+                        <h4>Porcentaje respondido</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[0]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[0]}}%">
+                                    {{n_mod[0]}}
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <br>
+                <button type="submit" class="state" formaction="exportcsv1">Exportar</button>
+            </div>
+
+        </div>
+        
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 2. Infraestructura TIC
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[1]}}%">
+                                            {{n_mod[1]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button type="submit" class="state" formaction="exportcsv2">Exportar</button>
+                </div>
+    
+            </div>
+ 
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 3: Historia Clínica Digital
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[2]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[2]}}%">
+                                            {{n_mod[2]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button type="submit" class="state" formaction="exportcsv3">Exportar</button>
+                </div>
+    
+            </div>
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 4. Servicios Electrónicos
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[3]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[3]}}%">
+                                            {{n_mod[3]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button type="submit" class="state" formaction="exportcsv4">Exportar</button>
+                </div>
+    
+            </div>
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 5. Estándares e Interoperabilidad 
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[4]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[4]}}%">
+                                            {{n_mod[4]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button type="submit" class="state" formaction="exportcsv5">Exportar</button>
+                </div>
+    
+            </div>
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 6. Habilidades en el uso de TIC
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{n_mod[5]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{n_mod[5]}}%">
+                                            {{n_mod[5]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button type="submit" class="state" formaction="exportcsv6">Exportar</button>
+                </div>
+    
+            </div>
+
+      </form>
+
+		</div>
+	</body>
+</html>

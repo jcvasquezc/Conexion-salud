@@ -6,7 +6,7 @@ Created on Tue Dec  12 14:44:02 2017
 @author: gita
 """
 
-from flask import Flask, render_template, flash, request,session, redirect,url_for
+from flask import Flask, render_template, flash, request,session, redirect,url_for, Response, make_response
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient #Manejos de base de datos
 import pymongo
@@ -378,11 +378,16 @@ def preguntas_mod5():
 def preguntas_mod6():
 
     if request.method == 'POST':
+        form_mod6 = request.form
+        nquestion=0
         data_enc=[]
         print(request.form)
         dict_encuesta={}
         for j in request.form:
             dict_encuesta[j]=request.form[j]
+            if len(request.form[j])>0:
+                nquestion=nquestion+1
+
         print(dict_encuesta)
         usr =   Users_data.find({"usuario":"838000096"})[0]
 
@@ -391,9 +396,8 @@ def preguntas_mod6():
         if Ntemp!=0:
 
             IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 6": dict_encuesta}}, upsert=False, full_response= True)
-        
 
-    return render_template('preguntas_mod6.html')
+    return render_template('preguntas_mod6.html', nquestion=nquestion)
 
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 def validar(modulo):
@@ -438,7 +442,63 @@ def validar(modulo):
 
 
 
+@app.route("/admin", methods=['GET', 'POST'])
+def admin():
 
+    temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
+    Nregistered=0
+    Nmiss=0
+    tab_reg=[]
+    tab_miss=[]
+    n_mod=np.zeros(6)
+    for reg in temp:
+        if len(reg["Encargado de Encuesta"])>0:
+            print(reg["Encargado de Encuesta"])
+            Nregistered=Nregistered+1
+            tab_reg.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], "Aqui"])
+        else:
+            Nmiss=Nmiss+1
+            tab_miss.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], "Aqui"])
+        for k in np.arange(1,7):
+            if len(reg["Resultados Modulo "+str(k)])>0:
+                n_mod[k-1]=n_mod[k-1]+1
+    
+    n_mod=np.round(100*n_mod/(Nregistered+Nmiss),2)
+
+
+    return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, n_mod=n_mod)
+
+
+
+
+@app.route("/exportcsv<modulo>", methods=['GET', 'POST'])
+def exportcsv(modulo):
+    # with open("outputs/Adjacency.csv") as fp:
+    #     csv = fp.read()
+
+    if request.method == 'POST': 
+        temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
+        
+        row = -1
+        df=pd.DataFrame([])
+        for reg in temp:
+            if len(reg["Resultados Modulo "+str(modulo)])>0:
+                print(reg["Resultados Modulo "+str(modulo)])
+                row = row + 1
+
+                data=reg["Resultados Modulo "+str(modulo)]
+
+                for key in data.keys():
+                    df.loc[row,key] = data[key]
+        print(df)
+        csv_file=df.to_csv(sep='\t')
+
+
+        resp = make_response(csv_file)
+        resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+        resp.headers["Content-Type"] = "text/csv"
+        return resp
+    return render_template('admin.html')
 
 
 

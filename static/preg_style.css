@@ -318,6 +318,19 @@ body {
   border-radius: 50%;
 }
 
+
+
+.table tbody {
+  display:block;
+  max-height:300px;
+  overflow-y:scroll;
+  }
+  .table thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  }
+
 footer {
   display: inline;
   padding-top: 50px;

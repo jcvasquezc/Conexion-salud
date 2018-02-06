@@ -38,7 +38,7 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
-#client.drop_database('IPS_database')
+client.drop_database('IPS_database')
 
 ##Crear colecciones
 IPS_data  = db.IPS_collection
@@ -122,7 +122,14 @@ for idx_ips in range(0,df.shape[0]):
                   "Dirección":addr,
                   "Encargado de Encuesta":'',
                   "Email del Encargado":'',
-                  "Cargo del Encargado":'',}
+                  "Cargo del Encargado":'',
+                  "Resultados Modulo 1":{},
+                  "Resultados Modulo 2":{},
+                  "Resultados Modulo 3":{},
+                  "Resultados Modulo 4":{},
+                  "Resultados Modulo 5":{},
+                  "Resultados Modulo 6":{},
+                  }
 
     Users_IPS = {usertag:nit, "password":hpassw,"salt":salt,"IPS_NIT":nit,'level':'sup'}
     
