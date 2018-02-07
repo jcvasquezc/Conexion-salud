@@ -16,10 +16,10 @@
   <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
   <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
   <link rel="stylesheet" href="static/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="static/preg_style.css">
   <link rel="stylesheet" href="static/radio_checks.css">
   <meta name="viewport" content = "width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="static/header-login-signup.css">
+  <link rel="stylesheet" href="static/login_style.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -191,8 +191,14 @@
 </div>
 <br><hr>
 
-
-  <button type="submit" class="state">Análisis</button>
+				<!-- COMIENZA: Botones -->
+				<div class="row">
+            <!-- Boton para continuar a la encuesta -->
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+              <button type="submit" class="button">Enviar</button>
+              <input type=hidden value="{{ next or '' }}" name="next">
+            </div>
+        </div>
       </form>
 
 		</div>
