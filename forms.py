@@ -157,7 +157,6 @@ def Ingresar():
         credentials = get_credentials(username,userpass)
         error = ''
         #Verificarcontrasennas
-#        print(credentials)
         if credentials:
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
@@ -169,7 +168,7 @@ def Ingresar():
                 IPSdata.pop('_id', None)
                 return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
             else:            
-                return render_template('loginIPS.html')
+                return render_template('modulos.html')
         else:
             error = ' (Usuario o Contraseña incorrecto)'
 #            return redirect(url_for('index.html',error=error)
@@ -184,24 +183,45 @@ def registro():
     dptos,cities = set_dptos()
     if request.method == 'POST':
         #Datos prestador
-        name = request.form['reg_ips']#Nombre del prestador
+        nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
+        Nsed = request.form['reg_numsede']#Numero de sedes
         naju = request.form['reg_natjur']#Naturaleza juridica
+        clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
         dptoP = request.form['reg_dptoP']#Departamento del prestador
         cityP = request.form['reg_cityP']#Municipio del prestador
-        username = request.form['username']
-        usermail = request.form['usermail']
-        userjob = request.form['userjob']
+        userenc = request.form['reg_manag']#nombre del encargado
+        mailenc = request.form['reg_manmail']#email del encargado
+        jobenc = request.form['reg_manjob']#cargo del encargado
         
-        return redirect(url_for('registro'))
+        IPS_reg_data = {
+                  "Clase de Prestador":clpr,
+                  "Cargo del Encargado":jobenc,
+                  "Departamento":dptoP,
+                  "Encargado de Encuesta":userenc,
+                  "Email del Encargado":mailenc,
+                  "Municipio":cityP,
+                  "Nivel del Prestador":niv,
+                  "Naturaleza Jurídica":naju,
+                  "Nombre del Prestador":nombreIPS,
+                  "NIT":nit,
+                  "Número de sedes":Nsed,
+                  }       
+        
+        temp = IPS_data.find({"NIT":nit}).count()
+        if temp!=0:
+            IPS_data.update_one({"NIT":nit},{"$set":IPS_reg_data})
+        else:
+            IPS_data.insert_one(IPS_reg_data).inserted_id
+        
+        return redirect(url_for('modulos'))
 
     return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
 ######################################################
-
-@app.route("/loginIPS", methods=['GET', 'POST'])
+@app.route("/modulos", methods=['GET', 'POST'])
 @login_required
-def loginIPS():
+def modulos():
     if request.method == 'POST':        
 #        Verificar si es necesario registrar
 #        n
@@ -209,64 +229,9 @@ def loginIPS():
 #        if len(ips_nit['Encargado de Encuesta'])==0:
 #            dptos,cities = set_dptos()
 #            return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
-        return render_template('loginIPS.html')
+        return render_template('modulos.html')
 
-    return render_template('loginIPS.html')
-
-#######################ENCUESTA#######################
-@app.route("/preguntas", methods=['GET', 'POST'])
-def preguntas():
-    if request.method == 'POST':
-        #Datos IPS
-        name = request.form['reg_ips']
-        nit = request.form['nit']
-        car = request.form['car']
-        ger = request.form['ger']
-        #niv_opt = request.form['nivel']
-        dpto = request.form['dpto']
-        city = request.form['city']
-        addr = request.form['addr']
-        tel = request.form['tel']
-        email = request.form['Email']
-        username = request.form['username']
-        usermail = request.form['usermail']
-        userjob = request.form['userjob']
-        userpass = request.form['reg_pass']
-
-        #Verificar contrasenna
-#        credentials = get_credentials(nit)
-#        if credentials==0 or hash_pass(userpass) != credentials:
-#            return render_template('registro.html')
-#        Validar informacion basica de la IPS
-        IPS_index_data = {"IPS":name,
-                      "NIT":nit,
-                      "Carácter":car,
-                      "Gerente":ger,
-                      "Departamento":dpto,
-                      "Municipio":city,
-                      "Dirección":addr,
-                      "Teléfono":tel,
-                      "Email":email,
-                      "Encargado":username,
-                      "Email Encargado":usermail,
-                      "Cargo Encargado":userjob,
-                      "Resultados Modulo 1":{},
-                      "Resultados Modulo 2":{},
-                      "Resultados Modulo 3":{},
-                      "Resultados Modulo 4":{},
-                      "Resultados Modulo 5":{},
-                      "Resultados Modulo 6":{},
-                      }
-
-        temp = IPS_data.find({"NIT":nit}).count()
-        if temp!=0:
-            IPS_data.update_one({"NIT":nit},{"$set":IPS_index_data})
-        else:
-            IPS_data.insert_one(IPS_index_data).inserted_id
-        return redirect(url_for('preguntas'))
-
-    return render_template('preguntas.html')
-
+    return render_template('modulos.html')
 #######################ENCUESTA#######################
 @app.route("/analisis", methods=['GET', 'POST'])
 def analisis():

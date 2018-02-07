@@ -123,6 +123,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Naturaleza Jurídica":naju,
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
+                  #"Número de sedes":Nsed,
                   "Resultados Modulo 1":{},
                   "Resultados Modulo 2":{},
                   "Resultados Modulo 3":{},
