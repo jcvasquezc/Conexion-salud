@@ -38,7 +38,7 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
-client.drop_database('IPS_database')
+#client.drop_database('IPS_database')
 
 ##Crear colecciones
 IPS_data  = db.IPS_collection
@@ -85,7 +85,7 @@ for idx_ips in range(0,df.shape[0]):
     dv = str(list(ips['dv'])[0])#Ultimo numero en el nit
     clasepr = list(ips['clase persona'])[0]
     naju = list(ips['naju nombre'])[0]
-    numsedpri = str(list(ips['numero sede principal'])[0])
+    numsedpri = str(list(ips['numero sede principal'])[0])#codigo de la sede
     fech_corte = list(ips['fecha corte REPS'])[0]#fecha corte REPS
 #    hab = list(ips['habilitada'])[0]
 #    email = email.split(' ')
@@ -102,36 +102,45 @@ for idx_ips in range(0,df.shape[0]):
     passw.append(dfpass)
     hpassw,salt = hash_pass(userpass)
     
-    IPS_index_data = {"Departamento":dpto,
-                  "Municipio":city,
-                  "Nombre del Prestador":nombreIPS,
-                  "Gerente":ger,
-                  "NIT":nit,
+    IPS_index_data = {
                   "Código Habilitación":codhab,
-                  "Fecha de Radicación":fech_rad,
-                  "Fecha de Vencimiento":fech_ven,
+                  "Código de sede":numsedpri,
                   "Carácter Territorial":car,
-                  "Razón Social":razsoc,
                   "Clase de Prestador":clprnam,
-                  "Empresa Social del Estado":ese,
-                  "Nivel del Prestador":niv,
-                  "Naturaleza Jurídica":naju,
-                  "Teléfono":tel,
-                  "Fax":fax,
-                  "Email del Prestador":email,
+                  "Cargo del Encargado":'',
                   "Dirección":addr,
+                  "Departamento":dpto,
+                  "Email del Prestador":email,
                   "Encargado de Encuesta":'',
                   "Email del Encargado":'',
-                  "Cargo del Encargado":'',
+                  "Empresa Social del Estado":ese,
+                  "Fecha de Radicación":fech_rad,
+                  "Fecha de Vencimiento":fech_ven,
+                  "Fax":fax,
+                  "Gerente":ger,
+                  "Municipio":city,
+                  "Nivel del Prestador":str(int(niv)) if niv else 0,
+                  "Naturaleza Jurídica":naju,
+                  "Nombre del Prestador":nombreIPS,
+                  "NIT":nit,
                   "Resultados Modulo 1":{},
                   "Resultados Modulo 2":{},
                   "Resultados Modulo 3":{},
                   "Resultados Modulo 4":{},
                   "Resultados Modulo 5":{},
                   "Resultados Modulo 6":{},
+                  "Razón Social":razsoc,
+                  "Teléfono":tel,
                   }
 
-    Users_IPS = {usertag:nit, "password":hpassw,"salt":salt,"IPS_NIT":nit,'role':'manager','user_id':int(str(nit+'01'))}
+    Users_IPS = {
+                usertag:nit, 
+                "password":hpassw,
+                "salt":salt,
+                "IPS_NIT":nit,
+                'role':'manager',
+                'user_id':int(str(nit+'01'))
+                }
     
     #Llenar base de datos
     IPS_data.insert_one(IPS_index_data).inserted_id  

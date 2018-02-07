@@ -25,15 +25,16 @@ function toggle_menu() {
 } 
 
 //Diccionario de "Departamentos" y "Municipios" creados en Python.
-function setlist(val,elm_id)
-{
-		//Obtener indice del "Departamento" en el arreglo "cityLists (index.html)"
-		var idx = val.selectedIndex;
+function setlist(dpto_id,city_id)
+{		
+		//Obtener indice del "Departamento" en el arreglo "cityLists (registro.html)"
+		//var idx = val.selectedIndex;
 		//Obtener arreglo de "Municipios" a partir del valor seleccionado
-		var which = val.options[idx].value;
-		cList = cityLists[which];//cityLists está definida en "registro.html"
-
-		var cSelect = document.getElementById(elm_id);
+		//var which = val.options[idx].value;
+		//cList = cityLists[which];//cityLists está definida en "registro.html"
+		val = document.getElementById(dpto_id).value
+		cList = cityLists[val];//cityLists está definida en "registro.html"		
+		var cSelect = document.getElementById(city_id);
 		var len = cSelect.options.length;
 		while (cSelect.options.length > 0) {
 		cSelect.remove(0);
@@ -79,53 +80,21 @@ function setlist(val,elm_id)
 //registro.html; DB_IPS.py; forms.py
 //Esta función se utiliza para autcompletar datos de registro en 
 //caso de que la IPS se encuentre en la base de datos.
-function setfields(val)
+function setfields()
 {
-	cList = IPSLists[val];
-	if (val!="")
-	{					
-		document.getElementById("ger").value=cList[0];
-		document.getElementById("ger").text=cList[0];
-		document.getElementById("nit").value=cList[1];
-		document.getElementById("nit").text=cList[1];
-		document.getElementById("car").value=cList[2];
-		document.getElementById("tel").value=cList[3];
-		document.getElementById("tel").text=cList[3];
-		document.getElementById("Email").value=cList[4];
-		document.getElementById("Email").text=cList[4];
-		document.getElementById("addr").value=cList[5];
-		document.getElementById("addr").text=cList[5];
-		document.getElementById("username").value=cList[6];
-		document.getElementById("username").text=cList[6];
-		document.getElementById("usermail").value=cList[7];
-		document.getElementById("usermail").text=cList[7];
-		document.getElementById("userjob").value=cList[8];
-		document.getElementById("userjob").text=cList[8];
-		//document.getElementById("nivel".concat(cList[3])).checked=true;
-	}
-	else
-	{				
-		document.getElementById("nit").value='';
-		document.getElementById("nit").text='';
-		document.getElementById("car").value='';
-		document.getElementById("ger").value='';
-		document.getElementById("ger").text='';
-		//document.getElementById("nivel1").checked=false;
-		//document.getElementById("nivel2").checked=false;
-		//document.getElementById("nivel3").checked=false;
-		document.getElementById("tel").value='';
-		document.getElementById("tel").text='';
-		document.getElementById("Email").value='';
-		document.getElementById("Email").text='';
-		document.getElementById("addr").value='';
-		document.getElementById("addr").text='';
-		document.getElementById("username").value='';
-		document.getElementById("username").text='';
-		document.getElementById("usermail").value='';
-		document.getElementById("usermail").text='';
-		document.getElementById("userjob").value='';
-		document.getElementById("userjob").text='';	
-	}
+	document.getElementById("reg_ips").value=IPSLists["Nombre del Prestador"];
+	document.getElementById("reg_ips").text=IPSLists["Nombre del Prestador"];
+	//document.getElementById("reg_numsede").value=IPSLists["Número de sedes"];
+	//document.getElementById("reg_numsede").text=IPSLists["Número de sedes"];
+	document.getElementById("reg_nivel").value=IPSLists["Nivel del Prestador"];
+	document.getElementById("reg_nit").value=IPSLists["NIT"];
+	document.getElementById("reg_nit").text=IPSLists["NIT"];
+	document.getElementById("reg_natjur").value=IPSLists["Naturaleza Jurídica"];
+	document.getElementById("reg_clase").value=IPSLists["Clase de Prestador"];
+	document.getElementById("reg_dptoP").value=IPSLists["Departamento"];//departamento-prestador
+	setlist("reg_dptoP","reg_cityP")
+	document.getElementById("reg_cityP").value=IPSLists["Municipio"];
+	
 }
 
 /*-------------------------------------------------------------------------

@@ -31,6 +31,12 @@ UPLOAD_FOLDER = main_path+'/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+#Manejo de usuarios
+login_manager = LoginManager()
+login_manager.init_app(app)#Configurar app para login
+login_manager.login_view = "Ingresar" #ir a esta html cuando se requiera el login
+
+
 #Base de datos
 #Crear cliente
 client = MongoClient()
@@ -43,14 +49,6 @@ db = client.IPS_database
 IPS_data  = db.IPS_collection
 Users_data = db.Users_collection
 
-#Manejo de usuarios
-login_manager = LoginManager()
-login_manager.init_app(app)#Configurar app para login
-login_manager.login_view = "Ingresar" #ir a esta html cuando se requiera el login
-
-
-#Cargar usuarios
-
 
 ##Delete collection
 #db.Index_collection.drop()
@@ -58,6 +56,10 @@ login_manager.login_view = "Ingresar" #ir a esta html cuando se requiera el logi
 #Crear indice basado en NIT
 #db.Index_collection.create_index([('NIT', pymongo.ASCENDING)],unique=True)
 
+#######################################################
+#######################################################
+#######################################################
+#Usuario para login
 class User(UserMixin):    
     def __init__(self,usr_id):
         self.id = usr_id
@@ -65,6 +67,7 @@ class User(UserMixin):
     def __repr__(self):
         return '<User {}>'.format(self.usr_id)
 
+#Cargar usuarios
 users=[]
 for docs in Users_data.find():
     usr_id=docs["user_id"]
@@ -79,8 +82,9 @@ def load_user(usr_id):
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-
+#######################################################
+#######################################################
+#######################################################
 #Obtener listas de departamentos y ciudades
 def set_dptos():
     #Obtener lista de departamento y ciudades
@@ -158,16 +162,12 @@ def Ingresar():
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
             login_user(user)
-            usr_id = current_user.id
-            print(usr_id)
-            print(Users_data.find()[0])
-            usr =   Users_data.find({'user_id':usr_id})[0]
-            print(usr)
             #Verificar si es necesario registrar
-            ips_nit = IPS_data.find({"NIT":Users_data.find({"usuario":username})[0]['IPS_NIT']})[0]
-            if len(ips_nit['Encargado de Encuesta'])==0:
-                dptos,cities = set_dptos()
-                return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+            IPSdata = IPS_data.find({"NIT":Users_data.find({"usuario":username})[0]['IPS_NIT']})[0]
+            if len(IPSdata['Encargado de Encuesta'])==0:
+                dptos,cities = set_dptos()                
+                IPSdata.pop('_id', None)
+                return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
             else:            
                 return render_template('loginIPS.html')
         else:
@@ -181,30 +181,28 @@ def Ingresar():
 @app.route("/registro", methods=['GET', 'POST'])
 @login_required
 def registro():
-    if request.method == 'POST':        
-        dptos,cities = set_dptos()
-#        dpto = request.form['reg_dpto']
-#        city = request.form['reg_city']
-
-#        IPS = []
-#        dict_IPS = {}
-#        for docs in IPS_data.find({"Departamento":dpto,"Municipio":city}):
-#            IPS.append(docs['IPS'])
-#            templist = []
-#            for key, value in docs.items():
-#                if key not in ['IPS','_id']:
-#                    templist.append(value)
-#            dict_IPS[docs['IPS']] = templist
+    dptos,cities = set_dptos()
+    if request.method == 'POST':
+        #Datos prestador
+        name = request.form['reg_ips']#Nombre del prestador
+        nit = request.form['reg_nit']#Nit del prestador
+        naju = request.form['reg_natjur']#Naturaleza juridica
+        niv = request.form['reg_nivel']#Nivel del prestador
+        dptoP = request.form['reg_dptoP']#Departamento del prestador
+        cityP = request.form['reg_cityP']#Municipio del prestador
+        username = request.form['username']
+        usermail = request.form['usermail']
+        userjob = request.form['userjob']
+        
         return redirect(url_for('registro'))
-#    return render_template('registro.html',**{"dpto":dpto,"city":city,"IPS":IPS},dict_IPS=json.dumps(dict_IPS))
-    return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
 
+    return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
 ######################################################
 
 @app.route("/loginIPS", methods=['GET', 'POST'])
 @login_required
 def loginIPS():
-    if request.method == 'POST':
+    if request.method == 'POST':        
 #        Verificar si es necesario registrar
 #        n
 #        ips_nit = IPS_data.find({"NIT":nit})[0]
