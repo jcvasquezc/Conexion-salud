@@ -502,6 +502,7 @@ def validar(modulo):
 
 
 @app.route("/admin", methods=['GET', 'POST'])
+@login_required
 def admin():
 
     temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
@@ -514,10 +515,10 @@ def admin():
         if len(reg["Encargado de Encuesta"])>0:
             print(reg["Encargado de Encuesta"])
             Nregistered=Nregistered+1
-            tab_reg.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], "Aqui"])
+            tab_reg.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], reg["NIT"], "Aqui"])
         else:
             Nmiss=Nmiss+1
-            tab_miss.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], "Aqui"])
+            tab_miss.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], reg["NIT"], "Aqui"])
         for k in np.arange(1,7):
             if len(reg["Resultados Modulo "+str(k)])>0:
                 n_mod[k-1]=n_mod[k-1]+1
@@ -529,8 +530,42 @@ def admin():
 
 
 
+@app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
+@login_required
+def adminips_(ips_usr):
+    print(ips_usr)
+
+    usr =   IPS_data.find({"NIT":ips_usr})[0]
+    general_info={'Código Habilitación':usr['Código Habilitación'],
+                        'Código de sede':usr['Código de sede'],
+                        'Carácter Territorial': usr['Carácter Territorial'],
+                        'Clase de Prestador': usr['Clase de Prestador'],
+                        'Municipio': usr['Municipio'],
+                        'Departamento':usr['Departamento'],
+                        'Nombre del Prestador':usr['Nombre del Prestador'],
+                        'NIT': usr['NIT'],
+                        'Dirección':usr['Dirección'],
+                        'Teléfono':usr['Teléfono']
+    }
+    Resultados_mod1=usr["Resultados Modulo 1"]
+    Resultados_mod2=usr["Resultados Modulo 2"]
+    Resultados_mod3=usr["Resultados Modulo 3"]
+    Resultados_mod4=usr["Resultados Modulo 4"]
+    Resultados_mod5=usr["Resultados Modulo 5"]
+    Resultados_mod6=usr["Resultados Modulo 6"]
+
+    perc_mod=[100*len(Resultados_mod1)/45, 100*len(Resultados_mod2)/65, 100*len(Resultados_mod3)/50, 100*len(Resultados_mod4)/12, 100*len(Resultados_mod5)/9, 100*len(Resultados_mod6)/13]
+
+    print(Resultados_mod1)
+    return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
+
+
+
+
+
 
 @app.route("/exportcsv<modulo>", methods=['GET', 'POST'])
+@login_required
 def exportcsv(modulo):
     # with open("outputs/Adjacency.csv") as fp:
     #     csv = fp.read()

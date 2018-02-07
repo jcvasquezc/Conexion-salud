@@ -1,0 +1,459 @@
+<!doctype html>
+<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+  <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="static/preg_style.css">
+  <link rel="stylesheet" href="static/radio_checks.css">
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/header-login-signup.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	<body>
+      <div class="topnav" id="myTopnav">				
+          <div class="logo">
+            <a href="/">
+            <img src="static/Logos_header.png" class="img-responsive">
+            </a>
+          </div>
+      </div>
+		<div class="wrapper">
+
+
+    <div class="register">
+        <h1 class="title">Resultados</h1>
+
+
+        <br><hr>
+
+        <h2>IPS: {{general_info['Nombre del Prestador']}}</h2>
+        
+        <br>
+        <div class="row">NIT: {{general_info['NIT']}}</div>
+        <div class="row">Departamento: {{general_info['Departamento']}}</div>
+        <div class="row">Municipio: {{general_info['Municipio']}}</div>
+        <div class="row">Dirección: {{general_info['Dirección']}}</div>
+        <div class="row">Teléfono: {{general_info['Teléfono']}}</div>
+
+        <br><hr>
+        <h2>Porcentaje de la encuesta diligenciada</h2>
+        <hr>
+
+        <br>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 1: Descripción de la institución de salud
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="container" style="width:100%">
+                        <h4>Porcentaje respondido</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[0]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[0]}}%">
+                                    {{perc_mod[0]}}
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <br>
+                <button  data-toggle="modal" data-target="#myModal1">Ver resultados</button>
+            </div>
+
+        </div>
+        
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 2. Infraestructura TIC
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[1]}}%">
+                                            {{perc_mod[1]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button  data-toggle="modal" data-target="#myModal2">Ver resultados</button>
+                </div>
+    
+            </div>
+ 
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 3: Historia Clínica Digital
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[2]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[2]}}%">
+                                            {{perc_mod[2]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button  data-toggle="modal" data-target="#myModal3">Ver resultados</button>
+                </div>
+    
+            </div>
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 4. Servicios Electrónicos
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[3]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[3]}}%">
+                                            {{perc_mod[3]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button  data-toggle="modal" data-target="#myModal4">Ver resultados</button>
+                </div>
+    
+            </div>
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 5. Estándares e Interoperabilidad 
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[4]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[4]}}%">
+                                            {{perc_mod[4]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button  data-toggle="modal" data-target="#myModal5">Ver resultados</button>
+                </div>
+    
+            </div>
+
+
+        <br><hr>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>MÓDULO 6. Habilidades en el uso de TIC
+          </h2></div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                    <div class="container" style="width:100%">
+                            <h4>Porcentaje respondido</h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[5]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[5]}}%">
+                                            {{perc_mod[5]}}
+                                    </div>
+                            </div>
+                    </div>
+    
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                    <br>
+                    <button data-toggle="modal" data-target="#myModal6">Ver resultados</button>
+                </div>
+    
+            </div>
+
+        </div>
+
+        </div>
+        
+    
+
+
+
+    <!--</div>-->
+
+
+
+
+    
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 1</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod1.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 2</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod2.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 3</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod3.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal4" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 4</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod4.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal5" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 5</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod5.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal6" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Resultados Modulo 6</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table" style=" max-height: 200px;">
+                    <thead>
+                        <tr>
+                            <th>Indicador Pregunta</th>
+                            <th>Respuesta</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for key, value in Resultados_mod6.items() %}
+                            <td> {{key}}</td>
+                            <td> {{value}}</td>     
+                        {% endfor %}
+        
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+              <button  data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+	</body>
+</html>
