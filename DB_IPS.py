@@ -38,7 +38,7 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
-client.drop_database('IPS_database')
+#client.drop_database('IPS_database')
 
 ##Crear colecciones
 IPS_data  = db.IPS_collection

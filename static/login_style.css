@@ -102,6 +102,7 @@ button {
   border-bottom-width: 7px;
 }
 
+
 button:hover {
   box-shadow: 0px 1px 3px #ced8ee;
   background: #0c7bc5;
@@ -170,9 +171,13 @@ button:focus {
 }
 
 .register a {
-  font-size: 0.8em;
-  color: #031336;
+  color: #444;
+	font-size: 30px;
   text-decoration: none;
+}
+.register a:hover {
+  color: #031336;
+  text-decoration-line: underline
 }
 
 .register .title {
@@ -185,6 +190,7 @@ button:focus {
   padding-bottom: 15px;
   padding-left: 15px;
 }
+
 
 footer {
   display: block;

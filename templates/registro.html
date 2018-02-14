@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-		<link rel="stylesheet" href="static/header-login-signup.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="static/login_style.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
 		<script src="static/jscripts.js"></script>
     </head>
     <body onload = "setfields()">
@@ -24,7 +24,13 @@
 					<a href="/">
 					<img src="static/Logos_header.png" class="img-responsive">
 					</a>
-				</div>
+                </div>
+                
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/logout">Cerrar sesión</a></li>
+				<li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
+			</ul>
 		</div>
 
     <div class="wrapper">

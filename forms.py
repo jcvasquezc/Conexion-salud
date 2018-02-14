@@ -83,7 +83,9 @@ def load_user(usr_id):
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
+#######################################################
+#######################################################
+#######################################################
 #safe redirect
 def is_safe_url(target):
     ref_url = urlparse(request.host_url)
@@ -184,11 +186,11 @@ def Ingresar():
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
             login_user(user)        
-            if not is_safe_url(next):
-                return abort(400)
+#            if not is_safe_url(next):
+#                return abort(400)
 
-            return redirect(next or url_for('modulos'))
-#                 return render_template('modulos.html')
+            return redirect(next or url_for('index'))
+#            return render_template('modulos.html')
         else:
             error = ' (Usuario o Contraseña incorrecto)'
             return render_template('Ingresar.html',error=error)
@@ -251,12 +253,7 @@ def modulos():
         IPSdata.pop('_id', None)
         return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
     if request.method == 'POST':        
-#        Verificar si es necesario registrar
-#        n
-#        ips_nit = IPS_data.find({"NIT":nit})[0]
-#        if len(ips_nit['Encargado de Encuesta'])==0:
-#            dptos,cities = set_dptos()
-#            return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+        
         return render_template('modulos.html')
 
     return render_template('modulos.html')
