@@ -35,9 +35,9 @@ citiesIPS=list(np.unique(lista_dptos['Municipio']))
 dptos_all=list(lista_dptos['Departamento'])
 cities_all=list(lista_dptos['Municipio'])
 
-img1file="./static/udea.jpg"
-img2file="./static/colciencias.png"
-img3file="./static/mintic.png"
+img1file="./static/Logos_header.png"
+img2file="./static/Logos_header.png"
+img3file="./static/Logos_header.png"
 dfpmap=pd.read_csv('./static/pos_col.csv')
 lat=[str(dfpmap["lat"][j]) for j in range(len(dfpmap["lat"]))]
 lon=[str(dfpmap["lon"][j]) for j in range(len(dfpmap["lon"]))]

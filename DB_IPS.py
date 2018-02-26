@@ -151,7 +151,7 @@ tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:'Usuario',3:'Contraseña'})
 tabla.to_csv('Passwords.csv',index=False)
 
-for docs in IPS_data.find({"Departamento":"Antioquia","Municipio": "YOLOMBÓ"}):
+for docs in IPS_data.find({"NIT":"890906347"}):
     pprint.pprint(docs)
     print('--------------------------------')
     

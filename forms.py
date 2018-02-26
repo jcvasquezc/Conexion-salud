@@ -337,7 +337,6 @@ def preguntas_mod1():
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod2():
-
     if request.method == 'POST':
         data_enc=[]
         print(request.form)
@@ -545,7 +544,7 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    perc_mod=[100*len(Resultados_mod1)/45, 100*len(Resultados_mod2)/65, 100*len(Resultados_mod3)/50, 100*len(Resultados_mod4)/12, 100*len(Resultados_mod5)/9, 100*len(Resultados_mod6)/13]
+    perc_mod=[int(100*len(Resultados_mod1)/51), int(100*len(Resultados_mod2)/65), 100*len(Resultados_mod3)/50, 100*len(Resultados_mod4)/12, 100*len(Resultados_mod5)/9, 100*len(Resultados_mod6)/13]
 
     print(Resultados_mod1)
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
