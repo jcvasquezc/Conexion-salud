@@ -1,6 +1,8 @@
 - Mostrar piezas(imagenes, mensajes,...) cada vez que se avanza en la encuesta.
 
-- Boton de ingreso a encuesta más grandes
+- Boton de ingreso a encuesta más grandes (YA)
+
+- Barra de progreso para cada modulo.
 
 - Crear página para instructivo.
 
@@ -9,21 +11,29 @@
 - Enviar al "Enlace" a la página con la opción de ver
   el instructivo o diligenciar la encuesta.
 
+- Agregar botón para avance de todos los modulos y la 
+  información de cada colaborador.
 
 - Página para "FAQ".
 
-- Botón de "FAQ" en la barra de navegación.
+- Botón de "FAQ" en la barra de navegación.(YA)
 
-- Barra navegacion
+- Barra navegacion (YA)
 
 - Generar usuarios para "colaboradores"
 
 - Restringir acceso dependiendo del rol.
 
-- Pegar los logos otra puta vez.
+- Pággina para verificar información de IPS diligenciada por cada persona.
 
 - Página para reiniciar contraseña (si da tiempo).
 
+- En "adminips" poner información de encargado de cada modulo.
+
 - Que solo se pueda llenar la encuesta una sola vez.
 
-- Guardar aance y cargar hasta la pregunta que el usuario ha llenado.
+- Guardar avance y cargar hasta la pregunta que el usuario ha llenado.
+
+- Preguntas Modulo 4,5,6
+
+- Actualizar base de datos
