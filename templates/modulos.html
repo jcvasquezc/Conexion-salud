@@ -17,32 +17,32 @@
   <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
   <link rel="stylesheet" href="static/bootstrap-theme.min.css">
   <link rel="stylesheet" href="static/radio_checks.css">
-  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="static/header-login-signup.css">
-  <link rel="stylesheet" href="static/login_style.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  <link rel="stylesheet" href="static/index_style.css">
+  <script src="static/jscripts.js"></script>
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/header-login-signup.css">
 </head>
 	<body>
-      <div class="topnav" id="myTopnav">				
-          <div class="logo">
+		<div class="wrapper">
+        <div class="topnav">
+          <div class="logo_nav">
             <a href="/">
-            <img src="static/Logos_header.png" class="img-responsive">
-            </a>
+              <img src="static/logos/logos.png" class="img-responsive">
+            </a>	
           </div>
-                
+        </div>
+        <div class="topnav" id="myTopnav">				
           <ul>
             <li><a href="/">Inicio</a></li>
-            <li><a href="/logout">Cerrar sesión</a></li>
-            <li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
-          </ul>
-      </div>
-
-		<div class="wrapper">
-
-
+            <li><a href="/">Tutorial</a></li>
+            <li><a href="/">Contacto</a></li>
+            <li><a href="/">Preguntas frecuentes</a></li>
+            <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+          </ul>	
+        </div>
       <form enctype=multipart/form-data action="preguntas_mod1" class="register" method="post">
         <p class="title">Seleccione al personal de la IPS encargado de responder cada uno de los módulos de la encuesta</p>
 

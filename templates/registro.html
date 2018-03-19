@@ -5,8 +5,8 @@
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="static/login_style.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+		<link rel="stylesheet" href="static/index_style.css">
 		<link rel="stylesheet" href="static/header-login-signup.css">
 		<script src="static/jscripts.js"></script>
     </head>
@@ -18,28 +18,31 @@
         var IPSLists = {{IPSdata|safe}}        
     </script>
     <!-- Funciones javascript -->
-    
-		<div class="topnav" id="myTopnav">				
-				<div class="logo">
-					<a href="/">
-					<img src="static/Logos_header.png" class="img-responsive">
-					</a>
-                </div>
-                
-			<ul>
-				<li><a href="/">Inicio</a></li>
-				<li><a href="/logout">Cerrar sesión</a></li>
-				<li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
-			</ul>
-		</div>
 
     <div class="wrapper">
+        <div class="topnav">
+            <div class="logo_nav">
+                <a href="/">
+                    <img src="static/logos/logos.png" class="img-responsive">
+                </a>				
+            </div>
+        </div>
+        <div class="topnav" id="myTopnav">				
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/">Tutorial</a></li>
+                <li><a href="/">Contacto</a></li>
+                <li><a href="/">Preguntas frecuentes</a></li>
+                <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+                <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+            </ul>	
+        </div>
     <form  action="registro" class="register" method="post">
 
     	<p class="title">DATOS GENERALES DE LA INSTITUCIÓN PRESTADORA DE SALUD</p>
         <div class = "row">
             <!-- Campo para departamento -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                 <label for="reg_dptoP">Departamento</label>
                 <select  id="reg_dptoP" name="reg_dptoP" onchange="setlist('reg_dptoP','reg_cityP')" required>
                     <option  value = "">Seleccionar</option>
@@ -49,7 +52,7 @@
                 </select> 
             </div>
             <!-- Campo para ciudad -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                 <label for="reg_cityP">Municipio</label>
                 <br>
                 <select  id="reg_cityP" name="reg_cityP" required>
@@ -58,9 +61,22 @@
             </div>
         </div>
         <br>
+        <div class = "row">
+            <!-- Campo para departamento -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_coddpto">Código departamento</label>
+                <input type="text" id="reg_coddpto" name="reg_coddpto">				
+            </div>
+            <!-- Campo para ciudad -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                    <label for="reg_codcity">Código municipio</label>
+                    <input type="text" id="reg_codcity" name="reg_codcity">				
+            </div>
+        </div>
+        <br>
         <div class="row">
 			<!--Campo para el Nombre de la IPS -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 				<label>Nombre del prestador de servicios:</label>
                 <br>
                 <input type="text" id="reg_ips" name="reg_ips" placeholder="Nombre de IPS"  required>				
@@ -75,113 +91,89 @@
 
         <br>
         <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <!--Campo para el NIT -->
-                    <label>NIT del Prestador</label>
-                    <br>
-                    <input type="text" id="reg_nit" name="reg_nit" placeholder="NIT" required>
-                </div>
-                <!-- Campo para Naturaleza Jurídica del prestador de servicios-->
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                    <label for="reg_natjur">Naturaleza Jurídica</label>
-                    <br>
-                    <select id="reg_natjur" name="reg_natjur" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Mixta">Mixta</option>
-                        <option value="Privada">Privada</option>
-                        <option value="Pública">Pública</option>
-                    </select>               
-                </div>	
-                
-			<!--Número de sedes asociadas-->
-            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                    <label>N° de sedes</label>
-                    <br>
-                    <input type="text" id="reg_numsede" name="reg_numsede" placeholder="N° de sedes">
-                </div>	
-                <!-- campo para Nivel de atención del prestador de servicios-->			
-                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                    <label for="reg_nivel">Nivel</label>
-                    <br>				
-                    <select id="reg_nivel" name="reg_nivel" required>
-                        <option value="0">Seleccionar</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>			
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+            <!--Campo para el NIT -->
+                <label>NIT del Prestador</label>
+                <br>
+                <input type="text" id="reg_nit" name="reg_nit" placeholder="NIT" required>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+            <!--Campo para código de habilitación-->
+                <label>Código de habilitación</label>
+                <br>
+                <input type="text" id="reg_hab" name="reg_hab" required>
+            </div>				
         </div>
-
-		<br>
-
-		<div class="row">		
+        <br>
+        <div class="row">
+            <!-- Campo para Naturaleza Jurídica del prestador de servicios-->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_natjur">Naturaleza Jurídica</label>
+                <br>
+                <select id="reg_natjur" name="reg_natjur" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Mixta">Mixta</option>
+                    <option value="Privada">Privada</option>
+                    <option value="Pública">Pública</option>
+                </select>               
+            </div>
             <!-- Campo para Clase del prestador de servicios-->
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-				<label for="reg_clase">Clase de Prestador</label>
-				<br>			
-				<select id="reg_clase" name="reg_clase" required>
-					<option value="">Seleccionar</option>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_clase">Clase de Prestador</label>
+                <br>			
+                <select id="reg_clase" name="reg_clase" required>
+                    <option value="">Seleccionar</option>
                     <option value="Instituciones - IPS">Instituciones - IPS</option>
                     <option value="Profesional Independiente">Profesional Independiente</option>
-					<option value="Transporte Especial de Pacientes">Transporte Especial de Pacientes</option>
-					<option value="Objeto Social Diferente a la Prestación de Servicios de Salud">Objeto Social Diferente a la Prestación de Servicios de Salud</option>
-				</select>				
-            </div>		
-        </div>
-        <br>        
-        <!-- DATOS DE LA SEDE-->
-        <p class="title">DATOS DE LA SEDE</p>
-        <div class = "row">
-            <!-- Campo para departamento -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="reg_dptoS">Departamento</label>
-                <select  id="reg_dptoS" name="reg_dptoS" onchange="setlist('reg_dptoS','reg_cityS')">
-                    <option  value = "">Seleccionar</option>
-                    {% for value in dptos %}
-                    <option  value = "{{value}}">{{value}}</option>
-                    {% endfor %}
-                </select> 
-            </div>
-            <!-- Campo para ciudad -->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="reg_cityS">Municipio</label>
-                <br>
-                <select  id="reg_cityS" name="reg_cityS">
-                    <option  value ="">Seleccionar</option>
-                </select> 
+                    <option value="Transporte Especial de Pacientes">Transporte Especial de Pacientes</option>
+                    <option value="Objeto Social Diferente a la Prestación de Servicios de Salud">Objeto Social Diferente a la Prestación de Servicios de Salud</option>
+                </select>				
             </div>
         </div>
-    
-        <br>
-
-		<div class="row">
-			<!--Nombre de la sede asociada-->
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                <label>Nombre de la sede asociada</label>
-			    <br>
-                <input type="text" id="reg_sede" name="reg_sede" placeholder="Nombre de la sede asociada">
-            </div>
-	   </div>
-		
 		<br>
 
+		<div class="row">
+            <!--Número de sedes asociadas-->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label>Número de la sede</label>
+                <br>
+                <input type="text" id="reg_numsede" name="reg_numsede" placeholder="N° de sedes">
+            </div>	
+            <!-- campo para Nivel de atención del prestador de servicios-->			
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_nivel">Nivel del prestador</label>
+                <br>				
+                <select id="reg_nivel" name="reg_nivel" required>
+                    <option value="0">Seleccionar</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>				
+        </div>
+        <br>   
 		<!-- RESPONSABLE DE LA ENCUESTA -->	
 		<p class="title">INFORMACIÓN DE LA PERSONA ENCARGADA DE LA ENCUESTA</p>
         <div class="row">
             <!-- campo nombre responsable -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
               <label>Nombre y apellidos</label>
 			  <br>
               <input type="text"  id="reg_manag" name="reg_manag" placeholder="Nombre de la persona encargada" required>
             </div>
+        </div>
+        <div class="row">
             <!-- campo correo -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <label>Email</label>
-			  <br>
-              <input type="email"  id="reg_manmail" name="reg_manmail" placeholder="ejemplo@mail.com" required>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label>Email</label>
+                <br>
+                <input type="email"  id="reg_manmail" name="reg_manmail" placeholder="ejemplo@mail.com" required>
             </div>
+        </div>
+        <div class="row">
             <!-- campo cargo -->
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
               <label>Cargo</label>
 			  <br>
               <input type="text"  id="reg_manjob" name="reg_manjob" placeholder="Cargo que ocupa en la IPS" required>
@@ -193,20 +185,37 @@
 		<!-- COMIENZA: Botones -->
 		<div class="row">
 			<!-- Boton para continuar a la encuesta -->
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
 				<button type="submit" class="button">Registrar IPS</button>
 			</div>
-			<!-- Boton para regresar-->
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<!-- Boton para regresar
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
 				<button onclick="goBack()" class="button">Volver</button>
-			</div>
+			</div> -->
 		</div>
 		<!-- TERMINA: Botones -->
 
     </form>
 
-    <br>
+    <!-- <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %} -->
 
 <br>
 
