@@ -4,25 +4,35 @@
 		<link rel="stylesheet" href="static/header-login-signup.css">
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="static/login_style.css">
+		<link rel="stylesheet" href="static/index_style.css">
 		<script src="static/jscripts.js"></script>
 		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>		 
 	</head>		
 	
-	<body>      		
-		<div class="topnav" id="myTopnav">				
-                <div class="logo">
-                    <a href="/">
-                    <img src="static/Logos_header.png" class="img-responsive">
-                    </a>
-                </div>
-            </div>
-    
-		<div class="wrapper">	
+	<body onload="logval()">      
+		<div class="wrapper">
+			<div class="topnav">
+				<div class="logo_nav">
+					<a href="/">
+						<img src="static/logos/logos.png" class="img-responsive">
+					</a>	
+				</div>
+			</div>
+			<div class="topnav" id="myTopnav">				
+				<ul>
+					<li><a href="/">Inicio</a></li>
+					<li><a href="/">Tutorial</a></li>
+					<li><a href="/">Contacto</a></li>
+					<li><a href="/">Preguntas frecuentes</a></li>
+					<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+				</ul>	
+			</div>
             <form  action="Ingresar" class="login" method="post" >
-                <p class="title_log">Ingresar <font color="red">{{error}}</font></p>
+				<p class="title">Ingresar <font color="red">{{error}}</font></p>
+				<p>Ingrese el usuario contraseña que le fueron enviados por correo</p>
                 <label>Usuario</label>
                 <input type="text" id="usrlog" name="usrlog" placeholder="Escriba su usuario" required>
                 <br>
@@ -33,12 +43,8 @@
 				<div class="row">
 					<!-- Boton para continuar a la encuesta -->
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<button type="submit" class="button">Continuar</button>						
+						<button type="submit" class="button">Conectar</button>						
 						<input type=hidden value="{{ next or '' }}" name="next">
-					</div>
-					<!-- Boton para regresar-->
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<button onclick="goBack()" class="button">Volver</button>
 					</div>
 				</div>
             </form>	

@@ -7,6 +7,20 @@ function alerta(msg) {
     alert(msg);
 }
 
+function logval() {
+	if (LogVal=="True")
+	{
+		document.getElementById("vallog").text="\u26DD  Cerrar sesión";
+		document.getElementById("vallog").setAttribute("href","/logout")
+	}
+	else{
+		document.getElementById("vallog").value="\u26BF Ingresar";
+		document.getElementById("vallog").setAttribute("href","/Ingresar")
+	}
+
+}
+
+
 /*-------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
@@ -15,12 +29,14 @@ function alerta(msg) {
 //index.html
 /* Toggle between adding and removing the "responsive" class 
 to topnav when the user clicks on the icon */
-function toggle_menu() {
-    var x = document.getElementById("myTopnav");
+function toggle_menu(barid) {
+    var x = document.getElementById(barid);
     if (x.className === "topnav") {
-        x.className += " responsive";
+		x.className += " responsive";		
+		document.getElementById("icon").text="\u26DD";
     } else {        
-        x.className = "topnav";
+		x.className = "topnav";		
+		document.getElementById("icon").text="\u2630";
     }
 } 
 

@@ -167,16 +167,23 @@ def get_credentials(usr,userpass):
 ######################################################
 @app.route("/", methods=['GET', 'POST'])
 def index():
+    LogFlag = "False"
+    if current_user.is_active==True:
+        LogFlag = "True"
 #    dptos,cities = set_dptos()
     if request.method == 'POST':
         return redirect(url_for('index'))
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
-    return render_template('index.html')
+
+    return render_template('index.html',LogFlag=json.dumps(LogFlag))
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
 def Ingresar():    
     next = get_redirect_target()
+    LogFlag = "False"
     if request.method == 'POST':
+        if current_user.is_active==True:
+            LogFlag = "True"
         username = request.form['usrlog']
         userpass = request.form['passlog']
         credentials = get_credentials(username,userpass)
@@ -189,13 +196,12 @@ def Ingresar():
 #            if not is_safe_url(next):
 #                return abort(400)
 
-            return redirect(next or url_for('index'))
+            return redirect(next or url_for('index',LogFlag=json.dumps(LogFlag)))
 #            return render_template('modulos.html')
         else:
             error = ' (Usuario o Contraseña incorrecto)'
-            return render_template('Ingresar.html',error=error)
-    return render_template('Ingresar.html',next=next)
-
+            return render_template('Ingresar.html',error=error,LogFlag=json.dumps(LogFlag))
+    return render_template('Ingresar.html',next=next,LogFlag=json.dumps(LogFlag))
 ######################################################
 @app.route("/registro", methods=['GET', 'POST'])
 @login_required

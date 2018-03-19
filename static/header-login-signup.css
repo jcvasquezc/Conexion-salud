@@ -1,11 +1,25 @@
  /* Add a black background color to the top navigation */
  .topnav {
 	overflow: hidden;
-	background-color:#031336;
+	background-color:#ffffff;
+}
+
+.topnav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: #031336;
+}
+.topnav li
+{
+	float:left;
+	font-weight: bold
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
+	/*
 	font-weight: bold;
 	display: inline-block;
 	background-color: #042c81;
@@ -16,17 +30,14 @@
 	padding: 10px;
 	text-decoration: none;
 	font-size: 15px;
-	opacity: 0.6;
-}
-
-.topnav ul {
-	font: 14px Arial, Helvetica, sans-serif;
-	list-style: none;
+	opacity: 0.6;*/
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px;
 	text-decoration: none;
-	padding-top: 10px;
-	float: right;
 }
-
+/*
 .topnav ul li {
 	font-weight: bold;
 	text-decoration: none;
@@ -35,6 +46,7 @@
 	display: inline-block;
 	margin-left: 1px;
 }
+*/
 
 /* Hide the link that should open and close the 
 topnav on small screens */
@@ -47,31 +59,40 @@ topnav on small screens */
 	display: block;
 	width: 100%;
 }
-.topnav .logo_nav a {
-	background-color: transparent;
-	border-color: transparent;
-	float: left;
-	display: block;
-	opacity: 1;
-}
 
 .topnav .logo img {
 	float: left;
 	display: block;
 	width: 100%;
 }
+
+.topnav .logo {
+list-style-type: none;
+overflow: hidden;
+}
+
 .topnav .logo a {
-	background-color: transparent;
-	border-color: transparent;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #3e3f3f;
 	float: left;
 	display: block;
-	opacity: 1;
+	/* opacity: 1; */
 }
+
 
  /*Change the color of links on hover */
  .topnav a:hover {
 	 opacity: 1;
+	 background-color: rgb(0, 82, 175)
+	 /*background-color: rgb(64, 64, 65)*/
  }
+ .topnav .logo_nav a {
+	background-color: #ffffff;
+}
+.topnav .logo a:hover {
+ background-color: rgb(0, 82, 175)
+}
  /* When the screen is less than 600 pixels wide, 
  hide all links, except for the first one ("Home"). 
  Show the link that contains should open and close 
@@ -84,6 +105,7 @@ topnav on small screens */
 	  top: 0;
 		display: block;
 		opacity: 1;
+		color: #111;
 		background-color:transparent;
 		border-color: transparent;
 
@@ -95,7 +117,7 @@ topnav on small screens */
 	.topnav .logo img {
 		width: 100%;
 	}
-	/*Logo en el con barra de navegacion*/
+	/*Logo con barra de navegacion*/
 	.topnav .logo_nav img {
 		width: 80%;
 	}
@@ -132,6 +154,15 @@ topnav on small screens */
 	  text-align: left;
 		border-color: transparent;
 	}
+
+	.topnav.responsive a.icon {
+		color: #ffffff;
+	}
+	
+	.topnav.responsive a.icon:hover {
+		color: rgb(1, 196, 255);
+	}
+
 	.topnav.logo.responsive a {
 	  float: none;
 		background-color: transparent;
@@ -148,10 +179,8 @@ topnav on small screens */
 		border-color: transparent;
 	}
 
-  } 
-
-
-/* For the headers to look good, be sure to reset the margin and padding of the body */
+	} 
+	/* For the headers to look good, be sure to reset the margin and padding of the body */
 
 body {
 	margin:0;

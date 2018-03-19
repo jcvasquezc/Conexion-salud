@@ -1,48 +1,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-	<head>
-		<link rel="stylesheet" href="static/index_style.css">
+	<head>		
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="static/header-login-signup.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="static/jscripts.js"></script>
+		<link rel="stylesheet" href="static/index_style.css">
 		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>		 
 	</head>		
 	
-	<body>
-		<div class="topnav" id="myTopnav">
+	<body onload="logval()">
+	<div class="wrapper">
+		<script type="text/javascript">   
+			var LogVal = {{LogFlag|safe}}           
+		</script>
+		<div class="topnav">
 			<div class="logo_nav">
 				<a href="/">
-				<img src="static/Logos_header.png" class="img-responsive">
-				</a>
+					<img src="static/logos/logos.png" class="img-responsive">
+				</a>				
 			</div>
-
-			<ul>
-				<!--<li><a href="/logout" style="display:None">Cerrar sesión</a></li>-->
-				<!--<li><a href="/Registrar_IPS" >Registrar IPS</a></li>-->
-				<li><a href="/modulos">Encuesta</a></li>
-				<!--<li><a href="/modulos">Encuesta</a></li>-->
-				<li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
-			</ul>
 		</div>
-
-		<div class="wrapper">
-			<form  class="idx_sty">
-				<p class="title">Nivel de madurez del ecosistema de TIC en las IPS públicas</title></p>
-				<p>
-					La información ha diligenciar en esta encuesta busca caracterizar el nivel de 
-					madurez del ecosistema de Tecnologías de la Información y las Comunicaciones – 
-					TIC - en las Instituciones Prestadoras de Servicios de Salud - IPS - de la red 
-					pública nacional en Colombia. 
-				</p>
-				<p> 
-					Esta información será la línea base para la formulación de políticas públicas 
-					y la toma de decisiones sectoriales en pro del fortalecimiento y la mejora en 
-					la prestación de los servicios de salud en el país.
-				</p>
-			</form>
+		<div class="topnav" id="myTopnav">				
+		<ul>
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/modulos">Encuesta</a></li>
+			<li><a href="/">Tutorial</a></li>
+			<li><a href="/">Contacto</a></li>
+			<li><a href="/">Preguntas frecuentes</a></li>
+			<li><a id="vallog">&#9919; Ingresar</a></li>
+			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+		</ul>	
 		</div>
+		<form  class="idx_sty">				
+			<p class="title">Diligenciar encuesta</title></p>				
+			<p> 
+				Para comenzar a diligenciar la encuesta, puedes ingresar a este <a href="/modulos">enlace.</a> 
+				También puedes ingresar a la encuesta desde la barra de navegación y hacer click en la opción "Encuesta".
+			</p>
+			<p class="title">Nivel de madurez del ecosistema de TIC en las IPS públicas</title></p>
+			<p>
+				La información ha diligenciar en esta encuesta busca caracterizar el nivel de 
+				madurez del ecosistema de Tecnologías de la Información y las Comunicaciones – 
+				TIC - en las Instituciones Prestadoras de Servicios de Salud - IPS - de la red 
+				pública nacional en Colombia. 
+			</p>
+			<p> 
+				Esta información será la línea base para la formulación de políticas públicas 
+				y la toma de decisiones sectoriales en pro del fortalecimiento y la mejora en 
+				la prestación de los servicios de salud en el país.
+			</p>			
+		</form>
 	</body>
 </html>

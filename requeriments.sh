@@ -10,4 +10,5 @@ pip install plotly --upgrade
 pip install unidecode
 pip install sendgrid
 pip install flask_login
+pip install Flask-User
 
