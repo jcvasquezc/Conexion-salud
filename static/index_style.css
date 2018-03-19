@@ -258,6 +258,17 @@ button:focus {
   border-left-width: 35px;
 }
 
+.table tbody {
+  display:block;
+  max-height:300px;
+  overflow-y:scroll;
+  }
+  .table thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  }
+
 
 .register .title {
   color:  #031336;
