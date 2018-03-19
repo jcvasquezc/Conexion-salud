@@ -50,18 +50,6 @@
 
 
 
-    /*$(function() {
-      setTimeout(function() {
-       $('#form_mod6').submit();
-      }, 20000);
-    });*/
-    
-    
-
-
-
-
-
    </script>
 
 <body>
@@ -95,577 +83,106 @@
     <input type="submit" formaction="validar6" style="visibility: hidden; display: none;">
  
     <h3 class="title"> 
-        MÓDULO 6. Habilidades en el uso de TIC
+        MÓDULO 6. Capacitación
     </h3>
 
 
 <br>
-<h3>{{nquestion}}</h3>
+<!-- <h3>{{nquestion}}</h3> -->
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>Tecnologías y servicios para el talento humano que labora en la institución</h4></label>
-  </div>
-</div>
-<br><hr>
-<div class="row ">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>1. ¿Hay computadores disponibles para el personal (Talento humano) que labora en la institución? Computadores que puedan ser utilizados en los períodos de descanso.</h4></label>
+    <label for="question1"><h4>1. ¿Su institución invirtió en el año 2017 en procesos de entrenamiento/capacitación de uso de TIC en salud dirigido al personal?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question1" name="question1" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question2" name="question1" value="NO" >NO<br>
-  </div>
+	 <input type="radio" class="option-input radio" id="question1" name="question1" value="SI" onclick="yesnoCheck(this, qsi1container, qno1container);">SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question1" value="NO" >NO<br>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
     <br><br>
-    <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
+    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
 
 
+<div class="hidden" id="qno1container"></div>
 
+<div class="hidden" id="qsi1container">
 
-
-
-<br><hr>
-<div class="row ">
+  <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>2. ¿Qué tipo de computadores o PC posee la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      <label for="question1"><h4>2. Existe un proceso de entrenamiento/capacitación de uso de TIC en salud dirigido al personal:</h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question3" ondragover="" class="option-input pregunta  checkbox" name="question2" value="Computador de escritorio"> Computador de escritorio</label><br>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label>Asistencial</label>
+     <input type="radio" class="option-input radio" id="question1" name="question2a" value="SI">SI
+     <input type="radio" class="option-input radio" id="question2" name="question2a" value="NO" >NO<br>
+    </div>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question3" ondragover="" class="option-input pregunta  checkbox" name="question2" value="Computador Portatil"> Computador Portatil</label><br>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label>Técnico</label>
+      <input type="radio" class="option-input radio" id="question1" name="question2b" value="SI">SI
+      <input type="radio" class="option-input radio" id="question2" name="question2b" value="NO" >NO<br>
+    </div>
   </div>
-    <br>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <label>Administrativo</label>
+      <input type="radio" class="option-input radio" id="question1" name="question2c" value="SI">SI
+      <input type="radio" class="option-input radio" id="question2" name="question2c" value="NO" >NO<br>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
-    <br><br>
-    <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <label>Adjuntar soporte:</label>
+      <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+      <br><br>
+      <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
+    </div>
   </div>
-</div>
-<br><hr>
-<div class="row ">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>3. En promedio, ¿Cuántos computadores posee la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
 
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Computador de escritorio</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q4f1" name="question3_PC_escritorio" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Computador Portatil</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q4f2" name="question3_PC_portatil" placeholder="0" ><br>
-</div>
-</div>
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
-    <br><br>
-    <button type="button" id="del_p4" class="state" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row ">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>4. ¿Cuál es el uso que el personal de la institución da a los computadores?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input pregunta  checkbox" name="question4" value="Personal"> Personal</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input pregunta  checkbox" name="question4" value="Familiar"> Familiar</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question5" ondragover="" class="option-input pregunta  checkbox" name="question4" value="Laboral"> Laboral</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input pregunta  checkbox" id="question5" name="question4" value="Otro" onclick="var input=document.getElementById('question4_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question4_otro" name="question4_otro" disabled="disabled"/></label><br>
+  <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question2"><h4>3. 3) Este proceso se realiza mediante: (Si es el caso seleccione varias opciones)</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso presencial"> Proceso presencial</label><br>
+        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
+        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
+        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
+        <input id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="Cuál plataforma?"/></label><br>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
+        <br><br>
+        <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
+      </div>
+    </div>
+    <br><hr>
+    
 
-  </div>
-</div>
-</div>
 
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
-    <br><br>
-    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row ">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>5. En promedio, ¿cuál es el grado de conocimientos del personal de la institución en el uso de computadores?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input pregunta  radio" id="question1" name="question5" value="Experto" >Experto<br>
-	 <input type="radio" class="option-input pregunta  radio" id="question2" name="question5" value="Avanzado" >Avanzado<br>
-	 <input type="radio" class="option-input pregunta  radio" id="question3" name="question5" value="Intermedio" >Intermedio<br>
-	 <input type="radio" class="option-input pregunta  radio" id="question4" name="question5" value="Básico" >Básico<br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
-    <br><br>
-    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row ">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7"><h4>6. ¿El personal de la institución, sabe cómo activar y desactivar en el celular y/ o computador las siguientes funciones?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Redes WiFi/Datos"> Redes WiFi/Datos </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Compartir Internet"> Compartir Internet </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="GPS"> GPS</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Rotar Pantalla"> Rotar Pantalla</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Seguridad Bloqueo (Clave/Patrón)"> Seguridad Bloqueo (Clave/Patrón) </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Bloquear Aplicaciones"> Bloquear Aplicaciones </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Modo Avión"> Modo Avión</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Volumen/silenciar"> Volumen/silenciar </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Capturar Pantalla"> Capturar Pantalla </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Bluetooth"> Bluetooth</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Sincronización Automática"> Sincronización Automática</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Ahorrador de Energía"> Ahorrador de Energía </label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input pregunta  checkbox" name="question6" value="Resetear el Dispotivo"> Resetear el Dispotivo </label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
-    <br><br>
-    <button type="button" id="del_p7" class="state" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>7. ¿Cuál es el programa o aplicación más utilizada en los computadores de la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input pregunta  checkbox" name="question7" value="MS Word"> MS Word</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input pregunta  checkbox" name="question7" value="MS Excel"> MS Excel</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input pregunta  checkbox" name="question7" value="MS PowerPoint"> MS PowerPoint</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input pregunta  checkbox" name="question7" value="MS Publisher"> MS Publisher</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question8" ondragover="" class="option-input pregunta  checkbox" name="question7" value="Adobe Acrobat"> Adobe Acrobat</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input pregunta  checkbox" id="question8" name="question7" value="Otro" onclick="var input=document.getElementById('question7_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question7_otro" name="question7_otro" disabled="disabled"/></label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
-    <br><br>
-    <button type="button" id="del_p8" class="state" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question9"><h4>Dispositivo Móvil / Celular</h4></label>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question10"><h4>8. ¿La institución dispone de planes de celular Inteligente (Smartphone) para sus colaboradores?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question1" name="question8" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question2" name="question8" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p10" name="file_p10" accept="image/*,video/*" onchange="enb_dis('file_p10','del_p10')"/>
-    <br><br>
-    <button type="button" id="del_p10" class="state" onclick="delete_attached('del_p10','file_p10')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question11"><h4>9. Marca y modelo del celular:</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Samsung</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f1" name="question9_Samsung" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Iphone</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f2" name="question9_iphone" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Sony</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f3" name="question9_sony" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Motorola</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f4" name="question9_motorola" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Nokia</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f5" name="question9_nokia" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>HTC</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f6" name="question9_htc" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>LG Electronics</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f7" name="question9_LG" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Huawei</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f8" name="question9_huawei" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Asus</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f9" name="question9_asus" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Alcatel</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f10" name="question9_alcatel" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Lanix</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f11" name="question9_lanix" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Blu</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f12" name="question9_blu" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>One+</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" class="pregunta" id="q11f13" name="question9_one" placeholder="0" ><br>
-</div>
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-  <label>Otro</label>
-</div>
-<div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-<input type="text" class="pregunta" id="q11f13" name="question9_otro" placeholder="Cual" ><br>
-</div>
-<div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-  <input type="text" class="pregunta" id="q11f13" name="question9_otro_cantidad" placeholder="0" ><br>
-  </div>
-</div>
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p11" name="file_p11" accept="image/*,video/*" onchange="enb_dis('file_p11','del_p11')"/>
-    <br><br>
-    <button type="button" id="del_p11" class="state" onclick="delete_attached('del_p11','file_p11')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question12"><h4>10. ¿Cuál es el proveedor del servicio de internet móvil de la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input pregunta  checkbox" name="question10" value="Claro"> Claro</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input pregunta  checkbox" name="question10" value="Teléfonica/Movistar"> Teléfonica/Movistar</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input pregunta  checkbox" name="question10" value="Une"> Une</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input pregunta  checkbox" name="question10" value="ETB"> ETB</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input pregunta  checkbox" name="question10" value="EPM"> EPM</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input pregunta  checkbox" id="question12" name="question10" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p12" name="file_p12" accept="image/*,video/*" onchange="enb_dis('file_p12','del_p12')"/>
-    <br><br>
-    <button type="button" id="del_p12" class="state" onclick="delete_attached('del_p12','file_p12')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question13"><h4>11. ¿Cuál es el tipo de plan con el operador del servicio de telefonía móvil?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question1" name="question11" value="Prepago" >Prepago<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input pregunta  radio" id="question2" name="question11" value="Postpago" >Postpago<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p13" name="file_p13" accept="image/*,video/*" onchange="enb_dis('file_p13','del_p13')"/>
-    <br><br>
-    <button type="button" id="del_p13" class="state" onclick="delete_attached('del_p13','file_p13')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question14"><h4>12. ¿La institución cuenta con alguna de las siguientes aplicaciones?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="Facebook"> Facebook</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="Instagram"> Instagram</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="WhatsApp"> WhatsApp</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="YouTube"> YouTube</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="Google+"> Google+</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="Twitter"> Twitter</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="MySpace"> MySpace</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question14" ondragover="" class="option-input pregunta  checkbox" name="question12" value="Snapchat"> Snapchat</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input pregunta  checkbox" id="question14" name="question12" value="Otro" onclick="var input=document.getElementById('question12_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question12_otro" name="question12_otro" disabled="disabled"/></label><br>
-
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p14" name="file_p14" accept="image/*,video/*" onchange="enb_dis('file_p14','del_p14')"/>
-    <br><br>
-    <button type="button" id="del_p14" class="state" onclick="delete_attached('del_p14','file_p14')" disabled="disabled">Eliminar soporte</button>
-  </div>
 </div>
 
 
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question15"><h4>13. ¿Cuál es la aplicación más utilizada por la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Facebook"> Facebook</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Instagram"> Instagram</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="WhatsApp"> WhatsApp</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="YouTube"> YouTube</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Skype"> Skype</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Twitter"> Twitter</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Telegram"> Telegram</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="SnapChat"> SnapChat</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="MySpace"> MySpace</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Spotify"> Spotify</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Dezeer"> Dezeer</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="TuneIN Radio"> TuneIN Radio</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Netflix"> Netflix</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" id="question15" ondragover="" class="option-input pregunta  checkbox" name="question13" value="Fox Play"> Fox Play</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <label><input type="checkbox" class="option-input pregunta  checkbox" id="question15" name="question13" value="Otro" onclick="var input=document.getElementById('question13_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question13_otro" name="question13_otro" disabled="disabled"/></label><br>
-
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p15" name="file_p15" accept="image/*,video/*" onchange="enb_dis('file_p15','del_p15')"/>
-    <br><br>
-    <button type="button" id="del_p15" class="state" onclick="delete_attached('del_p15','file_p15')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
 <br><hr>
 
 <div class "row">
@@ -677,28 +194,6 @@
 </form>
 
 <br>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-
-      {% for message in messages %}
-          {% if "Error" not in message[1]: %}
-              <div class="alert alert-info">
-              <strong>Success! </strong> {{ message[1] }}
-              </div>
-          {% endif %}
-
-          {% if "Error" in message[1]: %}
-              <div class="alert alert-warning">
-              {{ message[1] }}
-              </div>
-          {% endif %}
-      {% endfor %}
-          {% endif %}
-      {% endwith %}
-
-
-
-
 
 </div>
 </body>

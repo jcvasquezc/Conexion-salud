@@ -36,12 +36,6 @@
 			document.getElementById(btn_del).disabled = true;
     }
     
-
-    $(function() {
-      setTimeout(function() {
-       $('#form_mod5').submit();
-      }, 20000);
-    });
    </script>
 
 <body>
@@ -71,7 +65,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. ¿Qué tipo de estándares técnicos (de formato, estructura) utiliza en la implementación y uso de la Historia Clínica Digital?</h4></label>
+    <label for="question1"><h4>1. 1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -96,7 +90,7 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza en la implementación y uso de la Historia Clínica Digital?</h4></label>
+    <label for="question2"><h4>2. 2. ¿Qué tipo de estándares de codificación utiliza Historia Clínica Electrónica?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
@@ -122,16 +116,14 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>3. ¿A qué nivel se utilizan los estándares internacionales en cada una de las áreas de la Historia Clínica Digital?</h4></label>
+    <label for="question3"><h4>3. ¿Conoce el marco de interoperabilidad del Estado colombiano?</h4></label>
     <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question3" value="Totalmente estandarizada" >Totalmente estandarizada<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question3" value="Bastante estandarizada" >Bastante estandarizada<br>
-	 <input type="radio" class="option-input radio" id="question3" name="question3" value="Poco estandarizada" >Poco estandarizada<br>
-	 <input type="radio" class="option-input radio" id="question4" name="question3" value="Nada estandarizada" >Nada estandarizada<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question3" value="SI" >SI<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question3" value="NO" >NO<br>
     <br>
   </div>
 </div>
@@ -143,6 +135,7 @@
     <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
+
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -166,123 +159,8 @@
   </div>
 </div>
 <br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>5. ¿Conoce el marco de interoperabilidad del Estado colombiano?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question5" value="SI" >SI<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question5" value="NO" >NO<br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
-    <br><br>
-    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>6. ¿Qué tipo de métodos utiliza para obtener consentimiento informado del paciente/afiliado para el uso e intercambio de información para el manejo y tratamiento de enfermedades?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question6" value="Físicos" >Físicos<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question6" value="Electrónicos" >Electrónicos<br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
-    <br><br>
-    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7"><h4>7. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Identificación y/o autenticación"> Identificación y/o autenticación</label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Autorización y control de acceso"> Autorización y control de acceso </label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Auditoria"> Auditoria</label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Encriptación de la información in-situ"> Encriptación de la información in-situ </label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Encriptación de la información en intercambio"> Encriptación de la información en intercambio </label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Monitoreo de ataques cibernéticos"> Monitoreo de ataques cibernéticos</label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Ninguno"> Ninguno</label><br>
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Otros"> Otros</label><br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
-    <br><br>
-    <button type="button" id="del_p7" class="state" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>8. ¿Qué tipo de red de intercambio de información (internet/telecomunicaciones) utiliza para comunicarse y enviar/recibir electrónicamente información de historias clínicas?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question8" value="Conexiones dedicadas" >Conexiones dedicadas<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question8" value="Redes privadas virtuales" >Redes privadas virtuales<br>
-	 <input type="radio" class="option-input radio" id="question3" name="question8" value="Redes públicas" >Redes públicas<br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
-    <br><br>
-    <button type="button" id="del_p8" class="state" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question9"><h4>9. ¿La institución tiene un plan de gestión del cambio para la adopción de nuevas tecnologías, procesos o procedimientos como la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question9" value="SI" >SI<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question9" value="NO" >NO<br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p9" name="file_p9" accept="image/*,video/*" onchange="enb_dis('file_p9','del_p9')"/>
-    <br><br>
-    <button type="button" id="del_p9" class="state" onclick="delete_attached('del_p9','file_p9')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
+
+
 
 
 
@@ -295,24 +173,6 @@
   </form>
 
 <br>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-
-      {% for message in messages %}
-          {% if "Error" not in message[1]: %}
-              <div class="alert alert-info">
-              <strong>Success! </strong> {{ message[1] }}
-              </div>
-          {% endif %}
-
-          {% if "Error" in message[1]: %}
-              <div class="alert alert-warning">
-              {{ message[1] }}
-              </div>
-          {% endif %}
-      {% endfor %}
-          {% endif %}
-      {% endwith %}
 
 
 

@@ -50,12 +50,6 @@
     }
 
 
-    $(function() {
-      setTimeout(function() {
-       $('#form_mod4').submit();
-      }, 20000);
-    });
-
    </script>
 
 <body>
@@ -79,390 +73,127 @@
 
   <form enctype=multipart/form-data class="register" method="post" id="form_mod4">
     <input type="submit" formaction="validar4" style="visibility: hidden; display: none;">
-      <p class="title"> MÓDULO 4. Servicios Electrónicos
+      <p class="title"> MÓDULO 4. Seguridad de la Información
     </p>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. ¿La institución cuenta con equipos médicos conectados en red? </h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question1" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question1" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
-    <br><br>
-    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>2. ¿Su institución presta servicios de hospitalización domiciliaria?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question2" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question2" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
-    <br><br>
-    <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>3. ¿Los equipos utilizados para hospitalización domiciliaria transmiten la información al centro médico?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question3" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question3" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
-    <br><br>
-    <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>4. ¿Esta información puede incorporarse a la Historia Clínica Digital?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question4" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question4" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
-    <br><br>
-    <button type="button" id="del_p4" class="state" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>5. ¿Para incorporar la información a la Historia Clínica Digital se requiere transmisión de la información a la red de la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question5" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question5" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
-    <br><br>
-    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>6. ¿La institución cuenta con registro de la Historia Clínica Digital para la atención individual de pacientes? </h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question6" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question6" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
-    <br><br>
-    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7"><h4>7. ¿Para el registro clínico de la información de usuarios la institución hace uso de qué medios? </h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Todos los registros son electrónicos"> Todos los registros son electrónicos.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="La mayoría de los registros son electrónicos, pero existen algunos registros en papel."> La mayoría de los registros son electrónicos, pero existen algunos registros en papel.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos."> La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question7" ondragover="" class="option-input checkbox" name="question7" value="Todos los registros se encuentran en papel"> Todos los registros se encuentran en papel</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question7" name="question7" value="Otro" onclick="var input=document.getElementById('question7_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question7_otro" name="question7_otro" disabled="disabled"/></label><br>
 
-  </div>
 
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p7" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p7','del_p7')"/>
-    <br><br>
-    <button type="button" id="del_p7" class="state" onclick="delete_attached('del_p7','file_p7')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>8. ¿La institución cuenta con alguna estrategia de seguridad, de recuperación de datos o respaldo de los datos electrónicos almacenados?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question8" value="SI" >SI<br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question8" value="NO" >NO<br>
-  </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p8" name="file_p8" accept="image/*,video/*" onchange="enb_dis('file_p8','del_p8')"/>
-    <br><br>
-    <button type="button" id="del_p8" class="state" onclick="delete_attached('del_p8','file_p8')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question9"><h4>9. ¿Cuáles de los siguientes tipos de información envían o reciben de otras instituciones de salud electrónicamente?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Informaciones clínicas para profesionales de la salud de otras instituciones de salud"> Informaciones clínicas para profesionales de la salud de otras instituciones de salud</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Derivaciones de pacientes a otras instituciones de forma electrónica"> Derivaciones de pacientes a otras instituciones de forma electrónica</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Informes sobre la asistencia suministrada al paciente en el momento en el que le dieron de alta o fue transferido a otra IPS"> Informes sobre la asistencia suministrada al paciente en el momento en el que le dieron de alta o fue transferido a otra IPS</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Lista de todos los medicamentos recetados al paciente para otras IPS"> Lista de todos los medicamentos recetados al paciente para otras IPS</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Resultados de pruebas de laboratorio del paciente para otras IPS"> Resultados de pruebas de laboratorio del paciente para otras IPS.</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Resultados de pruebas de imagen del paciente para otras IPS"> Resultados de pruebas de imagen del paciente para otras IPS</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question9" ondragover="" class="option-input checkbox" name="question9" value="Plan de cuidados de la enfermería"> Plan de cuidados de la enfermería</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question9" name="question9" value="Otro" onclick="var input=document.getElementById('question9_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question9_otro" name="question9_otro" disabled="disabled"/></label><br>
-  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question1"><h4>1. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información? </h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <input type="radio" class="option-input radio" id="question1" name="question1" value="Identificación y/o autenticación" >Identificación y/o autenticación<br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <input type="radio" class="option-input radio" id="question2" name="question1" value="Autorización y control de acceso " >Autorización y control de acceso <br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <input type="radio" class="option-input radio" id="question3" name="question1" value="Auditoria" >Auditoria<br>
+       </div>
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <input type="radio" class="option-input radio" id="question4" name="question1" value="Encriptación de la información in-situ " >Encriptación de la información in-situ<br>
+       </div>
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <input type="radio" class="option-input radio" id="question5" name="question1" value="Encriptación de la información en intercambio" >Encriptación de la información en intercambio <br>
+       </div>
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <input type="radio" class="option-input radio" id="question6" name="question1" value="Monitoreo de ataques cibernéticos" >Monitoreo de ataques cibernéticos<br>
+       </div>
 
-    <br>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p9" name="file_p9" accept="image/*,video/*" onchange="enb_dis('file_p9','del_p9')"/>
-    <br><br>
-    <button type="button" id="del_p9" class="state" onclick="delete_attached('del_p9','file_p9')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question10"><h4>10. ¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)"> Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)"> Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)"> Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)"> Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Gestión de Eventos y Seguridad de la Información (SIEM)"> Gestión de Eventos y Seguridad de la Información (SIEM)</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question10" value="Ninguno"> Ninguno</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question10" name="question10" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
-  </div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
+        <br><br>
+        <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
+      </div>
+    </div>
+    <br><hr>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question2"><h4>2. ¿La institución cuenta con alguna estrategia de seguridad, de recuperación de datos o respaldo de los datos electrónicos almacenados?</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <input type="radio" class="option-input radio" id="question1" name="question2" value="SI" >SI<br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <input type="radio" class="option-input radio" id="question2" name="question2" value="NO" >NO<br>
+      </div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
+        <br><br>
+        <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
+      </div>
+    </div>
+    <br><hr>
+    
 
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p10" name="file_p10" accept="image/*,video/*" onchange="enb_dis('file_p10','del_p10')"/>
-    <br><br>
-    <button type="button" id="del_p10" class="state" onclick="delete_attached('del_p10','file_p10')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question11"><h4>11. ¿Cuáles de los siguientes servicios están disponibles vía telefónica?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Gestión de citas"> Gestión de citas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Recordatorio de citas"> Recordatorio de citas</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value=" Servicio de información de pacientes general"> Servicio de información de pacientes general</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Servicio de información general sobre atención del establecimiento"> Servicio de información general sobre atención del establecimiento</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Línea telefónica gratuita para emergencias"> Línea telefónica gratuita para emergencias</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Movilización de la comunidad y promoción de la salud"> Movilización de la comunidad y promoción de la salud</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" id="question11" ondragover="" class="option-input checkbox" name="question11" value="Ninguno"> Ninguno</label><br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label><input type="checkbox" class="option-input checkbox" id="question11" name="question11" value="Otro" onclick="var input=document.getElementById('question11_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question11_otro" name="question11_otro" disabled="disabled"/></label><br>
-  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question3"><h4>3. ¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución de salud?</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)"> Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)"> Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)"> Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)"> Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question10" ondragover="" class="option-input checkbox" name="question3" value="Gestión de Eventos y Seguridad de la Información (SIEM)"> Gestión de Eventos y Seguridad de la Información (SIEM)</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" id="question3" ondragover="" class="option-input checkbox" name="question3" value="Firma electrónica"> Firma electrónica</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <label><input type="checkbox" class="option-input checkbox" id="question10" name="question3" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
+      </div>
+    
+        <br>
+      </div>
+    </div>
+    
 
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p11" name="file_p11" accept="image/*,video/*" onchange="enb_dis('file_p11','del_p11')"/>
-    <br><br>
-    <button type="button" id="del_p11" class="state" onclick="delete_attached('del_p11','file_p11')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
 <br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question12"><h4>12. ¿Cuáles de los siguientes servicios son provistos a través de la página Web de la institución?</h4></label>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question12" value="Concertación de citas médicas (agenda electrónica)"> Concertación de citas médicas (agenda electrónica)</label><br>
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question12" value="Concertación de pruebas"> Concertación de pruebas </label><br>
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question12" value="Visualización de resultados de medios diagnósticos"> Visualización de resultados de medios diagnósticos</label><br>
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question12" value="Visualización de historia clínica o expediente clínico"> Visualización de historia clínica o expediente clínico </label><br>
-    <label><input type="checkbox" id="question12" ondragover="" class="option-input checkbox" name="question12" value="Inserción, por el paciente, de informaciones en su historia clínica"> Inserción, por el paciente, de informaciones en su historia clínica</label><br>
 
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p12" name="file_p12" accept="image/*,video/*" onchange="enb_dis('file_p12','del_p12')"/>
-    <br><br>
-    <button type="button" id="del_p12" class="state" onclick="delete_attached('del_p12','file_p12')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
+
+
+
+
+
 <div class "row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <button type="submit" class="state" name="continuar" formaction="validar4">Continuar</button>
@@ -471,24 +202,6 @@
   </div>
   </form>
 <br>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-
-      {% for message in messages %}
-          {% if "Error" not in message[1]: %}
-              <div class="alert alert-info">
-              <strong>Success! </strong> {{ message[1] }}
-              </div>
-          {% endif %}
-
-          {% if "Error" in message[1]: %}
-              <div class="alert alert-warning">
-              {{ message[1] }}
-              </div>
-          {% endif %}
-      {% endfor %}
-          {% endif %}
-      {% endwith %}
 
 </div>
 </body>

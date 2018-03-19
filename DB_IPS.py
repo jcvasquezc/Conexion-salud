@@ -38,7 +38,7 @@ client = MongoClient()
 #
 ##Crear database
 db = client.IPS_database
-#client.drop_database('IPS_database')
+client.drop_database('IPS_database')
 
 ##Crear colecciones
 IPS_data  = db.IPS_collection
@@ -48,7 +48,7 @@ usertag = "usuario"
 db.Users_data.create_index([(usertag,ASCENDING)],unique=True)
 
 ##Delete collection
-##db.IPS_collection.drop()
+db.IPS_collection.drop()
 
 #Obtener lista de departamento y ciudades
 #info_IPS = pd.read_csv(main_path+'/static/listaDB.csv')
