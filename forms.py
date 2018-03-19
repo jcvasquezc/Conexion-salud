@@ -252,8 +252,67 @@ def modulos():
         dptos,cities = set_dptos()                
         IPSdata.pop('_id', None)
         return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
-    if request.method == 'POST':        
+    if request.method == 'POST': 
+        print(request.form)       
+        print("############ doing post")
+        name1 = request.form['nombre1']
+        email1= request.form['email1']
+        cargo1= request.form['cargo1']
+        print(name1, email1, cargo1)
+        name2 = request.form['nombre2']
+        email2= request.form['email2']
+        cargo2= request.form['cargo2']
+        name3 = request.form['nombre3']
+        email3= request.form['email3']
+        cargo3= request.form['cargo3']
+        name4 = request.form['nombre4']
+        email4= request.form['email4']
+        cargo4= request.form['cargo4']
+        name5 = request.form['nombre5']
+        email5= request.form['email5']
+        cargo5= request.form['cargo5']
+        name6 = request.form['nombre6']
+        email6= request.form['email6']
+        cargo6= request.form['cargo6']
+
         
+
+        usr_id = current_user.id
+        print(usr_id)
+        print(Users_data.find()[0])
+        usr =   Users_data.find({'user_id': int(usr_id)})[0]
+
+
+        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        Ntemp=temp.count()
+        if Ntemp!=0:
+
+
+
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 nombre": name1}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 nombre": name2}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 nombre": name3}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 nombre": name4}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 nombre": name5}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 nombre": name6}}, upsert=False, full_response= True)
+
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 cargo": cargo1}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 cargo": cargo2}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 cargo": cargo3}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 cargo": cargo4}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 cargo": cargo5}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 cargo": cargo6}}, upsert=False, full_response= True)
+
+
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 email": email1}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 email": email2}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 email": email3}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 email": email4}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 email": email5}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 email": email6}}, upsert=False, full_response= True)
+
+
+
         return render_template('modulos.html')
 
     return render_template('modulos.html')
@@ -318,7 +377,8 @@ def preguntas_mod1():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -342,7 +402,8 @@ def preguntas_mod2():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -365,7 +426,8 @@ def preguntas_mod3():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -389,7 +451,8 @@ def preguntas_mod4():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -411,7 +474,8 @@ def preguntas_mod5():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -437,7 +501,8 @@ def preguntas_mod6():
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
             if len(request.form[j])>0:
                 nquestion=nquestion+1
 
@@ -481,13 +546,14 @@ def validar(modulo):
         print(usr['IPS_NIT'])
         dict_encuesta["NIT"]=usr['IPS_NIT']
         for j in request.form:
-            dict_encuesta[j]=request.form[j]
+            if j.find("question")>=0:
+                dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
 
         IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
-        return render_template('validar.html')
-    return render_template('validar.html')
+        return render_template('validar.html', nit=usr['IPS_NIT'])
+    return render_template('validar.html', nit=usr['IPS_NIT'])
 
 
 
@@ -535,7 +601,26 @@ def adminips_(ips_usr):
                         'Nombre del Prestador':usr['Nombre del Prestador'],
                         'NIT': usr['NIT'],
                         'Dirección':usr['Dirección'],
-                        'Teléfono':usr['Teléfono']
+                        'Teléfono':usr['Teléfono'],
+                        'name1':usr['colaborador1 nombre'],
+                        'name2':usr['colaborador2 nombre'],
+                        'name3':usr['colaborador3 nombre'],
+                        'name4':usr['colaborador4 nombre'],
+                        'name5':usr['colaborador5 nombre'],
+                        'name6':usr['colaborador6 nombre'],
+                        'cargo1':usr['colaborador1 cargo'],
+                        'cargo2':usr['colaborador2 cargo'],
+                        'cargo3':usr['colaborador3 cargo'],
+                        'cargo4':usr['colaborador4 cargo'],
+                        'cargo5':usr['colaborador5 cargo'],
+                        'cargo6':usr['colaborador6 cargo'],
+                        'email1':usr['colaborador1 email'],
+                        'email2':usr['colaborador2 email'],
+                        'email3':usr['colaborador3 email'],
+                        'email14':usr['colaborador4 email'],
+                        'email5':usr['colaborador5 email'],
+                        'email6':usr['colaborador6 email'],
+
     }
     Resultados_mod1=usr["Resultados Modulo 1"]
     Resultados_mod2=usr["Resultados Modulo 2"]
@@ -544,8 +629,12 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    perc_mod=[int(100*len(Resultados_mod1)/51), int(100*len(Resultados_mod2)/65), 100*len(Resultados_mod3)/50, 100*len(Resultados_mod4)/12, 100*len(Resultados_mod5)/9, 100*len(Resultados_mod6)/13]
-
+    print(Resultados_mod5)
+    perc_mod=[int(100*(len(Resultados_mod1)-1)/7), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+    perc_mod=np.asarray(perc_mod)
+    find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
+    print(find0)
+    perc_mod[find0]=0
     print(Resultados_mod1)
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
 
