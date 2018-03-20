@@ -1,7 +1,5 @@
 - Mostrar piezas(imagenes, mensajes,...) cada vez que se avanza en la encuesta.
 
-- Boton de ingreso a encuesta más grandes (YA)
-
 - Barra de progreso para cada modulo.
 
 - Crear página para instructivo.
@@ -16,24 +14,38 @@
 
 - Página para "FAQ".
 
-- Botón de "FAQ" en la barra de navegación.(YA)
-
-- Barra navegacion (YA)
-
 - Generar usuarios para "colaboradores"
 
 - Restringir acceso dependiendo del rol.
 
-- Pággina para verificar información de IPS diligenciada por cada persona.
-
 - Página para reiniciar contraseña (si da tiempo).
-
-- En "adminips" poner información de encargado de cada modulo.
 
 - Que solo se pueda llenar la encuesta una sola vez.
 
 - Guardar avance y cargar hasta la pregunta que el usuario ha llenado.
 
-- Preguntas Modulo 4,5,6
-
 - Actualizar base de datos
+
+-logos del mismo tamaño en los header
+
+- mirar si se pueden quitar los soportes
+
+-actualizar headers de las preguntas
+
+-admin_ips_ cambiar cargo por email
+
+-Incluir texto de ayuda
+
+- clase de prestador : quitar
+
+Plande implementacion:
+
+	Entrega e software  con todos los entregables
+	Manual de usuario
+	Video de funcionamiento
+	Informe de pruebas
+	Subirlo a la plataforma el sabado
+	Pruebas de uso domingo y lunes
+	Hacer informe de pruebas el lunes
+	
+	
