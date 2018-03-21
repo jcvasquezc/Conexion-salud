@@ -57,6 +57,7 @@ topnav on small screens */
 .topnav .logo_nav img {
 	float: left;
 	display: block;
+	padding: 5px;
 	width: 100%;
 }
 
@@ -101,8 +102,8 @@ overflow: hidden;
 	.topnav a{display: none}
 	.topnav a.icon{
 		position: absolute;
-	  right: 0;
-	  top: 0;
+	  	right: 0;
+	  	top: 0;
 		display: block;
 		opacity: 1;
 		color: #111;
@@ -119,7 +120,7 @@ overflow: hidden;
 	}
 	/*Logo con barra de navegacion*/
 	.topnav .logo_nav img {
-		width: 80%;
+		width: 90%;
 	}
   }
   
