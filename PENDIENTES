@@ -1,11 +1,9 @@
-- Crear página para instructivo.(Tomas)
-- Página para "FAQ".(Tomas)
+- Crear página para instructivo.(Camilo)
+- Página para "FAQ".(Camilo)
 
 - Generar usuarios para "colaboradores"(Tomas)
 
 - Restringir acceso dependiendo del rol(Tomas).
-
-- Que solo se pueda llenar la encuesta una sola vez. (Camilo)
 
 - Actualizar base de datos (Tomas)
 
@@ -15,13 +13,12 @@
 
 -Encabezado y barra de navegacion en todas las paginas (Tomas)
 
-- Modulos: Boton de enviar o responder (Camilo).
-
 -Barra de navegacion (Tomas):
 	Opcion para ver avance de la encuesta (adminIPS).
 	Agregar informacion de la sede.
 
 - clase de prestador : quitar(Tomas)
+
 
 -------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver

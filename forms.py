@@ -319,9 +319,9 @@ def modulos():
 
 
 
-        return render_template('modulos.html')
+        return render_template('modulos.html', message=["","","","","",""])
 
-    return render_template('modulos.html')
+    return render_template('modulos.html', message=["","","","","",""])
 
 #######################ENCUESTA#######################
 @app.route("/analisis", methods=['GET', 'POST'])
@@ -351,40 +351,27 @@ def analisis():
 @login_required
 def preguntas_mod1():
     global usr
+
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 1"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
+
     if request.method == 'POST':
-        """
-        name_gerente = request.form['gerente']
-        email_gerente= request.form['email1']
-        nombre_mod2 = request.form['nombre_mod2']
-        email_2= request.form['email2']
-        nombre_mod3 = request.form['nombre_mod3']
-        email_3= request.form['email3']
-        nombre_mod4 = request.form['nombre_mod4']
-        email_4= request.form['email4']
-        nombre_mod5 = request.form['nombre_mod5']
-        email_5= request.form['email5']
-        nombre_mod6 = request.form['nombre_mod6']
-        email_6= request.form['email6']
 
-        nombre_mod7=[request.form['nombre_mod7_'+str(i)] for i in range(1,5)]
-        email_7=[request.form['email7_'+str(i)] for i in range(1,5)]
-
-        nombres=np.hstack((name_gerente, nombre_mod2, nombre_mod3, nombre_mod4, nombre_mod5, nombre_mod6, nombre_mod7))
-        emails=np.hstack((email_gerente, email_2, email_3, email_4, email_5, email_6, email_7))
-        key_pass=get_credentials(usr)
-        for j in range(len(nombres)):
-            if len(emails[j])>0:
-                print(emails[j], nombres[j], usr, key_pass)
-                send_email(emails[j], nombres[j], usr, key_pass)
-
-        """
         # guarda automaticamente resultados de la encuesta cada cierto tiempo
         data_enc=[]
         print(request.form)
         dict_encuesta={}
         for j in request.form:
-            if j.find("question")>=0:
-                dict_encuesta[j]=request.form[j]
+            dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -395,7 +382,7 @@ def preguntas_mod1():
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 2": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 1": dict_encuesta}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod1.html')
@@ -403,6 +390,20 @@ def preguntas_mod1():
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod2():
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 2"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
+
+
+
     if request.method == 'POST':
         data_enc=[]
         print(request.form)
@@ -427,6 +428,22 @@ def preguntas_mod2():
 @app.route("/preguntas_mod3", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod3():
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 3"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
+
+
+
+
+
     if request.method == 'POST':
         data_enc=[]
         print(request.form)
@@ -452,6 +469,22 @@ def preguntas_mod3():
 @login_required
 def preguntas_mod4():
 
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 4"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
+
+
+
+
+
     if request.method == 'POST':
         data_enc=[]
         print(request.form)
@@ -475,6 +508,22 @@ def preguntas_mod4():
 @app.route("/preguntas_mod5", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod5():
+
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 5"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
+
+
+
+
     if request.method == 'POST':
         data_enc=[]
         print(request.form)
@@ -499,6 +548,18 @@ def preguntas_mod5():
 @app.route("/preguntas_mod6", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod6():
+
+    usr_id = current_user.id
+    usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    Ntemp=temp.count()
+    if Ntemp!=0:
+        temp2=temp[0]
+        encuesta=temp2["Resultados Modulo 6"]
+        print(encuesta)
+        if len(encuesta)>0:
+            return render_template('modulos.html',message=["","","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros"])
+
     nquestion=0
     if request.method == 'POST':
         form_mod6 = request.form
@@ -641,6 +702,10 @@ def adminips_(ips_usr):
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
     print(find0)
     perc_mod[find0]=0
+    find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
+    print(find100)
+    perc_mod[find100]=100
+
     print(Resultados_mod1)
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
 
