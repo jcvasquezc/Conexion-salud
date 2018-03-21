@@ -1,42 +1,36 @@
-- Mostrar piezas(imagenes, mensajes,...) cada vez que se avanza en la encuesta.
+- Crear página para instructivo.(Tomas)
+- Página para "FAQ".(Tomas)
 
-- Barra de progreso para cada modulo.
+- Generar usuarios para "colaboradores"(Tomas)
 
-- Crear página para instructivo.
+- Restringir acceso dependiendo del rol(Tomas).
 
-- Persona encargada (rol 2): Persona enlace.
+- Que solo se pueda llenar la encuesta una sola vez. (Camilo)
 
+- Actualizar base de datos (Tomas)
+
+-logos del mismo tamaño en los header (Tomas)
+
+- mirar si se pueden quitar los soportes (Camilo)
+
+-Encabezado y barra de navegacion en todas las paginas (Tomas)
+
+- Modulos: Boton de enviar o responder (Camilo).
+
+-Barra de navegacion (Tomas):
+	Opcion para ver avance de la encuesta (adminIPS).
+	Agregar informacion de la sede.
+
+- clase de prestador : quitar(Tomas)
+
+-------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver
   el instructivo o diligenciar la encuesta.
 
-- Agregar botón para avance de todos los modulos y la 
-  información de cada colaborador.
-
-- Página para "FAQ".
-
-- Generar usuarios para "colaboradores"
-
-- Restringir acceso dependiendo del rol.
-
 - Página para reiniciar contraseña (si da tiempo).
 
-- Que solo se pueda llenar la encuesta una sola vez.
+-Incluir texto de ayuda (GIBIC)
 
-- Guardar avance y cargar hasta la pregunta que el usuario ha llenado.
-
-- Actualizar base de datos
-
--logos del mismo tamaño en los header
-
-- mirar si se pueden quitar los soportes
-
--actualizar headers de las preguntas
-
--admin_ips_ cambiar cargo por email
-
--Incluir texto de ayuda
-
-- clase de prestador : quitar
 
 Plande implementacion:
 
