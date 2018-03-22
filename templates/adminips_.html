@@ -1,6 +1,6 @@
-<!doctype html>
-<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-{% with messages = get_flashed_messages() %}
+<!-- <!doctype html>
+<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title> -->
+<!-- {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
@@ -9,40 +9,46 @@
     </ul>
   {% endif %}
 {% endwith %}
-{% block body %}{% endblock %}
+{% block body %}{% endblock %} -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
   <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
   <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
   <link rel="stylesheet" href="static/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="static/preg_style.css">
   <link rel="stylesheet" href="static/radio_checks.css">
   <meta name="viewport" content = "width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="static/header-login-signup.css">
-
+  <link rel="stylesheet" href="static/index_style.css">
+  <script src="static/jscripts.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 	<body>
-      <div class="topnav" id="myTopnav">				
-          <div class="logo">
+
+    <script type="text/javascript">   
+        var LogVal = {{LogFlag|safe}}           
+    </script>
+    <div class="wrapper">
+    <div class="topnav">
+        <div class="logo_nav">
             <a href="/">
-            <img src="static/Logos_header.png" class="img-responsive">
-            </a>
-          </div>
-                
-          <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/logout">Cerrar sesión</a></li>
-              <li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
-          </ul>
-      </div>
-		<div class="wrapper">
-
-
-    <div class="register">
+                <img src="static/logos/logos.png" class="img-responsive">
+            </a>				
+        </div>
+    </div>
+    <div class="topnav" id="myTopnav">				
+    <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/">Tutorial</a></li>
+        <li><a href="/">Contacto</a></li>
+        <li><a href="/">Preguntas frecuentes</a></li>
+        <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+        <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+    </ul>	
+    </div>
+    <div class="idx_sty">
         <h1 class="title">Resultados</h1>
 
 

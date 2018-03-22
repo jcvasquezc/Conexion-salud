@@ -64,998 +64,946 @@
 			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
 		</ul>	
 		</div>
+    
     <form enctype=multipart/form-data class="register" method="post" id="form_mod1">
       <input type="submit" formaction="validar1" style="visibility: hidden; display: none;">
       <p class="title"> 
         MÓDULO 1: Descripción de la Institución de Salud
         </p>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. Servicios de salud brindados en la institución:</h4>
-    <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-    <input type="checkbox" id="question1_a" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Protección específica y detección temprana">Transporte asistencial<br>
-    <input type="checkbox" id="question1_b" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Consulta externa"> Consulta externa<br>
-    <input type="checkbox" id="question1_c" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Ambulatorios"> Ambulatorios<br>
-    <input type="checkbox" id="question1_d" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Internación"> Internación<br>
-  </div>
-  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-    <input type="checkbox" id="question1_e" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Quirúrgicos"> Quirúrgicos<br>
-    <input type="checkbox" id="question1_f" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Urgencias"> Urgencias<br>
-    <input type="checkbox" id="question1_g" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Apoyo diagnóstico y complementación terapéutica"> Apoyo diagnóstico y complementación terapéutica<br>
-    <input type="checkbox" id="question1_h" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Transporte asistencial">  Protección específica y detección temprana<br>
-  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question1"><h4>1. Servicios de salud brindados en la institución:</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label><input type="checkbox" id="question1_a" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Protección específica y detección temprana"> Transporte asistencial</label><br>
+          <label><input type="checkbox" id="question1_b" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Consulta externa"> Consulta externa</label><br>
+          <label><input type="checkbox" id="question1_c" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Ambulatorios"> Ambulatorios</label><br>
+          <label><input type="checkbox" id="question1_d" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Internación"> Internación</label><br>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <label><input type="checkbox" id="question1_e" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Quirúrgicos"> Quirúrgicos</label><br>
+          <label><input type="checkbox" id="question1_f" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Urgencias"> Urgencias</label><br>
+          <label><input type="checkbox" id="question1_g" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Transporte asistencial">  Protección específica y detección temprana</label><br>
+          <label><input type="checkbox" id="question1_h" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Apoyo diagnóstico y complementación terapéutica"> Apoyo diagnóstico y complementación terapéutica</label><br>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <br>
+          <label>Otros:</label>
+            <br>
+          <input id="question1_i" name="question1_i" placeholder="Cuáles?" />
+        </div>
+    </div>
+
+    <br><hr>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question2"><h4>2. Su capacidad instalada es: </h4></label>
+      <a href="#" data-toggle="tooltip" title="Ayudaa">
+        <i class="fa fa-question-circle" style=font-size:24px></i>
+      </a>
+      <br>
+    </div>
+      <!-- Opciones -->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <label>Número de camas:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+            <input type="text" id="question2_a" name="n_camas" placeholder="0" >
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <label>Número de camas de UCI:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+            <input type="text" id="question2_b" name="n_camas_UCI" placeholder="0" >
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <label>Camas pediátricas:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+            <input type="text" id="question2_c" name="n_camas_pediatricas" placeholder="0">
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Camas adultos:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question2_d" name="n_camas_adultos" placeholder="0"> 
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Camas obstetricia:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question2_e" name="n_camas_obstetricia" placeholder="0">
+      </div> 
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">      
+            <label>Camas intermedio neonatal:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question2_f" name="n_camas_intermedio_neonatal" placeholder="0">
+      </div> 
+    
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Camas intensivo neonatal:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question2_g" name="n_camas_intensivo_neonatal" placeholder="0">
+      </div> 
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Camas intermedio pediátrico:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question2_h" name="n_camas_intermedio_pediatrico" placeholder="0">
+      </div> 
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Camas intensivo pediátrico:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question2_i" name="n_camas_intensivo_pediatrico" placeholder="0">
+      </div> 
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Camas intermedio adulto:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question2_j" name="n_camas_intermedio_adulto" placeholder="0">
+      </div>
+
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas intensivo adulto:</label>
+       </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_k" name="n_camas_intensivo_adulto" placeholder="0">
+      
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas quemados adulto:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_l" name="n_camas_quemados_adulto" placeholder="0">
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas quemados pediátrico:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_m" name="n_camas_quemados_pediatrico" placeholder="0">
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas psiquiatría:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_n" name="n_camas_psiquiatria" placeholder="0">
+    
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas agudo mental:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_o" name="n_camas_agudo_mental" placeholder="0">
+    
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas intermedio mental:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_p" name="n_camas_intermedio_mental" placeholder="0">
+     
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas farmacodependencia:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_q" name="n_camas_farmacodependencia" placeholder="0">
+     
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas institución:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_r" name="n_camas_institucion" placeholder="0">
+    
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas crónico:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_s" name="n_camas_cronico" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas salud mental:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_t" name="n_camas_salud_mental" placeholder="0">
+    
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas trasplante progenitores hematopoyéticos:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_u" name="n_camas_hematopoyeticos" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Camas cuidado básico neonatal:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_v" name="n_camas_cuidado_neonatal" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Salas quirófano:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_w" name="n_salas_quirofano" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Salas partos:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_x" name="n_salas_partos" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Salas procedimientos:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_y" name="n_salas_procedimientos" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Sillas quimioterapia:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_z" name="n_sillas_quimioterapia" placeholder="0">
+    
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Sillas hemodiálisis:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_aa" name="n_sillas_hemodialisis" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Ambulancias básicas:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_bb" name="n_Ambulancias_básicas" placeholder="0">
+   
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Ambulancias medicadas:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_cc" name="n_Ambulancias_medicadas" placeholder="0">
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      <label>Número de consultorios:</label>
+    </div>
+    <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+      <input type="text" id="question2_dd" name="n_consultrios" placeholder="0">
+    </div>
+
+    <br><hr>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question3"><h4>3.Teniendo en cuenta el talento humano que labora en la institución, cuantos pertenecen a</h4></label>
+      <!-- <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br> -->
+    </div>
+
+    <!-- <div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Medicina General:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_a" name="n_medico_gral" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Medicina especializada:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_b" name="n_medico_especialista" placeholder="0" ><br>
+      </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Medicina subespecializada:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question3_c" name="n_medico_subespecialista" placeholder="0">
+          <br>
+        </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Odontología:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_d" name="n_odontologos" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Nutrición:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_e" name="n_nutricionistas" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Enfermería (Profesional):</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_f" name="n_enfermeros_profesional" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Fisioterapia:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_g" name="n_fisioterapeutas" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Fonoaudiología:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_h" name="n_fonoaudiologos" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Instrumentación</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_i" name="n_instrumentadores" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Optometría:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_j" name="n_optometras" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Psicología:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_k" name="n_psicologos" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Bacteriología:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_l" name="n_bacteriologos" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label>Química Farmacéutica:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_m" name="n_quimicos_faramceuticos" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Terapia respiratoria:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_n" name="n_terapia_respiratoria" placeholder="0">
+        <br>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <label>Terapia ocupacional:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question3_o" name="n_terapia_ocupacional" placeholder="0">
+        <br>
+      </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <br>
+          <label>Otro:</label>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question3_p1" name="otro_prof_salud1" placeholder="Cuáles?"></div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question3_pn1" name="n_otros1"  placeholder="Cuántos?"/>
+      </div>
+    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
         <br>
-        Otros:
+
       </div>
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <input id="question1_i" name="question1_i" placeholder="Cuáles?" />
-        
+        <input type="text" id="question3_p2" name="otro_prof_salud2" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question3_pn2" name="n_otros2" placeholder="Cuántos?" />
       </div>
     </div>
 
-    <br>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
-    <br><br>
-    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>2. Su capacidad instalada es</h4>
-    <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
 
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-      Número de camas:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_a" name="n_camas" placeholder="0" ><br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-      Número de camas de UCI:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_b" name="n_camas_UCI" placeholder="0" ><br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas pediátricas:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_c" name="n_camas_pediatricas" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas adultos:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_d" name="n_camas_adultos" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas obstetricia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_e" name="n_camas_obstetricia" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intermedio neonatal:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_f" name="n_camas_intermedio_neonatal" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intensivo neonatal:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_g" name="n_camas_intensivo_neonatal" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intermedio pediátrico:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_h" name="n_camas_intermedio_pediatrico" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intensivo pediátrico:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_i" name="n_camas_intensivo_pediatrico" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intermedio adulto:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_j" name="n_camas_intermedio_adulto" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intensivo adulto:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_k" name="n_camas_intensivo_adulto" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas quemados adulto:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_l" name="n_camas_quemados_adulto" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas quemados pediátrico:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_m" name="n_camas_quemados_pediatrico" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas psiquiatría:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_n" name="n_camas_psiquiatria" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas agudo mental:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_o" name="n_camas_agudo_mental" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas intermedio mental:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_p" name="n_camas_intermedio_mental" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas farmacodependencia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_q" name="n_camas_farmacodependencia" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas institución:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_r" name="n_camas_institucion" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas crónico:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_s" name="n_camas_cronico" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas salud mental:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_t" name="n_camas_salud_mental" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas trasplante progenitores hematopoyéticos:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_u" name="n_camas_hematopoyeticos" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Camas cuidado básico neonatal:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_v" name="n_camas_cuidado_neonatal" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Salas quirófano:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_w" name="n_salas_quirofano" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Salas partos:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_x" name="n_salas_partos" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Salas procedimientos:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_y" name="n_salas_procedimientos" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Sillas quimioterapia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_z" name="n_sillas_quimioterapia" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Sillas hemodiálisis:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_aa" name="n_sillas_hemodialisis" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Ambulancias básicas:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_bb" name="n_Ambulancias_básicas" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Ambulancias medicadas:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_cc" name="n_Ambulancias_medicadas" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    Número de consultorios:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question2_dd" name="n_consultrios" placeholder="0">
-    <br>
-  </div>
-
-
-<br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
-    <br><br>
-    <button type="button" id="del_p2" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>3.Teniendo en cuenta el talento humano que labora en la institución, cuantos pertenecen a</h4>
-    <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<!-- <div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Medicina General:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_a" name="n_medico_gral" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Medicina especializada:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_b" name="n_medico_especialista" placeholder="0" ><br>
-  </div>
-
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Medicina subespecializada:
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question3_p3" name="otro_prof_salud3" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question3_pn3" name="n_otros3" placeholder="Cuántos?" />
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question3_c" name="n_medico_subespecialista" placeholder="0">
-      <br>
+
+    <br><br><hr>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question4"><h4>4. ¿Cuántos Técnicos/Tecnólogos de la salud están laborando en su institución?</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Técnico en Enfermería:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input type="text" id="question4_a" name="n_aux_enfermeria" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Técnico en Salud Oral:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_b" name="n_aux_salud_oral" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Técnico en Salud Pública:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_c" name="n_aux_salud_publica" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Técnico en Servicios farmacéuticos:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_d" name="n_aux_serv_farmac" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Técnico en atención prehospitalaria:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_e" name="n_tecnico_pre_hosp" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Tecnólogo en atención prehospitalaria:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_f" name="n_tecnologo_pre_hosp" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Tecnólogo en regencia de farmacia:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_g" name="n_tecnologo_reg_farmacia" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Tecnólogo en radiodiagnóstico y radioterapia:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_h" name="n_tecnologo_radio_diagnostico" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Tecnólogo en radiología e imágenes diagnósticas:</label>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input type="text" id="question4_i" name="n_tecnologo_radiologia" placeholder="0" ><br>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+        <label>Otro:</label>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question4_j1" name="Otro_tecnologo1" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question4_jn1" name="n_otro_tecnologo1" placeholder="Cuántos?" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question4_j2" name="Otro_tecnologo2" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question4_jn2" name="n_otro_tecnologo2"placeholder="Cuántos?" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question4_j3" name="Otro_tecnologo3" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <input id="question4_jn3" name="n_otro_tecnologo3" placeholder="Cuántos?" />
+      </div>
     </div>
 
 
-<!--</div>-->
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Odontología:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_d" name="n_odontologos" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Nutrición:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_e" name="n_nutricionistas" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Enfermería (Profesional):
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_f" name="n_enfermeros_profesional" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Fisioterapia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_g" name="n_fisioterapeutas" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Fonoaudiología:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_h" name="n_fonoaudiologos" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Instrumentación
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_i" name="n_instrumentadores" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Optometría:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_j" name="n_optometras" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Psicología:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_k" name="n_psicologos" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Bacteriología:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_l" name="n_bacteriologos" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Química Farmacéutica:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_m" name="n_quimicos_faramceuticos" placeholder="0" ><br>
-  </div>
 
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    Terapia respiratoria:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_n" name="n_terapia_respiratoria" placeholder="0">
-    <br>
-  </div>
-
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    Terapia ocupacional:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question3_o" name="n_terapia_ocupacional" placeholder="0">
-    <br>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <br>
-      Otro:
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question3_p1" name="otro_prof_salud1" placeholder="Cuáles?"></div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question3_pn1" name="n_otros1"  placeholder="Cuántos?"/>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question3_p2" name="otro_prof_salud2" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question3_pn2" name="n_otros2" placeholder="Cuántos?" />
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question3_p3" name="otro_prof_salud3" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question3_pn3" name="n_otros3" placeholder="Cuántos?" />
-  </div>
-</div>
-
-
-
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
-    <br><br>
-    <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-
-
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>4. ¿Cuántos Técnicos/Tecnólogos de la salud están laborando en su institución?</h4>
-    <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Técnico en Enfermería:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input type="text" id="question4_a" name="n_aux_enfermeria" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Técnico en Salud Oral:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_b" name="n_aux_salud_oral" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Técnico en Salud Pública:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_c" name="n_aux_salud_publica" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Técnico en Servicios farmacéuticos:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_d" name="n_aux_serv_farmac" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Técnico en atención prehospitalaria:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_e" name="n_tecnico_pre_hosp" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Tecnólogo en atención prehospitalaria:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_f" name="n_tecnologo_pre_hosp" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Tecnólogo en regencia de farmacia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_g" name="n_tecnologo_reg_farmacia" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Tecnólogo en radiodiagnóstico y radioterapia:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_h" name="n_tecnologo_radio_diagnostico" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Tecnólogo en radiología e imágenes diagnósticas:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="text" id="question4_i" name="n_tecnologo_radiologia" placeholder="0" ><br>
-  </div>
-</div>
-<br>
-
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-    Otro:
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question4_j1" name="Otro_tecnologo1" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question4_jn1" name="n_otro_tecnologo1" placeholder="Cuántos?" />
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question4_j2" name="Otro_tecnologo2" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question4_jn2" name="n_otro_tecnologo2"placeholder="Cuántos?" />
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question4_j3" name="Otro_tecnologo3" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <input id="question4_jn3" name="n_otro_tecnologo3" placeholder="Cuántos?" />
-  </div>
-</div>
-
-
-
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
-    <br><br>
-    <button type="button" id="del_p4" class="state" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question5"><h4>5. ¿Cuántos Profesionales NO afines a la salud están laborando en su institución?</h4>
-    <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Administración:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_a" name="n_administrador" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-      Ingeniería:
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question5_b1" name="ingenieria1" placeholder="Cuál?"></div>
-    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-3">
-    <input id="question5_bn1" name="n_ingenieria1" placeholder="Cuántos?" /></div>
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question5_b2" name="ingenieria2" placeholder="Cuál?">
-  </div>
-    <div class="col-xs-3 col-sm-3 col-md-2 col-lg-3">
-    <input id="question5_bn2" name="n_ingenieria2" placeholder="Cuántos?" />
-  </div>
-
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Contaduría:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_c" name="n_contador" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Derecho:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_d" name="n_abgado" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Periodismo:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_e" name="n_periodista" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Comunicación social:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_f" name="n_comunicador" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Física:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question5_g" name="n_fisico" placeholder="0" ><br>
-  </div>
-
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      Trabajo social:
+        <br>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p4" name="file_p4" accept="image/*,video/*" onchange="enb_dis('file_p4','del_p4')"/>
+        <br><br>
+        <button type="button" id="del_p4" class="state" onclick="delete_attached('del_p4','file_p4')" disabled="disabled">Eliminar soporte</button>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question5_h" name="n_trabjo_socal" placeholder="0">
-      <br>
+    <br><hr>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question5"><h4>5. ¿Cuántos Profesionales NO afines a la salud están laborando en su institución?</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayudaa"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
     </div>
-</div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Administración:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_a" name="n_administrador" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+          <label>Ingeniería:</label>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question5_b1" name="ingenieria1" placeholder="Cuál?"></div>
+        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+        <input id="question5_bn1" name="n_ingenieria1" placeholder="Cuántos?" /></div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question5_b2" name="ingenieria2" placeholder="Cuál?">
+      </div>
+        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+        <input id="question5_bn2" name="n_ingenieria2" placeholder="Cuántos?" />
+      </div>
+
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Contaduría:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_c" name="n_contador" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Derecho:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_d" name="n_abgado" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Periodismo:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_e" name="n_periodista" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Comunicación social:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_f" name="n_comunicador" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Física:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question5_g" name="n_fisico" placeholder="0" ><br>
+      </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <label>Trabajo social:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question5_h" name="n_trabjo_socal" placeholder="0">
+          <br>
+        </div>
+    </div>
 
 
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-    Otro:
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question5_i1" name="otro_prof_NO_salud1" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question5_in1" name="n_otro1" placeholder="Cuántos?" />
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+        <label>Otro:</label>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question5_i1" name="otro_prof_NO_salud1" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question5_in1" name="n_otro1" placeholder="Cuántos?" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
 
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question5_i2" name="otro_prof_NO_salud2" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question5_in2" name="n_otro2" placeholder="Cuántos?" />
-  </div>
-</div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question5_i2" name="otro_prof_NO_salud2" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question5_in2" name="n_otro2" placeholder="Cuántos?" />
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
 
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question5_i3" name="otro_prof_NO_salud3" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question5_in3" name="n_otro3" placeholder="Cuántos?" />
-  </div>
-</div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question5_i3" name="otro_prof_NO_salud3" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question5_in3" name="n_otro3" placeholder="Cuántos?" />
+      </div>
+    </div>
 
 
 
+
+        <br>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
+        <br><br>
+        <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
+      </div>
+    </div>
+    <br><hr>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question6"><h4>6. ¿Cuántos administrativos están laborando en su institución?</h4></label>
+        <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Gerente:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_a" name="n_Gerente" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Subgerente:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_b" name="n_subgerentes" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Directores:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_c" name="n_director" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Jefe de área:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_d" name="n_jefe_area" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Coordinadores:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_e" name="n_Coordinadores" placeholder="0" ><br>
+      </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Auxiliares:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_f" name="n_Auxiliares" placeholder="0" ><br>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label>Asistentes:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question6_g" name="n_Asistentes" placeholder="0">
+        <br>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+        <label>Otro:</label>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question6_h1" name="otro_admin1" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question6_hn1" name="n_otro_admin1" placeholder="Cuántos?" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question6_h2" name="otro_admin2"placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question6_hn2" name="n_otro_admin2" placeholder="Cuántos?" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+        <br>
+
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <input type="text" id="question6_h3" name="otro_admin3" placeholder="Cuáles?">
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <input id="question6_hn2" name="n_otro_admin2" placeholder="Cuántos?" />
+      </div>
+    </div>
+
+
+
+        <br>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label>Adjuntar soporte:</label>
+        <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
+        <br><br>
+        <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
+      </div>
+    </div>
+    <br><hr>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="question6">
+          <h4>7. ¿En su institución quién utiliza más las TIC?</h4>
+        </label><br>
+        <label>Indique de 1 a 5 el nivel de uso de las TIC, siendo 1 muy bajo uso, 2 bajo uso, 3 uso moderado, 4 uso alto y 5 uso muy alto</label>
+        <a href="#" data-toggle="tooltip" title="Ayuda">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+        <br>
+      </div>
+      <!--</div>-->
+      <!--<div class="row">-->
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label>Medicina General:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question7_a" name="uso_medicina_gral" placeholder="0">
+        <br>
+      </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Medicina Especializada:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_b" name="uso_medicina_especializada" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Medicina Subespecializada:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_c" name="uso_medicina_Subespecializada" placeholder="0">
+          <br>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Odontología:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_d" name="uso_Odontología" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Nutricionista:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_e" name="usoNutricionista" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Enfermería profesional:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_f" name="uso_Enfermeria_profesional" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Gerente:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_g" name="uso_Gerente" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Subgerente:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_h" name="uso_Subgerente" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Directores:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_i" name="uso_Directores" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Jefe de área:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_j" name="uso_jefe_area" placeholder="0">
+          <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Coordinadores:</label>
+        </div>
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+          <input type="text" id="question7_k" name="uso_Coordinadores" placeholder="0">
+          <br>
+        </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <label>Auxiliares:</label>
+      </div>
+      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+        <input type="text" id="question7_l" name="uso_Auxiliares" placeholder="0">
+        <br>
+      </div>
+
+
+
+
+    </div>
+    <br><hr>
+
+
+
+
+
+    <div class "row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <button type="submit" class="state" name="continuar" formaction="validar1">Continuar</button>
+        </div>
+      </div>
+      </div>
+      </form>
 
     <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p5" name="file_p5" accept="image/*,video/*" onchange="enb_dis('file_p5','del_p5')"/>
-    <br><br>
-    <button type="button" id="del_p5" class="state" onclick="delete_attached('del_p5','file_p5')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>6. ¿Cuántos administrativos están laborando en su institución?</h4>
-    <a href="#" data-toggle="tooltip" title="Ayuda"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Gerente:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_a" name="n_Gerente" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Subgerente:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_b" name="n_subgerentes" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Directores:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_c" name="n_director" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Jefe de área:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_d" name="n_jefe_area" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Coordinadores:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_e" name="n_Coordinadores" placeholder="0" ><br>
-  </div>
-<!--</div>-->
-<!--<div class="row">-->
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Auxiliares:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_f" name="n_Auxiliares" placeholder="0" ><br>
-  </div>
-
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    Asistentes:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question6_g" name="n_Asistentes" placeholder="0">
-    <br>
-  </div>
-
-
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-    Otro:
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question6_h1" name="otro_admin1" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question6_hn1" name="n_otro_admin1" placeholder="Cuántos?" />
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question6_h2" name="otro_admin2"placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question6_hn2" name="n_otro_admin2" placeholder="Cuántos?" />
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <br>
-
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <input type="text" id="question6_h3" name="otro_admin3" placeholder="Cuáles?">
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input id="question6_hn2" name="n_otro_admin2" placeholder="Cuántos?" />
-  </div>
-</div>
-
-
-
-    <br>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    Adjuntar soporte:
-    <input type="file" id="file_p6" name="file_p6" accept="image/*,video/*" onchange="enb_dis('file_p6','del_p6')"/>
-    <br><br>
-    <button type="button" id="del_p6" class="state" onclick="delete_attached('del_p6','file_p6')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-<br><hr>
-
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6">
-      <h4>7. ¿En su institución quién utiliza más las TIC?</h4>
-    <br>
-    Indique de 1 a 5 el nivel de uso de las TIC, siendo 1 muy bajo uso, 2 bajo uso, 3 uso moderado, 4 uso alto y 5 uso muy alto
-    <a href="#" data-toggle="tooltip" title="Ayuda">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
-    <br>
-  </div>
-  <!--</div>-->
-  <!--<div class="row">-->
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    Medicina General:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question7_a" name="uso_medicina_gral" placeholder="0">
-    <br>
-  </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Medicina Especializada:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_b" name="uso_medicina_especializada" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Medicina Subespecializada:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_c" name="uso_medicina_Subespecializada" placeholder="0">
-      <br>
-    </div>
-
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Odontología:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_d" name="uso_Odontología" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Nutricionista:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_e" name="usoNutricionista" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Enfermería profesional:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_f" name="uso_Enfermeria_profesional" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Gerente:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_g" name="uso_Gerente" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Subgerente:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_h" name="uso_Subgerente" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Directores:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_i" name="uso_Directores" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Jefe de área:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_j" name="uso_jefe_area" placeholder="0">
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      Coordinadores:
-    </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-      <input type="text" id="question7_k" name="uso_Coordinadores" placeholder="0">
-      <br>
-    </div>
-
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    Auxiliares:
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="question7_l" name="uso_Auxiliares" placeholder="0">
-    <br>
-  </div>
-
-
-
-
-</div>
-<br><hr>
-
-
-
-
-
-<div class "row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <button type="submit" class="state" name="continuar" formaction="validar1">Continuar</button>
-    </div>
-  </div>
-  </div>
-  </form>
-
-<br>
 
 
 
