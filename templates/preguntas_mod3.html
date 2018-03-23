@@ -946,6 +946,9 @@
     <br>
   </div>
 </div>
+
+
+
 <div class="row">
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <label>Adjuntar soporte:</label>
@@ -956,13 +959,17 @@
   </div>
 </div>
 <br><hr>
+
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question12">
-      <h4>12. ¿Los datos capturados de los equipos médicos son interoperables con la Historia Clínica Electrónica?</h4>
+      <h4>12. ¿Tiene su organización en la actualidad un sistema de Historia Clínica Electrónica?</h4>
     </label>
-    <a href="#" data-toggle="tooltip" title="La interoperabilidad es la capacidad de un sistema para intercambiar y utilizar información con otros sistemas sin restricción
-    de acceso o de implementación.">
+    <a href="#" data-toggle="tooltip" title="La Historia Clínica Electrónica es el conjunto global y estructurado de información relacionado con los procesos asistenciales
+    de un paciente, soportado por una plataforma informática. El sistema permite el almacenamiento y recuperación de información
+    asistencial basado en procedimientos digitales, diseñado para facilitar el seguimiento de las acciones, anotaciones e instrucciones
+    sobre las actuaciones en materia de salud de los ciudadanos (Nieto Pajares, 2011).">
       <i class="fa fa-question-circle" style=font-size:24px></i>
     </a>
     <br>
@@ -971,11 +978,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question12" value="SI">SI
+      <input type="radio" class="option-input radio" id="question1" name="question12" value="SI" onclick="yesnoCheck(this, q13container, q11container);">SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question12" value="NO">NO
+      <input type="radio" class="option-input radio" id="question2" name="question12" value="NO" onclick="yesnoCheck(this, q11container, q13container);">NO
       <br>
     </div>
     <br>
@@ -991,45 +998,6 @@
   </div>
 </div>
 
-<br><hr>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question12">
-      <h4>13 ¿Tiene su organización en la actualidad un sistema de Historia Clínica Electrónica?</h4>
-    </label>
-    <a href="#" data-toggle="tooltip" title="La Historia Clínica Electrónica es el conjunto global y estructurado de información relacionado con los procesos asistenciales
-    de un paciente, soportado por una plataforma informática. El sistema permite el almacenamiento y recuperación de información
-    asistencial basado en procedimientos digitales, diseñado para facilitar el seguimiento de las acciones, anotaciones e instrucciones
-    sobre las actuaciones en materia de salud de los ciudadanos (Nieto Pajares, 2011).">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question13" value="SI" onclick="yesnoCheck(this, q13container, q11container);">SI
-      <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question13" value="NO" onclick="yesnoCheck(this, q11container, q13container);">NO
-      <br>
-    </div>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p13" name="file_p13" accept="image/*,video/*" onchange="enb_dis('file_p13','del_p13')" />
-    <br>
-    <br>
-    <button type="button" id="del_p13" class="state" onclick="delete_attached('del_p13','file_p13')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-
 
 
 <div class="hidden" id="q11container">
@@ -1038,7 +1006,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question1">
-        <h4>14. ¿Para el registro clínico de la información de pacientes la institución hace uso de qué medios?:</h4>
+        <h4>13. ¿Para el registro clínico de la información de pacientes la institución hace uso de qué medios?:</h4>
       </label>
       <a href="#" data-toggle="tooltip" title="Hace referencia a documentos o conjunto de datos que contiene información de cualquier índole relacionada con la situación
       clínica de un paciente y está ligada a la identificación del mismo.">
@@ -1049,13 +1017,13 @@
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <input type="radio" class="option-input radio" id="question1" name="question14" value="Todos los registros son electrónicos.">Todos los registros son electrónicos.
+      <input type="radio" class="option-input radio" id="question1" name="question13" value="Todos los registros son electrónicos.">Todos los registros son electrónicos.
       <br>
-      <input type="radio" class="option-input radio" id="question2" name="question14" value="La mayoría de los registros son electrónicos, pero existen algunos registros en papel.">La mayoría de los registros son electrónicos, pero existen algunos registros en papel.
+      <input type="radio" class="option-input radio" id="question2" name="question13" value="La mayoría de los registros son electrónicos, pero existen algunos registros en papel.">La mayoría de los registros son electrónicos, pero existen algunos registros en papel.
       <br>
-      <input type="radio" class="option-input radio" id="question3" name="question14" value="La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.">La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.
+      <input type="radio" class="option-input radio" id="question3" name="question13" value="La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.">La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.
       <br>
-      <input type="radio" class="option-input radio" id="question4" name="question14" value="Todos los registros se encuentran en papel.">Todos los registros se encuentran en papel.
+      <input type="radio" class="option-input radio" id="question4" name="question13" value="Todos los registros se encuentran en papel.">Todos los registros se encuentran en papel.
       <br>
       
       <br>
@@ -1078,7 +1046,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question6">
-      <h4>15. ¿Cómo realiza la identificación del usuario interno?</h4>
+      <h4>14. ¿Cómo realiza la identificación del usuario interno?</h4>
     </label>
     <a href="#" data-toggle="tooltip" title="Usuario interno son las personas empleadas por la institución. Hace referencia al modo de identificación dentro de la institución.">
       <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -1088,13 +1056,62 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question15" value="Tipo y número de documento de identidad">Tipo y número de documento de identidad
+    <input type="radio" class="option-input radio" id="question1" name="question14" value="Tipo y número de documento de identidad">Tipo y número de documento de identidad
     <br>
-    <input type="radio" class="option-input radio" id="question2" name="question15" value="Carné">Carné
+    <input type="radio" class="option-input radio" id="question2" name="question14" value="Carné">Carné
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question15" value="Biométrico">Biométrico
+    <input type="radio" class="option-input radio" id="question3" name="question14" value="Biométrico">Biométrico
     <br>
-    <input type="radio" class="option-input radio" id="question4" name="question15" value="Tarjeta profesional">Tarjeta profesional
+    <input type="radio" class="option-input radio" id="question4" name="question14" value="Tarjeta profesional">Tarjeta profesional
+    <br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p14" name="file_p14" accept="image/*,video/*" onchange="enb_dis('file_p14','del_p14')" />
+    <br>
+    <br>
+    <button type="button" id="del_p14" class="state" onclick="delete_attached('del_p','file_p14')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question7">
+      <h4>15. ¿Cómo realiza la identificación del usuario externo?</h4>
+    </label>
+    <a href="#" data-toggle="tooltip" title="Usuario externo se refiere a los pacientes. Hace referencia al modo de identificación dentro de la institución.">
+      <i class="fa fa-question-circle" style=font-size:24px></i>
+    </a>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="question1" name="question15" value="Documento de identidad">Documento de identidad
+    <br>
+
+    <input type="radio" class="option-input radio" id="question2" name="question15" value="Etiqueta">Etiqueta
+    <br>
+    <input type="radio" class="option-input radio" id="question3" name="question15" onclick="yesnoCheck(this, q49container, q16container);" value="Manilla">Manilla
+    <br>
+          <div class="hidden" id="q16container">
+                  <input type="radio" class="option-input radio" id="question2" name="question15" value="Manual">Manual
+                  <input type="radio" class="option-input radio" id="question2" name="question15" value="impresión simple">impresión simple
+                  <input type="radio" class="option-input radio" id="question2" name="question15" value="impresión más código de barras">impresión más código de barras
+          </div>
+
+    <input type="radio" class="option-input radio" id="question3" name="question15" value="Contrato/póliza">Contrato/póliza
+    <br>
+    <input type="radio" class="option-input radio" id="question3" name="question15" value="Contrato/póliza">Biométrico
+    <br>
+    <input type="radio" class="option-input radio" id="question4" name="question15" value="Otro" onclick="var input = document.getElementById('question16_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    />Otro, ¿Cuál?
+    <br>
+    <input id="question15_otro" name="question15_otro" disabled="disabled" />
     <br>
     <br>
   </div>
@@ -1106,55 +1123,6 @@
     <br>
     <br>
     <button type="button" id="del_p15" class="state" onclick="delete_attached('del_p15','file_p15')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question7">
-      <h4>16. ¿Cómo realiza la identificación del usuario externo?</h4>
-    </label>
-    <a href="#" data-toggle="tooltip" title="Usuario externo se refiere a los pacientes. Hace referencia al modo de identificación dentro de la institución.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question16" value="Documento de identidad">Documento de identidad
-    <br>
-
-    <input type="radio" class="option-input radio" id="question2" name="question16" value="Etiqueta">Etiqueta
-    <br>
-    <input type="radio" class="option-input radio" id="question3" name="question6" onclick="yesnoCheck(this, q49container, q16container);" value="Manilla">Manilla
-    <br>
-          <div class="hidden" id="q16container">
-                  <input type="radio" class="option-input radio" id="question2" name="question16" value="Manual">Manual
-                  <input type="radio" class="option-input radio" id="question2" name="question16" value="impresión simple">impresión simple
-                  <input type="radio" class="option-input radio" id="question2" name="question16" value="impresión más código de barras">impresión más código de barras
-          </div>
-
-    <input type="radio" class="option-input radio" id="question3" name="question16" value="Contrato/póliza">Contrato/póliza
-    <br>
-    <input type="radio" class="option-input radio" id="question3" name="question16" value="Contrato/póliza">Biométrico
-    <br>
-    <input type="radio" class="option-input radio" id="question4" name="question16" value="Otro" onclick="var input = document.getElementById('question16_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Otro, ¿Cuál?
-    <br>
-    <input id="question16_otro" name="question6_otro" disabled="disabled" />
-    <br>
-    <br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p16" name="file_p7" accept="image/*,video/*" onchange="enb_dis('file_p16','del_p16')" />
-    <br>
-    <br>
-    <button type="button" id="del_p16" class="state" onclick="delete_attached('del_p16','file_p16')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
 <br>
@@ -1172,7 +1140,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question18">
-        <h4>17. ¿Cuánto tiempo lleva implementado el sistema de Historia Clínica Electrónica?:</h4>
+        <h4>16. ¿Cuánto tiempo lleva implementado el sistema de Historia Clínica Electrónica?:</h4>
       </label>
       <a href="#" data-toggle="tooltip" title="Ayuda">
         <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -1182,13 +1150,13 @@
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <input type="radio" class="option-input radio" id="question1" name="question17" value="Menos a 1 año">Menos a 1 año
+      <input type="radio" class="option-input radio" id="question1" name="question16" value="Menos a 1 año">Menos a 1 año
       <br>
-      <input type="radio" class="option-input radio" id="question2" name="question17" value="1 año a 2 años">1 año a 2 años
+      <input type="radio" class="option-input radio" id="question2" name="question16" value="1 año a 2 años">1 año a 2 años
       <br>
-      <input type="radio" class="option-input radio" id="question3" name="question17" value="2 años a 3 años">2 años a 3 años
+      <input type="radio" class="option-input radio" id="question3" name="question16" value="2 años a 3 años">2 años a 3 años
       <br>
-      <input type="radio" class="option-input radio" id="question4" name="question17" value="Más de 3 años">Más de 3 años
+      <input type="radio" class="option-input radio" id="question4" name="question16" value="Más de 3 años">Más de 3 años
       <br>
       <br>
     </div>
@@ -1196,10 +1164,10 @@
   <div class="row">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <label>Adjuntar soporte:</label>
-      <input type="file" id="file_p17" name="file_p17" accept="image/*,video/*" onchange="enb_dis('file_p17','del_p17')" />
+      <input type="file" id="file_p16" name="file_p16" accept="image/*,video/*" onchange="enb_dis('file_p16','del_p16')" />
       <br>
       <br>
-      <button type="button" id="del_p17" class="state" onclick="delete_attached('del_p17','file_p17')" disabled="disabled">Eliminar soporte</button>
+      <button type="button" id="del_p16" class="state" onclick="delete_attached('del_p16','file_p16')" disabled="disabled">Eliminar soporte</button>
     </div>
   </div>
   <br>
@@ -1210,7 +1178,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question26">
-      <h4>18. ¿Cuáles fueron las principales barreras para la implementación de la Historia Clínica Electrónica?</h4>
+      <h4>17. ¿Cuáles fueron las principales barreras para la implementación de la Historia Clínica Electrónica?</h4>
     </label>
     <a href="#" data-toggle="tooltip" title="Ayuda">
       <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -1222,39 +1190,39 @@
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Ausencia de liderazgo en el tema"> Ausencia de liderazgo en el tema</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Ausencia de liderazgo en el tema"> Ausencia de liderazgo en el tema</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Costo"> Costo</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Costo"> Costo</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Apoyo de la gerencia/administración"> Apoyo de la gerencia/administración</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Apoyo de la gerencia/administración"> Apoyo de la gerencia/administración</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="infraestructura TIC"> infraestructura TIC</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="infraestructura TIC"> infraestructura TIC</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Resistencia al cambio por parte del personal de salud"> Resistencia al cambio por parte del personal de salud</label>
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Falta de competencia del personal para el uso de la herramienta"> Falta de competencia del personal para el uso de la herramienta</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Resistencia al cambio por parte del personal de salud"> Resistencia al cambio por parte del personal de salud</label>
       <br>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question18" value="Sistema poco amigable"> Sistema poco amigable</label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Falta de competencia del personal para el uso de la herramienta"> Falta de competencia del personal para el uso de la herramienta</label>
+      <br>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label>
+        <input type="checkbox" id="question26" ondragover="" class="option-input checkbox" name="question17" value="Sistema poco amigable"> Sistema poco amigable</label>
       <br>
     </div>
 
@@ -1262,10 +1230,10 @@
 
 
     <label>
-      <input type="checkbox" class="option-input checkbox" id="question26" name="question18" value="Otro" onclick="var input=document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+      <input type="checkbox" class="option-input checkbox" id="question26" name="question17" value="Otro" onclick="var input=document.getElementById('question17_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
       />Otros
       <br>
-      <label>¿Cuáles?</label><input id="question24_otro" name="question24_otro" disabled="disabled" />
+      <label>¿Cuáles?</label><input id="question24_otro" name="question17_otro" disabled="disabled" />
     </label>
     <br>
     <br>
@@ -1282,7 +1250,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question16">
-      <h4>19. ¿Qué proveedor de Historia Clínica Electrónica utiliza su institución?</h4>
+      <h4>18. ¿Qué proveedor de Historia Clínica Electrónica utiliza su institución?</h4>
     </label>
     <a href="#" data-toggle="tooltip" title="Ayuda">
       <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -1293,109 +1261,109 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question19" value="CNT">CNT
+      <input type="radio" class="option-input radio" id="question1" name="question18" value="CNT">CNT
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question19" value="Dinámica Gerencial"> Dinámica Gerencial
+      <input type="radio" class="option-input radio" id="question2" name="question18" value="Dinámica Gerencial"> Dinámica Gerencial
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question3" name="question19" value="Hosvital">Hosvital
+      <input type="radio" class="option-input radio" id="question3" name="question18" value="Hosvital">Hosvital
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question4" name="question19" value="HeOn">HeOn
+      <input type="radio" class="option-input radio" id="question4" name="question18" value="HeOn">HeOn
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5" name="question19" value="SAHI">SAHI
+      <input type="radio" class="option-input radio" id="question5" name="question18" value="SAHI">SAHI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question6" name="question19" value="Xenco">Xenco
+      <input type="radio" class="option-input radio" id="question6" name="question18" value="Xenco">Xenco
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question7" name="question19" value="CitiSalud">CitiSalud
+      <input type="radio" class="option-input radio" id="question7" name="question18" value="CitiSalud">CitiSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question8" name="question19" value="Punto Exe">Punto Exe
+      <input type="radio" class="option-input radio" id="question8" name="question18" value="Punto Exe">Punto Exe
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question9" name="question19" value="Hospitec">Hospitec
+      <input type="radio" class="option-input radio" id="question9" name="question18" value="Hospitec">Hospitec
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question10" name="question19" value="Hipócrates">Hipócrates
+      <input type="radio" class="option-input radio" id="question10" name="question18" value="Hipócrates">Hipócrates
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question11" name="question19" value="SAP">SAP
+      <input type="radio" class="option-input radio" id="question11" name="question18" value="SAP">SAP
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question12" name="question19" value="Servinte">Servinte
+      <input type="radio" class="option-input radio" id="question12" name="question18" value="Servinte">Servinte
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question13" name="question19" value="SysNet">SysNet
+      <input type="radio" class="option-input radio" id="question13" name="question18" value="SysNet">SysNet
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question14" name="question19" value="eSalud">eSalud
+      <input type="radio" class="option-input radio" id="question14" name="question18" value="eSalud">eSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question15" name="question19" value="Escafandra">Escafandra
+      <input type="radio" class="option-input radio" id="question15" name="question18" value="Escafandra">Escafandra
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question16" name="question19" value="iMedical">iMedical
+      <input type="radio" class="option-input radio" id="question16" name="question18" value="iMedical">iMedical
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question17" name="question19" value="OasisCom">OasisCom
+      <input type="radio" class="option-input radio" id="question17" name="question18" value="OasisCom">OasisCom
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18" name="question19" value="FormPlus">FormPlus
+      <input type="radio" class="option-input radio" id="question18" name="question18" value="FormPlus">FormPlus
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question19" name="question19" value="Manager Clinic">Manager Clinic
+      <input type="radio" class="option-input radio" id="question19" name="question18" value="Manager Clinic">Manager Clinic
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question20" name="question19" value="Gomedisys">Gomedisys
+      <input type="radio" class="option-input radio" id="question20" name="question18" value="Gomedisys">Gomedisys
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question21" name="question19" value="SIO Salud">SIO Salud
+      <input type="radio" class="option-input radio" id="question21" name="question18" value="SIO Salud">SIO Salud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question22" name="question19" value="SISFIN">SISFIN
+      <input type="radio" class="option-input radio" id="question22" name="question18" value="SISFIN">SISFIN
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question23" name="question19" value="IPSoft">IPSoft
+      <input type="radio" class="option-input radio" id="question23" name="question18" value="IPSoft">IPSoft
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question24" name="question19" value="Rocky">Rocky
+      <input type="radio" class="option-input radio" id="question24" name="question18" value="Rocky">Rocky
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question25" name="question19" value="Gemar">Gemar
+      <input type="radio" class="option-input radio" id="question25" name="question18" value="Gemar">Gemar
       <br>
     </div>
-    <input type="radio" class="option-input radio" id="question26" name="question19" value="Otro" onclick="var input = document.getElementById('question19_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    <input type="radio" class="option-input radio" id="question26" name="question18" value="Otro" onclick="var input = document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
     />Otro
     <br>
-    <label>¿Cuál?</label><input id="question19_otro" name="question19_otro" disabled="disabled" />
+    <label>¿Cuál?</label><input id="question19_otro" name="question18_otro" disabled="disabled" />
     <br>
     <br>
   </div>
@@ -1403,20 +1371,24 @@
 <div class="row">
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p19" name="file_p16" accept="image/*,video/*" onchange="enb_dis('file_p19','del_p19')" />
+    <input type="file" id="file_p18" name="file_p18" accept="image/*,video/*" onchange="enb_dis('file_p18','del_p18')" />
     <br>
     <br>
-    <button type="button" id="del_p19" class="state" onclick="delete_attached('del_p19','file_p19')" disabled="disabled">Eliminar soporte</button>
+    <button type="button" id="del_p18" class="state" onclick="delete_attached('del_p18','file_p18')" disabled="disabled">Eliminar soporte</button>
   </div>
 </div>
 <br>
 <hr>
 
 
+
+
+
+
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question17">
-        <h4>20. ¿Cuál es la Arquitectura del sistema de Historia Clínica Electrónica que utiliza su institución?</h4>
+        <h4>19. ¿Cuál es la Arquitectura del sistema de Historia Clínica Electrónica que utiliza su institución?</h4>
       </label>
       <a href="#" data-toggle="tooltip" title="Arquitectura del sistema se refiere a la estructura y organización del software de aplicación.">
         <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -1427,27 +1399,27 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question1" name="question20" value="Stand Alone">Stand Alone
+        <input type="radio" class="option-input radio" id="question1" name="question19" value="Stand Alone">Stand Alone
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question2" name="question20" value="Cliente – Servidor">Cliente – Servidor
+        <input type="radio" class="option-input radio" id="question2" name="question19" value="Cliente – Servidor">Cliente – Servidor
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question3" name="question20" value="Web">Web
+        <input type="radio" class="option-input radio" id="question3" name="question19" value="Web">Web
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question4" name="question20" value="SOA">Arquitectura orientada a servicios (SOA)
+        <input type="radio" class="option-input radio" id="question4" name="question19" value="SOA">Arquitectura orientada a servicios (SOA)
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question26" name="question20" value="Otro" onclick="var input = document.getElementById('question20_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+        <input type="radio" class="option-input radio" id="question26" name="question19" value="Otro" onclick="var input = document.getElementById('question19_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
         />Otro
         <br>
         <label>¿Cuál?</label>
-        <input id="question20_otro" name="question20_otro" disabled="disabled" />
+        <input id="question19_otro" name="question19_otro" disabled="disabled" />
         <br>
       </div>
 
@@ -1458,14 +1430,58 @@
   <div class="row">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <label>Adjuntar soporte:</label>
-      <input type="file" id="file_p20" name="file_p20" accept="image/*,video/*" onchange="enb_dis('file_p20','del_p20')" />
+      <input type="file" id="file_p19" name="file_p19" accept="image/*,video/*" onchange="enb_dis('file_p19','del_p19')" />
       <br>
       <br>
-      <button type="button" id="del_p20" class="state" onclick="delete_attached('del_p20','file_p20')" disabled="disabled">Eliminar soporte</button>
+      <button type="button" id="del_p19" class="state" onclick="delete_attached('del_p19','file_p19')" disabled="disabled">Eliminar soporte</button>
     </div>
   </div>
   <br>
   <hr>
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question12">
+      <h4>20. ¿Los datos capturados de los equipos médicos son interoperables con la Historia Clínica Electrónica?</h4>
+    </label>
+    <a href="#" data-toggle="tooltip" title="La interoperabilidad es la capacidad de un sistema para intercambiar y utilizar información con otros sistemas sin restricción
+    de acceso o de implementación.">
+      <i class="fa fa-question-circle" style=font-size:24px></i>
+    </a>
+    <br>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <input type="radio" class="option-input radio" id="question1" name="question20" value="SI">SI
+      <br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <input type="radio" class="option-input radio" id="question2" name="question20" value="NO">NO
+      <br>
+    </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <label>Adjuntar soporte:</label>
+    <input type="file" id="file_p20" name="file_p20" accept="image/*,video/*" onchange="enb_dis('file_p20','del_p20')" />
+    <br>
+    <br>
+    <button type="button" id="del_p20" class="state" onclick="delete_attached('del_p20','file_p20')" disabled="disabled">Eliminar soporte</button>
+  </div>
+</div>
+
+<br>
+<hr>
+
 
 
 <br>
@@ -2608,7 +2624,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question13">
-      <h4>26. ¿La institución envía o recibe de otras instituciones de salud electrónicamente información?</h4>
+      <h4>26. ¿La institución envía o recibe información de forma electrónica hacia/de otras instituciones de salud?</h4>
     </label>
     <a href="#" data-toggle="tooltip" title="Es afirmativa si hay transferencia (envío y recepción) de información de forma electrónica con otras instituciones de salud">
       <i class="fa fa-question-circle" style=font-size:24px></i>
