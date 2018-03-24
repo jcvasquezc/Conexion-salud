@@ -176,6 +176,39 @@ def index():
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
     return render_template('index.html',LogFlag=json.dumps(LogFlag))
+
+
+
+
+@app.route("/instructivo", methods=['GET', 'POST'])
+def instructivo():
+    LogFlag = "False"
+    if current_user.is_active==True:
+        LogFlag = "True"
+#    dptos,cities = set_dptos()
+    if request.method == 'POST':
+        return redirect(url_for('instructivo'))
+#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+    return render_template('instructivo.html',LogFlag=json.dumps(LogFlag))
+
+
+
+
+@app.route("/faqs", methods=['GET', 'POST'])
+def faqs():
+    LogFlag = "False"
+    if current_user.is_active==True:
+        LogFlag = "True"
+#    dptos,cities = set_dptos()
+    if request.method == 'POST':
+        return redirect(url_for('faqs'))
+#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+    return render_template('faqs.html',LogFlag=json.dumps(LogFlag))
+
+
+
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
 def Ingresar():    
@@ -212,8 +245,8 @@ def registro():
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
         Nsed = request.form['reg_numsede']#Numero de sedes
-        naju = request.form['reg_natjur']#Naturaleza juridica
-        clpr = request.form['reg_clase']#Clase de prestador
+        #naju = request.form['reg_natjur']#Naturaleza juridica
+        #clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
         dptoP = request.form['reg_dptoP']#Departamento del prestador
         cityP = request.form['reg_cityP']#Municipio del prestador
@@ -222,14 +255,14 @@ def registro():
         jobenc = request.form['reg_manjob']#cargo del encargado
         
         IPS_reg_data = {
-                  "Clase de Prestador":clpr,
+                  #"Clase de Prestador":clpr,
                   "Cargo del Encargado":jobenc,
                   "Departamento":dptoP,
                   "Encargado de Encuesta":userenc,
                   "Email del Encargado":mailenc,
                   "Municipio":cityP,
                   "Nivel del Prestador":niv,
-                  "Naturaleza Jurídica":naju,
+                  #"Naturaleza Jurídica":naju,
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
                   "Número de sedes":Nsed,
@@ -369,9 +402,11 @@ def preguntas_mod1():
         # guarda automaticamente resultados de la encuesta cada cierto tiempo
         data_enc=[]
         print(request.form)
+        print("-------------------------------------")
         dict_encuesta={}
         for j in request.form:
             dict_encuesta[j]=request.form[j]
+        print("-------------------------------------+++++++++++++++++++++++++++++++++++++++++")
         print(dict_encuesta)
         usr_id = current_user.id
         print(usr_id)
@@ -380,9 +415,10 @@ def preguntas_mod1():
 
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
+        print(Ntemp)
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 1": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 1": request.form}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod1.html')
@@ -613,6 +649,9 @@ def validar(modulo):
         print(usr['IPS_NIT'])
         dict_encuesta["NIT"]=usr['IPS_NIT']
         for j in request.form:
+            if int(modulo)==1 and len(request.form[j])>0:
+                dict_encuesta[j]=request.form[j]
+                continue
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
@@ -696,8 +735,9 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    print(Resultados_mod5)
-    perc_mod=[int(100*(len(Resultados_mod1)-1)/7), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+
+    print(Resultados_mod1)
+    perc_mod=[int(100*(len(Resultados_mod1)-1)/84), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
     print(find0)
@@ -705,6 +745,10 @@ def adminips_(ips_usr):
     find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
     print(find100)
     perc_mod[find100]=100
+
+    if len(Resultados_mod6)>0:
+        if Resultados_mod6["question1"].find("NO")>=0:
+            perc_mod[5]=100
 
     print(Resultados_mod1)
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)

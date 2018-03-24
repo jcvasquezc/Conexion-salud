@@ -1,16 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
-		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="static/preg_style.css">
-    <link rel="stylesheet" href="static/header-login-signup.css">
-		<meta name="viewport" content = "width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/radio_checks.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+  <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+  <!-- <link rel="stylesheet" href="static/preg_style.css"> -->
+  <link rel="stylesheet" href="static/radio_checks.css">		<link rel="stylesheet" href="static/header-login-signup.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="static/jscripts.js"></script>
+  <link rel="stylesheet" href="static/index_style.css">
+
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
    <script>
@@ -39,21 +42,28 @@
    </script>
 
 <body>
-		<div class="topnav" id="myTopnav">				
-				<div class="logo">
-					<a href="/">
-					<img src="static/Logos_header.png" class="img-responsive">
-					</a>
-        </div>
-        
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/logout">Cerrar sesión</a></li>
-            <li><a href="javascript:void(0);" class="icon" onclick="toggle_menu()">&#9776;</a></li>
-          </ul>
+	<div class="wrapper">
+		<script type="text/javascript">   
+			var LogVal = {{LogFlag|safe}}           
+		</script>
+		<div class="topnav">
+			<div class="logo_nav">
+				<a href="/">
+					<img src="static/logos/logos.png" class="img-responsive">
+				</a>				
+			</div>
 		</div>
-
-<div class="wrapper">
+		<div class="topnav" id="myTopnav">				
+		<ul>
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/modulos">Encuesta</a></li>
+			<li><a href="/instructivo">Tutorial</a></li>
+			<li><a href="/contacto">Contacto</a></li>
+			<li><a href="/faqs">Preguntas frecuentes</a></li>
+			<li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+		</ul>	
+		</div>
 
 
 
@@ -65,7 +75,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. 1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?</h4></label>
+    <label for="question1"><h4>1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?</h4></label>
     <a href="#" data-toggle="tooltip" title="Se refiere a los diferentes estándares para manejo de datos como signos vitales, imágenes médicas, información de laboratorio"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
   </div>
 </div>

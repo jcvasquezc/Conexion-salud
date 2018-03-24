@@ -1,15 +1,7 @@
-- Crear página para instructivo.(Camilo)
-- Página para "FAQ".(Camilo)
-
-- Que solo se pueda llenar la encuesta una sola vez. (Camilo)
-
-- clase de prestador : quitar(Tomas)
 
 -Barra de navegacion (Tomas):
 	Opcion para ver avance de la encuesta (adminIPS).
 	Agregar informacion de la sede.
-
--Encabezado y barra de navegacion en todas las paginas, validar.html admin ips (Tomas)
 
 - Actualizar base de datos (Tomas)
 
@@ -18,18 +10,12 @@
 
 - Restringir acceso dependiendo del rol(Tomas).
 
-- mirar si se pueden quitar los soportes (Camilo)
-
-- Modulos: Boton de enviar o responder (Camilo).
-
 
 -------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver
   el instructivo o diligenciar la encuesta.
 
 - Página para reiniciar contraseña (si da tiempo).
-
--Incluir texto de ayuda (GIBIC)
 
 
 Plande implementacion:
