@@ -110,14 +110,6 @@
     <br>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <label>Adjuntar soporte:</label>
-    <input type="file" id="file_p1" name="file_p1" accept="image/*,video/*" onchange="enb_dis('file_p1','del_p1')"/>
-    <br><br>
-    <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p1','file_p1')" disabled="disabled">Eliminar soporte</button>
-  </div>
-</div>
 
 
 <div class="hidden" id="qno1container"></div>
@@ -137,6 +129,7 @@
      <input type="radio" class="option-input radio" id="question2" name="question2a" value="NO" >NO<br>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <label>Técnico</label>
@@ -144,19 +137,12 @@
       <input type="radio" class="option-input radio" id="question2" name="question2b" value="NO" >NO<br>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <label>Administrativo</label>
       <input type="radio" class="option-input radio" id="question1" name="question2c" value="SI">SI
       <input type="radio" class="option-input radio" id="question2" name="question2c" value="NO" >NO<br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <label>Adjuntar soporte:</label>
-      <input type="file" id="file_p2" name="file_p2" accept="image/*,video/*" onchange="enb_dis('file_p2','del_p2')"/>
-      <br><br>
-      <button type="button" id="del_p1" class="state" onclick="delete_attached('del_p2','file_p2')" disabled="disabled">Eliminar soporte</button>
     </div>
   </div>
 
@@ -176,26 +162,15 @@
         <br>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <label>Adjuntar soporte:</label>
-        <input type="file" id="file_p3" name="file_p3" accept="image/*,video/*" onchange="enb_dis('file_p3','del_p3')"/>
-        <br><br>
-        <button type="button" id="del_p3" class="state" onclick="delete_attached('del_p3','file_p3')" disabled="disabled">Eliminar soporte</button>
-      </div>
-    </div>
     <br><hr>
-    
-
-
-</div>
+    </div>
 
 
 <br><hr>
 
 <div class "row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <button type="submit" class="state" name="continuar" formaction="validar6">Continuar</button>
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+    <button type="submit" class="state" name="continuar" formaction="validar6">Guardar respuestas</button>
   </div>
 </div>
 </div>
