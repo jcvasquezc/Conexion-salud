@@ -254,13 +254,11 @@ def registro():
     if request.method == 'POST': 
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
-        nit = request.form['reg_nit']#Nit del prestador
-        
-        Nsed = request.form['reg_numsede']#Numero de sedes
-        
+        nit = request.form['reg_nit']#Nit del prestador        
+        Nsed = request.form['reg_numsede']#Numero de sedes        
         codhab = request.form['reg_hab']#Numero de sedes
-        #naju = request.form['reg_natjur']#Naturaleza juridica
-        #clpr = request.form['reg_clase']#Clase de prestador
+        naju = request.form['reg_natjur']#Naturaleza juridica
+        clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
         dptoP = request.form['reg_dptoP']#Departamento del prestador
         cityP = request.form['reg_cityP']#Municipio del prestador
@@ -269,7 +267,6 @@ def registro():
         telenc = request.form['reg_mantel']#Telefono del encargado
         
         IPS_reg_data = {
-                  #"Clase de Prestador":clpr,
                   "Código Habilitación":codhab,
                   "Validar INFO":True,
                   "Departamento":dptoP,
@@ -278,7 +275,8 @@ def registro():
                   "Teléfono del Encargado":telenc,
                   "Municipio":cityP,
                   "Nivel del Prestador":niv,
-                  #"Naturaleza Jurídica":naju,
+                  "Naturaleza Jurídica":naju,
+                  "Clase de Prestador":clpr,
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
                   "Número de sede":Nsed,
@@ -332,22 +330,22 @@ def modulos():
 @app.route("/analisis", methods=['GET', 'POST'])
 def analisis():
     if request.method == 'POST':
-        for idx in range(1,9):
-            #Verificacion de archivos adjuntos
-            if 'file_p'+str(idx) not in request.files:
-                flash('No file part')
-#                return redirect(request.url)
-            file = request.files['file_p'+str(idx)]
-            #En caso de no adjuntar datos
-            if file.filename == '':
-                flash('No selected file')
-#                return redirect(request.url)
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#                return redirect(url_for('analisis',filename=filename))
-
-        print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
+#        for idx in range(1,9):
+#            #Verificacion de archivos adjuntos
+#            if 'file_p'+str(idx) not in request.files:
+#                flash('No file part')
+##                return redirect(request.url)
+#            file = request.files['file_p'+str(idx)]
+#            #En caso de no adjuntar datos
+#            if file.filename == '':
+#                flash('No selected file')
+##                return redirect(request.url)
+#            if file and allowed_file(file.filename):
+#                filename = secure_filename(file.filename)
+#                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+##                return redirect(url_for('analisis',filename=filename))
+#
+#        print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
         return redirect(url_for('analisis'))
     return render_template('analisis.html')
 
@@ -396,7 +394,6 @@ def preguntas_mod1():
 @app.route("/preguntas_mod2", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod2():
-
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['user_id']})
@@ -408,10 +405,7 @@ def preguntas_mod2():
         if len(encuesta)>0:
             return render_template('modulos.html',message=["","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
 
-
-
     if request.method == 'POST':
-        data_enc=[]
         print(request.form)
         dict_encuesta={}
         for j in request.form:
@@ -425,7 +419,6 @@ def preguntas_mod2():
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
-
             IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 2": dict_encuesta}}, upsert=False, full_response= True)
         
 
@@ -445,10 +438,6 @@ def preguntas_mod3():
         print(encuesta)
         if len(encuesta)>0:
             return render_template('modulos.html',message=["","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
-
-
-
-
 
     if request.method == 'POST':
         data_enc=[]
@@ -474,8 +463,6 @@ def preguntas_mod3():
 @app.route("/preguntas_mod4", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod4():
-
-
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['user_id']})
@@ -514,8 +501,6 @@ def preguntas_mod4():
 @app.route("/preguntas_mod5", methods=['GET', 'POST'])
 @login_required
 def preguntas_mod5():
-
-
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['user_id']})
@@ -526,9 +511,6 @@ def preguntas_mod5():
         print(encuesta)
         if len(encuesta)>0:
             return render_template('modulos.html',message=["","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
-
-
-
 
     if request.method == 'POST':
         data_enc=[]
@@ -630,47 +612,38 @@ def validar(modulo):
         return render_template('validar.html', nit=usr['IPS_NIT'])
     return render_template('validar.html', nit=usr['IPS_NIT'])
 
-
-
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
 def admin():
-
-    temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
     Nregistered=0
     Nmiss=0
     tab_reg=[]
     tab_miss=[]
     n_mod=np.zeros(6)
-    for reg in temp:
-        if len(reg["Encargado de Encuesta"])>0:
-            print(reg["Encargado de Encuesta"])
+    #IPS registradas
+    for docs in IPS_data.find():
+        if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], reg["NIT"], "Aqui"])
-        else:
-            Nmiss=Nmiss+1
-            tab_miss.append([reg["Departamento"],reg["Municipio"], reg["Nombre del Prestador"], reg["NIT"], "Aqui"])
+            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+        else:#IPS FALTANTES
+            Nmiss = Nmiss+1
+            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+
         for k in np.arange(1,7):
-            if len(reg["Resultados Modulo "+str(k)])>0:
+            if len(docs["Resultados Modulo "+str(k)])>0:
                 n_mod[k-1]=n_mod[k-1]+1
-    
+
     n_mod=np.round(100*n_mod/(Nregistered+Nmiss),2)
-
-
     return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, n_mod=n_mod)
-
-
 
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
 def adminips_(ips_usr):
-    print(ips_usr)
-
-    usr =   IPS_data.find({"NIT":ips_usr})[0]
+    usr =   IPS_data.find({"Código Habilitación":ips_usr})[0]
     general_info={'Código Habilitación':usr['Código Habilitación'],
-                        'Código de sede':usr['Código de sede'],
-                        'Carácter Territorial': usr['Carácter Territorial'],
-                        'Clase de Prestador': usr['Clase de Prestador'],
+#                        'Código de sede':usr['Código de sede'],
+#                        'Carácter Territorial': usr['Carácter Territorial'],
+#                        'Clase de Prestador': usr['Clase de Prestador'],
                         'Municipio': usr['Municipio'],
                         'Departamento':usr['Departamento'],
                         'Nombre del Prestador':usr['Nombre del Prestador'],

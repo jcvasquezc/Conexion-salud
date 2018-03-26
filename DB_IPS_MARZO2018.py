@@ -141,7 +141,6 @@ for idx_ips in range(0,df.shape[0]):
                   "colaborador4 email":"",
                   "colaborador5 email":"",
                   "colaborador6 email":"",
-                  #"Número de sedes":Nsed,
                   "Resultados Modulo 1":{},
                   "Resultados Modulo 2":{},
                   "Resultados Modulo 3":{},
@@ -166,8 +165,8 @@ tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})
 tabla.to_csv('Passwords.csv',index=False)
 
-for docs in IPS_data.find({"NIT":"890906347"}):
-    pprint.pprint(docs)
+for docs in IPS_data.find():
+    pprint.pprint(docs['Departamento'])
     print('--------------------------------')
     
 for docs in Users_data.find({"usuario":"800155000"}):

@@ -3,14 +3,8 @@
 	Opcion para ver avance de la encuesta (adminIPS).
 	Agregar informacion de la sede.
 
-
-- Generar usuarios para "colaboradores"(Tomas)
-
+- Generar usuarios para "colaboradores" y "admin"(Tomas)
 - Restringir acceso dependiendo del rol(Tomas).
-
-
-IMPORTANTE:
-NO  TODAS LAS IPS TIENEN NIT. HACER CAMBIOS NECESARIOS
 
 -------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver
@@ -19,7 +13,7 @@ NO  TODAS LAS IPS TIENEN NIT. HACER CAMBIOS NECESARIOS
 - Página para reiniciar contraseña (si da tiempo).
 
 
-Plande implementacion:
+Plan de implementacion:
 
 	Entrega e software  con todos los entregables
 	Manual de usuario
