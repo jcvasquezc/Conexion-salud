@@ -159,8 +159,8 @@ for idx_ips in range(0,df.shape[0]):
                 }
     
     #Llenar base de datos
-    IPS_data.insert_one(IPS_index_data).inserted_id  
-    Users_data.insert_one(Users_IPS).inserted_id  
+    IPS_data.insert_one(IPS_index_data) 
+    Users_data.insert_one(Users_IPS) 
 
 tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})

@@ -124,7 +124,13 @@ def set_dptos():
     #Crear diccionario de ciudades
     cities = {}
     for idx in dptos:
-        cities[idx] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
+        cities[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['Municipio']))
+
+    #Set DEPARTAMENTOS to UPPERCASE
+    idx = 0
+    for d in dptos:
+        dptos[idx]=d.upper()
+        idx = idx+1        
     return dptos,cities
 
 
@@ -239,7 +245,12 @@ def Ingresar():
 @app.route("/registro", methods=['GET', 'POST'])
 @login_required
 def registro():
-    dptos,cities = set_dptos()    
+    dptos,cities = set_dptos()   
+    #Current User
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
+    IPSdata = IPS_data.find({"ID":usrid})[0]
+    IPSdata.pop('_id', None)#JSON CANT SERIALIZED ObjectID
     if request.method == 'POST':        
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
@@ -257,6 +268,7 @@ def registro():
         
         IPS_reg_data = {
                   #"Clase de Prestador":clpr,
+                  "Código Habilitación":codhab,
                   "Cargo del Encargado":jobenc,
                   "Validar INFO":True,
                   "Departamento":dptoP,
@@ -268,18 +280,20 @@ def registro():
                   #"Naturaleza Jurídica":naju,
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
-                  "Número de sedes":Nsed,
+                  "Número de sede":Nsed,
                   }       
         
-        temp = IPS_data.find({"Código Habilitación":codhab}).count()
+        usr_id = int(current_user.id)
+        ID = Users_data.find({"user_id":usr_id})[0]['user_id']
+        temp = IPS_data.find({"ID":ID}).count()
         if temp!=0:
-            IPS_data.update_one({"Código Habilitación":codhab},{"$set":IPS_reg_data})
+            IPS_data.update_one({"ID":ID},{"$set":IPS_reg_data})
         else:
             IPS_data.insert_one(IPS_reg_data).inserted_id
         
         return redirect(url_for('modulos'))
 
-    return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities))
+    return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
 ######################################################
 @app.route("/modulos", methods=['GET', 'POST'])
 @login_required
@@ -291,9 +305,7 @@ def modulos():
     usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
     IPSdata = IPS_data.find({"ID":usrid})[0]
     if IPSdata['Validar INFO']==False:
-#        dptos,cities = set_dptos()                
-        IPSdata.pop('_id', None)
-        return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
+        return redirect(url_for('registro'))
     if request.method == 'POST': 
         print(request.form)       
         print("############ doing post")
@@ -328,7 +340,6 @@ def modulos():
         temp = IPS_data.find({"NIT":usr['IPS_NIT']})
         Ntemp=temp.count()
         if Ntemp!=0:
-
 
 
             IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 nombre": name1}}, upsert=False, full_response= True)
