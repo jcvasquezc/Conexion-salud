@@ -165,6 +165,16 @@ tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})
 tabla.to_csv('Passwords.csv',index=False)
 
+#ATAJO PARA admin.html
+f = open("Info_general.txt",'w')
+for field in IPS_index_data:
+    f.write('<div class="row"><label>'+field+':</label> {{general_info["'+field+'"]}}</div>')
+    f.write('\n')
+f.write('<div class="row"><label>Naturaleza Jurídica:</label> {{general_info["Naturaleza Jurídica"]}}</div>')
+f.write('<div class="row"><label>Clase de Prestador:</label> {{general_info["Clase de Prestador"]}}</div>')
+f.close()
+
+
 for docs in IPS_data.find():
     pprint.pprint(docs['Departamento'])
     print('--------------------------------')

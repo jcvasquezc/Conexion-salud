@@ -640,36 +640,31 @@ def admin():
 @login_required
 def adminips_(ips_usr):
     usr =   IPS_data.find({"Código Habilitación":ips_usr})[0]
-    general_info={'Código Habilitación':usr['Código Habilitación'],
-#                        'Código de sede':usr['Código de sede'],
-#                        'Carácter Territorial': usr['Carácter Territorial'],
-#                        'Clase de Prestador': usr['Clase de Prestador'],
-                        'Municipio': usr['Municipio'],
-                        'Departamento':usr['Departamento'],
-                        'Nombre del Prestador':usr['Nombre del Prestador'],
-                        'NIT': usr['NIT'],
-                        'Dirección':usr['Dirección'],
-                        'Teléfono':usr['Teléfono'],
-                        'name1':usr['colaborador1 nombre'],
-                        'name2':usr['colaborador2 nombre'],
-                        'name3':usr['colaborador3 nombre'],
-                        'name4':usr['colaborador4 nombre'],
-                        'name5':usr['colaborador5 nombre'],
-                        'name6':usr['colaborador6 nombre'],
-                        'cargo1':usr['colaborador1 cargo'],
-                        'cargo2':usr['colaborador2 cargo'],
-                        'cargo3':usr['colaborador3 cargo'],
-                        'cargo4':usr['colaborador4 cargo'],
-                        'cargo5':usr['colaborador5 cargo'],
-                        'cargo6':usr['colaborador6 cargo'],
-                        'email1':usr['colaborador1 email'],
-                        'email2':usr['colaborador2 email'],
-                        'email3':usr['colaborador3 email'],
-                        'email14':usr['colaborador4 email'],
-                        'email5':usr['colaborador5 email'],
-                        'email6':usr['colaborador6 email'],
-
+    general_info={
+                  "Código Habilitación":usr['Código Habilitación'],
+                  "Nombre del Prestador":usr['Nombre del Prestador'],
+                  "NIT":usr['NIT'],
+                  "Razón social":usr['Razón social'],
+                  "Nivel del Prestador":usr["Nivel del Prestador"],
+                  "Gerente":usr["Gerente"],
+                  "Dirección":usr["Dirección"],
+                  "Barrio":usr["Barrio"],
+                  "Municipio":usr["Municipio"],
+                  "Departamento":usr["Departamento"],
+                  "Teléfono":usr["Teléfono"],
+                  "E-mail empresarial":usr["E-mail empresarial"],
+                  "Representante legal":usr["Representante legal"],
+                  "E-mail del representante":usr["E-mail del representante"],
+                  "Teléfono del representate":usr["Teléfono del representate"],
+                  "Encargado de Encuesta":usr["Encargado de Encuesta"],
+                  "E-mail del Encargado":usr["E-mail del Encargado"],
+                  "Teléfono del Encargado":usr["Teléfono del Encargado"],            
     }
+    for idx in range(1,7):
+        general_info['name'+str(idx)] =usr['colaborador'+str(idx)+' nombre']
+        general_info['cargo'+str(idx)] =usr['colaborador'+str(idx)+' cargo']
+        general_info['email'+str(idx)] =usr['colaborador'+str(idx)+' email']
+            
     Resultados_mod1=usr["Resultados Modulo 1"]
     Resultados_mod2=usr["Resultados Modulo 2"]
     Resultados_mod3=usr["Resultados Modulo 3"]
@@ -677,22 +672,20 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-
-    print(Resultados_mod1)
     perc_mod=[int(100*(len(Resultados_mod1)-1)/84), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
-    print(find0)
+
     perc_mod[find0]=0
     find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
-    print(find100)
+    
     perc_mod[find100]=100
 
     if len(Resultados_mod6)>0:
         if Resultados_mod6["question1"].find("NO")>=0:
             perc_mod[5]=100
 
-    print(Resultados_mod1)
+    
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
 
 

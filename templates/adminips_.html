@@ -27,9 +27,6 @@
 </head>
 	<body>
 
-    <script type="text/javascript">   
-        var LogVal = {{LogFlag|safe}}           
-    </script>
     <div class="wrapper">
     <div class="topnav">
         <div class="logo_nav">
@@ -38,7 +35,7 @@
             </a>				
         </div>
     </div>
-    <div class="topnav" id="myTopnav">				
+    <div class="topnav" id="myTopnav">			
     <ul>
         <li><a href="/">Inicio</a></li>
         <li><a href="/instructivo">Tutorial</a></li>
@@ -49,19 +46,31 @@
     </ul>	
     </div>
     <div class="idx_sty">
-        <h1 class="title">Resultados</h1>
-
+        <h1 class="title">Información general de la IPS</h1>
+        <p>En esta página podrás ver el progreso de la encuesta para cada modulo.</p>
 
         <br><hr>
 
         <h2>IPS: {{general_info['Nombre del Prestador']}}</h2>
         
         <br>
-        <div class="row">NIT: {{general_info['NIT']}}</div>
-        <div class="row">Departamento: {{general_info['Departamento']}}</div>
-        <div class="row">Municipio: {{general_info['Municipio']}}</div>
-        <div class="row">Dirección: {{general_info['Dirección']}}</div>
-        <div class="row">Teléfono: {{general_info['Teléfono']}}</div>
+        <div class="row"><label>Código Habilitación:</label> {{general_info["Código Habilitación"]}}</div>
+        <div class="row"><label>NIT:</label> {{general_info["NIT"]}}</div>
+        <div class="row"><label>Razón social:</label> {{general_info["Razón social"]}}</div>
+        <div class="row"><label>Nivel del Prestador:</label> {{general_info["Nivel del Prestador"]}}</div>
+        <div class="row"><label>Gerente:</label> {{general_info["Gerente"]}}</div>
+        <div class="row"><label>Dirección:</label> {{general_info["Dirección"]}}</div>
+        <div class="row"><label>Barrio:</label> {{general_info["Barrio"]}}</div>
+        <div class="row"><label>Municipio:</label> {{general_info["Municipio"]}}</div>
+        <div class="row"><label>Departamento:</label> {{general_info["Departamento"]}}</div>
+        <div class="row"><label>Teléfono:</label> {{general_info["Teléfono"]}}</div>
+        <div class="row"><label>E-mail empresarial:</label> {{general_info["E-mail empresarial"]}}</div>
+        <div class="row"><label>Representante legal:</label> {{general_info["Representante legal"]}}</div>
+        <div class="row"><label>E-mail del representante:</label> {{general_info["E-mail del representante"]}}</div>
+        <div class="row"><label>Teléfono del representate:</label> {{general_info["Teléfono del representate"]}}</div>
+        <div class="row"><label>Encargado de Encuesta:</label> {{general_info["Encargado de Encuesta"]}}</div>
+        <div class="row"><label>E-mail del Encargado:</label> {{general_info["E-mail del Encargado"]}}</div>
+        <div class="row"><label>Teléfono del Encargado:</label> {{general_info["Teléfono del Encargado"]}}</div>
 
         <br><hr>
         <h2>Porcentaje de la encuesta diligenciada</h2>
@@ -103,7 +112,7 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                 <br>
                 <button  data-toggle="modal" data-target="#myModal1">Ver resultados</button>
             </div>
@@ -146,7 +155,7 @@
                     </div>
     
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button  data-toggle="modal" data-target="#myModal2">Ver resultados</button>
                 </div>
@@ -187,7 +196,7 @@
                     </div>
     
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button  data-toggle="modal" data-target="#myModal3">Ver resultados</button>
                 </div>
@@ -227,7 +236,7 @@
                     </div>
     
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button  data-toggle="modal" data-target="#myModal4">Ver resultados</button>
                 </div>
@@ -269,7 +278,7 @@
                     </div>
     
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button  data-toggle="modal" data-target="#myModal5">Ver resultados</button>
                 </div>
@@ -311,7 +320,7 @@
                     </div>
     
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">  
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button data-toggle="modal" data-target="#myModal6">Ver resultados</button>
                 </div>
