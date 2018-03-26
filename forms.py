@@ -251,12 +251,14 @@ def registro():
     usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
     IPSdata = IPS_data.find({"ID":usrid})[0]
     IPSdata.pop('_id', None)#JSON CANT SERIALIZED ObjectID
-    if request.method == 'POST':        
+    if request.method == 'POST': 
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
+        
         Nsed = request.form['reg_numsede']#Numero de sedes
-        codhab = request.form['reg_codhab']#Numero de sedes
+        
+        codhab = request.form['reg_hab']#Numero de sedes
         #naju = request.form['reg_natjur']#Naturaleza juridica
         #clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
@@ -264,17 +266,16 @@ def registro():
         cityP = request.form['reg_cityP']#Municipio del prestador
         userenc = request.form['reg_manag']#nombre del encargado
         mailenc = request.form['reg_manmail']#email del encargado
-        jobenc = request.form['reg_mantel']#Telefono del encargado
+        telenc = request.form['reg_mantel']#Telefono del encargado
         
         IPS_reg_data = {
                   #"Clase de Prestador":clpr,
                   "Código Habilitación":codhab,
-                  "Cargo del Encargado":jobenc,
                   "Validar INFO":True,
                   "Departamento":dptoP,
                   "Encargado de Encuesta":userenc,
                   "E-mail del Encargado":mailenc,
-                  "Teléfono del Encargado"
+                  "Teléfono del Encargado":telenc,
                   "Municipio":cityP,
                   "Nivel del Prestador":niv,
                   #"Naturaleza Jurídica":naju,
@@ -282,7 +283,7 @@ def registro():
                   "NIT":nit,
                   "Número de sede":Nsed,
                   }       
-        
+        print(IPS_reg_data)
         usr_id = int(current_user.id)
         ID = Users_data.find({"user_id":usr_id})[0]['user_id']
         temp = IPS_data.find({"ID":ID}).count()
@@ -301,7 +302,6 @@ def modulos():
     dptos,cities = set_dptos()
     #Verificar si es necesario registrar
     usr_id = int(current_user.id)
-    print(usr_id)
     usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
     IPSdata = IPS_data.find({"ID":usrid})[0]
     if IPSdata['Validar INFO']==False:
