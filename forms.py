@@ -307,64 +307,22 @@ def modulos():
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     if request.method == 'POST': 
-        print(request.form)       
-        print("############ doing post")
-        name1 = request.form['nombre1']
-        email1= request.form['email1']
-        cargo1= request.form['cargo1']
-        print(name1, email1, cargo1)
-        name2 = request.form['nombre2']
-        email2= request.form['email2']
-        cargo2= request.form['cargo2']
-        name3 = request.form['nombre3']
-        email3= request.form['email3']
-        cargo3= request.form['cargo3']
-        name4 = request.form['nombre4']
-        email4= request.form['email4']
-        cargo4= request.form['cargo4']
-        name5 = request.form['nombre5']
-        email5= request.form['email5']
-        cargo5= request.form['cargo5']
-        name6 = request.form['nombre6']
-        email6= request.form['email6']
-        cargo6= request.form['cargo6']
-
-        
+        colabs = {}
+        Ncolabs = 6 #Numero maximo de colaboradores
+        for idx in range(1,Ncolabs+1):
+            colabs['nombre'+str(idx)] = request.form['nombre'+str(idx)]
+            colabs['email'+str(idx)] = request.form['email'+str(idx)]
+            colabs['cargo'+str(idx)] = request.form['cargo'+str(idx)]        
 
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-
-
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
-
-
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 nombre": name1}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 nombre": name2}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 nombre": name3}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 nombre": name4}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 nombre": name5}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 nombre": name6}}, upsert=False, full_response= True)
-
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 cargo": cargo1}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 cargo": cargo2}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 cargo": cargo3}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 cargo": cargo4}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 cargo": cargo5}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 cargo": cargo6}}, upsert=False, full_response= True)
-
-
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador1 email": email1}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador2 email": email2}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador3 email": email3}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador4 email": email4}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador5 email": email5}}, upsert=False, full_response= True)
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"colaborador6 email": email6}}, upsert=False, full_response= True)
-
-
+            for idx in range(1,Ncolabs+1):
+                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' nombre': colabs['nombre'+str(idx)]}}, upsert=False, full_response= True)
+                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' cargo': colabs['cargo'+str(idx)]}}, upsert=False, full_response= True)
+                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' email': colabs['email'+str(idx)]}}, upsert=False, full_response= True)
 
         return render_template('modulos.html', message=["","","","","",""])
 
@@ -398,11 +356,9 @@ def analisis():
 @login_required
 def preguntas_mod1():
     global usr
-
-
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -427,12 +383,12 @@ def preguntas_mod1():
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
 
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         print(Ntemp)
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 1": request.form}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 1": request.form}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod1.html')
@@ -443,7 +399,7 @@ def preguntas_mod2():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -466,11 +422,11 @@ def preguntas_mod2():
         print(usr_id)
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 2": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 2": dict_encuesta}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod2.html')
@@ -481,7 +437,7 @@ def preguntas_mod3():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -506,11 +462,11 @@ def preguntas_mod3():
         print(usr_id)
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 3": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 3": dict_encuesta}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod3.html')
@@ -522,7 +478,7 @@ def preguntas_mod4():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -547,11 +503,11 @@ def preguntas_mod4():
         print(usr_id)
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 4": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 4": dict_encuesta}}, upsert=False, full_response= True)
         
     return render_template('preguntas_mod4.html')
 
@@ -562,7 +518,7 @@ def preguntas_mod5():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -586,11 +542,11 @@ def preguntas_mod5():
         print(usr_id)
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 5": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 5": dict_encuesta}}, upsert=False, full_response= True)
         
 
     return render_template('preguntas_mod5.html')
@@ -601,7 +557,7 @@ def preguntas_mod6():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+    temp = IPS_data.find({"ID":usr['user_id']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -630,11 +586,11 @@ def preguntas_mod6():
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         print(usr)       
 
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
         if Ntemp!=0:
 
-            IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo 6": dict_encuesta}}, upsert=False, full_response= True)
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 6": dict_encuesta}}, upsert=False, full_response= True)
 
     return render_template('preguntas_mod6.html', nquestion=nquestion)
 
@@ -655,13 +611,12 @@ def validar(modulo):
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         print(usr)       
-        temp = IPS_data.find({"NIT":usr['IPS_NIT']})
+        temp = IPS_data.find({"ID":usr['user_id']})
         print(temp)
         Ntemp=temp.count()
         print(Ntemp)
         dict_encuesta={}
-        print(usr['IPS_NIT'])
-        dict_encuesta["NIT"]=usr['IPS_NIT']
+        dict_encuesta["ID"]=usr['user_id']
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 dict_encuesta[j]=request.form[j]
@@ -670,7 +625,7 @@ def validar(modulo):
                 dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
 
-        IPS_data.find_and_modify(query={'NIT':usr['IPS_NIT']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
+        IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
         return render_template('validar.html', nit=usr['IPS_NIT'])
     return render_template('validar.html', nit=usr['IPS_NIT'])
