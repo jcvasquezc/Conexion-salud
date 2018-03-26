@@ -3,13 +3,14 @@
 	Opcion para ver avance de la encuesta (adminIPS).
 	Agregar informacion de la sede.
 
-- Actualizar base de datos (Tomas)
-
 
 - Generar usuarios para "colaboradores"(Tomas)
 
 - Restringir acceso dependiendo del rol(Tomas).
 
+
+IMPORTANTE:
+NO  TODAS LAS IPS TIENEN NIT. HACER CAMBIOS NECESARIOS
 
 -------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver

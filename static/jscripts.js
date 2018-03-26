@@ -102,15 +102,21 @@ function setfields()
 	document.getElementById("reg_ips").text=IPSLists["Nombre del Prestador"];
 	//document.getElementById("reg_numsede").value=IPSLists["Número de sedes"];
 	//document.getElementById("reg_numsede").text=IPSLists["Número de sedes"];
-	document.getElementById("reg_nivel").value=IPSLists["Nivel del Prestador"];
+	// document.getElementById("reg_nivel").value=IPSLists["Nivel del Prestador"];
 	document.getElementById("reg_nit").value=IPSLists["NIT"];
 	document.getElementById("reg_nit").text=IPSLists["NIT"];
-	document.getElementById("reg_natjur").value=IPSLists["Naturaleza Jurídica"];
-	document.getElementById("reg_clase").value=IPSLists["Clase de Prestador"];
+	document.getElementById("reg_hab").value=IPSLists["Código Habilitación"];
+	document.getElementById("reg_hab").text=IPSLists["Código Habilitación"];
 	document.getElementById("reg_dptoP").value=IPSLists["Departamento"];//departamento-prestador
 	setlist("reg_dptoP","reg_cityP")
 	document.getElementById("reg_cityP").value=IPSLists["Municipio"];
 	
+	document.getElementById("reg_manag").value=IPSLists["Encargado de Encuesta"];
+	document.getElementById("reg_manag").text=IPSLists["Encargado de Encuesta"];
+	document.getElementById("reg_manmail").value=IPSLists["E-mail del Encargado"];
+	document.getElementById("reg_manmail").text=IPSLists["E-mail del Encargado"];
+	document.getElementById("reg_mantel").value=IPSLists["Teléfono del Encargado"];
+	document.getElementById("reg_mantel").text=IPSLists["Teléfono del Encargado"];
 }
 
 /*-------------------------------------------------------------------------

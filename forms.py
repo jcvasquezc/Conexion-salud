@@ -239,12 +239,13 @@ def Ingresar():
 @app.route("/registro", methods=['GET', 'POST'])
 @login_required
 def registro():
-    dptos,cities = set_dptos()
+    dptos,cities = set_dptos()    
     if request.method == 'POST':        
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
         Nsed = request.form['reg_numsede']#Numero de sedes
+        codhab = request.form['reg_codhab']#Numero de sedes
         #naju = request.form['reg_natjur']#Naturaleza juridica
         #clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
@@ -252,14 +253,16 @@ def registro():
         cityP = request.form['reg_cityP']#Municipio del prestador
         userenc = request.form['reg_manag']#nombre del encargado
         mailenc = request.form['reg_manmail']#email del encargado
-        jobenc = request.form['reg_manjob']#cargo del encargado
+        jobenc = request.form['reg_mantel']#Telefono del encargado
         
         IPS_reg_data = {
                   #"Clase de Prestador":clpr,
                   "Cargo del Encargado":jobenc,
+                  "Validar INFO":True,
                   "Departamento":dptoP,
                   "Encargado de Encuesta":userenc,
-                  "Email del Encargado":mailenc,
+                  "E-mail del Encargado":mailenc,
+                  "Teléfono del Encargado"
                   "Municipio":cityP,
                   "Nivel del Prestador":niv,
                   #"Naturaleza Jurídica":naju,
@@ -268,9 +271,9 @@ def registro():
                   "Número de sedes":Nsed,
                   }       
         
-        temp = IPS_data.find({"NIT":nit}).count()
+        temp = IPS_data.find({"Código Habilitación":codhab}).count()
         if temp!=0:
-            IPS_data.update_one({"NIT":nit},{"$set":IPS_reg_data})
+            IPS_data.update_one({"Código Habilitación":codhab},{"$set":IPS_reg_data})
         else:
             IPS_data.insert_one(IPS_reg_data).inserted_id
         
@@ -285,10 +288,10 @@ def modulos():
     #Verificar si es necesario registrar
     usr_id = int(current_user.id)
     print(usr_id)
-    nit = Users_data.find({"user_id":usr_id})[0]['IPS_NIT']
-    IPSdata = IPS_data.find({"NIT":nit})[0]
-    if len(IPSdata['Encargado de Encuesta'])==0:
-        dptos,cities = set_dptos()                
+    usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
+    IPSdata = IPS_data.find({"ID":usrid})[0]
+    if IPSdata['Validar INFO']==False:
+#        dptos,cities = set_dptos()                
         IPSdata.pop('_id', None)
         return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
     if request.method == 'POST': 
