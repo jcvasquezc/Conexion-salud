@@ -1,16 +1,8 @@
-
--Barra de navegacion (Tomas):
-	Opcion para ver avance de la encuesta (adminIPS).
-	Agregar informacion de la sede.
-
-- Generar usuarios para "colaboradores" y "admin"(Tomas)
-- Restringir acceso dependiendo del rol(Tomas).
-
 -------------------------------------------------------------
 - Enviar al "Enlace" a la página con la opción de ver
   el instructivo o diligenciar la encuesta.
 
-- Página para reiniciar contraseña (si da tiempo).
+- Página para reiniciar contraseña (si da tiempo). No da tiempo
 
 
 Plan de implementacion:

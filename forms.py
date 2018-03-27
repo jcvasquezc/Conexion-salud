@@ -248,9 +248,15 @@ def registro():
     dptos,cities = set_dptos()   
     #Current User
     usr_id = int(current_user.id)
-    usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
-    IPSdata = IPS_data.find({"ID":usrid})[0]
+    usrid = Users_data.find({"user_id":usr_id})[0]
+    
+    #Select colab
+    if (usrid['role']!='manager'):
+        return redirect(url_for('index'))
+    
+    IPSdata = IPS_data.find({"ID":usrid['ID']})[0]
     IPSdata.pop('_id', None)#JSON CANT SERIALIZED ObjectID
+    
     if request.method == 'POST': 
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
@@ -603,7 +609,6 @@ def preguntas_mod6():
 @login_required
 def validar(modulo):
 
-    print(request.method)
     if request.method == 'POST':
         data_enc=[]
         print("MODULO: ", modulo)
@@ -616,12 +621,12 @@ def validar(modulo):
         print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         print(usr)       
-        temp = IPS_data.find({"ID":usr['user_id']})
+        temp = IPS_data.find({"ID":usr['ID']})
         print(temp)
         Ntemp=temp.count()
         print(Ntemp)
         dict_encuesta={}
-        dict_encuesta["ID"]=usr['user_id']
+        dict_encuesta["ID"]=usr['ID']
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 dict_encuesta[j]=request.form[j]
@@ -630,20 +635,28 @@ def validar(modulo):
                 dict_encuesta[j]=request.form[j]
         print(dict_encuesta)
 
-        IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
+        IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
-        return render_template('validar.html', nit=usr['IPS_NIT'])
-    return render_template('validar.html', nit=usr['IPS_NIT'])
+        return render_template('validar.html', nit=usr['Codigo'])
+    return render_template('validar.html', nit=usr['Codigo'])
 
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
 def admin():
+    
+    usr_id = int(current_user.id)   
+    usrid = Users_data.find({"user_id":usr_id})[0] 
+    #Select colab
+    if (usrid['role']!='admin'):
+        return redirect(url_for('index'))
+    
     Nregistered=0
     Nmiss=0
     tab_reg=[]
     tab_miss=[]
     n_mod=np.zeros(6)
     #IPS registradas
+    
     for docs in IPS_data.find():
         if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
@@ -662,6 +675,7 @@ def admin():
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
 def adminips_(ips_usr):
+    
     print('IPS ID',ips_usr)
     usr =   IPS_data.find({"ID":int(ips_usr)})[0]
     general_info={
