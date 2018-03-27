@@ -58,6 +58,7 @@ df = pd.DataFrame(info_IPS)
 #Reemplazar datos faltantes
 df = df.replace(np.nan,'')
 passw = []
+passwcolab = []
 idx_usr = 0 #Index for username
 
 for idx_ips in range(0,df.shape[0]):
@@ -156,7 +157,18 @@ for idx_ips in range(0,df.shape[0]):
                 'role':'manager',
                 'user_id':int(str(codhab+str(idx_usr)))
                 }
-    
+    for mem in range(1,7):
+        userpass = pass_generator()
+        hpassw,salt = hash_pass(userpass) 
+        Users_IPS['colaborador'+str(mem)] = username+'colab'+str(mem)
+        Users_IPS["passcolab"+str(mem)]  =hpassw
+        Users_IPS["saltcolab"+str(mem)] = salt
+        Users_IPS["Codigocolab"+str(mem)] = codhab
+        Users_IPS['rolecolab'+str(mem)] = 'member'+str(mem)
+        Users_IPS['user_id'+str(mem)] = int(str(codhab+str(idx_usr)))
+        
+        dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username+'colab'+str(mem),userpass],(1,5)))
+        passwcolab.append(dfpass)
     #Llenar base de datos
     IPS_data.insert_one(IPS_index_data) 
     Users_data.insert_one(Users_IPS) 
@@ -164,6 +176,11 @@ for idx_ips in range(0,df.shape[0]):
 tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})
 tabla.to_csv('Passwords.csv',index=False)
+
+
+tabla = pd.concat(passwcolab)
+tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Colab',4:'Contraseña'})
+tabla.to_csv('PasswordsColabs.csv',index=False)
 
 #ATAJO PARA admin.html
 f = open("Info_general.txt",'w')
@@ -179,7 +196,7 @@ for docs in IPS_data.find():
     pprint.pprint(docs['Departamento'])
     print('--------------------------------')
     
-for docs in Users_data.find({"usuario":"800155000"}):
+for docs in Users_data.find({"usuario":'saludcol1'}):
     pprint.pprint(docs)
     print('--------------------------------')
 
