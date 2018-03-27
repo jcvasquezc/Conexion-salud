@@ -155,23 +155,30 @@ for idx_ips in range(0,df.shape[0]):
                 "salt":salt,
                 "Codigo":codhab,
                 'role':'manager',
+                'ID':int(str(codhab+str(idx_usr))),#toco :(
                 'user_id':int(str(codhab+str(idx_usr)))
-                }
+                }    
+    Users_data.insert_one(Users_IPS) 
+    
     for mem in range(1,7):
         userpass = pass_generator()
         hpassw,salt = hash_pass(userpass) 
-        Users_IPS['colaborador'+str(mem)] = username+'colab'+str(mem)
-        Users_IPS["passcolab"+str(mem)]  =hpassw
-        Users_IPS["saltcolab"+str(mem)] = salt
-        Users_IPS["Codigocolab"+str(mem)] = codhab
-        Users_IPS['rolecolab'+str(mem)] = 'member'+str(mem)
-        Users_IPS['user_id'+str(mem)] = int(str(codhab+str(idx_usr)))
-        
+        Users_IPS = {
+            usertag:username+'colab'+str(mem), 
+            "password":hpassw,
+            "salt":salt,
+            "Codigo":codhab,
+            'role':'member'+str(mem),
+            'ID':int(str(codhab+str(idx_usr))),#toco :(
+            'user_id':int(str(codhab+str(idx_usr)+str(mem)))
+            } 
         dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username+'colab'+str(mem),userpass],(1,5)))
-        passwcolab.append(dfpass)
+        passwcolab.append(dfpass)        
+        Users_data.insert_one(Users_IPS) 
+        
+        
     #Llenar base de datos
     IPS_data.insert_one(IPS_index_data) 
-    Users_data.insert_one(Users_IPS) 
 
 tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})
@@ -192,13 +199,25 @@ f.write('<div class="row"><label>Clase de Prestador:</label> {{general_info["Cla
 f.close()
 
 
-for docs in IPS_data.find():
-    pprint.pprint(docs['Departamento'])
-    print('--------------------------------')
-    
-for docs in Users_data.find({"usuario":'saludcol1'}):
+for docs in IPS_data.find({"Código Habilitación":"2575400380"}):
     pprint.pprint(docs)
     print('--------------------------------')
+    
+for docs in Users_data.find({"colaborador1":'saludcol1colab1'}):
+    pprint.pprint(docs)
+    print('--------------------------------')
+
+
+hpassw,salt = hash_pass('beelzeboss') 
+Users_IPS = {
+    usertag:'admin', 
+    "password":hpassw,
+    "salt":salt,
+    'role':'admin',
+    'ID':666,#toco :(
+    'user_id':666
+    }       
+Users_data.insert_one(Users_IPS) 
 
 #for doc in documents:
 #    try:

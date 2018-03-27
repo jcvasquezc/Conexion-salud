@@ -299,11 +299,28 @@ def registro():
 def modulos():
     dptos,cities = set_dptos()
     #Verificar si es necesario registrar
-    usr_id = int(current_user.id)
-    usrid = Users_data.find({"user_id":usr_id})[0]['user_id']
-    IPSdata = IPS_data.find({"ID":usrid})[0]
+    usr_id = int(current_user.id)   
+    usrid = Users_data.find({"user_id":usr_id})[0] 
+    #Select colab
+    if (usrid['role']=='member1'):
+        return redirect(url_for('preguntas_mod1'))
+    if (usrid['role']=='member2'):
+        return redirect(url_for('preguntas_mod2'))
+    if (usrid['role']=='member3'):
+        return redirect(url_for('preguntas_mod3'))
+    if (usrid['role']=='member4'):
+        return redirect(url_for('preguntas_mod4'))
+    if (usrid['role']=='member5'):
+        return redirect(url_for('preguntas_mod5'))
+    if (usrid['role']=='member6'):
+        return redirect(url_for('preguntas_mod6'))
+    if (usrid['role']=='admin'):
+        return redirect(url_for('admin')) 
+    usrid = Users_data.find({"user_id":usr_id})[0] 
+    IPSdata = IPS_data.find({"ID":usrid['user_id']})[0]
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
+        
     if request.method == 'POST': 
         colabs = {}
         Ncolabs = 6 #Numero maximo de colaboradores
@@ -322,9 +339,10 @@ def modulos():
                 IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' cargo': colabs['cargo'+str(idx)]}}, upsert=False, full_response= True)
                 IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' email': colabs['email'+str(idx)]}}, upsert=False, full_response= True)
 
-        return render_template('modulos.html', message=["","","","","",""])
+        return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
+    
+    return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
 
-    return render_template('modulos.html', message=["","","","","",""])
 
 #######################ENCUESTA#######################
 @app.route("/analisis", methods=['GET', 'POST'])
@@ -357,6 +375,9 @@ def preguntas_mod1():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['user_id']})
+    
+    print('USUARIO ACTUAL',usr_id)
+    
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
@@ -364,7 +385,9 @@ def preguntas_mod1():
         print(encuesta)
         if len(encuesta)>0:
             return render_template('modulos.html',message=["Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
-
+    
+#    if usr[]
+    
     if request.method == 'POST':
 
         # guarda automaticamente resultados de la encuesta cada cierto tiempo
@@ -624,10 +647,10 @@ def admin():
     for docs in IPS_data.find():
         if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
         else:#IPS FALTANTES
             Nmiss = Nmiss+1
-            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
 
         for k in np.arange(1,7):
             if len(docs["Resultados Modulo "+str(k)])>0:
@@ -639,7 +662,8 @@ def admin():
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
 def adminips_(ips_usr):
-    usr =   IPS_data.find({"Código Habilitación":ips_usr})[0]
+    print('IPS ID',ips_usr)
+    usr =   IPS_data.find({"ID":int(ips_usr)})[0]
     general_info={
                   "Código Habilitación":usr['Código Habilitación'],
                   "Nombre del Prestador":usr['Nombre del Prestador'],
