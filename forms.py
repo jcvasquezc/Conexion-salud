@@ -644,11 +644,14 @@ def validar(modulo):
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
-                dict_encuesta[j]=request.form[j]
+                dict_encuesta[j]=request.form.getlist(j)
+                if len(dict_encuesta[j])==1:
+                    dict_encuesta[j]=dict_encuesta[j][0]
                 continue
             if j.find("question")>=0:
-                dict_encuesta[j]=request.form[j]
-
+                dict_encuesta[j]=request.form.getlist(j)
+                if len(dict_encuesta[j])==1:
+                    dict_encuesta[j]=dict_encuesta[j][0]
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
         return render_template('validar.html', nit=usr['Codigo'])
