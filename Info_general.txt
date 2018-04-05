@@ -43,5 +43,6 @@
 <div class="row"><label>Resultados Modulo 4:</label> {{general_info["Resultados Modulo 4"]}}</div>
 <div class="row"><label>Resultados Modulo 5:</label> {{general_info["Resultados Modulo 5"]}}</div>
 <div class="row"><label>Resultados Modulo 6:</label> {{general_info["Resultados Modulo 6"]}}</div>
+<div class="row"><label>valmod1:</label> {{general_info["valmod1"]}}</div>
 <div class="row"><label>_id:</label> {{general_info["_id"]}}</div>
 <div class="row"><label>Naturaleza Jurídica:</label> {{general_info["Naturaleza Jurídica"]}}</div><div class="row"><label>Clase de Prestador:</label> {{general_info["Clase de Prestador"]}}</div>

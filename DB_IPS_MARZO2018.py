@@ -114,7 +114,9 @@ for idx_ips in range(0,df.shape[0]):
                   "Dirección":addr,
                   "Barrio":barr,
                   "Municipio":city,
+                  "Código Municipio":'',
                   "Departamento":dpto,
+                  "Código Departamento":'',
                   "Teléfono":tel,
                   "E-mail empresarial":email,
                   "E-mail empresarial 2":email2,
@@ -147,7 +149,8 @@ for idx_ips in range(0,df.shape[0]):
                   "Resultados Modulo 3":{},
                   "Resultados Modulo 4":{},
                   "Resultados Modulo 5":{},
-                  "Resultados Modulo 6":{},
+                  "Resultados Modulo 6":{},   
+                  "valmod1":False
                   }
     Users_IPS = {
                 usertag:username, 
@@ -208,14 +211,14 @@ for docs in Users_data.find({"colaborador1":'saludcol1colab1'}):
     print('--------------------------------')
 
 
-hpassw,salt = hash_pass('beelzeboss') 
+hpassw,salt = hash_pass('conexionsaludUDEA01!') 
 Users_IPS = {
     usertag:'admin', 
     "password":hpassw,
     "salt":salt,
     'role':'admin',
-    'ID':666,#toco :(
-    'user_id':666
+    'ID':7894,#toco :(
+    'user_id':7894
     }       
 Users_data.insert_one(Users_IPS) 
 

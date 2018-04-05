@@ -132,8 +132,31 @@ def set_dptos():
         dptos[idx]=d.upper()
         idx = idx+1        
     return dptos,cities
+##############################################
+#Obtener codigos de departamentos y municipios
+def set_cod(dpto,city):
+    #Obtener lista de departamento y ciudades
+    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
+    #Obtener departamentos
+    df = pd.DataFrame(lista_dptos)
+    del  df['lat']
+    del  df['lon']
+#    del  df['ID']
+#    del  df['ID2']
+    df = df.dropna()
+    dptos = list(np.unique(df['Departamento']))  
+    
+    codes_dpto = {}
+    for idx in dptos:
+        codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
+    
+    codes_dpto = cod_dpto[dpto]
+    city_list = df[df['Municipio']==city]
+    
+    
+    return dptos,cities
 
-
+##############################################
 #Extensiones permitidas
 def allowed_file(filename):
     return '.' in filename and \
@@ -162,7 +185,7 @@ def hash_pass(password,salt):
 #Verificar credenciales
 def get_credentials(usr,userpass):    
     temp = Users_data.find({"usuario":usr}).count()
-    print(temp)
+    #print(temp)
     if temp == 0:
         return False
     else:
@@ -212,6 +235,18 @@ def faqs():
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
     return render_template('faqs.html',LogFlag=json.dumps(LogFlag))
+
+@app.route("/contacto", methods=['GET', 'POST'])
+def contacto():
+    LogFlag = "False"
+    if current_user.is_active==True:
+        LogFlag = "True"
+#    dptos,cities = set_dptos()
+    if request.method == 'POST':
+        return redirect(url_for('contacto'))
+#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+    return render_template('contacto.html',LogFlag=json.dumps(LogFlag))
 
 
 
@@ -287,7 +322,7 @@ def registro():
                   "NIT":nit,
                   "Número de sede":Nsed,
                   }       
-        print(IPS_reg_data)
+        #print(IPS_reg_data)
         usr_id = int(current_user.id)
         ID = Users_data.find({"user_id":usr_id})[0]['user_id']
         temp = IPS_data.find({"ID":ID}).count()
@@ -345,7 +380,8 @@ def modulos():
                 IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' cargo': colabs['cargo'+str(idx)]}}, upsert=False, full_response= True)
                 IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' email': colabs['email'+str(idx)]}}, upsert=False, full_response= True)
 
-        return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
+        return redirect(url_for('modulos',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""]))
+#        return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
     
     return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
 
@@ -369,7 +405,7 @@ def analisis():
 #                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 ##                return redirect(url_for('analisis',filename=filename))
 #
-#        print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
+#        #print('Pregunta 4 opcion '+str(request.form.getlist('question4')))
         return redirect(url_for('analisis'))
     return render_template('analisis.html')
 
@@ -380,41 +416,42 @@ def preguntas_mod1():
     global usr
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
-    
-    print('USUARIO ACTUAL',usr_id)
+    temp = IPS_data.find({"ID":usr['ID']})
     
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
-        encuesta=temp2["Resultados Modulo 1"]
+        encuesta=temp2["valmod1"]
         print(encuesta)
-        if len(encuesta)>0:
-            return render_template('modulos.html',message=["Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
-    
+        if encuesta:
+            
+            if (usr['role']=='member1'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
 #    if usr[]
     
     if request.method == 'POST':
 
         # guarda automaticamente resultados de la encuesta cada cierto tiempo
         data_enc=[]
-        print(request.form)
-        print("-------------------------------------")
+        #print(request.form)
+        #print("-------------------------------------")
         dict_encuesta={}
+        
         for j in request.form:
             dict_encuesta[j]=request.form[j]
-        print("-------------------------------------+++++++++++++++++++++++++++++++++++++++++")
-        print(dict_encuesta)
+        #print("-------------------------------------+++++++++++++++++++++++++++++++++++++++++")
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
 
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
-        print(Ntemp)
+        #print(Ntemp)
         if Ntemp!=0:
-
+            IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
             IPS_data.find_and_modify(query={"ID":usr['user_id']}, update={"$set": {"Resultados Modulo 1": request.form}}, upsert=False, full_response= True)
         
 
@@ -425,25 +462,27 @@ def preguntas_mod1():
 def preguntas_mod2():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
+    temp = IPS_data.find({"ID":usr['ID']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
         encuesta=temp2["Resultados Modulo 2"]
-        print(encuesta)
+        #print(encuesta)
         if len(encuesta)>0:
-            return render_template('modulos.html',message=["","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
+            if (usr['role']=='member2'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
 
     if request.method == 'POST':
-        print(request.form)
+        #print(request.form)
         dict_encuesta={}
         for j in request.form:
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
-        print(dict_encuesta)
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
@@ -459,26 +498,28 @@ def preguntas_mod3():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
+    temp = IPS_data.find({"ID":usr['ID']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
         encuesta=temp2["Resultados Modulo 3"]
-        print(encuesta)
+        #print(encuesta)
         if len(encuesta)>0:
-            return render_template('modulos.html',message=["","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
+            if (usr['role']=='member3'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
 
     if request.method == 'POST':
         data_enc=[]
-        print(request.form)
+        #print(request.form)
         dict_encuesta={}
         for j in request.form:
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
-        print(dict_encuesta)
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
@@ -494,30 +535,27 @@ def preguntas_mod3():
 def preguntas_mod4():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
+    temp = IPS_data.find({"ID":usr['ID']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
         encuesta=temp2["Resultados Modulo 4"]
-        print(encuesta)
         if len(encuesta)>0:
-            return render_template('modulos.html',message=["","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
-
-
-
-
+            if (usr['role']=='member4'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
 
     if request.method == 'POST':
         data_enc=[]
-        print(request.form)
+        #print(request.form)
         dict_encuesta={}
         for j in request.form:
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
-        print(dict_encuesta)
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
@@ -532,26 +570,28 @@ def preguntas_mod4():
 def preguntas_mod5():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
+    temp = IPS_data.find({"ID":usr['ID']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
         encuesta=temp2["Resultados Modulo 5"]
-        print(encuesta)
+        #print(encuesta)
         if len(encuesta)>0:
-            return render_template('modulos.html',message=["","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
+            if (usr['role']=='member5'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
 
     if request.method == 'POST':
         data_enc=[]
-        print(request.form)
+        #print(request.form)
         dict_encuesta={}
         for j in request.form:
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
-        print(dict_encuesta)
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
@@ -568,21 +608,24 @@ def preguntas_mod6():
 
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
-    temp = IPS_data.find({"ID":usr['user_id']})
+    temp = IPS_data.find({"ID":usr['ID']})
     Ntemp=temp.count()
     if Ntemp!=0:
         temp2=temp[0]
         encuesta=temp2["Resultados Modulo 6"]
-        print(encuesta)
+        #print(encuesta)
         if len(encuesta)>0:
-            return render_template('modulos.html',message=["","","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros"])
+            
+            if (usr['role']=='member6'):
+                 return redirect(url_for('mensaje'))
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros"])
 
     nquestion=0
     if request.method == 'POST':
         form_mod6 = request.form
         nquestion=0
         data_enc=[]
-        print(request.form)
+        #print(request.form)
         dict_encuesta={}
         for j in request.form:
             if j.find("question")>=0:
@@ -590,12 +633,12 @@ def preguntas_mod6():
             if len(request.form[j])>0:
                 nquestion=nquestion+1
 
-        print(dict_encuesta)
+        #print(dict_encuesta)
         usr_id = current_user.id
-        print(usr_id)
-        print(Users_data.find()[0])
+        #print(usr_id)
+        #print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        print(usr)       
+        #print(usr)       
 
         temp = IPS_data.find({"ID":usr['user_id']})
         Ntemp=temp.count()
@@ -608,42 +651,34 @@ def preguntas_mod6():
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
-
-    if request.method == 'POST':
-        data_enc=[]
-        print("MODULO: ", modulo)
-        print(request.form)
-        
-        
+    if request.method == 'POST': 
         usr_id = current_user.id
-        print(usr_id)
-        
-        print(Users_data.find()[0])
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        print(usr)       
         temp = IPS_data.find({"ID":usr['ID']})
-        print(temp)
         Ntemp=temp.count()
-        print(Ntemp)
         dict_encuesta={}
         dict_encuesta["ID"]=usr['ID']
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
+                IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
                 dict_encuesta[j]=request.form[j]
                 continue
             if j.find("question")>=0:
                 dict_encuesta[j]=request.form[j]
-        print(dict_encuesta)
 
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
         return render_template('validar.html', nit=usr['Codigo'])
     return render_template('validar.html', nit=usr['Codigo'])
 
+@app.route("/mensaje", methods=['GET', 'POST'])
+@login_required
+def mensaje():
+    return render_template('mensaje.html')
+
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
-def admin():
-    
+def admin():    
     usr_id = int(current_user.id)   
     usrid = Users_data.find({"user_id":usr_id})[0] 
     #Select colab
@@ -676,7 +711,7 @@ def admin():
 @login_required
 def adminips_(ips_usr):
     
-    print('IPS ID',ips_usr)
+    #print('IPS ID',ips_usr)
     usr =   IPS_data.find({"ID":int(ips_usr)})[0]
     general_info={
                   "Código Habilitación":usr['Código Habilitación'],
@@ -744,14 +779,14 @@ def exportcsv(modulo):
         df=pd.DataFrame([])
         for reg in temp:
             if len(reg["Resultados Modulo "+str(modulo)])>0:
-                print(reg["Resultados Modulo "+str(modulo)])
+                #print(reg["Resultados Modulo "+str(modulo)])
                 row = row + 1
 
                 data=reg["Resultados Modulo "+str(modulo)]
 
                 for key in data.keys():
                     df.loc[row,key] = data[key]
-        print(df)
+        #print(df)
         csv_file=df.to_csv(sep='\t')
 
 

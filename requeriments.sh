@@ -1,3 +1,4 @@
+bash Anaconda3-5.1.0-Linux-x86_64.sh
 sudo apt install mongodb-server
 pip install flask
 pip install wtforms
