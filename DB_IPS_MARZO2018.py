@@ -155,6 +155,7 @@ for idx_ips in range(0,df.shape[0]):
     Users_IPS = {
                 usertag:username, 
                 "password":hpassw,
+
                 "salt":salt,
                 "Codigo":codhab,
                 'role':'manager',
@@ -168,6 +169,7 @@ for idx_ips in range(0,df.shape[0]):
         hpassw,salt = hash_pass(userpass) 
         Users_IPS = {
             usertag:username+'colab'+str(mem), 
+            "password_nc":userpass,
             "password":hpassw,
             "salt":salt,
             "Codigo":codhab,
