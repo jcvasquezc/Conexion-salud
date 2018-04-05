@@ -18,6 +18,32 @@ import hashlib
 import string
 import random
 
+#Directorio de proyecto
+main_path = os.path.dirname(os.path.abspath(__file__))
+
+#Obtener codigos de departamentos y municipios
+def set_cod(dpto,city):
+    #Obtener lista de departamento y ciudades
+    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
+    #Obtener departamentos
+    df = pd.DataFrame(lista_dptos)
+    del  df['lat']
+    del  df['lon']
+#    del  df['ID']
+#    del  df['ID2']
+    df = df.dropna()
+    dptos = list(np.unique(df['Departamento']))  
+    
+    codes_dpto = {}
+    for idx in dptos:
+        codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
+    
+    cod_dpto = codes_dpto[dpto]
+    city_list = df[df['Municipio']==city]
+#    print(city_list)
+    cod_city = list(city_list[city_list['ID2']==cod_dpto]['ID'])[0]
+    return str(cod_dpto),str(cod_city)
+
 #Codificar contrasenna 
 def hash_pass(password):
     salt = os.urandom(hashlib.blake2b.SALT_SIZE)
@@ -28,9 +54,6 @@ def hash_pass(password):
 
 def pass_generator(size=8, chars=string.ascii_uppercase + string.digits):
    return ''.join(random.choice(chars) for x in range(size))
-
-#Directorio de proyecto
-main_path = os.path.dirname(os.path.abspath(__file__))
 
 ##Crear Base de datos
 ##Crear cliente
@@ -90,7 +113,8 @@ for idx_ips in range(0,df.shape[0]):
     usr = list(ips['NOMBRE PERSONA ENCARGADA DE TECNOLOGIA'])[0]
     usrmail = list(ips['EMAIL PERSONA ENCARGADA DE TECNOLOGIA'])[0]
     usrtel = list(ips['TELEFONO PERSONA ENCARGADA DE TECNOLOGIA'])[0]
-    
+#    print(nombreIPS,codhab,dpto,city,idx_usr)
+    cod_dpto,cod_city = set_cod(dpto,city)
     
     #Ingreso de usuario para login
     #IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)
@@ -100,7 +124,7 @@ for idx_ips in range(0,df.shape[0]):
     username = 'saludcol'+str(idx_usr)
     dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username,userpass],(1,5)))
     passw.append(dfpass)
-    hpassw,salt = hash_pass(userpass)
+    hpassw,salt = hash_pass(userpass)    
     
     IPS_index_data = {
                   "Validar INFO":False,
@@ -114,9 +138,9 @@ for idx_ips in range(0,df.shape[0]):
                   "Dirección":addr,
                   "Barrio":barr,
                   "Municipio":city,
-                  "Código Municipio":'',
+                  "Código Municipio":cod_city,
                   "Departamento":dpto,
-                  "Código Departamento":'',
+                  "Código Departamento":cod_dpto,
                   "Teléfono":tel,
                   "E-mail empresarial":email,
                   "E-mail empresarial 2":email2,

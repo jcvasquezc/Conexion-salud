@@ -133,29 +133,6 @@ def set_dptos():
         idx = idx+1        
     return dptos,cities
 ##############################################
-#Obtener codigos de departamentos y municipios
-def set_cod(dpto,city):
-    #Obtener lista de departamento y ciudades
-    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
-    #Obtener departamentos
-    df = pd.DataFrame(lista_dptos)
-    del  df['lat']
-    del  df['lon']
-#    del  df['ID']
-#    del  df['ID2']
-    df = df.dropna()
-    dptos = list(np.unique(df['Departamento']))  
-    
-    codes_dpto = {}
-    for idx in dptos:
-        codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
-    
-    codes_dpto = cod_dpto[dpto]
-    city_list = df[df['Municipio']==city]
-    
-    
-    return dptos,cities
-
 ##############################################
 #Extensiones permitidas
 def allowed_file(filename):
