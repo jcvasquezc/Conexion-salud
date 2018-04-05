@@ -134,7 +134,7 @@ for idx_ips in range(0,df.shape[0]):
                   "Número de sede":str(idx_usr),
                   "NIT":nit,
                   "Razón social":razsoc,
-                  "Nivel del Prestador":niv,#str(int(niv)) if niv else 0,
+                  "Nivel del Prestador":str(niv),#str(int(niv)) if niv else 0,
                   "Gerente":ger,
                   "Dirección":addr,
                   "Barrio":barr,
