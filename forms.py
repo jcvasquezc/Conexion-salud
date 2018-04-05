@@ -162,11 +162,13 @@ def hash_pass(password,salt):
 #Verificar credenciales
 def get_credentials(usr,userpass):    
     temp = Users_data.find({"usuario":usr}).count()
-    #print(temp)
+    print(temp)
     if temp == 0:
         return False
     else:
         results = Users_data.find({"usuario":usr})[0]
+        print(userpass)
+        print(results['password_nc'])
         if hash_pass(userpass,results['salt']) == results['password']:
             return True
         return False
@@ -772,6 +774,27 @@ def exportcsv(modulo):
         resp.headers["Content-Type"] = "text/csv"
         return resp
     return render_template('admin.html')
+
+
+
+
+@app.route("/sendmail<modulo>", methods=['GET', 'POST'])
+@login_required
+def sendmail(modulo):
+    if request.method == 'POST': 
+        nombres=request.form['nombre'+str(modulo)]
+
+        usr_id = int(current_user.id)
+        usrid = Users_data.find({"user_id":usr_id})[0]
+        user_encargado=usrid["usuario"]
+        user=user_encargado+"colab"+str(modulo)
+        usrid_colab = Users_data.find({"usuario":user})[0]
+        key_pass=usrid_colab["password_nc"]
+        to_email=request.form['email'+str(modulo)]
+        send_email(to_email, nombres, user, key_pass, modulo, file_email="./templates/email.html")
+        return redirect(url_for('modulos'))
+    return redirect(url_for('modulos'))
+
 
 
 
