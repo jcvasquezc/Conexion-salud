@@ -162,13 +162,13 @@ def hash_pass(password,salt):
 #Verificar credenciales
 def get_credentials(usr,userpass):    
     temp = Users_data.find({"usuario":usr}).count()
-    print(temp)
+#    print(temp)
     if temp == 0:
         return False
     else:
         results = Users_data.find({"usuario":usr})[0]
-        print(userpass)
-        print(results['password_nc'])
+#        print(userpass)
+#        print(results['password_nc'])
         if hash_pass(userpass,results['salt']) == results['password']:
             return True
         return False
@@ -281,6 +281,8 @@ def registro():
         clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
         dptoP = request.form['reg_dptoP']#Departamento del prestador
+        cod_dpto = request.form['reg_coddpto']#Departamento del prestador
+        cod_city = request.form['reg_codcity']#Municipio del prestador
         cityP = request.form['reg_cityP']#Municipio del prestador
         userenc = request.form['reg_manag']#nombre del encargado
         mailenc = request.form['reg_manmail']#email del encargado
@@ -289,6 +291,8 @@ def registro():
         IPS_reg_data = {
                   "Código Habilitación":codhab,
                   "Validar INFO":True,
+                  "Código Municipio":cod_city,
+                  "Código Departamento":cod_dpto,
                   "Departamento":dptoP,
                   "Encargado de Encuesta":userenc,
                   "E-mail del Encargado":mailenc,
@@ -406,7 +410,7 @@ def preguntas_mod1():
             
             if (usr['role']=='member1'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
 #    if usr[]
     
     if request.method == 'POST':
@@ -450,7 +454,7 @@ def preguntas_mod2():
         if len(encuesta)>0:
             if (usr['role']=='member2'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","",""])
 
     if request.method == 'POST':
         #print(request.form)
@@ -486,7 +490,7 @@ def preguntas_mod3():
         if len(encuesta)>0:
             if (usr['role']=='member3'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","",""])
 
     if request.method == 'POST':
         data_enc=[]
@@ -522,7 +526,7 @@ def preguntas_mod4():
         if len(encuesta)>0:
             if (usr['role']=='member4'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
 
     if request.method == 'POST':
         data_enc=[]
@@ -558,7 +562,7 @@ def preguntas_mod5():
         if len(encuesta)>0:
             if (usr['role']=='member5'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros",""])
 
     if request.method == 'POST':
         data_enc=[]
@@ -597,7 +601,7 @@ def preguntas_mod6():
             
             if (usr['role']=='member6'):
                  return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","","Este modulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros"])
+            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","","","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros"])
 
     nquestion=0
     if request.method == 'POST':
@@ -702,7 +706,9 @@ def adminips_(ips_usr):
                   "Dirección":usr["Dirección"],
                   "Barrio":usr["Barrio"],
                   "Municipio":usr["Municipio"],
+                  "Código Municipio":usr["Código Municipio"],
                   "Departamento":usr["Departamento"],
+                  "Código Departamento":usr["Código Departamento"],
                   "Teléfono":usr["Teléfono"],
                   "E-mail empresarial":usr["E-mail empresarial"],
                   "Representante legal":usr["Representante legal"],

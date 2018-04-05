@@ -100,13 +100,17 @@ function setfields()
 {
 	document.getElementById("reg_ips").value=IPSLists["Nombre del Prestador"];
 	document.getElementById("reg_ips").text=IPSLists["Nombre del Prestador"];
-	//document.getElementById("reg_numsede").value=IPSLists["Número de sedes"];
-	//document.getElementById("reg_numsede").text=IPSLists["Número de sedes"];
+	document.getElementById("reg_numsede").value=IPSLists["Número de sede"];
+	document.getElementById("reg_numsede").text=IPSLists["Número de sede"];
 	// document.getElementById("reg_nivel").value=IPSLists["Nivel del Prestador"];
 	document.getElementById("reg_nit").value=IPSLists["NIT"];
 	document.getElementById("reg_nit").text=IPSLists["NIT"];
 	document.getElementById("reg_hab").value=IPSLists["Código Habilitación"];
 	document.getElementById("reg_hab").text=IPSLists["Código Habilitación"];
+	document.getElementById("reg_codcity").value=IPSLists["Código Municipio"];
+	document.getElementById("reg_codcity").text=IPSLists["Código Municipio"];
+	document.getElementById("reg_coddpto").value=IPSLists["Código Departamento"];
+	document.getElementById("reg_coddpto").text=IPSLists["Código Departamento"];
 	document.getElementById("reg_manag").value=IPSLists["Encargado de Encuesta"];
 	document.getElementById("reg_manag").text=IPSLists["Encargado de Encuesta"];
 	document.getElementById("reg_manmail").value=IPSLists["E-mail del Encargado"];

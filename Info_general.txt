@@ -2,6 +2,7 @@
 <div class="row"><label>Código Habilitación:</label> {{general_info["Código Habilitación"]}}</div>
 <div class="row"><label>ID:</label> {{general_info["ID"]}}</div>
 <div class="row"><label>Nombre del Prestador:</label> {{general_info["Nombre del Prestador"]}}</div>
+<div class="row"><label>Número de sede:</label> {{general_info["Número de sede"]}}</div>
 <div class="row"><label>NIT:</label> {{general_info["NIT"]}}</div>
 <div class="row"><label>Razón social:</label> {{general_info["Razón social"]}}</div>
 <div class="row"><label>Nivel del Prestador:</label> {{general_info["Nivel del Prestador"]}}</div>
