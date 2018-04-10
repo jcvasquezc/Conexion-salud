@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
+		<title>Conexión</title>
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
     <!-- <link rel="stylesheet" href="static/preg_style.css"> -->
@@ -855,18 +855,21 @@ PHABLET: teléfono inteligente cuya pantalla supera en diagonal las 5,5 pulgadas
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <input type="radio" class="option-input radio" id="question22a" name="question22" value="La institución">La institución
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <input type="radio" class="option-input radio" id="question22b" name="question22" value="Subsidiada por el gobierno">Subsidiada por el gobierno
       <br>
     </div>
-    <input type="radio" class="option-input radio" id="question22c" name="question22" value="Subsidiada por otra Entidad" onclick="var input = document.getElementById('question22otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Subsidiada por otra Entidad
-    <br><br>
+
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <input type="radio" class="option-input radio" id="question22c" name="question22" value="Subsidiada por otra institucion" onclick="var input = document.getElementById('question22otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+      />Subsidiada por otra institución
+      <br><br>
     <input id="question22otro" name="question22otro" disabled="disabled" />
+    </div>
     <br>
     <br>
   </div>

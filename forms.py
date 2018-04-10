@@ -139,6 +139,13 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+#Validar Numeros
+def val_num(x):
+  try:
+    return int(x)
+  except ValueError:
+    return False
+
 #def new_user(nit):
 #    # Creates a new user for the company passed into the function if it doesn't already exist. se
 #    import hashlib
@@ -185,9 +192,6 @@ def index():
 
     return render_template('index.html',LogFlag=json.dumps(LogFlag))
 
-
-
-
 @app.route("/instructivo", methods=['GET', 'POST'])
 def instructivo():
     LogFlag = "False"
@@ -199,9 +203,6 @@ def instructivo():
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
     return render_template('instructivo.html',LogFlag=json.dumps(LogFlag))
-
-
-
 
 @app.route("/faqs", methods=['GET', 'POST'])
 def faqs():
@@ -226,8 +227,6 @@ def contacto():
 #    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
 
     return render_template('contacto.html',LogFlag=json.dumps(LogFlag))
-
-
 
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
@@ -274,7 +273,7 @@ def registro():
     if request.method == 'POST': 
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
-        nit = request.form['reg_nit']#Nit del prestador        
+        nit = request.form['reg_nit']#Nit del prestador
         Nsed = request.form['reg_numsede']#Numero de sedes        
         codhab = request.form['reg_hab']#Numero de sedes
         naju = request.form['reg_natjur']#Naturaleza juridica

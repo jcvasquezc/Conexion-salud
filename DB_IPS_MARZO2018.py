@@ -91,6 +91,8 @@ for idx_ips in range(0,df.shape[0]):
     codhab = str(list(ips['CÓDIGO'])[0])#Codigo habilitacion
     nombreIPS = list(ips['NOMBRE'])[0]#Nombre del prestador de servicios
     nit = str(list(ips['NIT'])[0])
+    if len(nit)>0:
+        nit = str(int(ips['NIT']))
     razsoc = list(ips['RAZÓN SOCIAL'])[0]
     addr = list(ips['DIRECCION'])[0] 
     barr = list(ips['BARRIO'])[0] 
@@ -118,7 +120,7 @@ for idx_ips in range(0,df.shape[0]):
     
     #Ingreso de usuario para login
     #IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)
-    temppass = nit[-4:]
+#    temppass = nit[-4:]
     userpass = pass_generator()#car[1]+temppass[3]+temppass[0]+car[-1:]+temppass[1]+temppass[2]+car[len(car)-2]+car[0]
     idx_usr = idx_usr+1
     username = 'saludcol'+str(idx_usr)
@@ -218,14 +220,14 @@ tabla = pd.concat(passwcolab)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Colab',4:'Contraseña'})
 tabla.to_csv('PasswordsColabs.csv',index=False)
 
-#ATAJO PARA admin.html
-f = open("Info_general.txt",'w')
-for field in IPS_index_data:
-    f.write('<div class="row"><label>'+field+':</label> {{general_info["'+field+'"]}}</div>')
-    f.write('\n')
-f.write('<div class="row"><label>Naturaleza Jurídica:</label> {{general_info["Naturaleza Jurídica"]}}</div>')
-f.write('<div class="row"><label>Clase de Prestador:</label> {{general_info["Clase de Prestador"]}}</div>')
-f.close()
+##ATAJO PARA admin.html
+#f = open("Info_general.txt",'w')
+#for field in IPS_index_data:
+#    f.write('<div class="row"><label>'+field+':</label> {{general_info["'+field+'"]}}</div>')
+#    f.write('\n')
+#f.write('<div class="row"><label>Naturaleza Jurídica:</label> {{general_info["Naturaleza Jurídica"]}}</div>')
+#f.write('<div class="row"><label>Clase de Prestador:</label> {{general_info["Clase de Prestador"]}}</div>')
+#f.close()
 
 
 for docs in IPS_data.find({"Código Habilitación":"2575400380"}):
