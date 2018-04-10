@@ -90,10 +90,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1si" name="question2" value="SI" onclick="yesnoCheck(this, q2container, q3container);">SI<br>
+	 <input type="radio" class="option-input radio" id="question1si" name="question1" value="SI" onclick="yesnoCheck(this, q2container, q3container);">SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1no" name="question2" value="NO" onclick="yesnoCheck(this, q3container, q2container);">NO<br>
+	 <input type="radio" class="option-input radio" id="question1no" name="question1" value="NO" onclick="yesnoCheck(this, q3container, q2container);">NO<br>
   </div>
     <br>
   </div>
@@ -119,7 +119,7 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="text" id="q2f1" name="question2" placeholder="Cuantos">
+    <input type="text" id="q2f1" name="question2" placeholder="0">
     <br>
   </div>
   <br>
@@ -159,11 +159,11 @@
 
 
 <div class="hidden" id="q4container">
-   <label><input type="checkbox" id="question3_a" ondragover="" class="option-input checkbox" name="presupuesto_inversionTIC" value="Menos del 10% de su presupuesto anual"> Menos del 10% de su presupuesto anual</label><br>
-    <label><input type="checkbox" id="question3_b" ondragover="" class="option-input checkbox" name="presupuesto_inversionTIC" value="Entre el 10-30% de su presupuesto anual"> Entre el 10-30% de su presupuesto anual</label><br>
-    <label><input type="checkbox" id="question3_c" ondragover="" class="option-input checkbox" name="presupuesto_inversionTIC" value="Entre el 30-50% de su presupuesto anual"> Entre el 30-50% de su presupuesto anual</label><br>
-    <label><input type="checkbox" id="question3_d" ondragover="" class="option-input checkbox" name="presupuesto_inversionTIC" value="Entre el 50-80% de su presupuesto anual"> Entre el 50-80% de su presupuesto anual</label><br>
-    <label><input type="checkbox" id="question3_e" ondragover="" class="option-input checkbox" name="presupuesto_inversionTIC" value="Más del 80% de su presupuesto anual"> Más del 80% de su presupuesto anual</label><br>
+   <label><input type="radio" id="question3_a" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Menos del 10% de su presupuesto anual"> Menos del 10% de su presupuesto anual</label><br>
+    <label><input type="radio" id="question3_b" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 10-30% de su presupuesto anual"> Entre el 10-30% de su presupuesto anual</label><br>
+    <label><input type="radio" id="question3_c" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 30-50% de su presupuesto anual"> Entre el 30-50% de su presupuesto anual</label><br>
+    <label><input type="radio" id="question3_d" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 50-80% de su presupuesto anual"> Entre el 50-80% de su presupuesto anual</label><br>
+    <label><input type="radio" id="question3_e" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Más del 80% de su presupuesto anual"> Más del 80% de su presupuesto anual</label><br>
 </div>
 
 
@@ -607,19 +607,19 @@ PHABLET: teléfono inteligente cuya pantalla supera en diagonal las 5,5 pulgadas
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_a" name="question17" value="Totalmente satisfactorio">Totalmente satisfactorio
+        <input type="radio" class="option-input radio" id="question16_a" name="question16" value="Totalmente satisfactorio">Totalmente satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_b" name="question17" value="Bastante satisfactorio">Bastante satisfactorio
+        <input type="radio" class="option-input radio" id="question16_b" name="question16" value="Bastante satisfactorio">Bastante satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_c" name="question17" value="Poco satisfactorio">Poco satisfactorio
+        <input type="radio" class="option-input radio" id="question16_c" name="question16" value="Poco satisfactorio">Poco satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_d" name="question17" value="Nada satisfactorio">Nada satisfactorio
+        <input type="radio" class="option-input radio" id="question16_d" name="question16" value="Nada satisfactorio">Nada satisfactorio
         <br>
       </div>
       <br>
@@ -643,68 +643,68 @@ PHABLET: teléfono inteligente cuya pantalla supera en diagonal las 5,5 pulgadas
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_a" ondragover="" class="option-input checkbox" name="question15" value="Internación"> Internación</label>
+        <input type="checkbox" id="question17_a" ondragover="" class="option-input checkbox" name="question17" value="Internación"> Internación</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_b" ondragover="" class="option-input checkbox" name="question15" value="Cirugía"> Cirugía</label>
+        <input type="checkbox" id="question17_b" ondragover="" class="option-input checkbox" name="question17" value="Cirugía"> Cirugía</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_c" ondragover="" class="option-input checkbox" name="question15" value="Unidad de cuidados intensivos"> Unidad de cuidados intensivos </label>
+        <input type="checkbox" id="question17_c" ondragover="" class="option-input checkbox" name="question17" value="Unidad de cuidados intensivos"> Unidad de cuidados intensivos </label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_d" ondragover="" class="option-input checkbox" name="question15" value="Unidad de cuidados intermedios"> Unidad de cuidados intermedios</label>
+        <input type="checkbox" id="question17_d" ondragover="" class="option-input checkbox" name="question17" value="Unidad de cuidados intermedios"> Unidad de cuidados intermedios</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_e" ondragover="" class="option-input checkbox" name="question15" value="Unidad de quemados"> Unidad de quemados</label>
+        <input type="checkbox" id="question17_e" ondragover="" class="option-input checkbox" name="question17" value="Unidad de quemados"> Unidad de quemados</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_f" ondragover="" class="option-input checkbox" name="question15" value="Central de referencia"> Central de referencia</label>
+        <input type="checkbox" id="question17_f" ondragover="" class="option-input checkbox" name="question17" value="Central de referencia"> Central de referencia</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_g" ondragover="" class="option-input checkbox" name="question15" value="Admisiones"> Admisiones</label>
+        <input type="checkbox" id="question17_g" ondragover="" class="option-input checkbox" name="question17" value="Admisiones"> Admisiones</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_h" ondragover="" class="option-input checkbox" name="question15" value="Área financiera"> Área financiera</label>
+        <input type="checkbox" id="question17_h" ondragover="" class="option-input checkbox" name="question17" value="Área financiera"> Área financiera</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_i" ondragover="" class="option-input checkbox" name="question15" value="Laboratorio clínico"> Laboratorio clínico</label>
+        <input type="checkbox" id="question17_i" ondragover="" class="option-input checkbox" name="question17" value="Laboratorio clínico"> Laboratorio clínico</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_j" ondragover="" class="option-input checkbox" name="question15" value="Servicio Farmacéutico"> Servicio Farmacéutico</label>
+        <input type="checkbox" id="question17_j" ondragover="" class="option-input checkbox" name="question17" value="Servicio Farmacéutico"> Servicio Farmacéutico</label>
       <br>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_k" ondragover="" class="option-input checkbox" name="question15" value="Radiología e imágenes diagnosticas"> Radiología e imágenes diagnosticas</label>
+        <input type="checkbox" id="question17_k" ondragover="" class="option-input checkbox" name="question17" value="Radiología e imágenes diagnosticas"> Radiología e imágenes diagnosticas</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_l" ondragover="" class="option-input checkbox" name="question15" value="Consulta externa"> Consulta externa</label>
+        <input type="checkbox" id="question17_l" ondragover="" class="option-input checkbox" name="question17" value="Consulta externa"> Consulta externa</label>
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
-        <input type="checkbox" id="question17_m" ondragover="" class="option-input checkbox" name="question15" value="Urgencias"> Urgencias</label>
+        <input type="checkbox" id="question17_m" ondragover="" class="option-input checkbox" name="question17" value="Urgencias"> Urgencias</label>
       <br>
     </div>
     <br>
@@ -1262,29 +1262,29 @@ un paso directo a la tierra sin que dañen el edificio.">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <input type="radio" class="option-input radio" id="question1" name="question39" value="0 no tiene cortes de energía">0 no tiene cortes de energía
+    <input type="radio" class="option-input radio" id="question1" name="question31" value="0 no tiene cortes de energía">0 no tiene cortes de energía
     <br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1" name="question39" value="1 a 5 veces" >1 a 5 veces<br>
+	 <input type="radio" class="option-input radio" id="question1" name="question31" value="1 a 5 veces" >1 a 5 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question39" value="6 a 10 veces" >6 a 10 veces<br>
+	 <input type="radio" class="option-input radio" id="question2" name="question31" value="6 a 10 veces" >6 a 10 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question3" name="question39" value="11 a 15 veces" >11 a 15 veces<br>
+	 <input type="radio" class="option-input radio" id="question3" name="question31" value="11 a 15 veces" >11 a 15 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4" name="question39" value="16 a 20 veces" >16 a 20 veces<br>
+	 <input type="radio" class="option-input radio" id="question4" name="question31" value="16 a 20 veces" >16 a 20 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question5" name="question39" value="21 a 30 veces" >21 a 30 veces<br>
+	 <input type="radio" class="option-input radio" id="question5" name="question31" value="21 a 30 veces" >21 a 30 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question6" name="question39" value="Más de 30 veces" >Más de 31 veces<br>
+	 <input type="radio" class="option-input radio" id="question6" name="question31" value="Más de 30 veces" >Más de 31 veces<br>
   </div>
     <br>
-      <input type="text" class="option-input radio" id="question39_tiempo" name="question39_tiempo" placeholder="Tiempo promedio del corte">
+      <input type="text" class="option-input radio" id="question31_tiempo" name="question31_tiempo" placeholder="Tiempo promedio del corte">
 
 <br>
 
