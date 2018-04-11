@@ -231,6 +231,32 @@ def contacto():
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
 def Ingresar():    
+#    next = get_redirect_target()
+    LogFlag = "False"
+    if request.method == 'POST':
+        if current_user.is_active==True:
+            LogFlag = "True"
+        username = request.form['usrlog']
+        userpass = request.form['passlog']
+        credentials = get_credentials(username,userpass)
+        error = ''
+        #Verificarcontrasennas
+        if credentials:
+            user_id = Users_data.find({"usuario":username})[0]['user_id']
+            user = User(user_id)
+            login_user(user)        
+#            if not is_safe_url(next):
+#                return abort(400)
+
+            return redirect(url_for('index',LogFlag=json.dumps(LogFlag)))
+#            return render_template('modulos.html')
+        else:
+            error = ' (Usuario o Contraseña incorrecto)'
+            return render_template('Ingresar.html',error=error,LogFlag=json.dumps(LogFlag))
+    return render_template('Ingresar.html',LogFlag=json.dumps(LogFlag))
+#####################################################
+@app.route("/redirec", methods=['GET', 'POST'])
+def redirec():    
     next = get_redirect_target()
     LogFlag = "False"
     if request.method == 'POST':
@@ -274,8 +300,8 @@ def registro():
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
-        Nsed = request.form['reg_numsede']#Numero de sedes        
-        codhab = request.form['reg_hab']#Numero de sedes
+        Nsed = request.form['reg_numsede']#Numero de sedes
+        codhab = request.form['reg_hab']#NCdigo habilitacion
         naju = request.form['reg_natjur']#Naturaleza juridica
         clpr = request.form['reg_clase']#Clase de prestador
         niv = request.form['reg_nivel']#Nivel del prestador
@@ -286,7 +312,6 @@ def registro():
         userenc = request.form['reg_manag']#nombre del encargado
         mailenc = request.form['reg_manmail']#email del encargado
         telenc = request.form['reg_mantel']#Telefono del encargado
-        
         IPS_reg_data = {
                   "Código Habilitación":codhab,
                   "Validar INFO":True,
@@ -401,15 +426,15 @@ def preguntas_mod1():
     temp = IPS_data.find({"ID":usr['ID']})
     
     Ntemp=temp.count()
-    if Ntemp!=0:
-        temp2=temp[0]
-        encuesta=temp2["valmod1"]
-        print(encuesta)
-        if encuesta:
-            
-            if (usr['role']=='member1'):
-                 return redirect(url_for('mensaje'))
-            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
+#    if Ntemp!=0:
+#        temp2=temp[0]
+#        encuesta=temp2["valmod1"]
+#        print(encuesta)
+#        if encuesta:
+#            
+#            if (usr['role']=='member1'):
+#                 return redirect(url_for('mensaje'))
+#            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","","","","",""])
 #    if usr[]
     
     if request.method == 'POST':
@@ -747,10 +772,6 @@ def adminips_(ips_usr):
 
     
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
-
-
-
-
 
 
 @app.route("/exportcsv<modulo>", methods=['GET', 'POST'])

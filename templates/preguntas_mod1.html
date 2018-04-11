@@ -71,8 +71,14 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question1"><h4>1. Servicios de salud brindados en la institución:</h4></label>
-        <a  data-toggle="tooltip" title="Seleccione los servicios asistenciales que se encuentran en su Institución de salud."><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question1"><h4>1. Servicios de salud brindados en la institución:
+            <a  
+            data-toggle="tooltip" 
+            onclick="alerta('Seleccione los servicios asistenciales que se encuentran en su Institución de salud.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a>
+        </h4></label>
+      <br>
       </div>
     </div>
     <div class="row">
@@ -99,10 +105,12 @@
     <br><hr>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <label for="question2"><h4>2. Su capacidad instalada es: </h4></label>
-      <a  data-toggle="tooltip" title="Contabilice las camas, salas, sillas, consultorios y ambulancias con las que cuenta su Institución de salud. Especificamente paciente crónico se refiere a las camas que tiene dedicadas para este tipo de atención. Si no tiene alguna de las camas mencionadas puede poner ''0'' en el ítem solicitado.">
-        <i class="fa fa-question-circle" style=font-size:24px></i>
-      </a>
+      <label for="question2"><h4>2. Su capacidad instalada es: 
+        <a  
+        data-toggle="tooltip" 
+        onclick="alerta('Contabilice las camas, salas, sillas, consultorios y ambulancias con las que cuenta su Institución de salud.\n\nEspecificamente paciente crónico se refiere a las camas que tiene dedicadas para este tipo de atención.\n\nSi no tiene alguna de las camas mencionadas puede poner 0 en el ítem solicitado.')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a></h4></label>
       <br>
     </div>
       <!-- Opciones -->
@@ -230,13 +238,13 @@
      
     </div>
 
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+    <!-- <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
       <label>Camas institución:</label>
     </div>
     <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
       <input type="text" id="question2_r" name="n_camas_institucion" placeholder="0">
     
-    </div>
+    </div> -->
 
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
       <label>Camas crónico:</label>
@@ -494,9 +502,12 @@
     <br><br><hr>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question4"><h4>4. ¿Cuántos Técnicos/Tecnólogos de la salud están laborando en su institución?</h4></label>
-        <a  data-toggle="tooltip" title="Entiendase por Técnicos/Tecnólogos de la salud laborando en su institucion, aquellos que trabajan de forma habitual en la institución">
-          <i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question4"><h4>4. ¿Cuántos Técnicos/Tecnólogos de la salud están laborando en su institución?
+            <a  data-toggle="tooltip" 
+            onclick="alerta('Entiendase por Técnicos/Tecnólogos de la salud laborando en su institucion, aquellos que trabajan de forma habitual en la institución')">
+              <i class="fa fa-question-circle" style=font-size:24px></i></a>              
+        </h4></label>
+        <br>
       </div>
     </div>
     <div class="row">
@@ -617,10 +628,12 @@
     <br><hr>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question5"><h4>5. ¿Cuántos Profesionales NO afines a la salud están laborando en su institución?</h4></label>
-        <a  data-toggle="tooltip" title=
-"Entiendase por profesionales no afines a la salud laborando en su institucion, aquellos que trabajan de forma habitual en la institución">
-          <i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question5"><h4>5. ¿Cuántos Profesionales NO afines a la salud están laborando en su institución?
+            <a  data-toggle="tooltip" 
+            onclick="alerta('Entiendase por profesionales no afines a la salud laborando en su institucion, aquellos que trabajan de forma habitual en la institución')">
+              <i class="fa fa-question-circle" style=font-size:24px></i></a>
+        </h4></label>
+        <br>
       </div>
     </div>
     <div class="row">
@@ -745,17 +758,12 @@
     <br><hr>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question6"><h4>6. ¿Cuántos administrativos están laborando en su institución?</h4></label>
-        <a  data-toggle="tooltip" 
-      title=
-"Entiendase por Director es quien se encarga de planificar a grandes rasgos y velar por el cumplimiento de los objetivos de las áreas a su cargo:
-    - Jefe es quien se encarga más de trabajar con el personal y manejar grupos de 
-    trabajo de personas.
-    - Coordinador es cuando los grupos son de varias áreas o son mas pequeños que 
-    los grupos que maneja un jefe. 
-
-Guíese por su organigrama y solamente cuantifique de acuerdo a los nombres de cargos que su institución de salud utiliza.">
-          <i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question6"><h4>6. ¿Cuántos administrativos están laborando en su institución?
+            <a  data-toggle="tooltip" 
+            onclick="alerta('Entiendase por Director es quien se encarga de planificar a grandes rasgos y velar por el cumplimiento de los objetivos de las áreas a su cargo:\n - Jefe es quien se encarga más de trabajar con el personal y manejar grupos de trabajo de personas.\n - Coordinador es cuando los grupos son de varias áreas o son mas pequeños que los grupos que maneja un jefe.\n\nGuíese por su organigrama y solamente cuantifique de acuerdo a los nombres de cargos que su institución de salud utiliza.')">
+              <i class="fa fa-question-circle" style=font-size:24px></i>
+            </a>
+            </h4></label><br>
       </div>
     <!--</div>-->
     <!--<div class="row">-->
