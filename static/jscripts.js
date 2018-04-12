@@ -127,19 +127,23 @@ function setfields()
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------*/
-// 77FORM reset
-function reset_func()
-{
-	document.getElementById().reset();  
-}
 //preguntas.html
 //Cargar respuestas tipo radio
 function set_radios(x,val)
 {
 	var radio = x[i].value;
 	if (radio.localeCompare(val)==0)
-	{					
-		document.getElementById(x[i].id).checked = true;	
+	{	
+		var temp = x[i].id
+		document.getElementById(x[i].id).checked = true;//MARCAR respuesta
+
+		if (temp.search('_hab')!=-1)//Para disparar eventos que habilitan otras opciones
+		{
+			$(document.getElementById(x[i].id)).click();			
+		}
+		
+		
+
 	}
 }
 //marcar respuestas tipo checkbox
@@ -156,7 +160,7 @@ function set_checkbox(x,val)
 }
 //Marcar preguntas contestadas
 function set_rtas()
-{   
+{
 	for(var key in Rtas)
 	{
 		if (key.localeCompare('ID')!=0)
@@ -178,22 +182,44 @@ function set_rtas()
 				{
 					document.getElementById(x[i].id).value = val;
 				}
+				if (elem.localeCompare('text')==0)
+				{
+					document.getElementById(x[i].id).value = val;
+					document.getElementById(x[i].id).text = val;
+				}
 			}
 		}
 	}
 	
 }
-//obtener elementos de entrada de una clase
-function get_inputs()
+//obtener elementos contenidos en una clase
+function clear_inputs(classcont)
 {
-	var c = document.getElementById("qsi1container").childNodes;
-    var txt = "";
-    var i;
-    for (i = 0; i < c.length; i++) {
-       c[i].nodeName;
+	var c = document.getElementById(classcont).querySelectorAll('*');//Obtener todos los elementos de una clase
+	for (i = 0; i < c.length; i++) 
+	{
+		var temp = c[i].nodeName;//Verificar que sea entrada
+		if (temp.localeCompare('INPUT')==0)
+		{
+			var elem = c[i].type//Verificar el tipo de entrada
+			if (elem.localeCompare('radio')==0)
+			{
+				c[i].checked=false;
+			}
+			if (elem.localeCompare('checkbox')==0)
+			{
+				c[i].checked=false;
+			}			
+			if (elem.localeCompare('number')==0)
+			{
+				c[i].value=0;
+			}
+			if (elem.localeCompare('text')==0)
+			{
+				c[i].text='';
+			}
+		}
     }
-
-    document.getElementById("demo").innerHTML = txt;
 }
 //Mostrar opcion para borrar adjunto
 function enb_dis(btn_att,btn_del)

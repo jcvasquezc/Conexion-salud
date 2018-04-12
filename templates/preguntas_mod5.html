@@ -16,35 +16,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-   <script>
-	   //Mostrar opcion para borrar adjunto
-	   function enb_dis(btn_att,btn_del)
-	   {
-			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del);
-			if ('files' in x)
-			{
-			   input.disabled = false;
-			   input.focus();
-			}
-			else
-			{
-			   input.disabled = true;
-			}
-	   }
-	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name)
-		{
-			document.getElementById(name).value = "";
-			document.getElementById(btn_del).disabled = true;
-    }
-    
-   </script>
-
 <body>
 	<div class="wrapper">
 		<script type="text/javascript">   
-			var LogVal = {{LogFlag|safe}}           
+        var Rtas = {{Rtas|safe}}
 		</script>
 		<div class="topnav">
       <div class="logo_nav">
