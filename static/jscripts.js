@@ -133,7 +133,7 @@ function reset_func()
 	document.getElementById().reset();  
 }
 //preguntas.html
-//Cargar respuestas
+//Cargar respuestas tipo radio
 function set_radios(x,val)
 {
 	var radio = x[i].value;
@@ -142,6 +142,7 @@ function set_radios(x,val)
 		document.getElementById(x[i].id).checked = true;	
 	}
 }
+//marcar respuestas tipo checkbox
 function set_checkbox(x,val)
 {
 	for( j = 0; j < val.length; j++ ) 
@@ -153,7 +154,7 @@ function set_checkbox(x,val)
 		}
 	}
 }
-
+//Marcar preguntas contestadas
 function set_rtas()
 {   
 	for(var key in Rtas)
@@ -182,7 +183,18 @@ function set_rtas()
 	}
 	
 }
+//obtener elementos de entrada de una clase
+function get_inputs()
+{
+	var c = document.getElementById("qsi1container").childNodes;
+    var txt = "";
+    var i;
+    for (i = 0; i < c.length; i++) {
+       c[i].nodeName;
+    }
 
+    document.getElementById("demo").innerHTML = txt;
+}
 //Mostrar opcion para borrar adjunto
 function enb_dis(btn_att,btn_del)
 {
