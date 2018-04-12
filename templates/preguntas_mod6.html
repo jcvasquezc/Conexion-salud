@@ -16,50 +16,19 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-
-   <script>
-	   //Mostrar opcion para borrar adjunto
-	   function enb_dis(btn_att,btn_del)
-	   {
-			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del);
-			if ('files' in x)
-			{
-			   input.disabled = false;
-			   input.focus();
-			}
-			else
-			{
-			   input.disabled = true;
-			}
-	   }
-	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name)
-		{
-			document.getElementById(name).value = "";
-			document.getElementById(btn_del).disabled = true;
-    }
     
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
-      
-      
-      if (questionIDYesNO.checked) {
-        $(questionIDYes).removeClass("hidden");
-        $(questionIDNO).addClass("hidden");
+    <script>            
+      var Rtas = {{Rtas|safe}}
 
-      }
-
-    }
-
-
-
-   </script>
-
-<body>
-	<div class="wrapper">
-		<script type="text/javascript">   
-			var LogVal = {{LogFlag|safe}}           
-		</script>
+       function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) { 
+         if (questionIDYesNO.checked) {           
+          $(questionIDYes).removeClass("hidden");          
+           $(questionIDNO).addClass("hidden");                             
+         }
+       }
+      </script>
+   <body onload="set_rtas()">
+     <div class="wrapper">
 		<div class="topnav">
       <div class="logo_nav">
           <img src="static/logos/banner-encuesta.png" class="img-responsive">
@@ -85,91 +54,97 @@
     <h3 class="title"> 
         MÓDULO 6. Capacitación
     </h3>
-
-
 <br>
 <!-- <h3>{{nquestion}}</h3> -->
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. ¿Su institución invirtió en el año 2017 en procesos de entrenamiento/capacitación de uso de TIC en salud dirigido al personal?</h4></label>
-    <a href="#" data-toggle="tooltip" title="cursos de capacitación, apoyo económico para realización de cursos, destinación de tiempo laboral para capacitación"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    <label for="question1"><h4>1. ¿Su institución invirtió en el año 2017 en procesos de entrenamiento/capacitación de uso de TIC en salud dirigido al personal?
+        <a data-toggle="tooltip" 
+        onclick="alerta('Cursos de capacitación, apoyo económico para realización de cursos, destinación de tiempo laboral para capacitación')">
+        <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4></label>
+
+    <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question1" value="SI" onclick="yesnoCheck(this, qsi1container, qno1container);">SI<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question1" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="q1question1" name="question1" value="SI" onchange="yesnoCheck(this, qsi1container, qno1container);">SI<br>
+	 <input type="radio" class="option-input radio" id="q1question2" name="question1" value="NO" onchange="yesnoCheck(this, qno1container,qsi1container);">NO<br>
     <br>
   </div>
 </div>
 
 
-<div class="hidden" id="qno1container"></div>
+      <div class="hidden" id="qno1container">
+      </div>
 
-<div class="hidden" id="qsi1container">
+      <div class="hidden" id="qsi1container">
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="question2"><h4>2. Existe un proceso de entrenamiento/capacitación de uso de TIC en salud dirigido al personal:
+                <a
+                data-toggle="tooltip" 
+                onclick="alerta('Es afirmativa si invirtió recursos en capacitación del uso de TIC')">
+                <i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+                </h4></label>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label>Asistencial</label>
+            <input type="radio" class="option-input radio" id="q2aquestion1" name="question2a" value="SI">SI
+            <input type="radio" class="option-input radio" id="q2aquestion2" name="question2a" value="NO" >NO<br>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label>Técnico</label>
+              <input type="radio" class="option-input radio" id="q2bquestion1" name="question2b" value="SI">SI
+              <input type="radio" class="option-input radio" id="q2bquestion2" name="question2b" value="NO" >NO<br>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label>Administrativo</label>
+              <input type="radio" class="option-input radio" id="q2cquestion1" name="question2c" value="SI">SI
+              <input type="radio" class="option-input radio" id="q2cquestion2" name="question2c" value="NO" >NO<br>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <label for="question1"><h4>2. Existe un proceso de entrenamiento/capacitación de uso de TIC en salud dirigido al personal:</h4></label>
-      <a href="#" data-toggle="tooltip" title="Es afirmativa si invirtió recursos en capacitación del uso de TIC"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <label>Asistencial</label>
-     <input type="radio" class="option-input radio" id="question1" name="question2a" value="SI">SI
-     <input type="radio" class="option-input radio" id="question2" name="question2a" value="NO" >NO<br>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <label>Técnico</label>
-      <input type="radio" class="option-input radio" id="question1" name="question2b" value="SI">SI
-      <input type="radio" class="option-input radio" id="question2" name="question2b" value="NO" >NO<br>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <label>Administrativo</label>
-      <input type="radio" class="option-input radio" id="question1" name="question2c" value="SI">SI
-      <input type="radio" class="option-input radio" id="question2" name="question2c" value="NO" >NO<br>
-    </div>
-  </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label for="question2"><h4>3. Este proceso se realiza mediante: (Si es el caso seleccione varias opciones)
+                  <a data-toggle="tooltip" 
+                  onclick="alerta('Se refiere a la estrategia utilizada para las capacitaciones en TIC')">
+                  <i class="fa fa-question-circle" style=font-size:24px></i></a>
+              </h4></label>
+              
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label><input type="checkbox" id="question3a" ondragover="" class="option-input checkbox" name="question3" value="Proceso presencial"> Proceso presencial</label><br>
+              <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
+              <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
+              <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
+              <input id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="Cuál plataforma?"/></label><br>
+            </div>
+          </div>
+          <br><hr>
+      </div>
 
-  <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question2"><h4>3. Este proceso se realiza mediante: (Si es el caso seleccione varias opciones)</h4></label>
-        <a href="#" data-toggle="tooltip" title="Se refiere a la estrategia utilizada para las capacitaciones en TIC"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    <div class "row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <button type="submit" class="state" name="continuar" formaction="validar6">Guardar respuestas</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso presencial"> Proceso presencial</label><br>
-        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
-        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
-        <label><input type="checkbox" id="question2" ondragover="" class="option-input checkbox" name="question3" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
-        <input id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="Cuál plataforma?"/></label><br>
-        <br>
-      </div>
-    </div>
-    <br><hr>
-    </div>
+    </form>
 
-
-<br><hr>
-
-<div class "row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="continuar" formaction="validar6">Guardar respuestas</button>
-  </div>
-</div>
-</div>
-</form>
-
-<br>
-
+    <br>
 </div>
 </body>
 </html>

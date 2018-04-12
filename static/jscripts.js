@@ -127,7 +127,62 @@ function setfields()
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------*/
+// 77FORM reset
+function reset_func()
+{
+	document.getElementById().reset();  
+}
 //preguntas.html
+//Cargar respuestas
+function set_radios(x,val)
+{
+	var radio = x[i].value;
+	if (radio.localeCompare(val)==0)
+	{					
+		document.getElementById(x[i].id).checked = true;	
+	}
+}
+function set_checkbox(x,val)
+{
+	for( j = 0; j < val.length; j++ ) 
+	{
+		var check = x.value;
+		if (check.localeCompare(val[j])==0)
+		{	
+			document.getElementById(x.id).checked = true;	
+		}
+	}
+}
+
+function set_rtas()
+{   
+	for(var key in Rtas)
+	{
+		if (key.localeCompare('ID')!=0)
+		{
+			var x = document.getElementsByName(key);			
+			var val = Rtas[key];
+			for( i = 0; i < x.length; i++ ) 
+			{				
+				var elem = x[i].type				
+				if (elem.localeCompare('radio')==0)
+				{
+					set_radios(x,val);
+				}
+				if (elem.localeCompare('checkbox')==0)
+				{
+					set_checkbox(x[i],val);
+				}
+				if (elem.localeCompare('number')==0)
+				{
+					document.getElementById(x[i].id).value = val;
+				}
+			}
+		}
+	}
+	
+}
+
 //Mostrar opcion para borrar adjunto
 function enb_dis(btn_att,btn_del)
 {
