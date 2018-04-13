@@ -242,3 +242,15 @@ function delete_attached(btn_del,name)
 	document.getElementById(name).value = "";
 	document.getElementById(btn_del).disabled = true;
 }
+
+//solo texto, espacios, y guiones
+function textonly(e){
+	var code;
+	if (!e) var e = window.event;
+	if (e.keyCode) code = e.keyCode;
+	else if (e.which) code = e.which;
+	var character = String.fromCharCode(code);
+	var AllowRegex  = /^[\ba-zA-Z\s-]$/;
+	if (AllowRegex.test(character)) return true;    
+	return false;
+	}

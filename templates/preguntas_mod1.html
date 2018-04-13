@@ -59,7 +59,6 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          
           <label><input type="checkbox" id="question1_a" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Protección específica y detección temprana"> Transporte asistencial</label><br>
           <label><input type="checkbox" id="question1_b" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Consulta externa"> Consulta externa</label><br>
           <label><input type="checkbox" id="question1_c" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Ambulatorios"> Ambulatorios</label><br>
@@ -73,9 +72,14 @@
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
           <br>
-          <label>Otros:</label>
+          <label>Otros:
+              <a  
+              data-toggle="tooltip" 
+              onclick="alerta('Si existen varios servicios, separelos con guiones')">
+              <i class="fa fa-question-circle" style=font-size:24px></i>
+            </a></label>
             <br>
-          <input id="question1_i" name="question1_i" placeholder="Cuáles?" />
+          <input type="text" id="question1_i" name="question1_i" onkeypress="return textonly(event);" placeholder="Cuáles?" />
         </div>
     </div>
 
@@ -224,7 +228,7 @@
     </div> -->
 
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-      <label>Camas crónico:</label>
+      <label>Pacientes crónicos:</label>
     </div>
     <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
       <input type="number" min=0  id="question2_s" name="n_camas_cronico" placeholder="0"  required>
@@ -864,7 +868,7 @@
         <label>Medicina General:</label>
       </div>
       <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-        <input type="number" min=0 id="question7_a" name="uso_medicina_gral" placeholder="0"  required>
+        <input type="number" min=1 max=5 id="question7_a" name="uso_medicina_gral" placeholder="0"  required>
         <br>
       </div>
 
@@ -872,7 +876,7 @@
           <label>Medicina Especializada:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_b" name="uso_medicina_especializada" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_b" name="uso_medicina_especializada" placeholder="0"  required>
           <br>
         </div>
 
@@ -880,7 +884,7 @@
           <label>Medicina Subespecializada:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_c" name="uso_medicina_Subespecializada" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_c" name="uso_medicina_Subespecializada" placeholder="0"  required>
           <br>
         </div>
 
@@ -892,7 +896,7 @@
           <label>Odontología:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_d" name="uso_Odontología" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_d" name="uso_Odontología" placeholder="0"  required>
           <br>
         </div>
 
@@ -900,7 +904,7 @@
           <label>Nutricionista:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_e" name="usoNutricionista" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_e" name="usoNutricionista" placeholder="0"  required>
           <br>
         </div>
 
@@ -908,7 +912,7 @@
           <label>Enfermería profesional:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_f" name="uso_Enfermeria_profesional" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_f" name="uso_Enfermeria_profesional" placeholder="0"  required>
           <br>
         </div>
 
@@ -920,7 +924,7 @@
           <label>Gerente:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_g" name="uso_Gerente" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_g" name="uso_Gerente" placeholder="0"  required>
           <br>
         </div>
 
@@ -928,7 +932,7 @@
           <label>Subgerente:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_h" name="uso_Subgerente" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_h" name="uso_Subgerente" placeholder="0"  required>
           <br>
         </div>
 
@@ -936,7 +940,7 @@
           <label>Directores:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_i" name="uso_Directores" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_i" name="uso_Directores" placeholder="0"  required>
           <br>
         </div>
 
@@ -948,7 +952,7 @@
           <label>Jefe de área:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_j" name="uso_jefe_area" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_j" name="uso_jefe_area" placeholder="0"  required>
           <br>
         </div>
 
@@ -956,7 +960,7 @@
           <label>Coordinadores:</label>
         </div>
         <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question7_k" name="uso_Coordinadores" placeholder="0"  required>
+          <input type="number" min=1 max=5 id="question7_k" name="uso_Coordinadores" placeholder="0"  required>
           <br>
         </div>
 
@@ -964,7 +968,7 @@
         <label>Auxiliares:</label>
       </div>
       <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-        <input type="number" min=0 id="question7_l" name="uso_Auxiliares" placeholder="0"  required>
+        <input type="number" min=1 max=5 id="question7_l" name="uso_Auxiliares" placeholder="0"  required>
         <br>
       </div>
 

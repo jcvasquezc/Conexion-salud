@@ -39,47 +39,18 @@
     </head>
 
    <script>
-	   //Mostrar opcion para borrar adjunto
-	   function enb_dis(btn_att,btn_del)
-	   {
-			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del);
-			if ('files' in x)
-			{
-			   input.disabled = false;
-			   input.focus();
-			}
-			else
-			{
-			   input.disabled = true;
-			}
-	   }
-	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name)
-		{
-			document.getElementById(name).value = "";
-			document.getElementById(btn_del).disabled = true;
-    }
-    
-
     function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
-      
-      
       if (questionIDYesNO.checked) {
         $(questionIDYes).removeClass("hidden");
         $(questionIDNO).addClass("hidden");
-
       }
-
     }
-
    </script>
 
-<body>
-
+<body onload="set_rtas()">
 	<div class="wrapper">
-		<script type="text/javascript">   
-			var LogVal = {{LogFlag|safe}}           
+		<script type="text/javascript"> 			
+      var Rtas =  {{Rtas|safe}} //Respuestas del modulo 3           
 		</script>
 		<div class="topnav">
 			<div class="logo_nav">
@@ -110,14 +81,12 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question43">
-      <h4>1. ¿La Institución cuenta con página o sitio web?</h4>
+      <h4>1. ¿La Institución cuenta con página o sitio web?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Página o sitio web es un documento o información electrónica que contiene texto, sonido, vídeo, programas, enlaces, imágenes, entre otras cosas.\n\nEl documento es adaptado al protocolo de World Wide Web (WWW) que puede ser accedida mediante un navegador web.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Página o sitio web es un documento o información electrónica que contiene texto, sonido, vídeo, programas, enlaces, imágenes, entre otras cosas.
-
-El documento es adaptado al protocolo de World Wide Web (WWW) que puede ser accedida mediante un navegador web.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
@@ -128,10 +97,10 @@ El documento es adaptado al protocolo de World Wide Web (WWW) que puede ser acce
         <label>Usuario Interno</label>
       </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="question1" name="question1_int" value="SI" onclick="yesnoCheck(this, q43container, q44container);">SI
+      <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" onclick="yesnoCheck(this, q43container, q44container);">SI
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question2" name="question1_int" value="NO" onclick="yesnoCheck(this, q44container, q43container);">NO
+      <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');">NO
     </div>
     <br>
   </div>
@@ -142,36 +111,33 @@ El documento es adaptado al protocolo de World Wide Web (WWW) que puede ser acce
       <label>Usuario Externo</label>
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="question1" name="question1_ext" value="SI">SI
+      <input type="radio" class="option-input radio" id="q1exquestion1" name="question1_ext" value="SI">SI
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question2" name="question1_ext" value="NO">NO
+      <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" value="NO">NO
     </div>
     <br>
   </div>
 </div>
 
-<br>
-<hr>
 
 
 
 <div class="hidden" id="q44container"></div>
 <div class="hidden" id="q43container">
 
+    <br>
+    <hr>
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <label for="question44">
-          <h4>2. ¿Qué tipo de cosas se pueden hacer desde la página o sitio web?</h4>
+          <h4>2. ¿Qué tipo de cosas se pueden hacer desde la página o sitio web?
+              <a  data-toggle="tooltip" 
+              onclick="alerta('Usuario interno son las personas empleadas por la institución.\n\nUsuario externo son los pacientes')">
+                <i class="fa fa-question-circle" style=font-size:24px></i>
+              </a></h4>
         </label>
-        <a  data-toggle="tooltip" 
-        title=
-"Usuario interno son las personas empleadas por la institución.
-
-Usuario externo son los pacientes">
-          <i class="fa fa-question-circle" style=font-size:24px></i>
-        </a>
         <br>
       </div>
     </div>
@@ -182,13 +148,13 @@ Usuario externo son los pacientes">
             <label>Leer información de la institución incluyendo los médicos y los horarios</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2a" name="question2_a" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2aa" name="question2_a" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2a" name="question2_a" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2ab" name="question2_a" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2a" name="question2_a" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2ac" name="question2_a" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -201,13 +167,13 @@ Usuario externo son los pacientes">
           <label>El usuario puede consultar su historia clínica parcialmente</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2b" name="question2_b" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ba" name="question2_b" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2b" name="question2_b" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2bb" name="question2_b" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2b" name="question2_b" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2bc" name="question2_b" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -219,13 +185,13 @@ Usuario externo son los pacientes">
           <label>El usuario puede consultar toda su historia clínica</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2c" name="question2_c" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ca" name="question2_c" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2c" name="question2_c" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2cb" name="question2_c" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2c" name="question2_c" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2cc" name="question2_c" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -237,13 +203,13 @@ Usuario externo son los pacientes">
           <label>Agendamiento de citas médicas</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2d" name="question2_d" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2da" name="question2_d" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2d" name="question2_d" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2db" name="question2_d" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2d" name="question2_d" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2dc" name="question2_d" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -255,13 +221,13 @@ Usuario externo son los pacientes">
           <label>Agendamiento de paraclínicos (imágenes, laboratorios)</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2e" name="question2_e" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ea" name="question2_e" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2e" name="question2_e" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2eb" name="question2_e" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2e" name="question2_e" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2ec" name="question2_e" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -273,13 +239,13 @@ Usuario externo son los pacientes">
           <label>Visualización de resultados de medios diagnósticos</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2f" name="question2_f" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2fa" name="question2_f" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2f" name="question2_f" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2fb" name="question2_f" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2f" name="question2_f" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2fc" name="question2_f" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -291,13 +257,13 @@ Usuario externo son los pacientes">
           <label>Visualización de historia clínica o expediente clínico</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2g" name="question2_g" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ga" name="question2_g" value="Usuario Interno">Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2g" name="question2_g" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2gb" name="question2_g" value="Usuario Externo">Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2g" name="question2_g" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2gc" name="question2_g" value="No Aplica">No Aplica
         </div>
       </div>
     </div>
@@ -309,34 +275,31 @@ Usuario externo son los pacientes">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question2">
-      <h4>3. ¿Cada cuánto hacen análisis de la información obtenida a través de la plataforma de su sitio web?</h4>
+      <h4>3. ¿Cada cuánto hacen análisis de la información obtenida a través de la plataforma de su sitio web?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Análisis de Información es el proceso de interpretar los datos, resaltar información importante y sacar conclusiones para poder resolver problemas y tomar decisiones.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" 
-    title=
-"Análisis de Información es el proceso de interpretar los datos, resaltar información importante y sacar conclusiones para poder resolver problemas y tomar decisiones.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question3" value="Mensual">Mensual
+    <input type="radio" class="option-input radio" id="q3question1" name="question3" value="Mensual"> Mensual
     <br>
-    <input type="radio" class="option-input radio" id="question2" name="question3" value="Bimestral">Bimestral
+    <input type="radio" class="option-input radio" id="q3question2" name="question3" value="Bimestral"> Bimestral
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question3" value="Trimestral">Trimestral
+    <input type="radio" class="option-input radio" id="q3question3" name="question3" value="Trimestral"> Trimestral
     <br>
-    <input type="radio" class="option-input radio" id="question4" name="question3" value="Semestral">Semestral
+    <input type="radio" class="option-input radio" id="q3question4" name="question3" value="Semestral"> Semestral
     <br>
-    <input type="radio" class="option-input radio" id="question5" name="question3" value="Anual">Anual
+    <input type="radio" class="option-input radio" id="q3question5" name="question3" value="Anual"> Anual
     <br>
-    <input type="radio" class="option-input radio" id="question6" name="question3" value="Otro" onclick="var input = document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    <input type="radio" class="option-input radio" id="q3question6" name="question3" value="Otro" onclick="var input = document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
     />Otro
-    <br>
+    <br><br>
     <input id="question3_otro" name="question3_otro" disabled="disabled" />
-    <br>
-    <br>
   </div>
 </div>
 <br>
@@ -346,24 +309,26 @@ Usuario externo son los pacientes">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question2">
-      <h4>4. ¿La institución ha implementado los lineamientos de la Estrategia de Gobierno En Línea para sitios web?</h4>
+      <h4>4. ¿La institución ha implementado los lineamientos de la Estrategia de Gobierno En Línea para sitios web?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('La Estrategia Gobierno en línea, liderada por el Ministerio de Tecnologías de la Información y las Comunicaciones, es el conjunto de instrumentos técnicos, normativos y de política pública que promueven la construcción de un Estado más eficiente, transparente y participativo, y que a su vez, preste mejores servicios con la colaboración de toda la sociedad mediante el aprovechamiento de la tecnología. (http://vive.gobiernoenlinea.gov.co/)')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-  "La Estrategia Gobierno en línea, liderada por el Ministerio de Tecnologías de la Información y las Comunicaciones, es el conjunto de instrumentos técnicos, normativos y de política pública que promueven la construcción de un Estado más eficiente, transparente y participativo, y que a su vez, preste mejores servicios con la colaboración de toda la sociedad mediante el aprovechamiento de la tecnología. (http://vive.gobiernoenlinea.gov.co/)">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question4" value="SI">SI
+    <input type="radio" class="option-input radio" id="q4question1" name="question4" value="SI"> SI
     <br>
-    <input type="radio" class="option-input radio" id="question2" name="question4" value="NO">NO
-    <br>
-    <label>¿Por qué?</label><input type="text" id="question4_por_que" name="question4_por_que"/>
-    <br>
-    <br>
+    <input type="radio" class="option-input radio" id="q4question2" name="question4" value="NO"> NO
+    <br><br>
+    <label>¿Por qué?<a  data-toggle="tooltip" 
+      onclick="alerta('Máximo 100 carácteres')">
+        <i class="fa fa-question-circle" style=font-size:24px></i>
+      </a></label>
+    <input type="text" maxlength="100" id="question4_por_que" name="question4_por_que"/>
   </div>
 </div>
 <br>
@@ -416,25 +381,23 @@ Usuario externo son los pacientes">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question47">
-      <h4>6. ¿La institución de salud presta servicios de telemedicina?</h4>
+      <h4>6. ¿La institución de salud presta servicios de telemedicina?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Telemedicina es la provisión de servicios de salud a distancia en los componentes de promoción, prevención, diagnóstico, tratamiento y rehabilitación, por profesionales de la salud que utilizan tecnologías de la información y la comunicación, que les permiten intercambiar datos con el propósito de facilitar el acceso y la oportunidad en la prestación de servicios a la población que presenta limitaciones de oferta, de acceso a los servicios o de ambos en su área geográfica.\n\n(Ley 1419 de 2010)')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Telemedicina es la provisión de servicios de salud a distancia en los componentes de promoción, prevención, diagnóstico, tratamiento y rehabilitación, por profesionales de la salud que utilizan tecnologías de la información y la comunicación, que les permiten intercambiar datos con el propósito de facilitar el acceso y la oportunidad en la prestación de servicios a la población que presenta limitaciones de oferta, de acceso a los servicios o de ambos en su área geográfica.
-
-(Ley 1419 de 2010)">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question1" name="question6" value="SI" onclick="yesnoCheck(this, q48container, q49container);">SI
+      <input type="radio" class="option-input radio" id="q6question1_hab" name="question6" value="SI" onclick="yesnoCheck(this, q48container, q49container);"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question2" name="question6" value="NO" onclick="yesnoCheck(this, q49container, q48container);">NO
+      <input type="radio" class="option-input radio" id="q6question2" name="question6" value="NO" onclick="yesnoCheck(this, q49container, q48container);clear_inputs('q48container');"> NO
       <br>
     </div>
     <br>
@@ -460,11 +423,11 @@ Usuario externo son los pacientes">
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question1" name="question7" value="Protección específica y detección temprana">Protección específica y detección temprana
+      <input type="radio" class="option-input radio" id="q7question1" name="question7" value="Protección específica y detección temprana"> Protección específica y detección temprana
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question2" name="question7" value="Consulta externa" onclick="yesnoCheck(this, q7acontainer, q49container);">Consulta externa
+      <input type="radio" class="option-input radio" id="q7question2_hab" name="question7" value="Consulta externa" onclick="yesnoCheck(this, q7acontainer, q49container);"> Consulta externa
       <br>
     </div>
     <div class="hidden" id="q7acontainer">
@@ -487,7 +450,7 @@ Usuario externo son los pacientes">
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question3" name="question7" value="Internación" onclick="yesnoCheck(this, q7ccontainer, q49container);">Internación
+      <input type="radio" class="option-input radio" id="q7question3_hab" name="question7" value="Internación" onclick="yesnoCheck(this, q7ccontainer, q49container);"> Internación
       <br>
     </div>
 
@@ -536,7 +499,7 @@ Usuario externo son los pacientes">
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question4" name="question7" value="Quirúrgicos" onclick="yesnoCheck(this, q7dcontainer, q49container);">Quirúrgicos
+      <input type="radio" class="option-input radio" id="q7question4_hab" name="question7" value="Quirúrgicos" onclick="yesnoCheck(this, q7dcontainer, q49container);"> Quirúrgicos
       <br>
     </div>
 
@@ -566,7 +529,7 @@ Usuario externo son los pacientes">
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question5" name="question7" value="Urgencias" onclick="yesnoCheck(this, q7econtainer, q49container);">Urgencias
+      <input type="radio" class="option-input radio" id="q7question5_hab" name="question7" value="Urgencias" onclick="yesnoCheck(this, q7econtainer, q49container);"> Urgencias
       <br>
     </div>
 
@@ -584,7 +547,7 @@ Usuario externo son los pacientes">
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question6" name="question7" value="Apoyo diagnóstico y complementación terapéutica" onclick="yesnoCheck(this, q7fcontainer, q49container);">Apoyo diagnóstico y complementación terapéutica
+      <input type="radio" class="option-input radio" id="q7question6_hab" name="question7" value="Apoyo diagnóstico y complementación terapéutica" onclick="yesnoCheck(this, q7fcontainer, q49container);"> Apoyo diagnóstico y complementación terapéutica
       <br>
     </div>
 
@@ -601,7 +564,7 @@ Usuario externo son los pacientes">
             <input type="checkbox" id="question7fc" ondragover="" class="option-input checkbox" name="question7f" value="Toma e interpretación de radiografías odontológicas"> Toma e interpretación de radiografías odontológicas</label>
           <br>
           <label>
-            <input type="checkbox" id="question7fd" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas baja complejidad">Radiología e imágenes diagnósticas baja complejidad</label>
+            <input type="checkbox" id="question7fd" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas baja complejidad"> Radiología e imágenes diagnósticas baja complejidad</label>
           <br>
           <label>
             <input type="checkbox" id="question7fe" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas, mediana y alta complejidad"> Radiología e imágenes diagnósticas, mediana y alta complejidad</label>
@@ -638,7 +601,7 @@ Usuario externo son los pacientes">
             <input type="checkbox" id="question7fo" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de citologías cervico-uterinas"> Laboratorio de citologías cervico-uterinas</label>
           <br>
           <label>
-            <input type="checkbox" id="question7fp" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de histotecnología">Laboratorio de histotecnología</label>
+            <input type="checkbox" id="question7fp" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de histotecnología"> Laboratorio de histotecnología</label>
           <br>
           <label>
             <input type="checkbox" id="question7fq" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de patología"> Laboratorio de patología</label>
@@ -668,8 +631,8 @@ Usuario externo son los pacientes">
 
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question7" name="question7" value="Transporte asistencial"
-        onclick="yesnoCheck(this, q7gcontainer, q49container);">Transporte asistencial
+      <input type="radio" class="option-input radio" id="q7question7_hab" name="question7" value="Transporte asistencial"
+        onclick="yesnoCheck(this, q7gcontainer, q49container);"> Transporte asistencial
       <br>
     </div>
 
@@ -688,8 +651,8 @@ Usuario externo son los pacientes">
 
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question8" name="question7" value="Otros servicios"
-        onclick="yesnoCheck(this, q7hcontainer, q49container);">Otros servicios
+      <input type="radio" class="option-input radio" id="q7question8_hab" name="question7" value="Otros servicios"
+        onclick="yesnoCheck(this, q7hcontainer, q49container);"> Otros servicios
       <br>
     </div>
 
@@ -731,69 +694,68 @@ Usuario externo son los pacientes">
   </div>
 </div>
 
-
-
-
-
-
-
 </div>
 
-<br>
+<br><hr>
 
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question8"><h4>8. ¿La institución cuenta con un software para gestión de equipos y dispositivos médicos?</h4></label>
-    <a  data-toggle="tooltip" title=
-"Software para gestión es una herramienta para administrar y controlar los equipos y dispositivos médicos de la institución.
-
-Puede incluir información como el inventario de equipos, historial de reparaciones y mantenimiento, indicadores de desempeño de los equipos, información de costos, entre otros."><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    <label for="question8"><h4>8. ¿La institución cuenta con un software para gestión de equipos y dispositivos médicos?
+    <a  data-toggle="tooltip" 
+    onclick="alerta('Software para gestión es una herramienta para administrar y controlar los equipos y dispositivos médicos de la institución.\n\nPuede incluir información como el inventario de equipos, historial de reparaciones y mantenimiento, indicadores de desempeño de los equipos, información de costos, entre otros.')">
+    <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4></label>
+    <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-   <input type="radio" class="option-input radio" id="question1" name="question8" value="SI" >SI<br>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+   <input type="radio" class="option-input radio" id="q8question1" name="question8" value="SI" >SI<br>
    <br>
-   <label>¿Cuál?</label>   <input type="text" id="question1otro" name="question8cual" >
+   <label>¿Cuál? 
+     <a  data-toggle="tooltip" 
+      onclick="alerta('Separe cada item por guiones. Máximo 500 carácteres')">
+      <i class="fa fa-question-circle" style=font-size:24px></i></a>
+
+   </label>   
+   <input type="text" maxlength="500" id="question1otro" name="question8cual" >
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question2" name="question8" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="q8question2" name="question8" value="NO" >NO<br>
   </div>
-    <br>
   </div>
 </div>
 
+<br><hr>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question6">
       <h4>9. ¿Su institución cuenta con un sistema de información que le permita al usuario interno y externo solucionar las preguntas,
-      quejas, reclamos y denuncias?</h4>
+      quejas, reclamos y denuncias?
+      <a  data-toggle="tooltip" 
+      onclick="alerta('Sistema de información es una herramienta básica para recolectar, procesar, almacenar y distribuir la información, con el objetivo de facilitar la toma de decisiones y el control en una organización.')">
+        <i class="fa fa-question-circle" style=font-size:24px></i>
+      </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Sistema de información es una herramienta básica para recolectar, procesar, almacenar y distribuir la información, con el objetivo de facilitar la toma de decisiones y el control en una organización.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question9" value="Buzón de sugerencias">Buzón de sugerencias
+    <input type="radio" class="option-input radio" id="q9question1" name="question9" value="Buzón de sugerencias">Buzón de sugerencias
     <br>
-    <input type="radio" class="option-input radio" id="question2" name="question9" value="Puesto de información">Puesto de información
+    <input type="radio" class="option-input radio" id="q9question2" name="question9" value="Puesto de información">Puesto de información
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question9" value="Via web">Via web
+    <input type="radio" class="option-input radio" id="q9question3" name="question9" value="Via web">Via web
     <br>
 
-    <input type="radio" class="option-input radio" id="question4" name="question9" value="Otro" onclick="var input = document.getElementById('question9_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    <input type="radio" class="option-input radio" id="q9question4" name="question9" value="Otro" onclick="var input = document.getElementById('question9_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
     />Otro
-    <br>
+    <br><br>
     <label>¿Cuál?</label><input id="question9_otro" name="question9_otro" disabled="disabled" />
-    <br>
-    <br>
   </div>
 </div>
 <br>
@@ -819,46 +781,46 @@ Puede incluir información como el inventario de equipos, historial de reparacio
   </tr>
   <tr>
     <td>Software de gestión de la institución</td>
-    <td><input type="radio" class="option-input radio" id="question10" name="question10a" value="Equipos Médicos" ></td>
-    <td><input type="radio" class="option-input radio" id="question10" name="question10a" value="Procesos clínicos"></td>
+    <td><input type="radio" class="option-input radio" id="q10aquestion101" name="question10a" value="Equipos Médicos" ></td>
+    <td><input type="radio" class="option-input radio" id="q10aquestion102" name="question10a" value="Procesos clínicos"></td>
   </tr>
   <tr>
     <td>Intranet o red interna</td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10b" value="Equipos Médicos">
+      <input type="radio" class="option-input radio" id="question101b" name="question10b" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10b" value="Procesos clínicos">
+      <input type="radio" class="option-input radio" id="question102b" name="question10b" value="Procesos clínicos">
     </td>
   </tr>
 
   <tr>
     <td>Servidores</td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10c" value="Equipos Médicos">
+      <input type="radio" class="option-input radio" id="question101c" name="question10c" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10c" value="Procesos clínicos">
+      <input type="radio" class="option-input radio" id="question102c" name="question10c" value="Procesos clínicos">
     </td>
   </tr>
  
   <tr>
     <td>Archivo físico</td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10d" value="Equipos Médicos">
+      <input type="radio" class="option-input radio" id="question10d1" name="question10d" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10d" value="Procesos clínicos">
+      <input type="radio" class="option-input radio" id="question10d2" name="question10d" value="Procesos clínicos">
     </td>
   </tr>
 
   <tr>
     <td>Otro</td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10e" value="Equipos Médicos" onclick="var input = document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}">
+      <input type="radio" class="option-input radio" id="question10e1" name="question10e" value="Equipos Médicos" onclick="var input = document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question10" name="question10e" value="Procesos clínicos" onclick="var input = document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}">
+      <input type="radio" class="option-input radio" id="question10e2" name="question10e" value="Procesos clínicos" onclick="var input = document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}">
     </td>
   </tr>
 
@@ -876,23 +838,23 @@ Puede incluir información como el inventario de equipos, historial de reparacio
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question12">
-      <h4>11. ¿La institución cuenta con dispositivos y equipos biomédicos conectados en red?</h4>
+      <h4>11. ¿La institución cuenta con dispositivos y equipos biomédicos conectados en red?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Hace referencia a los dispositivos y equipos médicos integrados a sistemas de información por medio de redes alámbricas o inalámbricas, enviando automáticamente los datos generados.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Hace referencia a los dispositivos y equipos médicos integrados a sistemas de información por medio de redes alámbricas o inalámbricas, enviando automáticamente los datos generados.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question11" value="SI">SI
+      <input type="radio" class="option-input radio" id="q11question1" name="question11" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question11" value="NO">NO
+      <input type="radio" class="option-input radio" id="q11question2" name="question11" value="NO"> NO
       <br>
     </div>
     <br>
@@ -905,28 +867,25 @@ Puede incluir información como el inventario de equipos, historial de reparacio
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question12">
-      <h4>12. ¿Tiene su organización en la actualidad un sistema de Historia Clínica Electrónica?</h4>
+      <h4>12. ¿Tiene su organización en la actualidad un sistema de Historia Clínica Electrónica?
+          <a  data-toggle="tooltip" onclick="alerta('La Historia Clínica Electrónica es el conjunto global y estructurado de información relacionado con los procesos asistenciales de un paciente, soportado por una plataforma informática.\n\nEl sistema permite el almacenamiento y recuperación de información asistencial basado en procedimientos digitales, diseñado para facilitar el seguimiento de las acciones, anotaciones e instrucciones sobre las actuaciones en materia de salud de los ciudadanos (Nieto Pajares, 2011).')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"La Historia Clínica Electrónica es el conjunto global y estructurado de información relacionado con los procesos asistenciales de un paciente, soportado por una plataforma informática. 
-
-El sistema permite el almacenamiento y recuperación de información asistencial basado en procedimientos digitales, diseñado para facilitar el seguimiento de las acciones, anotaciones e instrucciones sobre las actuaciones en materia de salud de los ciudadanos (Nieto Pajares, 2011).">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question12" value="SI" onclick="yesnoCheck(this, q13container, q11container);">SI
+      <input type="radio" class="option-input radio" id="q12question1_hab" name="question12" value="SI" onclick="yesnoCheck(this, q13container, q11container);clear_inputs('q11container');"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question12" value="NO" onclick="yesnoCheck(this, q11container, q13container);">NO
-      <br>
+      <input type="radio" class="option-input radio" id="q12question2_hab" name="question12" value="NO" onclick="yesnoCheck(this, q11container, q13container);clear_inputs('q13container');"> NO
+  
     </div>
-    <br>
+    <br><hr>
   </div>
 </div>
 
@@ -938,27 +897,25 @@ El sistema permite el almacenamiento y recuperación de información asistencial
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question1">
-        <h4>13. ¿Para el registro clínico de la información de pacientes la institución hace uso de qué medios?:</h4>
+        <h4>13. ¿Para el registro clínico de la información de pacientes la institución hace uso de qué medios?:
+            <a  data-toggle="tooltip" onclick="alerta('Hace referencia a documentos o conjunto de datos que contiene información de cualquier índole relacionada con la situación clínica de un paciente y está ligada a la identificación del mismo.')">
+              <i class="fa fa-question-circle" style=font-size:24px></i>
+            </a></h4>
       </label>
-      <a  data-toggle="tooltip" title=
-"Hace referencia a documentos o conjunto de datos que contiene información de cualquier índole relacionada con la situación clínica de un paciente y está ligada a la identificación del mismo.">
-        <i class="fa fa-question-circle" style=font-size:24px></i>
-      </a>
       <br>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <input type="radio" class="option-input radio" id="question1" name="question13" value="Todos los registros son electrónicos.">Todos los registros son electrónicos.
+      <input type="radio" class="option-input radio" id="q13question1" name="question13" value="Todos los registros son electrónicos."> Todos los registros son electrónicos.
       <br>
-      <input type="radio" class="option-input radio" id="question2" name="question13" value="La mayoría de los registros son electrónicos, pero existen algunos registros en papel.">La mayoría de los registros son electrónicos, pero existen algunos registros en papel.
+      <input type="radio" class="option-input radio" id="q13question2" name="question13" value="La mayoría de los registros son electrónicos, pero existen algunos registros en papel."> La mayoría de los registros son electrónicos, pero existen algunos registros en papel.
       <br>
-      <input type="radio" class="option-input radio" id="question3" name="question13" value="La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.">La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.
+      <input type="radio" class="option-input radio" id="q13question3" name="question13" value="La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos."> La mayoría de los registros se encuentra en papel, pero existen algunos registros electrónicos.
       <br>
-      <input type="radio" class="option-input radio" id="question4" name="question13" value="Todos los registros se encuentran en papel.">Todos los registros se encuentran en papel.
+      <input type="radio" class="option-input radio" id="q13question4" name="question13" value="Todos los registros se encuentran en papel."> Todos los registros se encuentran en papel.
       <br>
       
-      <br>
     </div>
   </div>
   <br>
@@ -969,7 +926,7 @@ El sistema permite el almacenamiento y recuperación de información asistencial
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h4>Identificación Usuario/Paciente</h4>
+      <p class="title">Identificación Usuario/Paciente</p>
   </div>
 </div>
 
@@ -978,70 +935,84 @@ El sistema permite el almacenamiento y recuperación de información asistencial
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question6">
-      <h4>14. ¿Cómo realiza la identificación del usuario interno?</h4>
+      <h4>14. ¿Cómo realiza la identificación del usuario interno?
+          <a  data-toggle="tooltip" onclick="alert('Usuario interno son las personas empleadas por la institución.\n\nHace referencia al modo de identificación dentro de la institución.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Usuario interno son las personas empleadas por la institución. 
-
-Hace referencia al modo de identificación dentro de la institución.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question14" value="Tipo y número de documento de identidad">Tipo y número de documento de identidad
+    <input type="radio" class="option-input radio" id="q14question1" name="question14" value="Tipo y número de documento de identidad" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tipo y número de documento de identidad
     <br>
-    <input type="radio" class="option-input radio" id="question2" name="question14" value="Carné">Carné
+    <input type="radio" class="option-input radio" id="q14question2_hab" name="question14" onchange="yesnoCheck(this,q14containercarnet,q14containercarnetno);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');" value="Carné"> Carné
+    <br>    
+      <div class="hidden" id="q14containercarnetno"></div>
+      <div class="hidden" id="q14containercarnet">
+        <input type="checkbox" class="option-input checkbox" id="q14question2a" name="question14c" value="Código de barras"> a) Código de barras
+        <br>
+        <input type="checkbox" class="option-input checkbox" id="q14question2b" name="question14c" value="Código de respuesta rápida (QR)"> b) Código de respuesta rápida (QR)
+        <br>
+        <input type="checkbox" class="option-input checkbox" id="q14question2c" name="question14c" value="Identificación por radiofrecuencia (RFID)"> c) Identificación por radiofrecuencia (RFID)
+      </div>
+
+
+    <input type="radio" class="option-input radio" id="q14question3_hab" name="question14" value="Biométrico" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this, q14containerbio, q14containerbiono);clear_inputs('q14containercarnet');"> Biométrico
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question14" value="Biométrico">Biométrico
-    <br>
-    <input type="radio" class="option-input radio" id="question4" name="question14" value="Tarjeta profesional">Tarjeta profesional
-    <br>
-    <br>
+        <div class="hidden" id="q14containerbiono"></div>
+        <div class="hidden" id="q14containerbio">
+          <input type="checkbox" class="option-input checkbox" id="q14question3a" name="question14a" value="Huella dactilar"> a) Huella dactilar
+          <br>
+          <input type="checkbox" class="option-input checkbox" id="q14question3b" name="question14a" value="Reconocimiento facial"> b) Reconocimiento facial
+          <br>
+          <input type="checkbox" class="option-input checkbox" id="q14question3c" name="question14a" value="Reconocimiento de voz"> c) Reconocimiento de voz
+        </div>
+
+    <input type="radio" class="option-input radio" id="q14question4" name="question14" value="Tarjeta profesional" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tarjeta profesional
+    <br><hr>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question7">
-      <h4>15. ¿Cómo realiza la identificación del usuario externo?</h4>
+      <h4>15. ¿Cómo realiza la identificación del usuario externo?
+          <a  data-toggle="tooltip" onclick="alert('Usuario externo se refiere a los pacientes.\n\nHace referencia al modo de identificación dentro de la institución.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Usuario externo se refiere a los pacientes. 
-
-Hace referencia al modo de identificación dentro de la institución.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="question1" name="question15" value="Documento de identidad">Documento de identidad
+    <input type="radio" class="option-input radio" id="q15question1" name="question15" value="Documento de identidad" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Documento de identidad
     <br>
 
-    <input type="radio" class="option-input radio" id="question2" name="question15" value="Etiqueta">Etiqueta
+    <input type="radio" class="option-input radio" id="q15question2" name="question15" value="Etiqueta" onchange="yesnoCheck(this,q15containerMANno,q15containerMAN);clear_inputs('q15containerMAN');"> Etiqueta
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question15" onclick="yesnoCheck(this, q49container, q16container);" value="Manilla">Manilla
+    <input type="radio" class="option-input radio" id="q15question3_hab" name="question15"  value="Manilla" onchange="yesnoCheck(this,q15containerMAN,q15containerMANno);"> Manilla
     <br>
-          <div class="hidden" id="q16container">
-                  <input type="radio" class="option-input radio" id="question2" name="question15" value="Manual">Manual
-                  <input type="radio" class="option-input radio" id="question2" name="question15" value="impresión simple">impresión simple
-                  <input type="radio" class="option-input radio" id="question2" name="question15" value="impresión más código de barras">impresión más código de barras
+    <div class="hidden" id="q15containerMANno"></div>
+          <div class="hidden" id="q15containerMAN">
+                  <input type="checkbox" class="option-input checkbox" id="q15question2a" name="question15a" value="Manual"> Manual
+                  <br>
+                  <input type="checkbox" class="option-input checkbox" id="q15question2b" name="question15a" value="impresión simple"> Impresión simple
+                  <br>
+                  <input type="checkbox" class="option-input checkbox" id="q15question2c" name="question15a" value="impresión más código de barras"> Impresión más código de barras
           </div>
 
-    <input type="radio" class="option-input radio" id="question3" name="question15" value="Contrato/póliza">Contrato/póliza
+    <input type="radio" class="option-input radio" id="q15question3a" name="question15" value="Contrato/póliza" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Contrato/póliza
     <br>
-    <input type="radio" class="option-input radio" id="question3" name="question15" value="Contrato/póliza">Biométrico
+    <input type="radio" class="option-input radio" id="q15question3b" name="question15" value="Contrato/póliza" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Biométrico
     <br>
-    <input type="radio" class="option-input radio" id="question4" name="question15" value="Otro" onclick="var input = document.getElementById('question16_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Otro, ¿Cuál?
-    <br>
+    <input type="radio" class="option-input radio" id="q15question4" name="question15" value="Otro" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');var input = document.getElementById('question15_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    /> Otro, ¿Cuál?
+    <br><br>
     <input id="question15_otro" name="question15_otro" disabled="disabled" />
-    <br>
-    <br>
+
   </div>
 </div>
 <br>
@@ -1066,22 +1037,19 @@ Hace referencia al modo de identificación dentro de la institución.">
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <input type="radio" class="option-input radio" id="question1" name="question16" value="Menos a 1 año">Menos a 1 año
+      <input type="radio" class="option-input radio" id="q16question1" name="question16" value="Menos a 1 año"> Menos a 1 año
       <br>
-      <input type="radio" class="option-input radio" id="question2" name="question16" value="1 año a 2 años">1 año a 2 años
+      <input type="radio" class="option-input radio" id="q16question2" name="question16" value="1 año a 2 años"> 1 año a 2 años
       <br>
-      <input type="radio" class="option-input radio" id="question3" name="question16" value="2 años a 3 años">2 años a 3 años
+      <input type="radio" class="option-input radio" id="q16question3" name="question16" value="2 años a 3 años"> 2 años a 3 años
       <br>
-      <input type="radio" class="option-input radio" id="question4" name="question16" value="Más de 3 años">Más de 3 años
-      <br>
+      <input type="radio" class="option-input radio" id="q16question4" name="question16" value="Más de 3 años"> Más de 3 años
       <br>
     </div>
   </div>
   <br>
   <hr>
 
-<br>
-<hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question26">
@@ -1130,17 +1098,15 @@ Hace referencia al modo de identificación dentro de la institución.">
       <br>
     </div>
 
-
-
-
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
       <input type="checkbox" class="option-input checkbox" id="question17h" name="question17" value="Otro" onclick="var input=document.getElementById('question17_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
       />Otros
       <br>
       <label>¿Cuáles?</label><input id="question17_otro" name="question17_otro" disabled="disabled" />
     </label>
-    <br>
-    <br>
+
+    </div>
   </div>
 </div>
 
@@ -1162,111 +1128,110 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question18" value="CNT">CNT
+      <input type="radio" class="option-input radio" id="q18question1" name="question18" value="CNT"> CNT
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question18" value="Dinámica Gerencial"> Dinámica Gerencial
+      <input type="radio" class="option-input radio" id="q18question2" name="question18" value="Dinámica Gerencial"> Dinámica Gerencial
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question3" name="question18" value="Hosvital">Hosvital
+      <input type="radio" class="option-input radio" id="q18question3" name="question18" value="Hosvital"> Hosvital
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question4" name="question18" value="HeOn">HeOn
+      <input type="radio" class="option-input radio" id="q18question4" name="question18" value="HeOn"> HeOn
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5" name="question18" value="SAHI">SAHI
+      <input type="radio" class="option-input radio" id="q18question5" name="question18" value="SAHI"> SAHI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question6" name="question18" value="Xenco">Xenco
+      <input type="radio" class="option-input radio" id="q18question6" name="question18" value="Xenco"> Xenco
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question7" name="question18" value="CitiSalud">CitiSalud
+      <input type="radio" class="option-input radio" id="q18question7" name="question18" value="CitiSalud"> CitiSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question8" name="question18" value="Punto Exe">Punto Exe
+      <input type="radio" class="option-input radio" id="q18question8" name="question18" value="Punto Exe"> Punto Exe
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question9" name="question18" value="Hospitec">Hospitec
+      <input type="radio" class="option-input radio" id="q18question9" name="question18" value="Hospitec"> Hospitec
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question10" name="question18" value="Hipócrates">Hipócrates
+      <input type="radio" class="option-input radio" id="q18question10" name="question18" value="Hipócrates"> Hipócrates
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question11" name="question18" value="SAP">SAP
+      <input type="radio" class="option-input radio" id="q18question11" name="question18" value="SAP"> SAP
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question12" name="question18" value="Servinte">Servinte
+      <input type="radio" class="option-input radio" id="q18question12" name="question18" value="Servinte"> Servinte
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question13" name="question18" value="SysNet">SysNet
+      <input type="radio" class="option-input radio" id="q18question13" name="question18" value="SysNet"> SysNet
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question14" name="question18" value="eSalud">eSalud
+      <input type="radio" class="option-input radio" id="q18question14" name="question18" value="eSalud"> eSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question15" name="question18" value="Escafandra">Escafandra
+      <input type="radio" class="option-input radio" id="q18question15" name="question18" value="Escafandra"> Escafandra
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question16" name="question18" value="iMedical">iMedical
+      <input type="radio" class="option-input radio" id="q18uestion16" name="question18" value="iMedical"> iMedical
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question17" name="question18" value="OasisCom">OasisCom
+      <input type="radio" class="option-input radio" id="q18question17" name="question18" value="OasisCom"> OasisCom
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18" name="question18" value="FormPlus">FormPlus
+      <input type="radio" class="option-input radio" id="q18question18" name="question18" value="FormPlus"> FormPlus
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question19" name="question18" value="Manager Clinic">Manager Clinic
+      <input type="radio" class="option-input radio" id="q18question19" name="question18" value="Manager Clinic"> Manager Clinic
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question20" name="question18" value="Gomedisys">Gomedisys
+      <input type="radio" class="option-input radio" id="q18question20" name="question18" value="Gomedisys"> Gomedisys
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question21" name="question18" value="SIO Salud">SIO Salud
+      <input type="radio" class="option-input radio" id="q18question21" name="question18" value="SIO Salud"> SIO Salud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question22" name="question18" value="SISFIN">SISFIN
+      <input type="radio" class="option-input radio" id="q18question22" name="question18" value="SISFIN"> SISFIN
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question23" name="question18" value="IPSoft">IPSoft
+      <input type="radio" class="option-input radio" id="q18question23" name="question18" value="IPSoft"> IPSoft
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question24" name="question18" value="Rocky">Rocky
+      <input type="radio" class="option-input radio" id="q18question24" name="question18" value="Rocky"> Rocky
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question25" name="question18" value="Gemar">Gemar
+      <input type="radio" class="option-input radio" id="q18question25" name="question18" value="Gemar"> Gemar
       <br>
     </div>
-    <input type="radio" class="option-input radio" id="question26" name="question18" value="Otro" onclick="var input = document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    <input type="radio" class="option-input radio" id="q18question26" name="question18" value="Otro" onclick="var input = document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
     />Otro
     <br>
     <label>¿Cuál?</label><input id="question18_otro" name="question18_otro" disabled="disabled" />
-    <br>
-    <br>
+
   </div>
 </div>
 <br>
@@ -1280,43 +1245,40 @@ Hace referencia al modo de identificación dentro de la institución.">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question17">
-        <h4>19. ¿Cuál es la Arquitectura del sistema de Historia Clínica Electrónica que utiliza su institución?</h4>
+        <h4>19. ¿Cuál es la Arquitectura del sistema de Historia Clínica Electrónica que utiliza su institución?
+            <a  data-toggle="tooltip" onclick="alerta('Arquitectura del sistema se refiere a la estructura y organización del software de aplicación.')">
+              <i class="fa fa-question-circle" style=font-size:24px></i>
+            </a></h4>
       </label>
-      <a  data-toggle="tooltip" title=
-"Arquitectura del sistema se refiere a la estructura y organización del software de aplicación.">
-        <i class="fa fa-question-circle" style=font-size:24px></i>
-      </a>
       <br>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question1" name="question19" value="Stand Alone">Stand Alone
+        <input type="radio" class="option-input radio" id="q19question1" name="question19" value="Stand Alone"> Stand Alone
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question2" name="question19" value="Cliente – Servidor">Cliente – Servidor
+        <input type="radio" class="option-input radio" id="q19question2" name="question19" value="Cliente – Servidor"> Cliente – Servidor
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question3" name="question19" value="Web">Web
+        <input type="radio" class="option-input radio" id="q19question3" name="question19" value="Web"> Web
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question4" name="question19" value="SOA">Arquitectura orientada a servicios (SOA)
+        <input type="radio" class="option-input radio" id="q19question4" name="question19" value="SOA"> Arquitectura orientada a servicios (SOA)
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question5" name="question19" value="Otro" onclick="var input = document.getElementById('question19_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+        <input type="radio" class="option-input radio" id="q19question5" name="question19" value="Otro" onclick="var input = document.getElementById('question19_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
         />Otro
         <br>
         <label>¿Cuál?</label>
         <input id="question19_otro" name="question19_otro" disabled="disabled" />
-        <br>
-      </div>
 
-      <br>
+      </div>
     </div>
   </div>
 
@@ -1328,12 +1290,11 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question12">
-      <h4>20. ¿Los datos capturados de los equipos médicos son interoperables con la Historia Clínica Electrónica?</h4>
+      <h4>20. ¿Los datos capturados de los equipos médicos son interoperables con la Historia Clínica Electrónica?
+          <a  data-toggle="tooltip" onclick="alerta('La interoperabilidad es la capacidad de un sistema para intercambiar y utilizar información con otros sistemas sin restricción de acceso o de implementación.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"La interoperabilidad es la capacidad de un sistema para intercambiar y utilizar información con otros sistemas sin restricción de acceso o de implementación.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
@@ -1343,54 +1304,42 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question20" value="SI">SI
+      <input type="radio" class="option-input radio" id="q20question1" name="question20" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question20" value="NO">NO
-      <br>
+      <input type="radio" class="option-input radio" id="q20question2" name="question20" value="NO"> NO
+
     </div>
-    <br>
   </div>
 </div>
 
 <br>
 <hr>
 
-
-
-<br>
-<hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question21">
-      <h4>21.¿Su sistema de Historia Clínica Electrónica está separado del sistema administrativo?</h4>
+      <h4>21.¿Su sistema de Historia Clínica Electrónica está separado del sistema administrativo?
+          <a  data-toggle="tooltip" onclick="alerta('Es afirmativa si su sistema administrativo es independiente del sistema de Historia Clínica Electrónica.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Es afirmativa si su sistema administrativo es independiente del sistema de Historia Clínica Electrónica.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question21" value="SI">SI
+      <input type="radio" class="option-input radio" id="q21question1" name="question21" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question21" value="NO">NO
-      <br>
+      <input type="radio" class="option-input radio" id="q21question2" name="question21" value="NO"> NO
+    
     </div>
-    <br>
   </div>
 </div>
-<br>
-<hr>
-
-
-
 <br>
 <hr>
 <div class="row">
@@ -1439,6 +1388,7 @@ Hace referencia al modo de identificación dentro de la institución.">
         <input type="checkbox" id="question22g" ondragover="" class="option-input checkbox" name="question22" value="Otro" onclick="var input=document.getElementById('question22_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
         />Otro
         <br>
+        <br>
         <input id="question22_otro" name="question45_otro" disabled="disabled" />
       </label>
       <br>
@@ -1456,12 +1406,11 @@ Hace referencia al modo de identificación dentro de la institución.">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question49">
       <h4>23. ¿Cuenta con algún sistema o aplicación de Historia Clínica Electrónica en las siguientes áreas o servicios?
+          <a  data-toggle="tooltip" onclick="alerta('Hace referencia a qué áreas o servicios abarca el sistema de Historia Clínica Electrónica de su institución.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a>
 </h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Hace referencia a qué áreas o servicios abarca el sistema de Historia Clínica Electrónica de su institución.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
@@ -1479,130 +1428,130 @@ Hace referencia al modo de identificación dentro de la institución.">
   <tr>
     <td>Protección específica y detección temprana</td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23a" value="SI">
+      <input type="radio" class="option-input radio" id="q23aquestiona" name="question23a" value="SI">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23a" value="NO">
+      <input type="radio" class="option-input radio" id="q23aquestionb" name="question23a" value="NO">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23a" value="N/A">
+      <input type="radio" class="option-input radio" id="q23aquestionc" name="question23a" value="N/A">
     </td>
   </tr>
 
   <tr>
     <td>Consulta externa general</td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23b" value="SI">
+      <input type="radio" class="option-input radio" id="q23bquestiona" name="question23b" value="SI">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23b" value="NO">
+      <input type="radio" class="option-input radio" id="q23bquestionb" name="question23b" value="NO">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23b" value="N/A">
+      <input type="radio" class="option-input radio" id="q23bquestionc" name="question23b" value="N/A">
     </td>
   </tr>
 
   <tr>
     <td>Consulta externa especialidades médicas</td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23c" value="SI">
+      <input type="radio" class="option-input radio" id="q23cquestiona" name="question23c" value="SI">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23c" value="NO">
+      <input type="radio" class="option-input radio" id="q23cquestionb" name="question23c" value="NO">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question23" name="question23c" value="N/A">
+      <input type="radio" class="option-input radio" id="q23cquestionc" name="question23c" value="N/A">
     </td>
   </tr>
 
     <tr>
       <td>Consulta odontológica general y especializada</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23d" value="SI">
+        <input type="radio" class="option-input radio" id="q23dquestiona" name="question23d" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23d" value="NO">
+        <input type="radio" class="option-input radio" id="q23dquestionb" name="question23d" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23d" value="N/A">
+        <input type="radio" class="option-input radio" id="q23dquestionc" name="question23d" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Medicinas alternativas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23e" value="SI">
+        <input type="radio" class="option-input radio" id="q23equestiona" name="question23e" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23e" value="NO">
+        <input type="radio" class="option-input radio" id="q23equestionb" name="question23e" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23e" value="N/A">
+        <input type="radio" class="option-input radio" id="q23equestionc" name="question23e" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hospitalización baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23f" value="SI">
+        <input type="radio" class="option-input radio" id="q23fquestiona" name="question23f" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23f" value="NO">
+        <input type="radio" class="option-input radio" id="q23fquestionb" name="question23f" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23f" value="N/A">
+        <input type="radio" class="option-input radio" id="q23fquestionc" name="question23f" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hospitalización mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23g" value="SI">
+        <input type="radio" class="option-input radio" id="q23gquestiona" name="question23g" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23g" value="NO">
+        <input type="radio" class="option-input radio" id="q23gquestionb" name="question23g" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23g" value="N/A">
+        <input type="radio" class="option-input radio" id="q23gquestionc" name="question23g" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hospitalización obstétrica baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23h" value="SI">
+        <input type="radio" class="option-input radio" id="q23hquestiona" name="question23h" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23h" value="NO">
+        <input type="radio" class="option-input radio" id="q23hquestionb" name="question23h" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23h" value="N/A">
+        <input type="radio" class="option-input radio" id="q23hquestionc" name="question23h" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hospitalización obstétrica mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23i" value="SI">
+        <input type="radio" class="option-input radio" id="q23iquestiona" name="question23i" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23i" value="NO">
+        <input type="radio" class="option-input radio" id="q23iquestionb" name="question23i" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23i" value="N/A">
+        <input type="radio" class="option-input radio" id="q23iquestionc" name="question23i" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cuidado básico neonatal Internación parcial en hospital</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23j" value="SI">
+        <input type="radio" class="option-input radio" id="q23jquestiona" name="question23j" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23j" value="NO">
+        <input type="radio" class="option-input radio" id="q23jquestionb" name="question23j" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23j" value="N/A">
+        <input type="radio" class="option-input radio" id="q23jquestionc" name="question23j" value="N/A">
       </td>
     </tr>
 
@@ -1610,39 +1559,39 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Hospitalización en unidad de salud mental</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23k" value="SI">
+        <input type="radio" class="option-input radio" id="q23kquestiona" name="question23k" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23k" value="NO">
+        <input type="radio" class="option-input radio" id="q23kquestionb" name="question23k" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23k" value="N/A">
+        <input type="radio" class="option-input radio" id="q23kquestionc" name="question23k" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Internación Hospitalaria e Internación Parcial para la atención al consumidor de Sustancias Psicoactivas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23l" value="SI">
+        <input type="radio" class="option-input radio" id="q23lquestiona" name="question23l" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23l" value="NO">
+        <input type="radio" class="option-input radio" id="q23lquestionb" name="question23l" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23l" value="N/A">
+        <input type="radio" class="option-input radio" id="q23lquestionc" name="question23l" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención institucional de paciente crónico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23m" value="SI">
+        <input type="radio" class="option-input radio" id="q23mquestiona" name="question23m" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23m" value="NO">
+        <input type="radio" class="option-input radio" id="q23mquestionb" name="question23m" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23m" value="N/A">
+        <input type="radio" class="option-input radio" id="q23mquestionc" name="question23m" value="N/A">
       </td>
     </tr>
 
@@ -1650,13 +1599,13 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Cuidado intermedio neonatal</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23n" value="SI">
+        <input type="radio" class="option-input radio" id="23na" name="question23n" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23n" value="NO">
+        <input type="radio" class="option-input radio" id="23nb" name="question23n" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23n" value="N/A">
+        <input type="radio" class="option-input radio" id="23nc" name="question23n" value="N/A">
       </td>
     </tr>
 
@@ -1664,52 +1613,52 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Cuidado intermedio pediátrico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23o" value="SI">
+        <input type="radio" class="option-input radio" id="23oa" name="question23o" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23o" value="NO">
+        <input type="radio" class="option-input radio" id="23ob" name="question23o" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23o" value="N/A">
+        <input type="radio" class="option-input radio" id="23oc" name="question23o" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cuidado intermedio adultos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23p" value="SI">
+        <input type="radio" class="option-input radio" id="q23pquestion23a" name="question23p" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23p" value="NO">
+        <input type="radio" class="option-input radio" id="q23pquestion23b" name="question23p" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23p" value="N/A">
+        <input type="radio" class="option-input radio" id="q23pquestion23c" name="question23p" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cuidado intensivo neonatal</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23q" value="SI">
+        <input type="radio" class="option-input radio" id="q23qquestion23a" name="question23q" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23q" value="NO">
+        <input type="radio" class="option-input radio" id="q23qquestion23b" name="question23q" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23q" value="N/A">
+        <input type="radio" class="option-input radio" id="q23qquestion23c" name="question23q" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cuidado intensivo pediátrico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23r" value="SI">
+        <input type="radio" class="option-input radio" id="q23rquestion23a" name="question23r" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23r" value="NO">
+        <input type="radio" class="option-input radio" id="q23rquestion23b" name="question23r" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23r" value="N/A">
+        <input type="radio" class="option-input radio" id="q23rquestion23c" name="question23r" value="N/A">
       </td>
     </tr>
 
@@ -1717,26 +1666,26 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Cuidado intensivo adultos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23s" value="SI">
+        <input type="radio" class="option-input radio" id="q23squestion23a" name="question23s" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23s" value="NO">
+        <input type="radio" class="option-input radio" id="q23squestion23b" name="question23s" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23s" value="N/A">
+        <input type="radio" class="option-input radio" id="q23squestion23c" name="question23s" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Unidad de quemados adultos y/o pediátricos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23t" value="SI">
+        <input type="radio" class="option-input radio" id="q23tquestion23a" name="question23t" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23t" value="NO">
+        <input type="radio" class="option-input radio" id="q23tquestion23b" name="question23t" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23t" value="N/A">
+        <input type="radio" class="option-input radio" id="q23tquestion23c" name="question23t" value="N/A">
       </td>
     </tr>
 
@@ -1744,351 +1693,351 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Cirugía baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23u" value="SI">
+        <input type="radio" class="option-input radio" id="q23uquestion23a" name="question23u" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23u" value="NO">
+        <input type="radio" class="option-input radio" id="q23uquestion23b" name="question23u" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23u" value="N/A">
+        <input type="radio" class="option-input radio" id="q23uquestion23c" name="question23u" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cirugía mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23v" value="SI">
+        <input type="radio" class="option-input radio" id="q23vquestion23a" name="question23v" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23v" value="NO">
+        <input type="radio" class="option-input radio" id="q23vquestion23b" name="question23v" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23v" value="N/A">
+        <input type="radio" class="option-input radio" id="q23vquestion23c" name="question23v" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Cirugía ambulatoria</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23w" value="SI">
+        <input type="radio" class="option-input radio" id="q23wquestion23a" name="question23w" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23w" value="NO">
+        <input type="radio" class="option-input radio" id="q23wquestion23b" name="question23w" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23w" value="N/A">
+        <input type="radio" class="option-input radio" id="q23wquestion23c" name="question23w" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Trasplante de órganos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23x" value="SI">
+        <input type="radio" class="option-input radio" id="q23xquestion23a" name="question23x" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23x" value="NO">
+        <input type="radio" class="option-input radio" id="q23xquestion23b" name="question23x" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23x" value="N/A">
+        <input type="radio" class="option-input radio" id="q23xquestion23c" name="question23x" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Trasplante de progenitores hematopoyéticos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23y" value="SI">
+        <input type="radio" class="option-input radio" id="q23yquestion23a" name="question23y" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23y" value="NO">
+        <input type="radio" class="option-input radio" id="q23yquestion23b" name="question23y" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23y" value="N/A">
+        <input type="radio" class="option-input radio" id="q23yquestion23c" name="question23y" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Trasplante de tejidos</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23z" value="SI">
+        <input type="radio" class="option-input radio" id="q23zquestion23a" name="question23z" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23z" value="NO">
+        <input type="radio" class="option-input radio" id="q23zquestion23b" name="question23z" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23z" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zquestion23c" name="question23z" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Urgencias baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23za" value="SI">
+        <input type="radio" class="option-input radio" id="q23zaquestion23a" name="question23za" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23za" value="NO">
+        <input type="radio" class="option-input radio" id="q23zaquestion23b" name="question23za" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23za" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zaquestion23c" name="question23za" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Urgencias mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zb" value="SI">
+        <input type="radio" class="option-input radio" id="q23zbquestion23a" name="question23zb" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zb" value="NO">
+        <input type="radio" class="option-input radio" id="q23zbquestion23b" name="question23zb" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zb" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zbquestion23c" name="question23zb" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Servicio farmacéutico baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zc" value="SI">
+        <input type="radio" class="option-input radio" id="q23zcquestion23a" name="question23zc" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zc" value="NO">
+        <input type="radio" class="option-input radio" id="q23zcquestion23b" name="question23zc" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zc" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zcquestion23c" name="question23zc" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Servicio farmacéutico mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zd" value="SI">
+        <input type="radio" class="option-input radio" id="q23zdquestion23a" name="question23zd" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zd" value="NO">
+        <input type="radio" class="option-input radio" id="q23zdquestion23b" name="question23zd" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zd" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zdquestion23c" name="question23zd" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Toma e interpretación de radiografías odontológicas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23ze" value="SI">
+        <input type="radio" class="option-input radio" id="q23zequestion23a" name="question23ze" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23ze" value="NO">
+        <input type="radio" class="option-input radio" id="q23zequestion23b" name="question23ze" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23ze" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zequestion23c" name="question23ze" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Radiología e imágenes diagnósticas baja complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zf" value="SI">
+        <input type="radio" class="option-input radio" id="q23zfquestion23a" name="question23zf" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zf" value="NO">
+        <input type="radio" class="option-input radio" id="q23zfquestion23b" name="question23zf" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zf" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zfquestion23c" name="question23zf" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Radiología e imágenes diagnósticas, mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zg" value="SI">
+        <input type="radio" class="option-input radio" id="q23zgquestion23a" name="question23zg" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zg" value="NO">
+        <input type="radio" class="option-input radio" id="q23zgquestion23b" name="question23zg" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zg" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zgquestion23c" name="question23zg" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Ultrasonido Medicina nuclear</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zh" value="SI">
+        <input type="radio" class="option-input radio" id="q23zhquestion23a" name="question23zh" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zh" value="NO">
+        <input type="radio" class="option-input radio" id="q23zhquestion23b" name="question23zh" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zh" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zhquestion23c" name="question23zh" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Radioterapia</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zi" value="SI">
+        <input type="radio" class="option-input radio" id="q23ziquestion23a" name="question23zi" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zi" value="NO">
+        <input type="radio" class="option-input radio" id="q23ziquestion23b" name="question23zi" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zi" value="N/A">
+        <input type="radio" class="option-input radio" id="q23ziquestion23c" name="question23zi" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Quimioterapia</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zj" value="SI">
+        <input type="radio" class="option-input radio" id="q23zjquestion23a" name="question23zj" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zj" value="NO">
+        <input type="radio" class="option-input radio" id="q23zjquestion23b" name="question23zj" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zj" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zjquestion23c" name="question23zj" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Diagnóstico cardiovascular</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zk" value="SI">
+        <input type="radio" class="option-input radio" id="q23zkquestion23a" name="question23zk" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zk" value="NO">
+        <input type="radio" class="option-input radio" id="q23zkquestion23b" name="question23zk" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zk" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zkquestion23c" name="question23zk" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Electrodiagnóstico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zl" value="SI">
+        <input type="radio" class="option-input radio" id="q23zlquestion23a" name="question23zl" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zl" value="NO">
+        <input type="radio" class="option-input radio" id="q23zlquestion23b" name="question23zl" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zl" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zlquestion23c" name="question23zl" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Transfusión sanguínea</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zm" value="SI">
+        <input type="radio" class="option-input radio" id="q23zmquestion23a" name="question23zm" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zm" value="NO">
+        <input type="radio" class="option-input radio" id="q23zmquestion23b" name="question23zm" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zm" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zmquestion23c" name="question23zm" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Toma de muestras de laboratorio clínico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zn" value="SI">
+        <input type="radio" class="option-input radio" id="q23znquestion23a" name="question23zn" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zn" value="NO">
+        <input type="radio" class="option-input radio" id="q23znquestion23b" name="question23zn" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zn" value="N/A">
+        <input type="radio" class="option-input radio" id="q23znquestion23c" name="question23zn" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Laboratorio clínico baja, mediana y alta complejidad</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zo" value="SI">
+        <input type="radio" class="option-input radio" id="q23zoquestion23a" name="question23zo" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zo" value="NO">
+        <input type="radio" class="option-input radio" id="q23zoquestion23b" name="question23zo" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zo" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zoquestion23c" name="question23zo" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Tamización de cáncer de cuello uterino</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zp" value="SI">
+        <input type="radio" class="option-input radio" id="q23zpquestion23a" name="question23zp" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zp" value="NO">
+        <input type="radio" class="option-input radio" id="q23zpquestion23b" name="question23zp" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zp" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zpquestion23c" name="question23zp" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Laboratorio de citologías cervico-uterinas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zq" value="SI">
+        <input type="radio" class="option-input radio" id="q23zqquestion23a" name="question23zq" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zq" value="NO">
+        <input type="radio" class="option-input radio" id="q23zqquestion23b" name="question23zq" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zq" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zqquestion23c" name="question23zq" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Laboratorio de histotecnología</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zr" value="SI">
+        <input type="radio" class="option-input radio" id="q23zrquestion23a" name="question23zr" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zr" value="NO">
+        <input type="radio" class="option-input radio" id="q23zrquestion23b" name="question23zr" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zr" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zrquestion23c" name="question23zr" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Laboratorio de patología</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zs" value="SI">
+        <input type="radio" class="option-input radio" id="q23zsquestion23a" name="question23zs" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zs" value="NO">
+        <input type="radio" class="option-input radio" id="q23zsquestion23b" name="question23zs" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zs" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zsquestion23c" name="question23zs" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Endoscopia Digestiva</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zt" value="SI">
+        <input type="radio" class="option-input radio" id="q23ztquestion23a" name="question23zt" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zt" value="NO">
+        <input type="radio" class="option-input radio" id="q23ztquestion23b" name="question23zt" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zt" value="N/A">
+        <input type="radio" class="option-input radio" id="q23ztquestion23c" name="question23zt" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hemodiálisis</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zu" value="SI">
+        <input type="radio" class="option-input radio" id="q23zuquestion23a" name="question23zu" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zu" value="NO">
+        <input type="radio" class="option-input radio" id="q23zuquestion23b" name="question23zu" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zu" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zuquestion23c" name="question23zu" value="N/A">
       </td>
     </tr>
 
@@ -2096,13 +2045,13 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Diálisis peritoneal</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zv" value="SI">
+        <input type="radio" class="option-input radio" id="q23zvquestion23a" name="question23zv" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zv" value="NO">
+        <input type="radio" class="option-input radio" id="q23zvquestion23b" name="question23zv" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zv" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zvquestion23c" name="question23zv" value="N/A">
       </td>
     </tr>
 
@@ -2110,169 +2059,169 @@ Hace referencia al modo de identificación dentro de la institución.">
     <tr>
       <td>Terapias alternativas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zw" value="SI">
+        <input type="radio" class="option-input radio" id="q23zwquestion23a" name="question23zw" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zw" value="NO">
+        <input type="radio" class="option-input radio" id="q23zwquestion23b" name="question23zw" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zw" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zwquestion23c" name="question23zw" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Neumología - Laboratorio de función pulmonar</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zx" value="SI">
+        <input type="radio" class="option-input radio" id="q23zxquestion23a" name="question23zx" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zx" value="NO">
+        <input type="radio" class="option-input radio" id="q23zxquestion23b" name="question23zx" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zx" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zxquestion23c" name="question23zx" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Hemodinamia</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zy" value="SI">
+        <input type="radio" class="option-input radio" id="q23zyquestion23a" name="question23zy" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zy" value="NO">
+        <input type="radio" class="option-input radio" id="q23zyquestion23b" name="question23zy" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zy" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zyquestion23c" name="question23zy" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Transporte asistencial básico</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zz" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzquestion23a" name="question23zz" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zz" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzquestion23b" name="question23zz" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zz" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzquestion23c" name="question23zz" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Transporte asistencial medicalizado diagnósticas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zza" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzaquestion23a" name="question23zza" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zza" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzaquestion23b" name="question23zza" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zza" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzaquestion23c" name="question23zza" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención domiciliaria paciente agudo</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzb" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzbquestion23a" name="question23zzb" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzb" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzbquestion23b" name="question23zzb" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzb" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzbquestion23c" name="question23zzb" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención domiciliaria paciente crónico sin ventilador</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzc" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzcquestion23a" name="question23zzc" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzc" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzcquestion23b" name="question23zzc" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzc" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzcquestion23c" name="question23zzc" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención domiciliaria paciente crónico con ventilador</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzd" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzdquestion23a" name="question23zzd" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzd" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzdquestion23b" name="question23zzd" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzd" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzdquestion23c" name="question23zzd" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Consulta domiciliaria</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zze" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzequestion23a" name="question23zze" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zze" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzequestion23b" name="question23zze" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zze" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzequestion23c" name="question23zze" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención prehospitalaria</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzf" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzfquestion23a" name="question23zzf" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzf" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzfquestion23b" name="question23zzf" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzf" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzfquestion23c" name="question23zzf" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención consumidor de sustancias psicoactivas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzg" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzgquestion23a" name="question23zzg" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzg" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzgquestion23b" name="question23zzg" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzg" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzgquestion23c" name="question23zzg" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención ambulatoria al consumidor de sustancias psicoactivas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzh" value="SI">
+        <input type="radio" class="option-input radio" id="q23zzhquestion23a" name="question23zzh" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzh" value="NO">
+        <input type="radio" class="option-input radio" id="q23zzhquestion23b" name="question23zzh" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzh" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zzhquestion23c" name="question23zzh" value="N/A">
       </td>
     </tr>
 
     <tr>
       <td>Atención institucional no hospitalaria al consumidor de sustancias psicoactivas</td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzi" value="SI">
+        <input type="radio" class="option-input radio" id="q23zziquestion23a" name="question23zzi" value="SI">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzi" value="NO">
+        <input type="radio" class="option-input radio" id="q23zziquestion23b" name="question23zzi" value="NO">
       </td>
       <td>
-        <input type="radio" class="option-input radio" id="question23" name="question23zzi" value="N/A">
+        <input type="radio" class="option-input radio" id="q23zziquestion23c" name="question23zzi" value="N/A">
       </td>
     </tr>
 
@@ -2285,12 +2234,12 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question43">
-      <h4>24. De los siguientes datos sobre un determinado paciente ¿cuáles de ellos están integrados a la Historia Clínica Electrónica?</h4>
+      <h4>24. De los siguientes datos sobre un determinado paciente ¿cuáles de ellos están integrados a la Historia Clínica Electrónica?
+          <a  data-toggle="tooltip" onclick="alerta('Seleccione la información relacionada con el paciente que se pueden integrar al sistema de Historia Clínica Electrónica');">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a>
+        </h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Seleccione la información relacionada con el paciente que se pueden integrar al sistema de Historia Clínica Electrónica">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
@@ -2364,9 +2313,8 @@ Hace referencia al modo de identificación dentro de la institución.">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
         <input type="checkbox" id="question24n" ondragover="" class="option-input checkbox" name="question24" value="Datos de vacunación"> Datos de vacunación</label>
-      <br>
+    
     </div>
-    <br>
   </div>
 </div>
 <br>
@@ -2404,23 +2352,10 @@ Hace referencia al modo de identificación dentro de la institución.">
       <input type="checkbox" id="question25d" ondragover="" class="option-input checkbox" name="question25" value="Proporcionar resumenes de alta de los pacientes"> Proporcionar resumenes de alta de los pacientes</label>
     <br>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label>
-      <input type="checkbox" id="question25f" ondragover="" class="option-input checkbox" name="question25" value="Listar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros médicos"> Listar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros
-      médicos</label>
-    <br>
-  </div>
-
-
   
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
       <input type="checkbox" id="question25g" ondragover="" class="option-input checkbox" name="question25" value="Listar los resultados de análisis de laboratorio de un paciente específco"> Listar los resultados de análisis de laboratorio de un paciente específico</label>
-    <br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label>
-      <input type="checkbox" id="question25h" ondragover="" class="option-input checkbox" name="question25" value="Listar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado"> Listar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado</label>
     <br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -2435,7 +2370,7 @@ Hace referencia al modo de identificación dentro de la institución.">
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
-      <input type="checkbox" id="question25k" ondragover="" class="option-input checkbox" name="question25" value="Pedir medicamentos/receta médica">Pedir medicamentos/receta médica</label>
+      <input type="checkbox" id="question25k" ondragover="" class="option-input checkbox" name="question25" value="Pedir medicamentos/receta médica"> Pedir medicamentos/receta médica</label>
     <br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -2446,9 +2381,20 @@ Hace referencia al modo de identificación dentro de la institución.">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
       <input type="checkbox" id="question25m" ondragover="" class="option-input checkbox" name="question25" value="Acceso remoto a la información"> Acceso remoto a la información</label>
-    <br>
+
   </div>
   
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label>
+        <input type="checkbox" id="question25h" ondragover="" class="option-input checkbox" name="question25" value="Listar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado"> Listar los resultados de exámenes radiológicos incluyendo informes e imágenes de un paciente determinado</label>
+      <br>
+    </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <label>
+        <input type="checkbox" id="question25f" ondragover="" class="option-input checkbox" name="question25" value="Listar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros médicos"> Listar los medicamentos que un paciente específico está haciendo uso incluyendo aquellos prescritos por otros
+        médicos</label>
+      <br>
+    </div>
 </div>
 <br>
 <hr>
@@ -2460,23 +2406,22 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question13">
-      <h4>26. ¿La institución envía o recibe información de forma electrónica hacia/de otras instituciones de salud?</h4>
+      <h4>26. ¿La institución envía o recibe información de forma electrónica hacia/de otras instituciones de salud?
+          <a  data-toggle="tooltip" onclick="alerta('Es afirmativa si hay transferencia (envío y recepción) de información de forma electrónica con otras instituciones de salud')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Es afirmativa si hay transferencia (envío y recepción) de información de forma electrónica con otras instituciones de salud">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question1" name="question26" onclick="yesnoCheck(this, q26sicontainer, q26nocontainer);" value="SI">SI
+      <input type="radio" class="option-input radio" id="q26question1_hab" name="question26" onclick="yesnoCheck(this, q26sicontainer, q26nocontainer);" value="SI">SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question2" name="question26" value="NO">NO
+      <input type="radio" class="option-input radio" id="q26question2" name="question26" onclick="yesnoCheck(this, q26nocontainer, q26sicontainer);clear_inputs('q26sicontainer');" value="NO"> NO
       <br>
     </div>
     <br>
@@ -2511,11 +2456,6 @@ Hace referencia al modo de identificación dentro de la institución.">
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
-      <input type="checkbox" id="question27c" ondragover="" class="option-input checkbox" name="question27" value="Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia"> Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia</label>
-    <br>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <label>
       <input type="checkbox" id="question27d" ondragover="" class="option-input checkbox" name="question27" value="Enviar o recibir información sobre los medicamentos prescriptos a un paciente."> Enviar o recibir información sobre los medicamentos prescriptos a un paciente.</label>
     <br>
   </div>
@@ -2537,9 +2477,12 @@ Hace referencia al modo de identificación dentro de la institución.">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
       <input type="checkbox" id="question27h" ondragover="" class="option-input checkbox" name="question27" value="Enviar o recibir plan de cuidados de enfermería"> Enviar o recibir plan de cuidados de enfermería</label>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <label>
+      <input type="checkbox" id="question27c" ondragover="" class="option-input checkbox" name="question27" value="Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia"> Enviar o recibir reportes sobre asistencia prestada al paciente, en el momento del alta o de la transferencia</label>
     <br>
   </div>
-  <br>
 </div>
 <br>
 <hr>
@@ -2551,12 +2494,11 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question51">
-      <h4>28. En sus interacciones con las aseguradoras de salud ¿qué tipo de sistemas de información y herramientas electrónicas utilizan?</h4>
+      <h4>28. En sus interacciones con las aseguradoras de salud ¿qué tipo de sistemas de información y herramientas electrónicas utilizan?
+          <a  data-toggle="tooltip" onclick="alerta('Aseguradora de salud hace referencia a las EPS (Entidad Promotora de Salud)')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Aseguradora de salud hace referencia a las EPS (Entidad Promotora de Salud)">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
@@ -2599,12 +2541,11 @@ Hace referencia al modo de identificación dentro de la institución.">
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question51">
-      <h4>29. ¿Cuál es la aplicación más utilizada por la institución para la promoción de sus servicios?</h4>
+      <h4>29. ¿Cuál es la aplicación más utilizada por la institución para la promoción de sus servicios?
+          <a  data-toggle="tooltip" onclick="alerta('Hace referencia al tipo de redes usado para promover o impulsar los servicios prestados por la institución.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a></h4>
     </label>
-    <a  data-toggle="tooltip" title=
-"Hace referencia al tipo de redes usado para promover o impulsar los servicios prestados por la institución.">
-      <i class="fa fa-question-circle" style=font-size:24px></i>
-    </a>
     <br>
   </div>
 </div>
