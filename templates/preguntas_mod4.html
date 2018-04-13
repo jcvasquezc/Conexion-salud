@@ -8,38 +8,17 @@
       <link rel="stylesheet" href="static/radio_checks.css">		<link rel="stylesheet" href="static/header-login-signup.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="static/jscripts.js"></script>
-      <link rel="stylesheet" href="static/index_style.css">
-  
+      <script src="static/jscripts.js"></script>  
       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <link rel="stylesheet" href="static/index_style.css">
     </head>
 
    <script>
-	   //Mostrar opcion para borrar adjunto
-	   function enb_dis(btn_att,btn_del)
-	   {
-			var x = document.getElementById(btn_att);
-			var input = document.getElementById(btn_del);
-			if ('files' in x)
-			{
-			   input.disabled = false;
-			   input.focus();
-			}
-			else
-			{
-			   input.disabled = true;
-			}
-	   }
-	   //Borrar archivo adjunto
-	   function delete_attached(btn_del,name)
-		{
-			document.getElementById(name).value = "";
-			document.getElementById(btn_del).disabled = true;
-    }
-    
+	  
 
     function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
       
@@ -89,32 +68,35 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question1"><h4>1. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información? </h4></label>
-        <a  data-toggle="tooltip" 
-        title=
-"Se refiere a las estrategias desarrolladas por la Institución o contratadas con terceros para preservar la información ante posibles pérdidas por ataques externos o imprevistos"
-><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question1"><h4>1. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Se refiere a las estrategias desarrolladas por la Institución o contratadas con terceros para preservar la información ante posibles pérdidas por ataques externos o imprevistos')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
+    </label>
+    <br>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="checkbox" class="option-input checkbox" id="question1_a" name="question1" value="Identificación y/o autenticación" >Identificación y/o autenticación<br>
+       <input type="checkbox" class="option-input checkbox" id="question1_a" name="question1" value="Identificación y/o autenticación" > Identificación y/o autenticación<br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="checkbox" class="option-input checkbox" id="question1_b" name="question1" value="Autorización y control de acceso " >Autorización y control de acceso <br>
+       <input type="checkbox" class="option-input checkbox" id="question1_b" name="question1" value="Autorización y control de acceso " > Autorización y control de acceso <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="checkbox" class="option-input checkbox" id="question1_c" name="question1" value="Auditoria" >Auditoria<br>
+        <input type="checkbox" class="option-input checkbox" id="question1_c" name="question1" value="Auditoria" > Auditoria<br>
        </div>
        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="checkbox" class="option-input checkbox" id="question1_d" name="question1" value="Encriptación de la información in-situ " >Encriptación de la información in-situ<br>
+        <input type="checkbox" class="option-input checkbox" id="question1_d" name="question1" value="Encriptación de la información in-situ " > Encriptación de la información in-situ<br>
        </div>
        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="checkbox" class="option-input checkbox" id="question1_e" name="question1" value="Encriptación de la información en intercambio" >Encriptación de la información en intercambio <br>
+        <input type="checkbox" class="option-input checkbox" id="question1_e" name="question1" value="Encriptación de la información en intercambio" > Encriptación de la información en intercambio <br>
        </div>
        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="checkbox" class="option-input checkbox" id="question1_f" name="question1" value="Monitoreo de ataques cibernéticos" >Monitoreo de ataques cibernéticos<br>
+        <input type="checkbox" class="option-input checkbox" id="question1_f" name="question1" value="Monitoreo de ataques cibernéticos" > Monitoreo de ataques cibernéticos<br>
        </div>
 
         <br>
@@ -124,19 +106,20 @@
     
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question2"><h4>2. ¿La institución cuenta con alguna estrategia de seguridad, de recuperación de datos o respaldo de los datos electrónicos almacenados?</h4></label>
-        <a  data-toggle="tooltip" 
-        title=
-"Se refiere a estrategias como contar con servidores propios o contratados exclusivamente para almacenar copias de la información, sistemas de cintas, discos duros, entre otros medios que proporcionen un respaldo a la información."><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question2"><h4>2. ¿La institución cuenta con alguna estrategia de seguridad, de recuperación de datos o respaldo de los datos electrónicos almacenados?
+            <a  data-toggle="tooltip" 
+            onclick="alerta('Se refiere a estrategias como contar con servidores propios o contratados exclusivamente para almacenar copias de la información, sistemas de cintas, discos duros, entre otros medios que proporcionen un respaldo a la información.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i></a></h4></label>
+        <br>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="radio" class="option-input radio" id="question1" name="question2" value="SI" >SI<br>
+       <input type="radio" class="option-input radio" id="q2question1" name="question2" value="SI" >SI<br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="radio" class="option-input radio" id="question2" name="question2" value="NO" >NO<br>
+       <input type="radio" class="option-input radio" id="q2question2" name="question2" value="NO" >NO<br>
       </div>
         <br>
       </div>
@@ -146,44 +129,46 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question3"><h4>3. ¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución de salud?</h4></label>
-        <a  data-toggle="tooltip" 
-        title=
-"Se refiere al uso de herramientas como paquetes especiales de computador, equipos físicos instalados en la institución, contratos con empresas especializadas o restricciones para el uso de la red."
-><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+        <label for="question3"><h4>3. ¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución de salud?
+          <a  data-toggle="tooltip" 
+          onclick="alerta('Se refiere al uso de herramientas como paquetes especiales de computador, equipos físicos instalados en la institución, contratos con empresas especializadas o restricciones para el uso de la red.')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4></label>
+      <br>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <label><input type="checkbox" id="question3a" ondragover="" class="option-input checkbox" name="question3" value="Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)"> Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)"> Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)"> Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3e" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)"> Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3f" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3g" ondragover="" class="option-input checkbox" name="question3" value="Gestión de Eventos y Seguridad de la Información (SIEM)"> Gestión de Eventos y Seguridad de la Información (SIEM)</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" id="question3h" ondragover="" class="option-input checkbox" name="question3" value="Firma electrónica"> Firma electrónica</label><br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <label><input type="checkbox" class="option-input checkbox" id="question3" name="question3" value="Otro" onclick="var input=document.getElementById('question10_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br><input id="question10_otro" name="question10_otro" disabled="disabled"/></label><br>
-      </div>
-    
-        <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3a" ondragover="" class="option-input checkbox" name="question3" value="Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)"> Antispam y Antimalware (malware incluye virus, gusanos, troyanos, rootkits, spyware, hardware intrusivo o cualquier otro software malicioso)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)"> Firewall, IDS (sistema detección de intrusos), IPS (sistema prevención de intrusos), WAF (firewall de aplicaciones web)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)"> Tecnología de protección de datos (criptográfica, bases de datos), DAM (monitoreo de acceso a datos), DLP (sistema de prevención de pérdida de datos)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)"> Tecnologías de autenticación (contraseñas, biometría, tokens, OTP, tarjetas inteligentes, certificados digitales)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3g" ondragover="" class="option-input checkbox" name="question3" value="Gestión de Eventos y Seguridad de la Información (SIEM)"> Gestión de Eventos y Seguridad de la Información (SIEM)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3h" ondragover="" class="option-input checkbox" name="question3" value="Firma electrónica"> Firma electrónica</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3e" ondragover="" class="option-input checkbox" name="question3" value="Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)"> Tecnologías para la comunicación segura en aplicaciones cliente-servidor (HTTPS, VPN), con algunas tareas de bloqueo tales como tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" id="question3f" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label><input type="checkbox" class="option-input checkbox" id="question3otro" name="question3" value="Otro" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br>
+              <br>
+              <input id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
+          </div>
       </div>
     </div>
     
