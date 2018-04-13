@@ -135,15 +135,12 @@ function set_radios(x,val)
 	if (radio.localeCompare(val)==0)
 	{	
 		var temp = x[i].id
-		document.getElementById(x[i].id).checked = true;//MARCAR respuesta
 
+		document.getElementById(x[i].id).checked = true;//MARCAR respuesta
 		if (temp.search('_hab')!=-1)//Para disparar eventos que habilitan otras opciones
 		{
 			$(document.getElementById(x[i].id)).click();			
 		}
-		
-		
-
 	}
 }
 //marcar respuestas tipo checkbox

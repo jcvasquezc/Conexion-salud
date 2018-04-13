@@ -745,15 +745,15 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="q9question1" name="question9" value="Buzón de sugerencias">Buzón de sugerencias
+    <input type="radio" class="option-input radio" id="q9question1" name="question9" value="Buzón de sugerencias"> Buzón de sugerencias
     <br>
-    <input type="radio" class="option-input radio" id="q9question2" name="question9" value="Puesto de información">Puesto de información
+    <input type="radio" class="option-input radio" id="q9question2" name="question9" value="Puesto de información"> Puesto de información
     <br>
-    <input type="radio" class="option-input radio" id="q9question3" name="question9" value="Via web">Via web
+    <input type="radio" class="option-input radio" id="q9question3" name="question9" value="Via web"> Via web
     <br>
 
     <input type="radio" class="option-input radio" id="q9question4" name="question9" value="Otro" onclick="var input = document.getElementById('question9_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Otro
+    /> Otro
     <br><br>
     <label>¿Cuál?</label><input id="question9_otro" name="question9_otro" disabled="disabled" />
   </div>
@@ -945,9 +945,9 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="q14question1" name="question14" value="Tipo y número de documento de identidad" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tipo y número de documento de identidad
+    <input type="radio" class="option-input radio" id="q14question1" name="question14" value="Tipo y número de documento de identidad" onclick="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tipo y número de documento de identidad
     <br>
-    <input type="radio" class="option-input radio" id="q14question2_hab" name="question14" onchange="yesnoCheck(this,q14containercarnet,q14containercarnetno);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');" value="Carné"> Carné
+    <input type="radio" class="option-input radio" id="q14question2_hab" name="question14" onclick="yesnoCheck(this,q14containercarnet,q14containercarnetno);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');" value="Carné"> Carné
     <br>    
       <div class="hidden" id="q14containercarnetno"></div>
       <div class="hidden" id="q14containercarnet">
@@ -959,7 +959,7 @@
       </div>
 
 
-    <input type="radio" class="option-input radio" id="q14question3_hab" name="question14" value="Biométrico" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this, q14containerbio, q14containerbiono);clear_inputs('q14containercarnet');"> Biométrico
+    <input type="radio" class="option-input radio" id="q14question3_hab" name="question14" value="Biométrico" onclick="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this, q14containerbio, q14containerbiono);clear_inputs('q14containercarnet');"> Biométrico
     <br>
         <div class="hidden" id="q14containerbiono"></div>
         <div class="hidden" id="q14containerbio">
@@ -970,7 +970,7 @@
           <input type="checkbox" class="option-input checkbox" id="q14question3c" name="question14a" value="Reconocimiento de voz"> c) Reconocimiento de voz
         </div>
 
-    <input type="radio" class="option-input radio" id="q14question4" name="question14" value="Tarjeta profesional" onchange="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tarjeta profesional
+    <input type="radio" class="option-input radio" id="q14question4" name="question14" value="Tarjeta profesional" onclick="yesnoCheck(this, q14containercarnetno, q14containercarnet);yesnoCheck(this,q14containerbiono,q14containerbio);clear_inputs('q14containerbio');clear_inputs('q14containercarnet');"> Tarjeta profesional
     <br><hr>
   </div>
 </div>
@@ -988,25 +988,25 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="q15question1" name="question15" value="Documento de identidad" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Documento de identidad
+    <input type="radio" class="option-input radio" id="q15question1" name="question15" value="Documento de identidad" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Documento de identidad
     <br>
 
-    <input type="radio" class="option-input radio" id="q15question2" name="question15" value="Etiqueta" onchange="yesnoCheck(this,q15containerMANno,q15containerMAN);clear_inputs('q15containerMAN');"> Etiqueta
+    <input type="radio" class="option-input radio" id="q15question2" name="question15" value="Etiqueta" onclick="yesnoCheck(this,q15containerMANno,q15containerMAN);clear_inputs('q15containerMAN');"> Etiqueta
     <br>
-    <input type="radio" class="option-input radio" id="q15question3_hab" name="question15"  value="Manilla" onchange="yesnoCheck(this,q15containerMAN,q15containerMANno);"> Manilla
+    <input type="radio" class="option-input radio" id="q15question3_hab" name="question15"  value="Manilla" onclick="yesnoCheck(this,q15containerMAN,q15containerMANno);"> Manilla
     <br>
     <div class="hidden" id="q15containerMANno"></div>
           <div class="hidden" id="q15containerMAN">
-                  <input type="checkbox" class="option-input checkbox" id="q15question2a" name="question15a" value="Manual"> Manual
+                  <input type="checkbox" class="option-input checkbox" id="q15question2a" name="question15a" value="Manual"> a) Manual
                   <br>
-                  <input type="checkbox" class="option-input checkbox" id="q15question2b" name="question15a" value="impresión simple"> Impresión simple
+                  <input type="checkbox" class="option-input checkbox" id="q15question2b" name="question15a" value="impresión simple"> b) Impresión simple
                   <br>
-                  <input type="checkbox" class="option-input checkbox" id="q15question2c" name="question15a" value="impresión más código de barras"> Impresión más código de barras
+                  <input type="checkbox" class="option-input checkbox" id="q15question2c" name="question15a" value="impresión más código de barras"> c) Impresión más código de barras
           </div>
 
-    <input type="radio" class="option-input radio" id="q15question3a" name="question15" value="Contrato/póliza" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Contrato/póliza
+    <input type="radio" class="option-input radio" id="q15question3a" name="question15" value="Contrato/póliza" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Contrato/póliza
     <br>
-    <input type="radio" class="option-input radio" id="q15question3b" name="question15" value="Contrato/póliza" onchange="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Biométrico
+    <input type="radio" class="option-input radio" id="q15question3b" name="question15" value="Contrato/póliza" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Biométrico
     <br>
     <input type="radio" class="option-input radio" id="q15question4" name="question15" value="Otro" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');var input = document.getElementById('question15_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
     /> Otro, ¿Cuál?
