@@ -461,18 +461,11 @@ def preguntas_mod4():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['ID']})
-    Ntemp=temp.count()
-#    if Ntemp!=0:
-#        temp2=temp[0]
-#        encuesta=temp2["Resultados Modulo 4"]
-#        if len(encuesta)>0:
-#            if (usr['role']=='member4'):
-#                 return redirect(url_for('mensaje'))
-#            return render_template('modulos.html',userid=IPS_data.find({"ID":usr['user_id']})[0]['ID'],message=["","","","Este módulo ya fue diligenciado, si quiere cambiar y editar sus respuestas, pongase en contacto con nosotros","",""])
-
+    temp2=temp[0]     
+    Rtas = temp2["Resultados Modulo 4"]
     if request.method == 'POST':
-        return render_template('preguntas_mod4.html')
-    return render_template('preguntas_mod4.html')
+        return redirect(url_for('preguntas_mod4'))
+    return render_template('preguntas_mod4.html',Rtas=json.dumps(dict(Rtas)))
 
 @app.route("/preguntas_mod5", methods=['GET', 'POST'])
 @login_required
@@ -480,10 +473,11 @@ def preguntas_mod5():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     temp = IPS_data.find({"ID":usr['ID']})
-    Ntemp=temp.count()
+    temp2=temp[0]     
+    Rtas = temp2["Resultados Modulo 5"]
     if request.method == 'POST':
-        return render_template('preguntas_mod5.html')
-    return render_template('preguntas_mod5.html')
+        return redirect(url_for('preguntas_mod5'))
+    return render_template('preguntas_mod5.html',Rtas=json.dumps(dict(Rtas)))
 ################################################################
 ################################################################
 @app.route("/preguntas_mod6", methods=['GET', 'POST'])

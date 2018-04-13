@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-<body>
+<body onload="set_rtas()">
 	<div class="wrapper">
 		<script type="text/javascript">   
         var Rtas = {{Rtas|safe}}
@@ -48,9 +48,11 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question1"><h4>1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?</h4></label>
-    <a  data-toggle="tooltip" title=
-"Se refiere a los diferentes estándares para manejo de datos como signos vitales, imágenes médicas, información de laboratorio"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    <label for="question1"><h4>1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?
+      <a  data-toggle="tooltip" onclick="alerta('Se refiere a los diferentes estándares para manejo de datos como signos vitales, imágenes médicas, información de laboratorio')">
+      <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4></label>
+    <br>
   </div>
 </div>
 <div class="row">
@@ -59,16 +61,19 @@
     <label><input type="checkbox" id="question1b" ondragover="" class="option-input checkbox" name="question1" value="ISO"> ISO</label><br>
     <label><input type="checkbox" id="question1c" ondragover="" class="option-input checkbox" name="question1" value="IEEE"> IEEE</label><br>
     <label><input type="checkbox" id="question1d" ondragover="" class="option-input checkbox" name="question1" value="DICOM"> DICOM</label><br>
-    <label><input type="checkbox" id="question1e" ondragover="" class="option-input checkbox" name="question1" value="Otros"> Otros</label><br>
+    <label><input type="checkbox" id="question1e" ondragover="" class="option-input checkbox" name="question1" value="Otros" onclick="var input=document.getElementById('question1_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"> Otros</label><br>
     <br>
+    <input id="question1_otro" maxlength="200" name="question1_otro" disabled="disabled"/></label><br>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza Historia Clínica Electrónica?</h4></label>
-    <a  data-toggle="tooltip" title=
-"Estándares de codificación son las estrategias utilizadas por los programas que permiten gestionar la historia clínica electrónica"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
+    <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza Historia Clínica Electrónica?
+        <a  data-toggle="tooltip" onclick="alerta('Estándares de codificación son las estrategias utilizadas por los programas que permiten gestionar la historia clínica electrónica')">
+        <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4></label>
+    <br>
   </div>
 </div>
 <div class="row">
@@ -78,7 +83,26 @@
     <label><input type="checkbox" id="question2c" ondragover="" class="option-input checkbox" name="question2" value="SNOMED"> SNOMED</label><br>
     <label><input type="checkbox" id="question2d" ondragover="" class="option-input checkbox" name="question2" value="LOINC"> LOINC</label><br>
     <label><input type="checkbox" id="question2e" ondragover="" class="option-input checkbox" name="question2" value="NCPDP"> NCPDP,</label><br>
-    <label><input type="checkbox" id="question2f" ondragover="" class="option-input checkbox" name="question2" value="Otros"> Otros</label><br>
+    <label><input type="checkbox" id="question2f" ondragover="" class="option-input checkbox" name="question2" value="Otros" onclick="var input=document.getElementById('question2_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"> Otros</label><br>
+    <br>
+    <input id="question2_otro" maxlength="200" name="question2_otro" disabled="disabled"/></label><br>
+  </div>
+</div>
+
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="question3"><h4>3. ¿Conoce el marco de interoperabilidad del Estado colombiano?
+        <a  data-toggle="tooltip" onclick="alerta('Marco de interoperabilidad son las estrategias para lograr que los sistemas que manejan datos clínicos puedan comunicarse automáticamente y compartir información')">
+            <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4></label>
+      <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	 <input type="radio" class="option-input radio" id="q3question1" name="question3" value="SI" > SI<br>
+	 <input type="radio" class="option-input radio" id="q3question2" name="question3" value="NO" > NO<br>
     <br>
   </div>
 </div>
@@ -86,31 +110,18 @@
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question3"><h4>3. ¿Conoce el marco de interoperabilidad del Estado colombiano?</h4></label>
-    <a  data-toggle="tooltip" title=
-"Marco de interoperabilidad son las estrategias para lograr que los sistemas que manejan datos clínicos puedan comunicarse automáticamente y compartir información"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question3" value="SI" >SI<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question3" value="NO" >NO<br>
+    <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?
+        <a  data-toggle="tooltip" onclick="alerta('Se refiere a software adicional o procesos realizados al interior de la institución para facilitar la interoperabildiad')">
+        <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    </h4>
+  </label>
     <br>
   </div>
 </div>
-
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?</h4></label>
-    <a  data-toggle="tooltip" title=
-"Se refiere a software adicional o procesos realizados al interior de la institución para facilitar la interoperabildiad"><i class="fa fa-question-circle" style=font-size:24px></i></a><br>
-  </div>
-</div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="question1" name="question4" value="SI" >SI<br>
-	 <input type="radio" class="option-input radio" id="question2" name="question4" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="q4question1" name="question4" value="SI" > SI<br>
+	 <input type="radio" class="option-input radio" id="q4question2" name="question4" value="NO" > NO<br>
     <br>
   </div>
 </div>

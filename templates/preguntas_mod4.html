@@ -18,26 +18,20 @@
     </head>
 
    <script>
-	  
-
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
-      
-      
-      if (questionIDYesNO.checked) {
+    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
+    { 
+      if (questionIDYesNO.checked) 
+      {
         $(questionIDYes).removeClass("hidden");
         $(questionIDNO).addClass("hidden");
-
       }
-
     }
-
-
    </script>
 
-<body>
+<body onload="set_rtas()">
 	<div class="wrapper">
 		<script type="text/javascript">   
-			var LogVal = {{LogFlag|safe}}           
+      var Rtas =  {{Rtas|safe}} //Respuestas del modulo 4   
 		</script>
 		<div class="topnav">
 			<div class="logo_nav">
@@ -54,11 +48,8 @@
 			<li><a href="/logout">&#9949; Cerrar Sesión</a></li>
 			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
 		</ul>	
-		</div>
-
-
-
-
+    </div>
+    
   <form enctype=multipart/form-data class="register" method="post" id="form_mod4">
     <input type="submit" formaction="validar4" style="visibility: hidden; display: none;">
       <p class="title"> MÓDULO 4. Seguridad de la Información

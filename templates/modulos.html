@@ -1,15 +1,3 @@
-<!-- <!doctype html>
-<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-{% block body %}{% endblock %} -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -53,8 +41,9 @@
               <!-- <a href="/preguntas_mod1"> -->
               <h2>MÓDULO 1: Descripción de la Institución de Salud
               <!-- </a> -->
-              <a data-toggle="tooltip" title="Este módulo debe responderlo el gerente de la insitución "><i class="fa fa-question-circle" style=font-size:24px></i></a>
+              <!-- <a data-toggle="tooltip" title="Este módulo debe responderlo el gerente de la insitución "><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
             </h2>
+            <p>Este módulo debe responderlo el gerente de la insitución</p>
           </div>
         </div>
         <p class="title">
@@ -93,8 +82,10 @@
           <h2>
             MÓDULO 2. Infraestructura TIC
           <!-- </a> -->
-          <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
-        </h2></div>
+          <!-- <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+        </h2>
+        <p>Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS</p>
+            </div>
       </div>
         <p class="title">
           <font color="red">{{message[1]}}</font>
@@ -134,8 +125,10 @@
           <!-- <a href="/preguntas_mod3"> -->
         <h2>MÓDULO 3: Servicios electrónicos
         <!-- </a> -->
-        <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
-      </h2></div>
+        <!-- <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+      </h2>
+      Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS
+    </div>
     </div>
     <p class="title">
       <font color="red">{{message[2]}}</font>
@@ -172,10 +165,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- <a href="/preguntas_mod4"> -->
-      <h2>MÓDULO 4. Seguridad de la Información
-      <!-- </a> -->
-      <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
-    </h2></div>
+        <h2>MÓDULO 4. Seguridad de la Información
+        <!-- </a> -->
+        <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+      </h2>
+      <p>Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS</p>
+    </div>
   </div>
   <p class="title">
     <font color="red">{{message[3]}}</font>
@@ -215,8 +210,10 @@
       <!-- <a href="/preguntas_mod5"> -->
     <h2>MÓDULO 5. Estándares e Interoperabilidad 
       <!-- </a> -->
-    <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
-</h2>  </div>
+    <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+</h2>  
+<p>Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS</p>
+</div>
 </div>
 
 <p class="title">
@@ -256,8 +253,10 @@
       <!-- <a href="/preguntas_mod6"> -->
     <h2>MÓDULO 6. Capacitación
     <!-- </a> -->
-    <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a>
-  </h2></div>
+    <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+  </h2>
+<p>Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS</p>
+</div>
 </div>
 
 <p class="title">
@@ -292,8 +291,6 @@
 </div>
 
 <br><hr>
-
-
       </form>
 
 		</div>
