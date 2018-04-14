@@ -36,8 +36,9 @@
     <div class="topnav" id="myTopnav">			
     <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="/instructivo">Tutorial</a></li>
+        <li><a href="/registro">Registro</a></li>
         <li><a href="/modulos"> Encuesta</a></li>
+        <li><a href="/instructivo">Tutorial</a></li>
         <li><a href="/contacto">Contacto</a></li>
         <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
         <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
@@ -268,26 +269,24 @@
    -->
   
         <div class="row">
-
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
-                    <div class="container" style="width:100%">
-                            <h4>Porcentaje respondido</h4>
-                            <span>{{perc_mod[4]}}</span>
-                            <div class="progress">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[4]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[4]}}%">
-                                            {{perc_mod[4]}}
-                                    </div>
-                            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="container" style="width:100%">
+                    <h4>Porcentaje respondido</h4>
+                    <span>{{perc_mod[4]}}</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[4]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[4]}}%">
+                            {{perc_mod[4]}}
+                        </div>
                     </div>
-    
-                </div>
+                </div>    
+            </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
                     <br>
                     <button type="submit" class="state" formaction="preguntas_mod5">Ver resultados</button>
                     <!-- <button  data-toggle="modal" data-target="#myModal5">Ver resultados</button> -->
                 </div>
     
-            </div>
+        </div>
 
 
         <br><hr>

@@ -139,13 +139,28 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-#Validar Numeros
-def val_num(x):
-  try:
-    return int(x)
-  except ValueError:
-    return False
+def progreso_mod(ips):
+    Resultados_mod1=ips["Resultados Modulo 1"]
+    Resultados_mod2=ips["Resultados Modulo 2"]
+    Resultados_mod3=ips["Resultados Modulo 3"]
+    Resultados_mod4=ips["Resultados Modulo 4"]
+    Resultados_mod5=ips["Resultados Modulo 5"]
+    Resultados_mod6=ips["Resultados Modulo 6"]
 
+    perc_mod=[int(100*(len(Resultados_mod1)-1)/84), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+    perc_mod=np.asarray(perc_mod)
+    find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
+
+    perc_mod[find0]=0
+    find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
+    
+    perc_mod[find100]=100
+
+    if len(Resultados_mod6)>0:
+        if Resultados_mod6["question1"].find("NO")>=0:
+            perc_mod[5]=100
+            
+    return perc_mod
 #def new_user(nit):
 #    # Creates a new user for the company passed into the function if it doesn't already exist. se
 #    import hashlib
@@ -300,7 +315,7 @@ def registro():
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
-        Nsed = request.form['reg_numsede']#Numero de sedes
+#        Nsed = request.form['reg_numsede']#Numero de sedes
         codhab = request.form['reg_hab']#NCdigo habilitacion
         naju = request.form['reg_natjur']#Naturaleza juridica
         clpr = request.form['reg_clase']#Clase de prestador
@@ -327,7 +342,7 @@ def registro():
                   "Clase de Prestador":clpr,
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
-                  "Número de sede":Nsed,
+#                  "Número de sede":Nsed,
                   }       
         #print(IPS_reg_data)
         usr_id = int(current_user.id)
@@ -345,7 +360,7 @@ def registro():
 @app.route("/modulos", methods=['GET', 'POST'])
 @login_required
 def modulos():
-    dptos,cities = set_dptos()
+#    dptos,cities = set_dptos()
     #Verificar si es necesario registrar
     usr_id = int(current_user.id)   
     usrid = Users_data.find({"user_id":usr_id})[0] 
@@ -364,33 +379,33 @@ def modulos():
         return redirect(url_for('preguntas_mod6'))
     if (usrid['role']=='admin'):
         return redirect(url_for('admin')) 
-    usrid = Users_data.find({"user_id":usr_id})[0] 
+    
     IPSdata = IPS_data.find({"ID":usrid['user_id']})[0]
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
+    perc_mod = progreso_mod(IPSdata)
+
         
     if request.method == 'POST': 
-        colabs = {}
-        Ncolabs = 6 #Numero maximo de colaboradores
-        for idx in range(1,Ncolabs+1):
-            colabs['nombre'+str(idx)] = request.form['nombre'+str(idx)]
-            colabs['email'+str(idx)] = request.form['email'+str(idx)]
-            colabs['cargo'+str(idx)] = request.form['cargo'+str(idx)]        
+#        colabs = {}
+#        Ncolabs = 6 #Numero maximo de colaboradores
+#        for idx in range(1,Ncolabs+1):
+#            colabs['nombre'+str(idx)] = request.form['nombre'+str(idx)]
+#            colabs['email'+str(idx)] = request.form['email'+str(idx)]
+#            colabs['cargo'+str(idx)] = request.form['cargo'+str(idx)]        
+#
+#        usr_id = current_user.id
+#        usr =   Users_data.find({'user_id': int(usr_id)})[0]
+#        temp = IPS_data.find({"ID":usr['user_id']})
+#        Ntemp=temp.count()
+#        if Ntemp!=0:
+#            for idx in range(1,Ncolabs+1):
+#                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' nombre': colabs['nombre'+str(idx)]}}, upsert=False, full_response= True)
+#                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' cargo': colabs['cargo'+str(idx)]}}, upsert=False, full_response= True)
+#                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' email': colabs['email'+str(idx)]}}, upsert=False, full_response= True)
 
-        usr_id = current_user.id
-        usr =   Users_data.find({'user_id': int(usr_id)})[0]
-        temp = IPS_data.find({"ID":usr['user_id']})
-        Ntemp=temp.count()
-        if Ntemp!=0:
-            for idx in range(1,Ncolabs+1):
-                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' nombre': colabs['nombre'+str(idx)]}}, upsert=False, full_response= True)
-                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' cargo': colabs['cargo'+str(idx)]}}, upsert=False, full_response= True)
-                IPS_data.find_and_modify(query={'ID':usr['user_id']}, update={"$set": {'colaborador'+str(idx)+' email': colabs['email'+str(idx)]}}, upsert=False, full_response= True)
-
-        return redirect(url_for('modulos',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""]))
+        return redirect(url_for('modulos'))
 #        return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
     
-    return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
+    return render_template('modulos.html',perc_mod=perc_mod)
 
 
 #######################ENCUESTA#######################
@@ -423,6 +438,9 @@ def preguntas_mod1():
     global usr
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})  
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 1"]
@@ -435,6 +453,9 @@ def preguntas_mod1():
 def preguntas_mod2():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 2"]
@@ -447,6 +468,9 @@ def preguntas_mod2():
 def preguntas_mod3():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 3"]
@@ -460,6 +484,9 @@ def preguntas_mod3():
 def preguntas_mod4():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 4"]
@@ -472,6 +499,9 @@ def preguntas_mod4():
 def preguntas_mod5():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 5"]
@@ -485,6 +515,9 @@ def preguntas_mod5():
 def preguntas_mod6():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
+    IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2 = temp[0]
     Rtas = temp2["Resultados Modulo 6"]

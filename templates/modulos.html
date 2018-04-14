@@ -13,236 +13,186 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="static/header-login-signup.css">
 </head>
-	<body>
-  <!-- Funciones javascript -->
+
+<body>
+    
 		<div class="wrapper">
       <div class="topnav">
         <div class="logo_nav">
             <img src="static/logos/banner-encuesta.png" class="img-responsive">
         </div>
       </div>
+
+
         <div class="topnav" id="myTopnav">				
           <ul>
               <li><a href="/">Inicio</a></li>
-            <li><a href="/adminips_{{userid}}">Progreso encuesta</a></li>
-            <li><a href="/instructivo">Tutorial</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-            <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
-            <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
-            <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+              <li><a href="/registro">Registro</a></li>
+              <li><a href="/adminips_{{userid}}">Progreso encuesta</a></li>
+              <li><a href="/instructivo">Tutorial</a></li>
+              <li><a href="/contacto">Contacto</a></li>
+              <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
+              <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+              <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
           </ul>	
         </div>
-      <form enctype=multipart/form-data action="preguntas_mod1" class="register" method="post">
-        <p class="title">Seleccione al personal de la IPS encargado de responder cada uno de los módulos de la encuesta</p>
 
-        <br><hr>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <!-- <a href="/preguntas_mod1"> -->
-              <h2>MÓDULO 1: Descripción de la Institución de Salud
-              <!-- </a> -->
-              <!-- <a data-toggle="tooltip" title="Este módulo debe responderlo el gerente de la insitución "><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
-            </h2>
-            <p>Este módulo debe responderlo el gerente de la insitución</p>
-          </div>
-        </div>
-        <p class="title">
-          <font color="red">{{message[0]}}</font>
+
+      <form enctype=multipart/form-data action="preguntas_mod1" class="register" method="post">
+        <p class="title">BIEVENIDOS A LA ENCUESTA DEL PROYECTO CONEXIÓN SALUD.</p>
+        <p>
+        A continuación, usted encontrará 6 módulos que pueden ser diligenciados por el enlace de la IPS para el proyecto o por un colaborador, que tenga a cargo dichos temas en la institución.
         </p>
-        <!-- <div class="row">
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <label for="nombre">Nombre y apellidos</label>
-		          <br>
-            <input type="text"  id="gerente" name="nombre1" placeholder="Nombre" >
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <label for="email">Correo electrónico:</label>
-		          <br>
-            <input type="text"  id="email1" name="email1" placeholder="ejemplo@mail.com" >
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <label for="cargo">Cargo</label>
-		          <br>
-            <input type="text"  id="cargo" name="cargo1" placeholder="Cargo" >
-          </div>
-      </div> -->
-      <div class="row">
-        <!-- Boton para continuar a la encuesta -->
-        <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-          <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-        </div> -->
-        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-          <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod1">Diligenciar</button>
-        </div>
-    </div>
-      <br><hr>
+        <p>
+        Por favor, antes de iniciar el diligenciamiento de la encuesta, registre los datos de la IPS en la pestaña "Registro" o ingrese <a style="text-underline-position: below" href="/registro">aquí</a>. 
+        <p >
+        Recuerde en caso de cualquier duda ponerse en <a style="text-underline-position: below" href="/contacto">contacto</a> con nosotros.</p>
+
+        <hr>
+
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <!-- <a href="/preguntas_mod2"> -->
-          <h2>
-            MÓDULO 2. Infraestructura TIC
-          <!-- </a> -->
-          <!-- <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
-        </h2>
-        <p>Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital por parte de la IPS, debe responderlo personal médico especializado, o profesionales del area de TICs de su IPS</p>
+        <h2>MÓDULO 1: Descripción de la Institución de Salud</h2>
+        </div>
+      </div>
+      <p>Este módulo podría responderlo el gerente de la institución o el responsable del sistema de garantía de la calidad.</p>
+      <br>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- Progreso de la encuesta -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+          <div class="container" style="width:100%">
+            <h4>Porcentaje respondido: {{perc_mod[0]}}%</h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[0]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[0]}}%">
+                  {{perc_mod[0]}}
+              </div>
             </div>
+          </div>
       </div>
-        <p class="title">
-          <font color="red">{{message[1]}}</font>
-        </p>
-      <!-- <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <label for="nombre">Nombre y apellidos</label>
-            <br>
-          <input type="text"  id="nombre_mod2" name="nombre2" placeholder="Nombre" >
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div class="row">
+        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+          <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod1">Comenzar</button>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <label for="email">Correo electrónico:</label>
-            <br>
-          <input type="text"  id="email2" name="email2" placeholder="ejemplo@mail.com" >
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <label for="cargo">Cargo</label>
-            <br>
-          <input type="text"  id="cargo" name="cargo2" placeholder="Cargo" >
-        </div>
-    </div> -->
+      </div>
 
-    <div class="row">
-      <!-- Boton para continuar a la encuesta -->
-      <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-        <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-      </div> -->
-      <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-        <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod2">Diligenciar</button>
+      <br><hr>
+
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>MÓDULO 2. Infraestructura TIC</h2>        
+        </div>
       </div>
-    </div>
+      <p>Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS. Podría responderlo un profesional del área de TIC de su IPS.
+      </p>      
+      <br>  
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <!-- Progreso de la encuesta -->
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+          <div class="container" style="width:100%">
+            <h4>Porcentaje respondido: {{perc_mod[1]}}%</h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[1]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[1]}}%">
+                  {{perc_mod[1]}}
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div class="row">
+        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+          <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod2">Comenzar</button>
+        </div>
+      </div>
 
     <br><hr>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <!-- <a href="/preguntas_mod3"> -->
-        <h2>MÓDULO 3: Servicios electrónicos
-        <!-- </a> -->
-        <!-- <a  data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
-      </h2>
-      Este módulo contiene preguntas relacionadas con el estado de conectividad de la IPS, debe responderlo profesionales del area de TICs de su IPS
-    </div>
-    </div>
-    <p class="title">
-      <font color="red">{{message[2]}}</font>
-    </p>
-    <!-- <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <label for="nombre">Nombre y apellidos</label>
-          <br>
-        <input type="text"  id="nombre_mod3" name="nombre3" placeholder="Nombre" >
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
+        <h2>MÓDULO 3: Servicios electrónicos</h2>      
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <label for="email">Correo electrónico:</label>
-          <br>
-        <input type="text"  id="email3" name="email3" placeholder="ejemplo@mail.com" >
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <label for="cargo">Cargo</label>
-          <br>
-        <input type="text"  id="cargo" name="cargo3" placeholder="Cargo" >
-      </div>
-  </div> -->
-  <div class="row">
-    <!-- Boton para continuar a la encuesta -->
-    <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-      <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-    </div> -->
-    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-      <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod3">Diligenciar</button>
     </div>
-  </div>
+    <p>Este módulo contiene preguntas relacionadas con historia clínica digital y otros servicios electrónicos. Podría responderlo personal asistencial encargado de historia clínica, el responsable del sistema de garantía de calidad o profesionales del área de TIC de su IPS.</p>
+    <br>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Progreso de la encuesta -->
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+        <div class="container" style="width:100%">
+          <h4>Porcentaje respondido: {{perc_mod[2]}}%</h4>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[2]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[2]}}%">
+                {{perc_mod[2]}}
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="row">
+      <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+        <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod3">Comenzar</button>
+      </div>
+    </div>
 
   <br><hr>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <!-- <a href="/preguntas_mod4"> -->
-        <h2>MÓDULO 4. Seguridad de la Información
-        <!-- </a> -->
-        <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
-      </h2>
-      <p>Este módulo contiene preguntas relacionadas los servicios electrónicos y almacenamiento de datos de pacientes de la IPS, debe responderlo profesionales del area de la salud o del area de TICs de su IPS</p>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
+        <h2>MÓDULO 4. Seguridad de la Información</h2>      
     </div>
   </div>
-  <p class="title">
-    <font color="red">{{message[3]}}</font>
-  </p>
-
-  <!-- <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <label for="nombre">Nombre y apellidos</label>
-        <br>
-      <input type="text"  id="nombre_mod4" name="nombre4" placeholder="Nombre" >
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <label for="email">Correo electrónico:</label>
-        <br>
-      <input type="text"  id="email4" name="email4" placeholder="ejemplo@mail.com" >
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <label for="cargo">Cargo</label>
-        <br>
-      <input type="text"  id="cargo" name="cargo4" placeholder="Cargo" >
-    </div>
-</div> -->
-<div class="row">
-  <!-- Boton para continuar a la encuesta -->
-  <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-  </div> -->
-  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod4">Diligenciar</button>
+  <p>Este módulo contiene preguntas relacionadas con almacenamiento de datos y seguridad de información. Podría responderlo un profesional del área de TIC de su IPS.</p>
+  <br>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!-- Progreso de la encuesta -->
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+      <div class="container" style="width:100%">
+        <h4>Porcentaje respondido: {{perc_mod[3]}}%</h4>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[3]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[3]}}%">
+              {{perc_mod[3]}}
+          </div>
+        </div>
+      </div>
   </div>
-</div>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <div class="row">
+    <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+      <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod4">Comenzar</button>
+    </div>
+  </div>
 
 <br><hr>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <!-- <a href="/preguntas_mod5"> -->
-    <h2>MÓDULO 5. Estándares e Interoperabilidad 
-      <!-- </a> -->
-    <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
-</h2>  
-<p>Este módulo contiene preguntas relacionadas con el manejo de historia clinica digital de los pacientes. Debe responderlo un profesional del area de la salud de la IPS</p>
+    <h2>MÓDULO 5. Estándares e Interoperabilidad</h2>  
+  </div>
 </div>
+<p>Este módulo contiene preguntas relacionadas con la historia clínica digital y la interoperabilidad. Podría responderlo el profesional encargado de historia clínica en la institución.</p>
+<br>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Progreso de la encuesta -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+    <div class="container" style="width:100%">
+      <h4>Porcentaje respondido: {{perc_mod[4]}}%</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[4]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[4]}}%">
+            {{perc_mod[4]}}
+        </div>
+      </div>
+    </div>
 </div>
-
-<p class="title">
-  <font color="red">{{message[4]}}</font>
-</p>
-<!-- <div class="row">
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="nombre">Nombre y apellidos</label>
-      <br>
-    <input type="text"  id="nombre_mod5" name="nombre5" placeholder="Nombre" >
-  </div>
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="email">Correo electrónico:</label>
-      <br>
-    <input type="text"  id="email5" name="email5" placeholder="ejemplo@mail.com" >
-  </div>
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="cargo">Cargo</label>
-      <br>
-    <input type="text"  id="cargo" name="cargo5" placeholder="Cargo" >
-  </div>
-</div> -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="row">
-  <!-- Boton para continuar a la encuesta -->
-  <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-  </div> -->
-  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod5">Diligenciar</button>
+  <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+    <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod5">Comenzar</button>
   </div>
 </div>
 
@@ -250,43 +200,28 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <!-- <a href="/preguntas_mod6"> -->
     <h2>MÓDULO 6. Capacitación
-    <!-- </a> -->
-    <!-- <a data-toggle="tooltip" title="Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS"><i class="fa fa-question-circle" style=font-size:24px></i></a> -->
   </h2>
-<p>Este módulo contiene preguntas relacionadas con Estándares técnicos asociados con la historia clínica digital, incluyendo estándares de formato y contenido de la información, estándares de codificación de información clínica, patologías, procedimientos. Debe responderlo un profesional del area de la salud de la IPS o el encargado del manejo de Tecnologías de la información de la IPS</p>
 </div>
 </div>
-
-<p class="title">
-  <font color="red">{{message[5]}}</font>
-</p>
-
-<!-- <div class="row">
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="nombre">Nombre y apellidos</label>
-      <br>
-    <input type="text"  id="nombre_mod6" name="nombre6" placeholder="Nombre" >
-  </div>
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="email">Correo electrónico:</label>
-      <br>
-    <input type="text"  id="email6" name="email6" placeholder="ejemplo@mail.com" >
-  </div>
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <label for="cargo">Cargo</label>
-      <br>
-    <input type="text"  id="cargo" name="cargo6" placeholder="Cargo" >
-  </div>
-</div> -->
+<p>Este módulo contiene preguntas relacionadas con la capacitación en uso de tecnología. Podría responderlo el gerente, administrador, encargado del sistema de garantía de calidad.</p>
+<br>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Progreso de la encuesta -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+    <div class="container" style="width:100%">
+      <h4>Porcentaje respondido: {{perc_mod[5]}}%</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{perc_mod[5]}}" aria-valuemin="0" aria-valuemax="100" style="width:{{perc_mod[5]}}%">
+            {{perc_mod[5]}}
+        </div>
+      </div>
+    </div>
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="row">
-  <!-- Boton para continuar a la encuesta -->
-  <!-- <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Enviar" formaction="modulos">Enviar</button>
-  </div> -->
-  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="Diligenciar" formaction="preguntas_mod6">Diligenciar</button>
+  <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+    <button style="font-size:20px" type="submit" class="state" name="Diligenciar" formaction="preguntas_mod6">Comenzar</button>
   </div>
 </div>
 
