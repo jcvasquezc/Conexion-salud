@@ -248,7 +248,7 @@ def Ingresar():
 #            if not is_safe_url(next):
 #                return abort(400)
 
-            return redirect(url_for('index',LogFlag=json.dumps(LogFlag)))
+            return redirect(url_for('modulos',LogFlag=json.dumps(LogFlag)))
 #            return render_template('modulos.html')
         else:
             error = ' (Usuario o Contraseña incorrecto)'

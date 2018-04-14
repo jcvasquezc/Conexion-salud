@@ -27,6 +27,19 @@
         $(questionIDNO).addClass("hidden");
       }
     }
+      
+    function Checkb(obj,containerid) 
+    {
+      if (obj.checked)
+      {
+        $(containerid).removeClass("hidden");
+        //$(questionIDNO).addClass("hidden");
+      }
+      else
+      {
+        $(containerid).addClass("hidden");
+      }
+    }
    </script>
 
 <body onload="set_rtas()">
@@ -167,25 +180,25 @@
 </div>
 <div class="row" >
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	 <input type="radio" class="option-input radio" id="question5_a" name="question5" value="La institución no necesita computadoras en los consultorios">La institución no necesita computadoras en los consultorios<br>
+	 <input type="checkbox" class="option-input checkbox" id="question5_a" name="question5" value="La institución no necesita computadoras en los consultorios"> La institución no necesita computadoras en los consultorios<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5_b" name="question5" value="Alto costo de adquisición de computadoras para los consultorios"> Alto costo de adquisición de computadoras para los consultorios<br>
+      <input type="checkbox" class="option-input checkbox" id="question5_b" name="question5" value="Alto costo de adquisición de computadoras para los consultorios"> Alto costo de adquisición de computadoras para los consultorios<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5_c" name="question5" value="Alto costo de mantenimiento de computadoras">Alto costo de mantenimiento de computadoras<br>
+      <input type="checkbox" class="option-input checkbox" id="question5_c" name="question5" value="Alto costo de mantenimiento de computadoras"> Alto costo de mantenimiento de computadoras<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5_d" name="question5" value="El costo-beneficio del uso de computadoras no compensa">El costo-beneficio del uso de computadoras no compensa<br>
+      <input type="checkbox" class="option-input checkbox" id="question5_d" name="question5" value="El costo-beneficio del uso de computadoras no compensa"> El costo-beneficio del uso de computadoras no compensa<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5_e" name="question5" value="Poca habilidad del personal con el uso de computadoras">Poca habilidad del personal con el uso de computadoras<br>
+      <input type="checkbox" class="option-input checkbox" id="question5_e" name="question5" value="Poca habilidad del personal con el uso de computadoras"> Poca habilidad del personal con el uso de computadoras<br>
   </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question5_f" name="question5" value="Falta de presupuesto">Falta de presupuesto<br>
+      <input type="checkbox" class="option-input checkbox" id="question5_f" name="question5" value="Falta de presupuesto"> Falta de presupuesto<br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <input type="radio" class="option-input radio" id="question5_g" name="question5" value="Otro" onclick="var input = document.getElementById('question5_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br>
+    <input type="checkbox" class="option-input checkbox" id="question5_g" name="question5" value="Otro" onclick="var input = document.getElementById('question5_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br>
     <br>
     <input id="question5_otro" name="question5_otro" disabled="disabled"/><br>
     </div>
@@ -224,7 +237,7 @@
     <label for="question8">
       <h4>7. ¿Qué tipo de computadoras tiene la institución?
           <a  data-toggle="tooltip" 
-          onclick="alerta('El computador de escritorio está diseñado para uso en una ubicación fija, el computador portátil es un computador personal,  móvil o de transporte')">
+          onclick="alerta('Entiéndase computadores en toda la institución. Si no tiene computadores deje ambos campos en 0')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a></h4>
     </label>
@@ -469,50 +482,53 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_a" name="question13" value="Sin instrucción">Sin instrucción
+      <input type="checkbox" class="option-input checkbox" id="question13_a" name="question13" value="Sin instrucción" > Sin instrucción
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_b" name="question13" value="Primaria incompleta">Primaria incompleta
+      <input type="checkbox" class="option-input checkbox" id="question13_b" name="question13" value="Primaria incompleta" > Primaria incompleta
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_c" name="question13" value="Primaria completa">Primaria completa
+      <input type="checkbox" class="option-input checkbox" id="question13_c" name="question13" value="Primaria completa" > Primaria completa
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_d" name="question13" value="Secundaria incompleta">Secundaria incompleta
+      <input type="checkbox" class="option-input checkbox" id="question13_d" name="question13" value="Secundaria incompleta" > Secundaria incompleta
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_e" name="question13" value="Secundaria completa">Secundaria completa
+      <input type="checkbox" class="option-input checkbox" id="question13_e" name="question13" value="Secundaria completa" > Secundaria completa
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_f" name="question13" value="Estudios Técnicos">Estudios Técnicos
+      <input type="checkbox" class="option-input checkbox" id="question13_f" name="question13" value="Estudios Técnicos" > Estudios Técnicos
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_g" name="question13" value="Estudios Tecnológicos">Estudios Tecnológicos
+      <input type="checkbox" class="option-input checkbox" id="question13_g" name="question13" value="Estudios Tecnológicos"> Estudios Tecnológicos
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="checkbox" class="option-input checkbox" id="question13_h" name="question13" value="Estudios universitarios">Estudios universitarios
+      <input type="checkbox" class="option-input checkbox" id="question13_h" name="question13" value="Estudios universitarios" onclick="Checkb(this,q14procontainer);"> Estudios universitarios
       <br>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <input type="checkbox" class="option-input checkbox" id="question13_i" name="question13" value="Posgrado (maestría, Doctorado, Especialización, MBA, etc.)">Posgrado (maestría, Doctorado, Especialización, MBA, etc.)
+      <input type="checkbox" class="option-input checkbox" id="question13_i_hab" name="question13" value="Posgrado (maestría, Doctorado, Especialización, MBA, etc.)" onclick="Checkb(this,q14procontainer);"> Posgrado (maestría, Doctorado, Especialización, MBA, etc.)
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <br>
       <input type="text" id="question13_ipos" name="question13pos" placeholder="Cuál posgrado?">
     </div>
-    <br>
   </div>
 </div>
-<br>
-<hr>
+
+
+<div class="hidden" id="q14procontainerNO"></div>
+    <div class="hidden" id="q14procontainer">
+        <br>
+        <hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question14">
@@ -561,7 +577,7 @@
     <br>
   </div>
 </div>
-
+</div>
 <br>
 <hr>
 
@@ -735,21 +751,21 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18_a" name="question18" value="Por personal interno de la institución"> a) Por personal interno de la institución
+      <input type="checkbox" class="option-input checkbox" id="question18_a" name="question18" value="Por personal interno de la institución">  Por personal interno de la institución
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18_b" name="question18" value="Por uno o varios prestadores de servicios contratados por la institución"> b) Por uno o varios prestadores de servicios contratados por la institución
+      <input type="checkbox" class="option-input checkbox" id="question18_b" name="question18" value="Por uno o varios prestadores de servicios contratados por la institución">  Por uno o varios prestadores de servicios contratados por la institución
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18_c" name="question18" value="Aprendiz"> c) Aprendiz
+      <input type="checkbox" class="option-input checkbox" id="question18_c" name="question18" value="Aprendiz">  Aprendiz
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question18_d" name="question18" value="Mixto (opcion a y b)"> d) Mixto (opcion a y b)
+    <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <input type="checkbox" class="option-input checkbox" id="question18_d" name="question18" value="Mixto (opcion a y b)">  Mixto (opcion a y b)
       <br>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -797,11 +813,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question20_a" name="question20" value="Tercerización del servicio">Tercerización del servicio
+      <input type="radio" class="option-input radio" id="question20_a" name="question20" value="Tercerización del servicio"> Tercerización del servicio
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="question20_b" name="question20" value="Personal propio">Personal propio
+      <input type="radio" class="option-input radio" id="question20_b" name="question20" value="Personal propio"> Personal propio
       <br>
     </div>
   </div>
@@ -900,23 +916,23 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q23question1" name="question23" value="Acceso discado o conexión discada vía teléfono">Acceso discado o conexión discada vía teléfono
+      <input type="radio" class="option-input radio" id="q23question1" name="question23" value="Acceso discado o conexión discada vía teléfono"> Acceso discado o conexión discada vía teléfono
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q23question2" name="question23" value="Conexión ADSL">Conexión ADSL
+      <input type="radio" class="option-input radio" id="q23question2" name="question23" value="Conexión ADSL"> Conexión ADSL
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q23question3" name="question23" value="Conexión vía fibra óptica">Conexión vía fibra óptica
+      <input type="radio" class="option-input radio" id="q23question3" name="question23" value="Conexión vía fibra óptica"> Conexión vía fibra óptica
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q23question4" name="question23" value="Conexión vía satélite">Conexión vía satélite
+      <input type="radio" class="option-input radio" id="q23question4" name="question23" value="Conexión vía satélite"> Conexión vía satélite
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q23question5" name="question23" value="Conexión Móvil o modem 3G">Conexión Móvil o modem 3G
+      <input type="radio" class="option-input radio" id="q23question5" name="question23" value="Conexión Móvil o modem 3G"> Conexión Móvil o modem 3G
       <br>
     </div>
     <br>
@@ -939,7 +955,70 @@
     </div>
   </div>
 
-  <label>Ancho de banda</label>
+  <table>
+      <tr>        
+          <th>Ancho de banda</th>
+          <th>Seleccionar</th>
+          <th>Velocidad</th>
+          <th>Seleccionar</th>
+      </tr>
+      <tr>
+        <td>Menos de 256 Kbps</td>
+        <td><input type="radio" class="option-input radio" id="q24question1" name="question24" value="Menos de 256 Kbps"></td>
+        <td>10Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion1" name="question24a" value="10Mbps"></td>
+      </tr>
+      <tr>
+        <td>Más 256 kbps y menos de 2 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24question2" name="question24" value="Más 256 kbps y menos de 2 Mbps"></td>        
+        <td>10/100 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion2" name="question24a" value="10/100 Mbps"></td>
+      </tr>
+      <tr>
+        <td>Más 2 Mbps y menos de 10 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24question3" name="question24" value="Más 2 Mbps y menos de 10 Mbps"></td>
+        <td>10/100/1000 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion3" name="question24a" value="10/100/1000 Mbps"></td>
+      </tr>
+      <tr>
+        <td>10 Mbps o más de 10 Mbps. Cuánto?</td>
+        <td><input type="radio" class="option-input radio" id="q24question4" name="question24" value="10 Mbps o más de 10 Mbps" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/></td>
+        <td>Más de 1 Gbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps"></td>
+      </tr>
+  </table>
+  <br>
+
+  <div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <input id="question24otro" type="text" name="question24otro" disabled="disabled"/>
+  </div></div><br><hr>
+
+  <!-- <table>
+      <tr>        
+          <th>Velocidad</th>
+          <th>Seleccionar</th>
+      </tr>
+      <tr>
+        <td>10Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion1" name="question24a" value="10Mbps"></td>
+      </tr>
+      <tr>
+        <td>10/100 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion2" name="question24a" value="10/100 Mbps"></td>
+      </tr>
+      <tr>
+        <td>10/100/1000 Mbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion3" name="question24a" value="10/100/1000 Mbps"></td>
+      </tr>
+      <tr>
+        <td>Más de 1 Gbps</td>
+        <td><input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps"></td>
+      </tr>
+  </table> -->
+
+
+  <!-- <label>Ancho de banda</label>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -956,15 +1035,15 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="q24question4" name="question24" value="10Mbps o más de 10Mbps" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>
-        10Mbps o más de 10 Mbps      
+        10 Mbps o más de 10 Mbps      
       <br><br>
       <input id="question24otro" name="question24otro" disabled="disabled"/>
         <br>
       </div>
       <br>
     </div>
-  </div>
-  <br>
+  </div> -->
+  <!-- <br>
   <label>Velocidad</label>
     <div class="row">
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -986,10 +1065,9 @@
         </div>
         <br>
       </div>
-    </div>
+    </div> -->
 
   <br>
-  <hr>
 
 
   <div class="row">
