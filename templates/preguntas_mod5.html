@@ -49,7 +49,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question1"><h4>1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?
-      <a  data-toggle="tooltip" onclick="alerta('Se refiere a los diferentes estándares para manejo de datos como signos vitales, imágenes médicas, información de laboratorio')">
+      <a  data-toggle="tooltip" onclick="alerta('Se refiere a los diferentes estándares para manejo de datos como signos vitales, imágenes médicas, información de laboratorio.\n\nDe ser necesario escoja varias opciones')">
       <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
     <br>
@@ -61,16 +61,17 @@
     <label><input type="checkbox" id="question1b" ondragover="" class="option-input checkbox" name="question1" value="ISO"> ISO</label><br>
     <label><input type="checkbox" id="question1c" ondragover="" class="option-input checkbox" name="question1" value="IEEE"> IEEE</label><br>
     <label><input type="checkbox" id="question1d" ondragover="" class="option-input checkbox" name="question1" value="DICOM"> DICOM</label><br>
-    <label><input type="checkbox" id="question1e" ondragover="" class="option-input checkbox" name="question1" value="Otros" onclick="var input=document.getElementById('question1_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"> Otros</label><br>
+    <label><input type="checkbox" id="question1e" ondragover="" class="option-input checkbox" name="question1" value="Otros" 
+      onclick="inputOn(this,'question1_otro')"> Otros</label><br>
     <br>
-    <input id="question1_otro" maxlength="200" name="question1_otro" disabled="disabled"/></label><br>
+    <input type="text" onkeypress="return textonly(event);" id="question1_otro" maxlength="200" name="question1_otro" disabled="disabled"/></label><br>
   </div>
 </div>
 <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza Historia Clínica Electrónica?
-        <a  data-toggle="tooltip" onclick="alerta('Estándares de codificación son las estrategias utilizadas por los programas que permiten gestionar la historia clínica electrónica')">
+        <a  data-toggle="tooltip" onclick="alerta('Estándares de codificación son las estrategias utilizadas por los programas que permiten gestionar la historia clínica electrónica.\n\nDe ser necesario escoja varias respuestas')">
         <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
     <br>
@@ -83,7 +84,8 @@
     <label><input type="checkbox" id="question2c" ondragover="" class="option-input checkbox" name="question2" value="SNOMED"> SNOMED</label><br>
     <label><input type="checkbox" id="question2d" ondragover="" class="option-input checkbox" name="question2" value="LOINC"> LOINC</label><br>
     <label><input type="checkbox" id="question2e" ondragover="" class="option-input checkbox" name="question2" value="NCPDP"> NCPDP,</label><br>
-    <label><input type="checkbox" id="question2f" ondragover="" class="option-input checkbox" name="question2" value="Otros" onclick="var input=document.getElementById('question2_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"> Otros</label><br>
+    <label><input type="checkbox" id="question2f" ondragover="" class="option-input checkbox" name="question2" value="Otros" 
+    onclick="inputOn(this,'question2_otro');"> Otros</label><br>
     <br>
     <input id="question2_otro" maxlength="200" name="question2_otro" disabled="disabled"/></label><br>
   </div>
@@ -93,8 +95,6 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question3"><h4>3. ¿Conoce el marco de interoperabilidad del Estado colombiano?
-        <a  data-toggle="tooltip" onclick="alerta('Marco de interoperabilidad son las estrategias para lograr que los sistemas que manejan datos clínicos puedan comunicarse automáticamente y compartir información')">
-            <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
       <br>
   </div>

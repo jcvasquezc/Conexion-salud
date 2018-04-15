@@ -251,3 +251,40 @@ function textonly(e){
 	if (AllowRegex.test(character)) return true;    
 	return false;
 	}
+
+// Activar contenedores
+    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
+    {
+      if (questionIDYesNO.checked) 
+      {
+        $(questionIDYes).removeClass("hidden");
+        $(questionIDNO).addClass("hidden");
+      }
+    }
+// activar a partir de checkboxes
+    function Checkb(obj,containerid) 
+    {
+      if (obj.checked)//Mostrar
+      {
+        $(containerid).removeClass("hidden");
+      }
+      else//Ocultar
+      {
+        $(containerid).addClass("hidden");
+      }
+	}
+	// activar entrada de texto OTROS
+	function inputOn(obj,textInput)
+	{
+		var input=document.getElementById(textInput); 
+		if(obj.checked)
+		{ 
+			input.disabled = false; 
+			input.focus();
+		}
+		else
+		{
+			input.value='';
+			input.disabled=true;
+		}
+	}

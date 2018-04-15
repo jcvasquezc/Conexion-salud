@@ -15,37 +15,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  td,
-  th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-</style>
-
-
     </head>
-
-   <script>
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
-      if (questionIDYesNO.checked) {
-        $(questionIDYes).removeClass("hidden");
-        $(questionIDNO).addClass("hidden");
-      }
-    }
-   </script>
 
 <body onload="set_rtas()">
 	<div class="wrapper">
@@ -97,10 +67,10 @@
         <label>Usuario Interno</label>
       </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" onclick="yesnoCheck(this, q43container, q44container);">SI
+      <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" onclick="yesnoCheck(this, q43container, q44container);"> SI
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');">NO
+      <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');"> NO
     </div>
     <br>
   </div>
@@ -111,10 +81,10 @@
       <label>Usuario Externo</label>
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="q1exquestion1" name="question1_ext" value="SI">SI
+      <input type="radio" class="option-input radio" id="q1exquestion1" name="question1_ext" value="SI"> SI
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" value="NO">NO
+      <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" value="NO"> NO
     </div>
     <br>
   </div>
@@ -148,13 +118,13 @@
             <label>Leer información de la institución incluyendo los médicos y los horarios</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2aa" name="question2_a" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2aa" name="question2_a" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ab" name="question2_a" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2ab" name="question2_a" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ac" name="question2_a" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2ac" name="question2_a" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -167,13 +137,13 @@
           <label>El usuario puede consultar su historia clínica parcialmente</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ba" name="question2_b" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ba" name="question2_b" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2bb" name="question2_b" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2bb" name="question2_b" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2bc" name="question2_b" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2bc" name="question2_b" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -185,13 +155,13 @@
           <label>El usuario puede consultar toda su historia clínica</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ca" name="question2_c" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ca" name="question2_c" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2cb" name="question2_c" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2cb" name="question2_c" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2cc" name="question2_c" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2cc" name="question2_c" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -203,13 +173,13 @@
           <label>Agendamiento de citas médicas</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2da" name="question2_d" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2da" name="question2_d" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2db" name="question2_d" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2db" name="question2_d" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2dc" name="question2_d" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2dc" name="question2_d" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -221,13 +191,13 @@
           <label>Agendamiento de paraclínicos (imágenes, laboratorios)</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ea" name="question2_e" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ea" name="question2_e" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2eb" name="question2_e" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2eb" name="question2_e" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ec" name="question2_e" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2ec" name="question2_e" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -239,13 +209,13 @@
           <label>Visualización de resultados de medios diagnósticos</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fa" name="question2_f" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2fa" name="question2_f" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fb" name="question2_f" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2fb" name="question2_f" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fc" name="question2_f" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2fc" name="question2_f" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -257,13 +227,13 @@
           <label>Visualización de historia clínica o expediente clínico</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ga" name="question2_g" value="Usuario Interno">Usuario Interno
+          <input type="radio" class="option-input radio" id="question2ga" name="question2_g" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2gb" name="question2_g" value="Usuario Externo">Usuario Externo
+          <input type="radio" class="option-input radio" id="question2gb" name="question2_g" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2gc" name="question2_g" value="No Aplica">No Aplica
+          <input type="radio" class="option-input radio" id="question2gc" name="question2_g" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -297,9 +267,9 @@
     <input type="radio" class="option-input radio" id="q3question5" name="question3" value="Anual"> Anual
     <br>
     <input type="radio" class="option-input radio" id="q3question6" name="question3" value="Otro" onclick="var input = document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Otro
+    /> Otro
     <br><br>
-    <input id="question3_otro" name="question3_otro" disabled="disabled" />
+    <input type="text" id="question3_otro" onkeypress="return textonly(event);" name="question3_otro" disabled="disabled" />
   </div>
 </div>
 <br>
@@ -338,41 +308,33 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question45">
-      <h4>5. ¿Cuáles de las siguientes actividades es posible realizar desde su institución a través de las TIC?</h4>
+      <h4>5. ¿Cuáles de las siguientes actividades es posible realizar desde su institución a través de las TIC?
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
-    <br>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question5_a" ondragover="" class="option-input checkbox" name="question5" value="Educación a distancia en salud"> Educación a distancia en salud</label>
-      <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question5_b" ondragover="" class="option-input checkbox" name="question5" value="Actividades de investigación a distancia"> Actividades de investigación a distancia</label>
-      <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question5_c" ondragover="" class="option-input checkbox" name="question5" value="Interacción en tiempo real (teleconferencia)"> Interacción en tiempo real (teleconferencia) </label>
-      <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question5_d" ondragover="" class="option-input checkbox" name="question5" value="Interacción que no sea en tiempo real (vía correo electrónico – email)"> Interacción que no sea en tiempo real (vía correo electrónico – email)</label>
-      <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question5_e" ondragover="" class="option-input checkbox" name="question5" value="Monitoreo de pacientes a distancia"> Monitoreo de pacientes a distancia</label>
-      <br>
-    </div>
-    <br>
-  </div>
-</div>
+  <label>
+  <input type="checkbox" id="question5_a" ondragover="" class="option-input checkbox" name="question5" value="Educación a distancia en salud"> Educación a distancia en salud
+  </label>
+  <br>
+  <label>
+  <input type="checkbox" id="question5_b" ondragover="" class="option-input checkbox" name="question5" value="Actividades de investigación a distancia"> Actividades de investigación a distancia
+  </label>
+  <br>
+  <label>
+  <input type="checkbox" id="question5_c" ondragover="" class="option-input checkbox" name="question5" value="Interacción en tiempo real (teleconferencia)"> Interacción en tiempo real (teleconferencia) </label>
+  <br>
+  <label>
+  <input type="checkbox" id="question5_d" ondragover="" class="option-input checkbox" name="question5" value="Interacción que no sea en tiempo real (vía correo electrónico – email)"> Interacción que no sea en tiempo real (vía correo electrónico – email)</label>
+  <br>
+  <label>
+  <input type="checkbox" id="question5_e" ondragover="" class="option-input checkbox" name="question5" value="Monitoreo de pacientes a distancia"> Monitoreo de pacientes a distancia</label>
+
 <br>
 <hr>
 
@@ -398,301 +360,257 @@
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
       <input type="radio" class="option-input radio" id="q6question2" name="question6" value="NO" onclick="yesnoCheck(this, q49container, q48container);clear_inputs('q48container');"> NO
-      <br>
+      
     </div>
-    <br>
   </div>
 </div>
 
 
-<br>
-<hr>
 
 <div class="hidden" id="q49container"></div>
 <div class="hidden" id="q48container">
 
+    <br>
+    <hr>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question47">
-        <h4>7. ¿Cuáles de los siguientes servicios de telemedicina provee su institución?</h4>
+        <h4>7. ¿Cuáles de los siguientes servicios de telemedicina provee su institución?
+            <a  
+            data-toggle="tooltip" 
+            onclick="alerta('De ser necesario escoja varias respuestas')">
+            <i class="fa fa-question-circle" style=font-size:24px></i>
+          </a>
+        </h4>
       </label>
       <br>
     </div>
   </div>
 
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question1" name="question7" value="Protección específica y detección temprana"> Protección específica y detección temprana
+      <input type="checkbox" class="option-input checkbox" id="q7question1" name="question7" value="Protección específica y detección temprana"> Protección específica y detección temprana
       <br>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question2_hab" name="question7" value="Consulta externa" onclick="yesnoCheck(this, q7acontainer, q49container);"> Consulta externa
+
+      <input type="checkbox" class="option-input checkbox" id="q7question2_hab" name="question7" value="Consulta externa" 
+      onclick="Checkb(this,q7acontainer);"> Consulta externa
       <br>
-    </div>
     <div class="hidden" id="q7acontainer">
-        <div class="row">
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <label>
-              <input type="checkbox" id="question7ba" ondragover="" class="option-input checkbox" name="question7b" value="Consulta externa general"> Consulta externa general</label>
+            <label style="font-weight: bold">
+              <input type="checkbox" id="question7ba" ondragover="" class="option-input checkbox" name="question7b" value="Consulta externa general"> -Consulta externa general</label>
             <br>
-            <label>
-              <input type="checkbox" id="question7bb" ondragover="" class="option-input checkbox" name="question7b" value="Consulta externa especialidades médicas"> Consulta externa especialidades médicas</label>
+            <label style="font-weight: bold">
+              <input type="checkbox" id="question7bb" ondragover="" class="option-input checkbox" name="question7b" value="Consulta externa especialidades médicas"> -Consulta externa especialidades médicas</label>
             <br>
-            <label>
-              <input type="checkbox" id="question7bc" ondragover="" class="option-input checkbox" name="question7b" value="Consulta odontológica general y especializada"> Consulta odontológica general y especializada</label>
+            <label style="font-weight: bold">
+              <input type="checkbox" id="question7bc" ondragover="" class="option-input checkbox" name="question7b" value="Consulta odontológica general y especializada"> -Consulta odontológica general y especializada</label>
             <br>
-            <label>
-              <input type="checkbox" id="question7bd" ondragover="" class="option-input checkbox" name="question7b" value="Medicinas alternativas"> Medicinas alternativas</label>
+            <label style="font-weight: bold">
+              <input type="checkbox" id="question7bd" ondragover="" class="option-input checkbox" name="question7b" value="Medicinas alternativas"> -Medicinas alternativas</label>
             <br>
-            <br>
-          </div>
-        </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question3_hab" name="question7" value="Internación" onclick="yesnoCheck(this, q7ccontainer, q49container);"> Internación
+
+      <input type="checkbox" class="option-input checkbox" id="q7question3_hab" name="question7" value="Internación" 
+      onclick="Checkb(this,q7ccontainer);"> Internación
       <br>
-    </div>
 
     <div class="hidden" id="q7ccontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7ca" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización baja complejidad"> Hospitalización baja complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ca" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización baja complejidad"> -Hospitalización baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cb" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización mediana y alta complejidad"> Hospitalización mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cb" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización mediana y alta complejidad"> -Hospitalización mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cc" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización obstétrica baja complejidad"> Hospitalización obstétrica baja complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cc" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización obstétrica baja complejidad"> -Hospitalización obstétrica baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cd" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización obstétrica mediana y alta complejidad"> Hospitalización obstétrica mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cd" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización obstétrica mediana y alta complejidad"> -Hospitalización obstétrica mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7ce" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado básico neonatal Internación parcial en hospital"> Cuidado básico neonatal Internación parcial en hospital</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ce" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado básico neonatal Internación parcial en hospital"> -Cuidado básico neonatal Internación parcial en hospital</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cf" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización en unidad de salud mental"> Hospitalización en unidad de salud mental</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cf" ondragover="" class="option-input checkbox" name="question7c" value="Hospitalización en unidad de salud mental"> -Hospitalización en unidad de salud mental</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cg" ondragover="" class="option-input checkbox" name="question7c" value="Internación Hospitalaria e Internación Parcial para la atención al consumidor de Sustancias Psicoactivas"> Internación Hospitalaria e Internación Parcial para la atención al consumidor de Sustancias Psicoactivas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cg" ondragover="" class="option-input checkbox" name="question7c" value="Internación Hospitalaria e Internación Parcial para la atención al consumidor de Sustancias Psicoactivas"> -Internación Hospitalaria e Internación Parcial para la atención al consumidor de Sustancias Psicoactivas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7ch" ondragover="" class="option-input checkbox" name="question7c" value="Atención institucional de paciente crónico"> Atención institucional de paciente crónico</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ch" ondragover="" class="option-input checkbox" name="question7c" value="Atención institucional de paciente crónico"> -Atención institucional de paciente crónico</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7ci" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio neonatal">  Cuidado intermedio neonatal</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ci" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio neonatal">  -Cuidado intermedio neonatal</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cj" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio pediátrico"> Cuidado intermedio pediátrico</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cj" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio pediátrico"> -Cuidado intermedio pediátrico</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7ck" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio adultos"> Cuidado intermedio adultos</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ck" ondragover="" class="option-input checkbox" name="question7c" value="Cuidado intermedio adultos"> -Cuidado intermedio adultos</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7cl" ondragover="" class="option-input checkbox" name="question7c" value="Unidad de quemados adultos y/o pediátricos"> Unidad de quemados adultos y/o pediátricos</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7cl" ondragover="" class="option-input checkbox" name="question7c" value="Unidad de quemados adultos y/o pediátricos"> -Unidad de quemados adultos y/o pediátricos</label>
           <br>
-
-        </div>
-      </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question4_hab" name="question7" value="Quirúrgicos" onclick="yesnoCheck(this, q7dcontainer, q49container);"> Quirúrgicos
+      <input type="checkbox" class="option-input checkbox" id="q7question4_hab" name="question7" value="Quirúrgicos" 
+      onclick="Checkb(this,q7dcontainer);"> Quirúrgicos
       <br>
-    </div>
 
     <div class="hidden" id="q7dcontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7da" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía baja complejidad"> Cirugía baja complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7da" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía baja complejidad"> -Cirugía baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7db" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía mediana y alta complejidad"> Cirugía mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7db" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía mediana y alta complejidad"> -Cirugía mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7dc" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía ambulatoria"> Cirugía ambulatoria</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7dc" ondragover="" class="option-input checkbox" name="question7d" value="Cirugía ambulatoria"> -Cirugía ambulatoria</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7dd" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de órganos"> Trasplante de órganos</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7dd" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de órganos"> -Trasplante de órganos</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7df" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de progenitores hematopoyéticos"> Trasplante de progenitores hematopoyéticos</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7df" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de progenitores hematopoyéticos"> -Trasplante de progenitores hematopoyéticos</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7de" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de tejidos"> Trasplante de tejidos</label>
-          <br>    
-        </div>
-      </div>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7de" ondragover="" class="option-input checkbox" name="question7d" value="Trasplante de tejidos"> -Trasplante de tejidos</label>
+          <br>          
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question5_hab" name="question7" value="Urgencias" onclick="yesnoCheck(this, q7econtainer, q49container);"> Urgencias
+      <input type="checkbox" class="option-input checkbox" id="q7question5_hab" name="question7" value="Urgencias" 
+      onclick="Checkb(this,q7econtainer);"> Urgencias
       <br>
-    </div>
 
-    <div class="hidden" id="q7dcontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7dg" ondragover="" class="option-input checkbox" name="question7e" value="Urgencias baja complejidad"> Urgencias baja complejidad</label>
+    <div class="hidden" id="q7econtainer">
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7dg" ondragover="" class="option-input checkbox" name="question7e" value="Urgencias baja complejidad"> -Urgencias baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7dh" ondragover="" class="option-input checkbox" name="question7e" value="Urgencias mediana y alta complejidad"> Urgencias mediana y alta complejidad</label>
-          <br>  
-        </div>
-      </div>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7dh" ondragover="" class="option-input checkbox" name="question7e" value="Urgencias mediana y alta complejidad"> -Urgencias mediana y alta complejidad</label>
+          <br>       
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question6_hab" name="question7" value="Apoyo diagnóstico y complementación terapéutica" onclick="yesnoCheck(this, q7fcontainer, q49container);"> Apoyo diagnóstico y complementación terapéutica
+      <input type="checkbox" class="option-input checkbox" id="q7question6_hab" name="question7" value="Apoyo diagnóstico y complementación terapéutica" 
+      onclick="Checkb(this,q7fcontainer);"> Apoyo diagnóstico y complementación terapéutica
       <br>
-    </div>
 
-    <div class="hidden" id="q7ccontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7fa" ondragover="" class="option-input checkbox" name="question7f" value="Servicio farmacéutico baja complejidad"> Servicio farmacéutico baja complejidad</label>
+    <div class="hidden" id="q7fcontainer">
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fa" ondragover="" class="option-input checkbox" name="question7f" value="Servicio farmacéutico baja complejidad"> -Servicio farmacéutico baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fb" ondragover="" class="option-input checkbox" name="question7f" value="Servicio farmacéutico mediana y alta complejidad"> Servicio farmacéutico mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fb" ondragover="" class="option-input checkbox" name="question7f" value="Servicio farmacéutico mediana y alta complejidad"> -Servicio farmacéutico mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fc" ondragover="" class="option-input checkbox" name="question7f" value="Toma e interpretación de radiografías odontológicas"> Toma e interpretación de radiografías odontológicas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fc" ondragover="" class="option-input checkbox" name="question7f" value="Toma e interpretación de radiografías odontológicas"> -Toma e interpretación de radiografías odontológicas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fd" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas baja complejidad"> Radiología e imágenes diagnósticas baja complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fd" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas baja complejidad"> -Radiología e imágenes diagnósticas baja complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fe" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas, mediana y alta complejidad"> Radiología e imágenes diagnósticas, mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fe" ondragover="" class="option-input checkbox" name="question7f" value="Radiología e imágenes diagnósticas, mediana y alta complejidad"> -Radiología e imágenes diagnósticas, mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7ff" ondragover="" class="option-input checkbox" name="question7f" value="Ultrasonido Medicina nuclear"> Ultrasonido Medicina nuclear</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ff" ondragover="" class="option-input checkbox" name="question7f" value="Ultrasonido Medicina nuclear"> -Ultrasonido Medicina nuclear</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fg" ondragover="" class="option-input checkbox" name="question7f" value="Radioterapia"> Radioterapia</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fg" ondragover="" class="option-input checkbox" name="question7f" value="Radioterapia"> -Radioterapia</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fh" ondragover="" class="option-input checkbox" name="question7f" value="Quimioterapia"> Quimioterapia</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fh" ondragover="" class="option-input checkbox" name="question7f" value="Quimioterapia"> -Quimioterapia</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fi" ondragover="" class="option-input checkbox" name="question7f" value="Diagnóstico cardiovascular"> Diagnóstico cardiovascular</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fi" ondragover="" class="option-input checkbox" name="question7f" value="Diagnóstico cardiovascular"> -Diagnóstico cardiovascular</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fj" ondragover="" class="option-input checkbox" name="question7f" value="Electrodiagnóstico"> Electrodiagnóstico</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fj" ondragover="" class="option-input checkbox" name="question7f" value="Electrodiagnóstico"> -Electrodiagnóstico</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fk" ondragover="" class="option-input checkbox" name="question7f" value="Transfusión sanguínea"> Transfusión sanguínea</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fk" ondragover="" class="option-input checkbox" name="question7f" value="Transfusión sanguínea"> -Transfusión sanguínea</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fl" ondragover="" class="option-input checkbox" name="question7f" value="Toma de muestras de laboratorio clínico"> Toma de muestras de laboratorio clínico.</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fl" ondragover="" class="option-input checkbox" name="question7f" value="Toma de muestras de laboratorio clínico"> -Toma de muestras de laboratorio clínico.</label>
           <br>
 
-          <label>
-            <input type="checkbox" id="question7fm" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio clínico baja, mediana y alta complejidad"> Laboratorio clínico baja, mediana y alta complejidad</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fm" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio clínico baja, mediana y alta complejidad"> -Laboratorio clínico baja, mediana y alta complejidad</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fn" ondragover="" class="option-input checkbox" name="question7f" value="Tamización de cáncer de cuello uterino"> Tamización de cáncer de cuello uterino</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fn" ondragover="" class="option-input checkbox" name="question7f" value="Tamización de cáncer de cuello uterino"> -Tamización de cáncer de cuello uterino</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fo" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de citologías cervico-uterinas"> Laboratorio de citologías cervico-uterinas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fo" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de citologías cervico-uterinas"> -Laboratorio de citologías cervico-uterinas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fp" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de histotecnología"> Laboratorio de histotecnología</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fp" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de histotecnología"> -Laboratorio de histotecnología</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fq" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de patología"> Laboratorio de patología</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fq" ondragover="" class="option-input checkbox" name="question7f" value="Laboratorio de patología"> -Laboratorio de patología</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fr" ondragover="" class="option-input checkbox" name="question7f" value="Endoscopia Digestiva"> Endoscopia Digestiva</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fr" ondragover="" class="option-input checkbox" name="question7f" value="Endoscopia Digestiva"> -Endoscopia Digestiva</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fs" ondragover="" class="option-input checkbox" name="question7f" value="Hemodiálisis"> Hemodiálisis</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fs" ondragover="" class="option-input checkbox" name="question7f" value="Hemodiálisis"> -Hemodiálisis</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fu" ondragover="" class="option-input checkbox" name="question7f" value="Diálisis peritoneal"> Diálisis peritoneal</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fu" ondragover="" class="option-input checkbox" name="question7f" value="Diálisis peritoneal"> -Diálisis peritoneal</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fw" ondragover="" class="option-input checkbox" name="question7f" value="Terapias alternativas"> Terapias alternativas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fw" ondragover="" class="option-input checkbox" name="question7f" value="Terapias alternativas"> -Terapias alternativas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fy" ondragover="" class="option-input checkbox" name="question7f" value="Neumología - Laboratorio de función pulmonar"> Neumología - Laboratorio de función pulmonar </label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fy" ondragover="" class="option-input checkbox" name="question7f" value="Neumología - Laboratorio de función pulmonar"> -Neumología - Laboratorio de función pulmonar </label>
           <br>
-          <label>
-            <input type="checkbox" id="question7fzz" ondragover="" class="option-input checkbox" name="question7f" value="Hemodinamia"> Hemodinamia</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7fzz" ondragover="" class="option-input checkbox" name="question7f" value="Hemodinamia"> -Hemodinamia</label>
           <br>
-
-        </div>
-      </div>
     </div>
 
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question7_hab" name="question7" value="Transporte asistencial"
-        onclick="yesnoCheck(this, q7gcontainer, q49container);"> Transporte asistencial
+      <input type="checkbox" class="option-input checkbox" id="q7question7_hab" name="question7" value="Transporte asistencial"
+      onclick="Checkb(this,q7gcontainer);"> Transporte asistencial
       <br>
-    </div>
 
     <div class="hidden" id="q7gcontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7ga" ondragover="" class="option-input checkbox" name="question7g" value="Transporte asistencial básico"> Transporte asistencial básico</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ga" ondragover="" class="option-input checkbox" name="question7g" value="Transporte asistencial básico"> -Transporte asistencial básico</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7gb" ondragover="" class="option-input checkbox" name="question7g" value="Transporte asistencial medicalizado"> Transporte asistencial medicalizado</label>
-          <br>
-        </div>
-      </div>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7gb" ondragover="" class="option-input checkbox" name="question7g" value="Transporte asistencial medicalizado"> -Transporte asistencial medicalizado</label>
+          <br>      
     </div>
 
-
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q7question8_hab" name="question7" value="Otros servicios"
-        onclick="yesnoCheck(this, q7hcontainer, q49container);"> Otros servicios
+      <input type="checkbox" class="option-input checkbox" id="q7question8_hab" name="question7" value="Otros servicios"
+        onclick="Checkb(this,q7hcontainer);"> Otros servicios
       <br>
-    </div>
 
 
     <div class="hidden" id="q7hcontainer">
-      <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <label>
-            <input type="checkbox" id="question7ha" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente agudo"> Atención domiciliaria paciente agudo</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7ha" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente agudo"> -Atención domiciliaria paciente agudo</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hb" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente crónico sin ventilador"> Atención domiciliaria paciente crónico sin ventilador</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hb" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente crónico sin ventilador"> -Atención domiciliaria paciente crónico sin ventilador</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hc" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente crónico con ventilador"> Atención domiciliaria paciente crónico con ventilador</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hc" ondragover="" class="option-input checkbox" name="question7h" value="Atención domiciliaria paciente crónico con ventilador"> -Atención domiciliaria paciente crónico con ventilador</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hd" ondragover="" class="option-input checkbox" name="question7h" value="Consulta domiciliaria"> Consulta domiciliaria</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hd" ondragover="" class="option-input checkbox" name="question7h" value="Consulta domiciliaria"> -Consulta domiciliaria</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7he" ondragover="" class="option-input checkbox" name="question7h" value="Atención prehospitalaria"> Atención prehospitalaria</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7he" ondragover="" class="option-input checkbox" name="question7h" value="Atención prehospitalaria"> -Atención prehospitalaria</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hf" ondragover="" class="option-input checkbox" name="question7h" value="Atención al consumidor de sustancias psicoactivas"> Atención al consumidor de sustancias psicoactivas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hf" ondragover="" class="option-input checkbox" name="question7h" value="Atención al consumidor de sustancias psicoactivas"> -Atención al consumidor de sustancias psicoactivas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hg" ondragover="" class="option-input checkbox" name="question7h" value="Atención ambulatoria al consumidor de sustancias psicoactivas"> Atención ambulatoria al consumidor de sustancias psicoactivas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hg" ondragover="" class="option-input checkbox" name="question7h" value="Atención ambulatoria al consumidor de sustancias psicoactivas"> -Atención ambulatoria al consumidor de sustancias psicoactivas</label>
           <br>
-          <label>
-            <input type="checkbox" id="question7hh" ondragover="" class="option-input checkbox" name="question7h" value="Atención institucional no hospitalaria al consumidor de sustancias psicoactivas"> Atención institucional no hospitalaria al consumidor de sustancias psicoactivas</label>
+          <label style="font-weight: bold">
+            <input type="checkbox" id="question7hh" ondragover="" class="option-input checkbox" name="question7h" value="Atención institucional no hospitalaria al consumidor de sustancias psicoactivas"> -Atención institucional no hospitalaria al consumidor de sustancias psicoactivas</label>
           <br>
-
-        </div>
-      </div>
     </div>
-
-
-    <br>
-  </div>
-</div>
 
 </div>
 
@@ -712,7 +630,7 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-   <input type="radio" class="option-input radio" id="q8question1" name="question8" value="SI" >SI<br>
+   <input type="radio" class="option-input radio" id="q8question1" name="question8" value="SI" > SI<br>
    <br>
    <label>¿Cuál? 
      <a  data-toggle="tooltip" 
@@ -723,7 +641,7 @@
    <input type="text" maxlength="500" id="question1otro" name="question8cual" >
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q8question2" name="question8" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="q8question2" name="question8" value="NO" > NO<br>
   </div>
   </div>
 </div>
@@ -988,12 +906,13 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <input type="radio" class="option-input radio" id="q15question1" name="question15" value="Documento de identidad" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Documento de identidad
+    <input type="checkbox" class="option-input checkbox" id="q15question1" name="question15" value="Documento de identidad"> Documento de identidad
     <br>
 
-    <input type="radio" class="option-input radio" id="q15question2" name="question15" value="Etiqueta" onclick="yesnoCheck(this,q15containerMANno,q15containerMAN);clear_inputs('q15containerMAN');"> Etiqueta
+    <input type="checkbox" class="option-input checkbox" id="q15question2" name="question15" value="Etiqueta"> Etiqueta
     <br>
-    <input type="radio" class="option-input radio" id="q15question3_hab" name="question15"  value="Manilla" onclick="yesnoCheck(this,q15containerMAN,q15containerMANno);"> Manilla
+    <input type="checkbox" class="option-input checkbox" id="q15question3_hab" name="question15"  value="Manilla" 
+    onclick="Checkb(this,q15containerMAN)"> Manilla
     <br>
     <div class="hidden" id="q15containerMANno"></div>
           <div class="hidden" id="q15containerMAN">
@@ -1004,11 +923,12 @@
                   <input type="checkbox" class="option-input checkbox" id="q15question2c" name="question15a" value="impresión más código de barras"> c) Impresión más código de barras
           </div>
 
-    <input type="radio" class="option-input radio" id="q15question3a" name="question15" value="Contrato/póliza" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Contrato/póliza
+    <input type="checkbox" class="option-input checkbox" id="q15question3a" name="question15" value="Contrato/póliza"> Contrato/póliza
     <br>
-    <input type="radio" class="option-input radio" id="q15question3b" name="question15" value="Contrato/póliza" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');"> Biométrico
+    <input type="checkbox" class="option-input checkbox" id="q15question3b" name="question15" value="Contrato/póliza"> Biométrico
     <br>
-    <input type="radio" class="option-input radio" id="q15question4" name="question15" value="Otro" onclick="yesnoCheck(this, q14containercarnetno,q15containerMAN);clear_inputs('q15containerMAN');var input = document.getElementById('question15_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    <input type="checkbox" class="option-input checkbox" id="q15question4" name="question15" value="Otro" 
+    onclick="inputOn(this,'question15_otro');"
     /> Otro, ¿Cuál?
     <br><br>
     <input id="question15_otro" name="question15_otro" disabled="disabled" />
@@ -1020,7 +940,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h4>Descripción del nivel de adopción de Historia Clínica Digital en su institución</h4>
+    <p class="title">Descripción del nivel de adopción de Historia Clínica Digital en su institución</p>
   </div>
 </div>
 
@@ -1053,57 +973,63 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question26">
-      <h4>17. ¿Cuáles fueron las principales barreras para la implementación de la Historia Clínica Electrónica?</h4>
+      <h4>17. ¿Cuáles fueron las principales barreras para la implementación de la Historia Clínica Electrónica?
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
     <br>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17a" ondragover="" class="option-input checkbox" name="question17" value="Ausencia de liderazgo en el tema"> Ausencia de liderazgo en el tema</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17b" ondragover="" class="option-input checkbox" name="question17" value="Costo"> Costo</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17c" ondragover="" class="option-input checkbox" name="question17" value="Apoyo de la gerencia/administración"> Apoyo de la gerencia/administración</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17d" ondragover="" class="option-input checkbox" name="question17" value="infraestructura TIC"> infraestructura TIC</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17e" ondragover="" class="option-input checkbox" name="question17" value="Resistencia al cambio por parte del personal de salud"> Resistencia al cambio por parte del personal de salud</label>
       <br>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label>
+        <input type="checkbox" id="question17g" ondragover="" class="option-input checkbox" name="question17" value="Sistema poco amigable"> Sistema poco amigable</label>
+      <br>
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question17f" ondragover="" class="option-input checkbox" name="question17" value="Falta de competencia del personal para el uso de la herramienta"> Falta de competencia del personal para el uso de la herramienta</label>
       <br>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
-        <input type="checkbox" id="question17g" ondragover="" class="option-input checkbox" name="question17" value="Sistema poco amigable"> Sistema poco amigable</label>
-      <br>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <label>
       <input type="checkbox" class="option-input checkbox" id="question17h" name="question17" value="Otro" onclick="var input=document.getElementById('question17_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-      />Otros
-      <br>
-      <label>¿Cuáles?</label><input id="question17_otro" name="question17_otro" disabled="disabled" />
+      /> Otros. ¿Cuáles?
+      <br><br>
+      <input id="question17_otro" name="question17_otro" disabled="disabled" />
     </label>
 
     </div>
@@ -1227,20 +1153,19 @@
       <input type="radio" class="option-input radio" id="q18question25" name="question18" value="Gemar"> Gemar
       <br>
     </div>
-    <input type="radio" class="option-input radio" id="q18question26" name="question18" value="Otro" onclick="var input = document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-    />Otro
-    <br>
-    <label>¿Cuál?</label><input id="question18_otro" name="question18_otro" disabled="disabled" />
 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <input type="radio" class="option-input radio" id="q18question26" name="question18" value="Otro" onclick="var input = document.getElementById('question18_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
+    /> Otro. ¿Cuál?
+    <br><br>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="text" onkeypress="return textonly(event);" id="question18_otro" name="question18_otro" disabled="disabled" />
+    </div>
   </div>
 </div>
-<br>
-<hr>
 
-
-
-
-
+<br><hr>
 
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -1255,28 +1180,27 @@
   </div>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="q19question1" name="question19" value="Stand Alone"> Stand Alone
         <br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="q19question2" name="question19" value="Cliente – Servidor"> Cliente – Servidor
         <br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="q19question3" name="question19" value="Web"> Web
         <br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="q19question4" name="question19" value="SOA"> Arquitectura orientada a servicios (SOA)
         <br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="q19question5" name="question19" value="Otro" onclick="var input = document.getElementById('question19_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-        />Otro
-        <br>
-        <label>¿Cuál?</label>
-        <input id="question19_otro" name="question19_otro" disabled="disabled" />
+        /> Otro. ¿Cuál?
+        <br><br>
+        <input type="text" onkeypress="return textonly(event);" id="question19_otro" name="question19_otro" disabled="disabled" />
 
       </div>
     </div>
@@ -1345,7 +1269,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question49">
-      <h4>22. ¿Cuáles son las funcionalidades administrativas que ofrece el sistema de Historia Clínica Electrónica de la institución?</h4>
+      <h4>22. ¿Cuáles son las funcionalidades administrativas que ofrece el sistema de Historia Clínica Electrónica de la institución?
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
     <br>
   </div>
@@ -1386,10 +1316,10 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <label>
         <input type="checkbox" id="question22g" ondragover="" class="option-input checkbox" name="question22" value="Otro" onclick="var input=document.getElementById('question22_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-        />Otro
+        /> Otro
         <br>
         <br>
-        <input id="question22_otro" name="question45_otro" disabled="disabled" />
+        <input type="text" onkeypress="return textonly(event);" id="question22_otro" name="question45_otro" disabled="disabled" />
       </label>
       <br>
 
@@ -2235,7 +2165,7 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question43">
       <h4>24. De los siguientes datos sobre un determinado paciente ¿cuáles de ellos están integrados a la Historia Clínica Electrónica?
-          <a  data-toggle="tooltip" onclick="alerta('Seleccione la información relacionada con el paciente que se pueden integrar al sistema de Historia Clínica Electrónica');">
+          <a  data-toggle="tooltip" onclick="alerta('Seleccione la información relacionada con el paciente que se pueden integrar al sistema de Historia Clínica Electrónica.\n\nDe ser necesario escoja varias respuestas');">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a>
         </h4>
@@ -2326,7 +2256,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question44">
-      <h4>25. Señale el tipo de funcionalidades disponibles en su sistema electrónico</h4>
+      <h4>25. Señale el tipo de funcionalidades disponibles en su sistema electrónico.
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
     <br>
   </div>
@@ -2417,7 +2353,7 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q26question1_hab" name="question26" onclick="yesnoCheck(this, q26sicontainer, q26nocontainer);" value="SI">SI
+      <input type="radio" class="option-input radio" id="q26question1_hab" name="question26" onclick="yesnoCheck(this, q26sicontainer, q26nocontainer);" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -2438,7 +2374,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question47">
-      <h4>27. Señale el tipo de información que envían o reciben electrónicamente de o para otros establecimientos de salud:</h4>
+      <h4>27. Señale el tipo de información que envían o reciben electrónicamente de o para otros establecimientos de salud:
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
     <br>
   </div>
@@ -2495,7 +2437,7 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question51">
       <h4>28. En sus interacciones con las aseguradoras de salud ¿qué tipo de sistemas de información y herramientas electrónicas utilizan?
-          <a  data-toggle="tooltip" onclick="alerta('Aseguradora de salud hace referencia a las EPS (Entidad Promotora de Salud)')">
+          <a  data-toggle="tooltip" onclick="alerta('Aseguradora de salud hace referencia a las EPS (Entidad Promotora de Salud).\n\nDe ser necesario elija varias opciones.')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a></h4>
     </label>
@@ -2504,27 +2446,27 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question28a" ondragover="" class="option-input checkbox" name="question28" value="Confirmación de afiliación."> Confirmación de afiliación.</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question28b" ondragover="" class="option-input checkbox" name="question28" value="Verificación de elegibilidad a servicios."> Verificación de elegibilidad a servicios.</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question28c" ondragover="" class="option-input checkbox" name="question28" value="Solicitud y recibo de confirmación de aprobación de servicios específicos"> Solicitud y recibo de confirmación de aprobación de servicios específicos</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question28d" ondragover="" class="option-input checkbox" name="question28" value="Facturación y pago"> Facturación y pago</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question28e" ondragover="" class="option-input checkbox" name="question28" value="Historia clínica electrónica del asegurador"> Historia clínica electrónica del asegurador</label>
       <br>
@@ -2542,7 +2484,7 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question51">
       <h4>29. ¿Cuál es la aplicación más utilizada por la institución para la promoción de sus servicios?
-          <a  data-toggle="tooltip" onclick="alerta('Hace referencia al tipo de redes usado para promover o impulsar los servicios prestados por la institución.')">
+          <a  data-toggle="tooltip" onclick="alerta('Hace referencia al tipo de redes usado para promover o impulsar los servicios prestados por la institución.\n\nDe ser necesario escoja varias respuestas\n\nDe ser necesario escoja varias respuestas')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a></h4>
     </label>
@@ -2551,32 +2493,32 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label>
         <input type="checkbox" id="question29a" ondragover="" class="option-input checkbox" name="question29" value="Redes sociales (ingresar las 5 principales)"> Redes sociales (ingresar las 5 principales).</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question29b" ondragover="" class="option-input checkbox" name="question29" value="Redes de mensajería instantánea (Whatsapp,Telegram…)"> Redes de mensajería instantánea (Whatsapp,Telegram…).</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question29c" ondragover="" class="option-input checkbox" name="question29" value="Redes profesionales (app en salud, Linkedln,Yammer…)"> Redes profesionales (app en salud, Linkedln,Yammer…)</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question29d" ondragover="" class="option-input checkbox" name="question29" value="Redes microblogging (Twitter, Tumblr,Frienfeed…)"> Redes microblogging (Twitter, Tumblr,Frienfeed…)</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question29e" ondragover="" class="option-input checkbox" name="question29" value="Redes de imágenes (Flickr,Picasa,Pinterest, Instagram)">Redes de imágenes (Flickr,Picasa,Pinterest, Instagram)</label>
       <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
         <input type="checkbox" id="question29f" ondragover="" class="option-input checkbox" name="question29" value="Redes de video (Youtube, Vimeo…)">Redes de video (Youtube, Vimeo…)</label>
       <br>

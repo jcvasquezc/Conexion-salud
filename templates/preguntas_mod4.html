@@ -61,7 +61,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <label for="question1"><h4>1. ¿Qué métodos técnicos utiliza para el control de la seguridad de la información?
           <a  data-toggle="tooltip" 
-          onclick="alerta('Se refiere a las estrategias desarrolladas por la Institución o contratadas con terceros para preservar la información ante posibles pérdidas por ataques externos o imprevistos')">
+          onclick="alerta('Se refiere a las estrategias desarrolladas por la Institución o contratadas con terceros para preservar la información ante posibles pérdidas por ataques externos o imprevistos.\n\nDe ser necesario escoja varias respuestas')">
           <i class="fa fa-question-circle" style=font-size:24px></i>
         </a>
       </h4>
@@ -71,22 +71,22 @@
     </div>
     <div class="row">
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <input type="checkbox" class="option-input checkbox" id="question1_a" name="question1" value="Identificación y/o autenticación" > Identificación y/o autenticación<br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <input type="checkbox" class="option-input checkbox" id="question1_b" name="question1" value="Autorización y control de acceso " > Autorización y control de acceso <br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="checkbox" class="option-input checkbox" id="question1_c" name="question1" value="Auditoria" > Auditoria<br>
        </div>
-       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="checkbox" class="option-input checkbox" id="question1_d" name="question1" value="Encriptación de la información in-situ " > Encriptación de la información in-situ<br>
        </div>
-       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="checkbox" class="option-input checkbox" id="question1_e" name="question1" value="Encriptación de la información en intercambio" > Encriptación de la información en intercambio <br>
        </div>
-       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="checkbox" class="option-input checkbox" id="question1_f" name="question1" value="Monitoreo de ataques cibernéticos" > Monitoreo de ataques cibernéticos<br>
        </div>
 
@@ -106,11 +106,14 @@
     </div>
     <div class="row">
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="radio" class="option-input radio" id="q2question1" name="question2" value="SI" >SI<br>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+       <input type="radio" class="option-input radio" id="q2question1" name="question2" value="SI" > SI<br>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-       <input type="radio" class="option-input radio" id="q2question2" name="question2" value="NO" >NO<br>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+       <input type="radio" class="option-input radio" id="q2question2" name="question2" value="NO" > NO<br>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+       <input type="radio" class="option-input radio" id="q2question3" name="question2" value="NO APLICA" > NO APLICA<br>
       </div>
         <br>
       </div>
@@ -120,7 +123,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label for="question3"><h4>3. ¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución de salud?
+        <label for="question3"><h4>3.¿Con cuáles de las siguientes herramientas para la seguridad electrónica de la información cuenta la institución de salud?
           <a  data-toggle="tooltip" 
           onclick="alerta('Se refiere al uso de herramientas como paquetes especiales de computador, equipos físicos instalados en la institución, contratos con empresas especializadas o restricciones para el uso de la red.')">
           <i class="fa fa-question-circle" style=font-size:24px></i>
@@ -156,19 +159,16 @@
             <label><input type="checkbox" id="question3f" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <label><input type="checkbox" class="option-input checkbox" id="question3otro" name="question3" value="Otro" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br>
+            <label><input type="checkbox" class="option-input checkbox" id="question3otro" name="question3" value="Otro" 
+              onclick="inputOn(this,'question3_otro');" /> Otro<br>
               <br>
-              <input id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
+              <input type="text" onkeypress="return textonly(event);" id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
           </div>
       </div>
     </div>
     
 
 <br><hr>
-
-
-
-
 
 
 <div class "row">

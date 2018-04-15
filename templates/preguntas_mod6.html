@@ -118,9 +118,9 @@
 
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <label for="question2"><h4>3. Este proceso se realiza mediante: (Si es el caso seleccione varias opciones)
+              <label for="question2"><h4>3. Este proceso se realiza mediante:
                   <a data-toggle="tooltip" 
-                  onclick="alerta('Se refiere a la estrategia utilizada para las capacitaciones en TIC')">
+                  onclick="alerta('Se refiere a la estrategia utilizada para las capacitaciones en TIC.\n\nDe ser necesario escoja varias respuestas')">
                   <i class="fa fa-question-circle" style=font-size:24px></i></a>
               </h4></label>              
               <br>
@@ -131,7 +131,8 @@
               <label><input type="checkbox" id="question3a" ondragover="" class="option-input checkbox" name="question3" value="Proceso presencial"> Proceso presencial</label><br>
               <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
               <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
-              <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" onclick="var input=document.getElementById('question3_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
+              <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" 
+               onclick="inputOn(this,'question3_otro');" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
               <input type="text" id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="Cuál plataforma?"/></label><br>
             </div>
           </div>

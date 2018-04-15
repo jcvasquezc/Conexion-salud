@@ -19,27 +19,6 @@
 
    <script>	   
     var Rtas =  {{Rtas|safe}} //Respuestas del modulo 2    
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
-    {
-      if (questionIDYesNO.checked) 
-      {
-        $(questionIDYes).removeClass("hidden");
-        $(questionIDNO).addClass("hidden");
-      }
-    }
-      
-    function Checkb(obj,containerid) 
-    {
-      if (obj.checked)
-      {
-        $(containerid).removeClass("hidden");
-        //$(questionIDNO).addClass("hidden");
-      }
-      else
-      {
-        $(containerid).addClass("hidden");
-      }
-    }
    </script>
 
 <body onload="set_rtas()">
@@ -77,10 +56,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1si_hab" name="question1" value="SI" onclick="yesnoCheck(this, q2container, q3container);">SI<br>
+	 <input type="radio" class="option-input radio" id="question1si_hab" name="question1" value="SI" onclick="yesnoCheck(this, q2container, q3container);"> SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question1no" name="question1" value="NO" onclick="yesnoCheck(this, q3container, q2container);clear_inputs('q2container');">NO<br>
+	 <input type="radio" class="option-input radio" id="question1no" name="question1" value="NO" onclick="yesnoCheck(this, q3container, q2container);clear_inputs('q2container');"> NO<br>
   </div>
     <br>
   </div>
@@ -128,11 +107,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question3si_hab" name="question3" value="SI" onclick="yesnoCheck(this, q4container, q5container);">SI
+      <input type="radio" class="option-input radio" id="question3si_hab" name="question3" value="SI" onclick="yesnoCheck(this, q4container, q5container);"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question3no" name="question3" value="NO" onclick="yesnoCheck(this, q5container, q4container);clear_inputs('q4container');">NO
+      <input type="radio" class="option-input radio" id="question3no" name="question3" value="NO" onclick="yesnoCheck(this, q5container, q4container);clear_inputs('q4container');"> NO
       <br>
     </div>
     <br>
@@ -161,10 +140,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4yes" name="question4" value="SI" onclick="yesnoCheck(this, q7container, q6container);clear_inputs('q6container');" />SI<br>
+	 <input type="radio" class="option-input radio" id="question4yes" name="question4" value="SI" onclick="yesnoCheck(this, q7container, q6container);clear_inputs('q6container');" /> SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question4no_hab" name="question4" value="NO" onclick="yesnoCheck(this, q6container, q7container);" />NO<br>
+	 <input type="radio" class="option-input radio" id="question4no_hab" name="question4" value="NO" onclick="yesnoCheck(this, q6container, q7container);" /> NO<br>
   </div>
     <br>
   </div>
@@ -174,7 +153,13 @@
     <br><hr>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question6"><h4>5. Por cuáles razones en los consultorios de su institución NO se usaron computadoras en el año 2017?</h4></label>
+    <label for="question6"><h4>5. Por cuáles razones en los consultorios de su institución NO se usaron computadoras en el año 2017?
+        <a  
+        data-toggle="tooltip" 
+        onclick="alerta('De ser necesario escoja varias respuestas')">
+        <i class="fa fa-question-circle" style=font-size:24px></i>
+      </a>
+    </h4></label>
     <!--  -->
   </div>
 </div>
@@ -197,10 +182,13 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <input type="checkbox" class="option-input checkbox" id="question5_f" name="question5" value="Falta de presupuesto"> Falta de presupuesto<br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-    <input type="checkbox" class="option-input checkbox" id="question5_g" name="question5" value="Otro" onclick="var input = document.getElementById('question5_otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Otro<br>
     <br>
-    <input id="question5_otro" name="question5_otro" disabled="disabled"/><br>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <input type="checkbox" class="option-input checkbox" id="question5_g" name="question5" value="Otro" 
+    onclick="inputOn(this,'question5_otro');" /> Otras, ¿cuáles?
+    <br>
+    <br>
+    <input type="text" onkeypress="return textonly(event);" id="question5_otro" name="question5_otro" disabled="disabled"/><br>
     </div>
   
 </div>
@@ -222,53 +210,33 @@
     <input type="number" min=0 max=999 id="q6f1" name="question6" placeholder="0" ><br>
   </div>
 </div>
-    <br>
-
-
-
-
-
-
 </div>
 <br><hr>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question8">
-      <h4>7. ¿Qué tipo de computadoras tiene la institución?
-          <a  data-toggle="tooltip" 
+      <h4>7. ¿Qué tipo de computadoras tiene la institución? <a  data-toggle="tooltip" 
           onclick="alerta('Entiéndase computadores en toda la institución. Si no tiene computadores deje ambos campos en 0')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a></h4>
     </label>
-    <br>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <label>PC de Escritorio</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="number" min=0 id="q7f1" name="question7_PC_escritorio" placeholder="0">
-    <br>
-  </div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-    <label>PC Portátil</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="number" min=0 id="q7f2" name="question7_PC_portatil" placeholder="0">
-    <br>
-  </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <label>PC de Escritorio: 
+        <input type="number" min=0 id="q7f1" name="question7_PC_escritorio" placeholder="0" style="width:50px">
+      </label>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+      <label>PC Portátil:
+        <input type="number" min=0 id="q7f2" name="question7_PC_portatil" placeholder="0" style="width:50px">
+      </label>
+    </div>
 </div>
-
-<br>
-
-<br>
-<hr>
-
-
-
-
+  
+<br><hr>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -277,25 +245,21 @@
         onclick="alerta('TABLET: dispositivo electrónico portátil que permite realizar funciones similares a un pc.\n\nPHABLET: teléfono inteligente cuya pantalla supera en diagonal las 5,5 pulgadas y permite funciones similares a la tablet.\n\nCELULAR: teléfono móvil')">
         <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
-    <br>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Tablet</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="number" min=0 id="q8f1" name="question8_tablet" placeholder="0" ><br>
-</div>
-  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-      <label>Phablet</label>
-  </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
-    <input type="number" min=0 id="q8f2" name="question8_phablet" placeholder="0" ><br>
-</div>
 </div>
 
-<br>
+<div class="row">
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <label>Tablet:
+        <input type="number" min=0 id="q8f1" name="question8_tablet" placeholder="0" style="width:50px">
+      </label>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+      <label>Phalet:
+          <input type="number" min=0 id="q8f2" name="question8_phablet" placeholder="0" style="width:50px">
+      </label>
+    </div>
+</div>
 <br><hr>
 
 
@@ -312,11 +276,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question9a" name="question9" value="SI">SI
+      <input type="radio" class="option-input radio" id="question9a" name="question9" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question9b" name="question9" value="NO">NO
+      <input type="radio" class="option-input radio" id="question9b" name="question9" value="NO"> NO
       <br>
     </div>
     <br>
@@ -341,10 +305,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question10a" name="question10" value="SI" >SI<br>
+	 <input type="radio" class="option-input radio" id="question10a" name="question10" value="SI" > SI<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="question10b" name="question10" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="question10b" name="question10" value="NO" > NO<br>
   </div>
     <br>
   </div>
@@ -363,7 +327,7 @@
     <br>
   </div>
 </div>
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-1">
   <label>Profesionales de salud</label>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
@@ -377,21 +341,21 @@
   <input type="number" min=0 id="q11f2" name="question11_prof_no_salud" placeholder="0">
   <br>
 </div>
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-1">
   <label>Técnicos de salud</label>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
   <input type="number" min=0 id="q11f3" name="question11_tecnicos_salud" placeholder="0">
-  <br>
 </div>
 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
   <label>Técnicos no afines a salud</label>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
   <input type="number" min=0 id="q11f4" name="question11_tecnicos_no_salud" placeholder="0">
-  <br>
 </div>
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+<div class="col-xs-12 col-sm-3 col-md-3 col-lg-1">
   <label>Tecnólogos en salud</label>
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
@@ -474,7 +438,13 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question13">
       <h4>13. ¿Cuál es el nivel de estudios de la persona responsable de las tecnologías de la información y la comunicación (TIC) o informática
-      en la institución?</h4>
+      en la institución?
+      <a  
+      data-toggle="tooltip" 
+      onclick="alerta('De ser necesario escoja varias respuestas')">
+      <i class="fa fa-question-circle" style=font-size:24px></i>
+    </a>
+    </h4>
     </label>
     <br>
   </div>
@@ -598,11 +568,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question15_a_hab" name="question15" value="SI" onclick="yesnoCheck(this, q17container, q18container);">SI
+      <input type="radio" class="option-input radio" id="question15_a_hab" name="question15" value="SI" onclick="yesnoCheck(this, q17container, q18container);"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question15_b" name="question15" value="NO" onclick="yesnoCheck(this, q18container, q17container);clear_inputs('q17container');">NO
+      <input type="radio" class="option-input radio" id="question15_b" name="question15" value="NO" onclick="yesnoCheck(this, q18container, q17container);clear_inputs('q17container');"> NO
       <br>
     </div>
     <br>
@@ -626,19 +596,19 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_a" name="question16" value="Totalmente satisfactorio">Totalmente satisfactorio
+        <input type="radio" class="option-input radio" id="question16_a" name="question16" value="Totalmente satisfactorio"> Totalmente satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_b" name="question16" value="Bastante satisfactorio">Bastante satisfactorio
+        <input type="radio" class="option-input radio" id="question16_b" name="question16" value="Bastante satisfactorio"> Bastante satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_c" name="question16" value="Poco satisfactorio">Poco satisfactorio
+        <input type="radio" class="option-input radio" id="question16_c" name="question16" value="Poco satisfactorio"> Poco satisfactorio
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_d" name="question16" value="Nada satisfactorio">Nada satisfactorio
+        <input type="radio" class="option-input radio" id="question16_d" name="question16" value="Nada satisfactorio"> Nada satisfactorio
         <br>
       </div>
       <br>
@@ -652,7 +622,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question15">
-      <h4>17. ¿En qué servicio o área de la institución se hace uso de tecnologías de la información y la comunicación (TIC)?</h4>
+      <h4>17. ¿En qué servicio o área de la institución se hace uso de tecnologías de la información y la comunicación (TIC)?
+          <a  
+          data-toggle="tooltip" 
+          onclick="alerta('De ser necesario escoja varias respuestas')">
+          <i class="fa fa-question-circle" style=font-size:24px></i>
+        </a>
+      </h4>
     </label>
 
     <br>
@@ -736,13 +712,19 @@
 <div class="hidden" id="q18container"></div>
 
 
-
+<br><hr>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question18">
       <h4>18. En el año 2017 el soporte técnico y mantenimiento de equipos y dispositivos tecnológicos y software de la institución fue
-      realizada la mayor parte de las veces por:</h4>
+      realizada la mayor parte de las veces por:
+      <a  
+      data-toggle="tooltip" 
+      onclick="alerta('De ser necesario escoja varias respuestas')">
+      <i class="fa fa-question-circle" style=font-size:24px></i>
+    </a>
+  </h4>
     </label>
 
     <br>
@@ -787,10 +769,9 @@
 <div class="row">
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
     <input type="number" min=0 id="q19f1" name="question19" placeholder="0">
-    <br>
+    
   </div>
 </div>
-<br>
 
 <br>
 <hr>
@@ -844,11 +825,11 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question21_a_hab" name="question21" value="SI" onclick="yesnoCheck(this, q23container, q24container);">SI
+      <input type="radio" class="option-input radio" id="question21_a_hab" name="question21" value="SI" onclick="yesnoCheck(this, q23container, q24container);"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question21_b" name="question21" value="NO" onclick="yesnoCheck(this, q24container, q23container);clear_inputs('q23container');">NO
+      <input type="radio" class="option-input radio" id="question21_b" name="question21" value="NO" onclick="yesnoCheck(this, q24container, q23container);clear_inputs('q23container');"> NO
       <br>
     </div>
     <br>
@@ -879,17 +860,17 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <input type="radio" class="option-input radio" id="question22a" name="question22" value="La institución">La institución
+      <input type="radio" class="option-input radio" id="question22a" name="question22" value="La institución"> La institución
       <br>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <input type="radio" class="option-input radio" id="question22b" name="question22" value="Subsidiada por el gobierno">Subsidiada por el gobierno
+      <input type="radio" class="option-input radio" id="question22b" name="question22" value="Subsidiada por el gobierno"> Subsidiada por el gobierno
       <br>
     </div>
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
       <input type="radio" class="option-input radio" id="question22c" name="question22" value="Subsidiada por otra institucion" onclick="var input = document.getElementById('question22otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"
-      />Subsidiada por otra institución
+      /> Subsidiada por otra institución
       <br><br>
     <input id="question22otro" name="question22otro" disabled="disabled" />
     </div>
@@ -964,25 +945,29 @@
       </tr>
       <tr>
         <td>Menos de 256 Kbps</td>
-        <td><input type="radio" class="option-input radio" id="q24question1" name="question24" value="Menos de 256 Kbps"></td>
+        <td><input type="radio" class="option-input radio" id="q24question1" name="question24" value="Menos de 256 Kbps"
+          onclick="document.getElementById('question24otro').disabled=true;document.getElementById('question24otro').value='';"></td>
         <td>10Mbps</td>
         <td><input type="radio" class="option-input radio" id="q24aquestion1" name="question24a" value="10Mbps"></td>
       </tr>
       <tr>
         <td>Más 256 kbps y menos de 2 Mbps</td>
-        <td><input type="radio" class="option-input radio" id="q24question2" name="question24" value="Más 256 kbps y menos de 2 Mbps"></td>        
+        <td><input type="radio" class="option-input radio" id="q24question2" name="question24" value="Más 256 kbps y menos de 2 Mbps"
+          onclick="document.getElementById('question24otro').disabled=true;document.getElementById('question24otro').value='';"></td>        
         <td>10/100 Mbps</td>
         <td><input type="radio" class="option-input radio" id="q24aquestion2" name="question24a" value="10/100 Mbps"></td>
       </tr>
       <tr>
         <td>Más 2 Mbps y menos de 10 Mbps</td>
-        <td><input type="radio" class="option-input radio" id="q24question3" name="question24" value="Más 2 Mbps y menos de 10 Mbps"></td>
+        <td><input type="radio" class="option-input radio" id="q24question3" name="question24" value="Más 2 Mbps y menos de 10 Mbps"
+          onclick="document.getElementById('question24otro').disabled=true;document.getElementById('question24otro').value='';"></td>
         <td>10/100/1000 Mbps</td>
         <td><input type="radio" class="option-input radio" id="q24aquestion3" name="question24a" value="10/100/1000 Mbps"></td>
       </tr>
       <tr>
         <td>10 Mbps o más de 10 Mbps. Cuánto?</td>
-        <td><input type="radio" class="option-input radio" id="q24question4" name="question24" value="10 Mbps o más de 10 Mbps" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/></td>
+        <td><input type="radio" class="option-input radio" id="q24question4" name="question24" value="10 Mbps o más de 10 Mbps" 
+          onclick="inputOn(this,'question24otro');"/></td>
         <td>Más de 1 Gbps</td>
         <td><input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps"></td>
       </tr>
@@ -993,80 +978,6 @@
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <input id="question24otro" type="text" name="question24otro" disabled="disabled"/>
   </div></div><br><hr>
-
-  <!-- <table>
-      <tr>        
-          <th>Velocidad</th>
-          <th>Seleccionar</th>
-      </tr>
-      <tr>
-        <td>10Mbps</td>
-        <td><input type="radio" class="option-input radio" id="q24aquestion1" name="question24a" value="10Mbps"></td>
-      </tr>
-      <tr>
-        <td>10/100 Mbps</td>
-        <td><input type="radio" class="option-input radio" id="q24aquestion2" name="question24a" value="10/100 Mbps"></td>
-      </tr>
-      <tr>
-        <td>10/100/1000 Mbps</td>
-        <td><input type="radio" class="option-input radio" id="q24aquestion3" name="question24a" value="10/100/1000 Mbps"></td>
-      </tr>
-      <tr>
-        <td>Más de 1 Gbps</td>
-        <td><input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps"></td>
-      </tr>
-  </table> -->
-
-
-  <!-- <label>Ancho de banda</label>
-  <div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="q24question1" name="question24" value="Menos de 256 Kbps">Menos de 256 Kbps
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="q24question2" name="question24" value="Más 256 kbps y menos de 2 Mbps">Más 256 kbps y menos de 2 Mbps
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="q24question3" name="question24" value="Más 2 Mbps y menos de 10 Mbps">Más 2 Mbps y menos de 10 Mbps
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="q24question4" name="question24" value="10Mbps o más de 10Mbps" onclick="var input = document.getElementById('question24otro'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>
-        10 Mbps o más de 10 Mbps      
-      <br><br>
-      <input id="question24otro" name="question24otro" disabled="disabled"/>
-        <br>
-      </div>
-      <br>
-    </div>
-  </div> -->
-  <!-- <br>
-  <label>Velocidad</label>
-    <div class="row">
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <input type="radio" class="option-input radio" id="q24aquestion1" name="question24a" value="10Mbps">10Mbps
-          <br>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <input type="radio" class="option-input radio" id="q24aquestion2" name="question24a" value="10/100 Mbps">10/100 Mbps
-          <br>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <input type="radio" class="option-input radio" id="q24aquestion3" name="question24a" value="10/100/1000 Mbps">10/100/1000 Mbps
-          <br>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps">Más de 1 Gbps
-          <br>
-        </div>
-        <br>
-      </div>
-    </div> -->
-
   <br>
 
 
@@ -1082,14 +993,14 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <input type="radio" class="option-input radio" id="question1" name="question25" value="SI">SI<br>
+    <input type="radio" class="option-input radio" id="question1" name="question25" value="SI"> SI<br>
     <br>  
     <input type="number" min=0 id="question1c" name="question25_num_puntos" placeholder="¿Cuántos puntos?">
       <br>
 
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <input type="radio" class="option-input radio" id="question2" name="question25" value="NO">NO<br>
+    <input type="radio" class="option-input radio" id="question2" name="question25" value="NO"> NO<br>
     </div>
       <br>
     </div>
@@ -1113,11 +1024,11 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q26question1_hab" name="question26" value="SI" onclick="yesnoCheck(this, q32container, q33container);">SI
+        <input type="radio" class="option-input radio" id="q26question1_hab" name="question26" value="SI" onclick="yesnoCheck(this, q32container, q33container);"> SI
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q26question2" name="question26" value="NO" onclick="yesnoCheck(this, q33container, q32container);clear_inputs('q32container');">NO
+        <input type="radio" class="option-input radio" id="q26question2" name="question26" value="NO" onclick="yesnoCheck(this, q33container, q32container);clear_inputs('q32container');"> NO
         <br>
       </div>
       <br>
@@ -1145,23 +1056,23 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q27question1" name="question27" value="Libre">Libre
+        <input type="radio" class="option-input radio" id="q27question1" name="question27" value="Libre"> Libre
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q27question2" name="question27" value="WEP">WEP
+        <input type="radio" class="option-input radio" id="q27question2" name="question27" value="WEP"> WEP
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q27question3" name="question27" value="WPA">WPA
+        <input type="radio" class="option-input radio" id="q27question3" name="question27" value="WPA"> WPA
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q27question4" name="question27" value="WPA2">WPA2
+        <input type="radio" class="option-input radio" id="q27question4" name="question27" value="WPA2"> WPA2
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q27question5" name="question27" value="Portal Cautivo">Portal Cautivo
+        <input type="radio" class="option-input radio" id="q27question5" name="question27" value="Portal Cautivo"> Portal Cautivo
         <br>
       </div>
       <br>
@@ -1187,11 +1098,11 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q28question1" name="question28" value="Total">Total
+        <input type="radio" class="option-input radio" id="q28question1" name="question28" value="Total"> Total
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q28question2" name="question28" value="Zonal">Zonal
+        <input type="radio" class="option-input radio" id="q28question2" name="question28" value="Zonal"> Zonal
         <br>
       </div>
       <br>
@@ -1218,15 +1129,15 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q29question1" name="question29" value="Conexiones dedicadas">Conexiones dedicadas
+        <input type="radio" class="option-input radio" id="q29question1" name="question29" value="Conexiones dedicadas"> Conexiones dedicadas
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q29question2" name="question29" value="Redes privadas virtuales">Redes privadas virtuales
+        <input type="radio" class="option-input radio" id="q29question2" name="question29" value="Redes privadas virtuales"> Redes privadas virtuales
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <input type="radio" class="option-input radio" id="q29question2" name="question29" value="Redes públicas.">Redes públicas.
+        <input type="radio" class="option-input radio" id="q29question2" name="question29" value="Redes públicas."> Redes públicas.
         <br>
       </div>
 
@@ -1257,10 +1168,10 @@
       <label>Soporte eléctrico ininterrumpido-UPS</label>
   </div>
   <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-	 <input type="radio" class="option-input radio" id="q30upsquestion1" name="question30UPS" value="SI" >SI<br>
+	 <input type="radio" class="option-input radio" id="q30upsquestion1" name="question30UPS" value="SI" > SI<br>
   </div>
   <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-	 <input type="radio" class="option-input radio" id="q30upsquestion2" name="question30UPS" value="NO" >NO<br>
+	 <input type="radio" class="option-input radio" id="q30upsquestion2" name="question30UPS" value="NO" > NO<br>
   </div>
   </div>
 </div>
@@ -1270,11 +1181,11 @@
       <label>Planta eléctrica</label>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30plaquestion1" name="question30_planta" value="SI">SI
+      <input type="radio" class="option-input radio" id="q30plaquestion1" name="question30_planta" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30plaquestion2" name="question30_planta" value="NO">NO
+      <input type="radio" class="option-input radio" id="q30plaquestion2" name="question30_planta" value="NO"> NO
       <br>
     </div>
   </div>
@@ -1285,11 +1196,11 @@
       <label>Polo/malla a tierra</label>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30polquestion1" name="question30_polo" value="SI">SI
+      <input type="radio" class="option-input radio" id="q30polquestion1" name="question30_polo" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30polquestion2" name="question30_polo" value="NO">NO
+      <input type="radio" class="option-input radio" id="q30polquestion2" name="question30_polo" value="NO"> NO
       <br>
     </div>
   </div>
@@ -1301,11 +1212,11 @@
       <label>Pararrayos</label>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30parquestion1" name="question30_pararrayos" value="SI">SI
+      <input type="radio" class="option-input radio" id="q30parquestion1" name="question30_pararrayos" value="SI"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="radio" class="option-input radio" id="q30parquestion2" name="question30_pararrayos" value="NO">NO
+      <input type="radio" class="option-input radio" id="q30parquestion2" name="question30_pararrayos" value="NO"> NO
       <br>
     </div>
   </div>
@@ -1328,38 +1239,28 @@
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-    <input type="radio" class="option-input radio" id="q31question1" name="question31" value="0 no tiene cortes de energía">0 no tiene cortes de energía
+    <input type="radio" class="option-input radio" id="q31question1" name="question31" value="0 no tiene cortes de energía"> 0 no tiene cortes de energía
     <br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question1" name="question31" value="1 a 5 veces" >1 a 5 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question1" name="question31" value="1 a 5 veces" > 1 a 5 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question2" name="question31" value="6 a 10 veces" >6 a 10 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question2" name="question31" value="6 a 10 veces" > 6 a 10 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question3" name="question31" value="11 a 15 veces" >11 a 15 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question3" name="question31" value="11 a 15 veces" > 11 a 15 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question4" name="question31" value="16 a 20 veces" >16 a 20 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question4" name="question31" value="16 a 20 veces" > 16 a 20 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question5" name="question31" value="21 a 30 veces" >21 a 30 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question5" name="question31" value="21 a 30 veces" > 21 a 30 veces<br>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-	 <input type="radio" class="option-input radio" id="q31question6" name="question31" value="Más de 30 veces" >Más de 31 veces<br>
+	 <input type="radio" class="option-input radio" id="q31question6" name="question31" value="Más de 30 veces" > Más de 31 veces<br>
    <br>
   </div>
-<!--  
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <label>Otro:</label>
-      <br>
-  </div>     
-    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=0 id="q31question31_tiempo" name="question31_tiempo" placeholder="Tiempo promedio del corte">
-    </div>
-<br> -->
-
   </div>
 </div>
 
