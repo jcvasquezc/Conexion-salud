@@ -61,10 +61,12 @@
     <label><input type="checkbox" id="question1b" ondragover="" class="option-input checkbox" name="question1" value="ISO"> ISO</label><br>
     <label><input type="checkbox" id="question1c" ondragover="" class="option-input checkbox" name="question1" value="IEEE"> IEEE</label><br>
     <label><input type="checkbox" id="question1d" ondragover="" class="option-input checkbox" name="question1" value="DICOM"> DICOM</label><br>
-    <label><input type="checkbox" id="question1e" ondragover="" class="option-input checkbox" name="question1" value="Otros" 
-      onclick="inputOn(this,'question1_otro')"> Otros</label><br>
+    <label><input type="checkbox" id="question1e_hab" ondragover="" class="option-input checkbox" name="question1" value="Otros" 
+      onclick="Checkb(this,q1Otro)"> Otros</label><br>
     <br>
-    <input type="text" onkeypress="return textonly(event);" id="question1_otro" maxlength="200" name="question1_otro" disabled="disabled"/></label><br>
+    <div class="hidden" id="q1Otro">
+        <input type="text" onkeypress="return textonly(event);" id="question1_otro" maxlength="200" name="question1_otro"/></label>
+    </div>
   </div>
 </div>
 <br><hr>
@@ -83,11 +85,13 @@
     <label><input type="checkbox" id="question2b" ondragover="" class="option-input checkbox" name="question2" value="CIE-10"> CIE-10</label><br>
     <label><input type="checkbox" id="question2c" ondragover="" class="option-input checkbox" name="question2" value="SNOMED"> SNOMED</label><br>
     <label><input type="checkbox" id="question2d" ondragover="" class="option-input checkbox" name="question2" value="LOINC"> LOINC</label><br>
-    <label><input type="checkbox" id="question2e" ondragover="" class="option-input checkbox" name="question2" value="NCPDP"> NCPDP,</label><br>
-    <label><input type="checkbox" id="question2f" ondragover="" class="option-input checkbox" name="question2" value="Otros" 
-    onclick="inputOn(this,'question2_otro');"> Otros</label><br>
+    <label><input type="checkbox" id="question2e" ondragover="" class="option-input checkbox" name="question2" value="NCPDP"> NCPDP</label><br>
+    <label><input type="checkbox" id="question2f_hab" ondragover="" class="option-input checkbox" name="question2" value="Otros" 
+    onclick="Checkb(this,q2Otro);"> Otros</label><br>
     <br>
-    <input id="question2_otro" maxlength="200" name="question2_otro" disabled="disabled"/></label><br>
+    <div class="hidden" id="q2Otro">
+      <input id="question2_otro" maxlength="200" name="question2_otro"/></label><br>
+    </div>
   </div>
 </div>
 
@@ -101,28 +105,35 @@
 </div>
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="q3question1" name="question3" value="SI" > SI<br>
-	 <input type="radio" class="option-input radio" id="q3question2" name="question3" value="NO" > NO<br>
+   <input type="radio" class="option-input radio" id="q3question1_hab" name="question3" value="SI" 
+   onclick="yesnoCheck(this, q4cont, qn4);"> SI<br>
+   <input type="radio" class="option-input radio" id="q3question2" name="question3" value="NO" 
+   onclick="yesnoCheck(this,qn4,q4cont);clear_inputs('q4cont');"> NO<br>
     <br>
   </div>
 </div>
 
-<br><hr>
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?
-        <a  data-toggle="tooltip" onclick="alerta('Se refiere a software adicional o procesos realizados al interior de la institución para facilitar la interoperabildiad')">
-        <i class="fa fa-question-circle" style=font-size:24px></i></a>
-    </h4>
-  </label>
-    <br>
+
+<div class="hidden" id="qn4"></div>
+
+<div class="hidden" id="q4cont">
+  <br><hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?
+          <a  data-toggle="tooltip" onclick="alerta('Se refiere a software adicional o procesos realizados al interior de la institución para facilitar la interoperabildiad')">
+          <i class="fa fa-question-circle" style=font-size:24px></i></a>
+      </h4>
+    </label>
+      <br>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 <input type="radio" class="option-input radio" id="q4question1" name="question4" value="SI" > SI<br>
-	 <input type="radio" class="option-input radio" id="q4question2" name="question4" value="NO" > NO<br>
-    <br>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <input type="radio" class="option-input radio" id="q4question1" name="question4" value="SI" > SI<br>
+    <input type="radio" class="option-input radio" id="q4question2" name="question4" value="NO" > NO<br>
+      <br>
+    </div>
   </div>
 </div>
 <br><hr>

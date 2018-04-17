@@ -253,38 +253,48 @@ function textonly(e){
 	}
 
 // Activar contenedores
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
-    {
-      if (questionIDYesNO.checked) 
-      {
-        $(questionIDYes).removeClass("hidden");
-        $(questionIDNO).addClass("hidden");
-      }
-    }
-// activar a partir de checkboxes
-    function Checkb(obj,containerid) 
-    {
-      if (obj.checked)//Mostrar
-      {
-        $(containerid).removeClass("hidden");
-      }
-      else//Ocultar
-      {
-        $(containerid).addClass("hidden");
-      }
-	}
-	// activar entrada de texto OTROS
-	function inputOn(obj,textInput)
+function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
+{
+	if (questionIDYesNO.checked) 
 	{
-		var input=document.getElementById(textInput); 
-		if(obj.checked)
-		{ 
-			input.disabled = false; 
-			input.focus();
-		}
-		else
-		{
-			input.value='';
-			input.disabled=true;
-		}
+	$(questionIDYes).removeClass("hidden");
+	$(questionIDNO).addClass("hidden");
 	}
+}
+// activar a partir de checkboxes
+function Checkb(obj,containerid) 
+{
+	if (obj.checked)//Mostrar
+	{
+	$(containerid).removeClass("hidden");
+	}
+	else//Ocultar
+	{
+	$(containerid).addClass("hidden");
+	}
+}
+
+// activar entrada de texto OTROS
+function inputOn(obj,textInput)
+{
+	var input=document.getElementById(textInput); 
+	if(obj.checked)
+	{ 
+		input.disabled = false; 
+		input.focus();
+	}
+	else
+	{
+		input.value='';
+		input.disabled=true;
+	}
+}
+
+
+	// Deshabilitar con Radio
+function disradio(radObj)
+{
+	document.getElementById(radObj).disabled=true;
+	document.getElementById(radObj).value='';
+}
+

@@ -156,7 +156,7 @@ def progreso_mod(ips):
     
     perc_mod[find100]=100
 
-    if len(Resultados_mod6)>0:
+    if len(Resultados_mod6)>1:
         if Resultados_mod6["question1"].find("NO")>=0:
             perc_mod[5]=100
             

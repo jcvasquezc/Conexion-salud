@@ -158,11 +158,13 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <label><input type="checkbox" id="question3f" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
             <label><input type="checkbox" class="option-input checkbox" id="question3otro" name="question3" value="Otro" 
-              onclick="inputOn(this,'question3_otro');" /> Otro<br>
+              onclick="Checkb(this,q3Otro);inputOn(this,'question3_otro');" /> Otro<br>
               <br>
-              <input type="text" onkeypress="return textonly(event);" id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
+              <div class="hidden" id="q3Otro">
+                <input type="text" onkeypress="return textonly(event);" id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
+              </div>
           </div>
       </div>
     </div>
