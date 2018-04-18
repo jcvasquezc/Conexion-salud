@@ -134,8 +134,11 @@
               <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
               <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
               <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" 
-               onclick="inputOn(this,'question3_otro');" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
-              <input type="text" id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="¿Cuál plataforma?"/></label><br>
+               onclick="Checkb(this,q3Otro)" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
+              <div class="hidden" id="q3Otro">
+                <br>
+                 <input type="text" id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="¿Cuál plataforma?"/></label><br>
+              </div>
             </div>
           </div>
           <br><hr>

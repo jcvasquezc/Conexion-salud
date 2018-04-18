@@ -185,10 +185,12 @@
     <br>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <input type="checkbox" class="option-input checkbox" id="question5_g" name="question5" value="Otro" 
-    onclick="inputOn(this,'question5_otro');" /> Otras, ¿cuáles?
+    onclick="Checkb(this,q5Otro);inputOn(this,'question5_otro');" /> Otras, ¿cuáles?
     <br>
     <br>
-    <input type="text" onkeypress="return textonly(event);" id="question5_otro" name="question5_otro" disabled="disabled"/><br>
+      <div class="hidden" id="q5Otro">
+        <input type="text" onkeypress="return textonly(event);" id="question5_otro" name="question5_otro" disabled="disabled"/><br>
+      </div>
     </div>
   
 </div>
@@ -490,13 +492,15 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <input type="radio" class="option-input radio" id="question13_i_hab" name="question13" value="Posgrado (maestría, Doctorado, Especialización, MBA, etc.)" 
-        onclick="Checkb(this,q14procontainer);document.getElementById('question13_ipos').disabled=false;document.getElementById('question13_ipos').focus()"> Posgrado (maestría, Doctorado, Especialización, MBA, etc.)
+        onclick="Checkb(this,q14cont);Checkb(this,q14procontainer);document.getElementById('question13_ipos').disabled=false;document.getElementById('question13_ipos').focus()"> Posgrado (maestría, Doctorado, Especialización, MBA, etc.)
         <br>
       </div>
+      <div class="hidden" id="q14cont">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <br>
         <input type="text" id="question13_ipos" name="question13pos" placeholder="Cuál posgrado?">
       </div>
+    </div>
     </div>
   </div>
 </div>

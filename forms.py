@@ -505,6 +505,7 @@ def preguntas_mod5():
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]     
     Rtas = temp2["Resultados Modulo 5"]
+    print(Rtas)
     if request.method == 'POST':
         return redirect(url_for('preguntas_mod5'))
     return render_template('preguntas_mod5.html',Rtas=json.dumps(dict(Rtas)))
