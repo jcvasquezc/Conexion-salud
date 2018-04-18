@@ -140,14 +140,25 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def progreso_mod(ips):
+    div=[81,25,29,3,3,3]
     Resultados_mod1=ips["Resultados Modulo 1"]
     Resultados_mod2=ips["Resultados Modulo 2"]
     Resultados_mod3=ips["Resultados Modulo 3"]
     Resultados_mod4=ips["Resultados Modulo 4"]
     Resultados_mod5=ips["Resultados Modulo 5"]
     Resultados_mod6=ips["Resultados Modulo 6"]
+    
 
-    perc_mod=[int(100*(len(Resultados_mod1)-1)/84), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+    if "question3" in Resultados_mod5.keys():
+        if Resultados_mod5["question3"][0]=="SI":
+            div[4]=4
+        
+    
+
+
+    print(len(Resultados_mod1), len(Resultados_mod2), len(Resultados_mod3), len(Resultados_mod4), len(Resultados_mod5), len(Resultados_mod6))
+    perc_mod=[int(100*(len(Resultados_mod1)-1)/div[0]), int(100*(len(Resultados_mod2)-1)/div[1]), int(100*(len(Resultados_mod3)-1)/div[2]), int(100*(len(Resultados_mod4)-1)/div[3]), int(100*(len(Resultados_mod5)-1)/div[4]), int(100*(len(Resultados_mod6)-1)/div[5])]
+    print(perc_mod)
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
 
@@ -157,7 +168,7 @@ def progreso_mod(ips):
     perc_mod[find100]=100
 
     if len(Resultados_mod6)>1:
-        if Resultados_mod6["question1"].find("NO")>=0:
+        if Resultados_mod6["question1"][0].find("NO")>=0:
             perc_mod[5]=100
             
     return perc_mod
@@ -549,9 +560,15 @@ def validar(modulo):
                 continue
             if j.find("question")>=0:
                 temp = request.form.getlist(j)
-                dict_encuesta[j] = [temp]
-                if len(dict_encuesta[j])==1:
-                    dict_encuesta[j]=dict_encuesta[j][0]
+                if len(temp[0])>0:
+                    print(len(temp), temp)
+                    dict_encuesta[j] = [temp]
+                    print(dict_encuesta[j])
+                    if len(dict_encuesta[j])==1:
+                        print(dict_encuesta[j])
+                        dict_encuesta[j]=dict_encuesta[j][0]
+
+        print(dict_encuesta)
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
        
         return render_template('validar.html', nit=usr['Codigo'])
@@ -633,7 +650,8 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    perc_mod=[int(100*(len(Resultados_mod1)-1)/84), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+    print(Resultados_mod3)
+    perc_mod=[int(100*(len(Resultados_mod1)-1)/81), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
 
