@@ -162,11 +162,11 @@ function set_rtas()
 	{
 		if (key.localeCompare('ID')!=0)
 		{
-			var x = document.getElementsByName(key);			
-			var val = Rtas[key];
+			var x = document.getElementsByName(key);
+			var val = Rtas[key];			
 			for( i = 0; i < x.length; i++ ) 
 			{				
-				var elem = x[i].type				
+				var elem = x[i].type	
 				if (elem.localeCompare('radio')==0)
 				{
 					set_radios(x,val);
