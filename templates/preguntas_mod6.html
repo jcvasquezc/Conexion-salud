@@ -19,12 +19,6 @@
 
     <script>
       var Rtas = {{Rtas|safe}}
-      function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
-         if (questionIDYesNO.checked) {
-          $(questionIDYes).removeClass("hidden");
-           $(questionIDNO).addClass("hidden");
-         }
-       }
     </script>
    <body onpageshow="set_rtas();">
      <div class="wrapper">
@@ -137,7 +131,7 @@
                onclick="Checkb(this,q3Otro)" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
               <div class="hidden" id="q3Otro">
                 <br>
-                 <input type="text" id="question3_otro" name="question3_plataforma" disabled="disabled" placeholder="¿Cuál plataforma?"/></label><br>
+                 <input type="text" id="question3_otro" name="question3_plataforma" placeholder="¿Cuál plataforma?"/></label><br>
               </div>
             </div>
           </div>

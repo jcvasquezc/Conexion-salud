@@ -303,10 +303,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .register a {
   color: #031336;
-  text-decoration-line: underline
+  /* color: #990404; */
+  /* text-decoration-line: underline */
 }
 .register a:hover {
   color: #0c7bc5
+  /* color: #ff0606 */
 }
 
 .register .helpbuttom {

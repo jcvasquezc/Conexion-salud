@@ -46,53 +46,64 @@
     <input type="submit" formaction="validar3" style="visibility: hidden; display: none;">
       <p class="title"> MÓDULO 3. Servicios electrónicos</p>
 
-
-
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question43">
       <h4>1. ¿La Institución cuenta con página o sitio web?
           <a  data-toggle="tooltip" 
-          onclick="alerta('Página o sitio web es un documento o información electrónica que contiene texto, sonido, vídeo, programas, enlaces, imágenes, entre otras cosas.\n\nEl documento es adaptado al protocolo de World Wide Web (WWW) que puede ser accedida mediante un navegador web.')">
+          onclick="alerta('Las páginas web o sitio web es un documento que pueden contener textos, imágenes, vídeos y, en resumen, contenidos digitales y/o aplicaciones que pueden ser visualizados por un usuario web desde un dispositivo remoto a través de un navegador web.')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
           </a></h4>
     </label>
     <br>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <label>Usuario Interno</label>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+        <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" 
+        onclick="yesnoCheck(this, q43container, q44container);"> SI
       </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" 
-      onclick="yesnoCheck(this, q43container, q44container);"> SI
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" 
+        onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');"> NO
+      </div>
+      <br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" 
-      onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');"> NO
-    </div>
-    <br>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <label>Usuario Externo</label>
+<!-- 
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Usuario Interno</label>
+          </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" 
+          onclick="yesnoCheck(this, q43container, q44container);"> SI
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+          <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" 
+          onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');"> NO
+        </div>
+        <br>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <input type="radio" class="option-input radio" id="q1exquestion1_hab" name="question1_ext" 
-      onclick="yesnoCheck(this, q43container, q44container);" value="SI"> SI
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" 
-      onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');" value="NO"> NO
-    </div>
-    <br>
-  </div>
-</div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <label>Usuario Externo</label>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <input type="radio" class="option-input radio" id="q1exquestion1_hab" name="question1_ext" 
+          onclick="yesnoCheck(this, q43container, q44container);" value="SI"> SI
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+          <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" 
+          onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');" value="NO"> NO
+        </div>
+        <br>
+      </div>
+    </div> -->
 
 
 
@@ -122,13 +133,16 @@
             <label>Leer información de la institución incluyendo los médicos y los horarios</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2aa" name="question2_a" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2aa" name="question2_a" 
+          onclick="document.getElementById('question2ac').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ab" name="question2_a" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2ab" name="question2_a" 
+          onclick="document.getElementById('question2ac').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ac" name="question2_a" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2ac" name="question2_a" 
+          onclick="document.getElementById('question2aa').checked=false;document.getElementById('question2ab').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -141,13 +155,16 @@
           <label>El usuario puede consultar su historia clínica parcialmente</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ba" name="question2_b" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2ba" name="question2_b" 
+          onclick="document.getElementById('question2bc').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2bb" name="question2_b" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2bb" name="question2_b" 
+          onclick="document.getElementById('question2bc').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2bc" name="question2_b" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2bc" name="question2_b" 
+          onclick="document.getElementById('question2ba').checked=false;document.getElementById('question2bb').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -159,13 +176,16 @@
           <label>El usuario puede consultar toda su historia clínica</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ca" name="question2_c" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2ca" name="question2_c" 
+          onclick="document.getElementById('question2cc').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2cb" name="question2_c" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2cb" name="question2_c" 
+          onclick="document.getElementById('question2cc').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2cc" name="question2_c" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2cc" name="question2_c" 
+          onclick="document.getElementById('question2ca').checked=false;document.getElementById('question2cb').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -177,13 +197,16 @@
           <label>Agendamiento de citas médicas</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2da" name="question2_d" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2da" name="question2_d" 
+          onclick="document.getElementById('question2dc').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2db" name="question2_d" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2db" name="question2_d" 
+          onclick="document.getElementById('question2dc').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2dc" name="question2_d" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2dc" name="question2_d" 
+          onclick="document.getElementById('question2da').checked=false;document.getElementById('question2db').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -195,13 +218,16 @@
           <label>Agendamiento de paraclínicos (imágenes, laboratorios)</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ea" name="question2_e" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2ea" name="question2_e" 
+          onclick="document.getElementById('question2ec').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2eb" name="question2_e" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2eb" name="question2_e" 
+          onclick="document.getElementById('question2ec').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ec" name="question2_e" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2ec" name="question2_e" 
+          onclick="document.getElementById('question2ea').checked=false;document.getElementById('question2eb').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -213,13 +239,16 @@
           <label>Visualización de resultados de medios diagnósticos</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fa" name="question2_f" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2fa" name="question2_f" 
+          onclick="document.getElementById('question2fc').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fb" name="question2_f" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2fb" name="question2_f" 
+          onclick="document.getElementById('question2fc').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2fc" name="question2_f" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2fc" name="question2_f" 
+          onclick="document.getElementById('question2fa').checked=false;document.getElementById('question2fb').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -231,13 +260,16 @@
           <label>Visualización de historia clínica o expediente clínico</label>
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2ga" name="question2_g" value="Usuario Interno"> Usuario Interno
+          <input type="checkbox" class="option-input checkbox" id="question2ga" name="question2_g" 
+          onclick="document.getElementById('question2gc').checked=false" value="Usuario Interno"> Usuario Interno
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2gb" name="question2_g" value="Usuario Externo"> Usuario Externo
+          <input type="checkbox" class="option-input checkbox" id="question2gb" name="question2_g" 
+          onclick="document.getElementById('question2gc').checked=false" value="Usuario Externo"> Usuario Externo
         </div>
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="question2gc" name="question2_g" value="No Aplica"> No Aplica
+          <input type="checkbox" class="option-input checkbox" id="question2gc" name="question2_g" 
+           onclick="document.getElementById('question2ga').checked=false;document.getElementById('question2gb').checked=false" value="No Aplica"> No Aplica
         </div>
       </div>
     </div>
@@ -729,53 +761,49 @@
   </tr>
   <tr>
     <td>Software de gestión de la institución</td>
-    <td><input type="radio" class="option-input radio" id="q10aquestion101" name="question10a" value="Equipos Médicos" ></td>
-    <td><input type="radio" class="option-input radio" id="q10aquestion102" name="question10a" value="Procesos clínicos"></td>
+    <td><input type="checkbox" class="option-input checkbox" id="q10aquestion101" name="question10a" value="Equipos Médicos" ></td>
+    <td><input type="checkbox" class="option-input checkbox" id="q10aquestion102" name="question10a" value="Procesos clínicos"></td>
   </tr>
   <tr>
     <td>Intranet o red interna</td>
     <td>
-      <input type="radio" class="option-input radio" id="question101b" name="question10b" value="Equipos Médicos">
+      <input type="checkbox" class="option-input checkbox" id="question101b" name="question10b" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question102b" name="question10b" value="Procesos clínicos">
+      <input type="checkbox" class="option-input checkbox" id="question102b" name="question10b" value="Procesos clínicos">
     </td>
   </tr>
 
   <tr>
     <td>Servidores</td>
     <td>
-      <input type="radio" class="option-input radio" id="question101c" name="question10c" value="Equipos Médicos">
+      <input type="checkbox" class="option-input checkbox" id="question101c" name="question10c" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question102c" name="question10c" value="Procesos clínicos">
+      <input type="checkbox" class="option-input checkbox" id="question102c" name="question10c" value="Procesos clínicos">
     </td>
   </tr>
  
   <tr>
     <td>Archivo físico</td>
     <td>
-      <input type="radio" class="option-input radio" id="question10d1" name="question10d" value="Equipos Médicos">
+      <input type="checkbox" class="option-input checkbox" id="question10d1" name="question10d" value="Equipos Médicos">
     </td>
     <td>
-      <input type="radio" class="option-input radio" id="question10d2" name="question10d" value="Procesos clínicos">
+      <input type="checkbox" class="option-input checkbox" id="question10d2" name="question10d" value="Procesos clínicos">
     </td>
   </tr>
 
-  <tr>
-    <td>Otro</td>
-    <td>
-      <input type="radio" class="option-input radio" id="question10e1" name="question10e" value="Equipos Médicos" 
-      onclick="Checkb(this,q10Otro);">
+  <!-- <tr>
+    <td> 
     </td>
-    <td>
-      <input type="radio" class="option-input radio" id="question10e2" name="question10e" value="Procesos clínicos" 
-      onclick="Checkb(this,q10Otro);">
-    </td>
-  </tr>
+  </tr> -->
 
 
 </table>
+<input type="checkbox" class="option-input checkbox" id="question10e1_hab" name="question10e" value="Equipos Médicos" 
+  onclick="Checkb(this,q10Otro);"> Otro. ¿Cuál?
+
     <!-- <label>Otro, ¿Cuál?</label> -->
     <div class="hidden" id="q10Otro">
       <br>

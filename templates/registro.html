@@ -186,11 +186,25 @@
             </div>
         </div>
         <div class="row">
+                <!-- campo Teléfono -->
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                  <label>Teléfono</label>
+                  <br>
+                  <input type="text"  id="reg_mantel" name="reg_mantel" placeholder="Teléfono" required>
+                </div>
+                <!-- campo Teléfono -->
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                  <label>Ext.</label>
+                  <br>
+                  <input type="text"  id="reg_mantelExt" name="reg_mantelExt" placeholder="Ext">
+                </div>
+        </div>
+        <div class="row">
             <!-- campo cargo -->
 			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
-              <label>Teléfono</label>
+              <label>Cargo</label>
 			  <br>
-              <input type="text"  id="reg_mantel" name="reg_mantel" placeholder="Teléfono" required>
+              <input type="text"  id="reg_mancar" name="reg_mancar" placeholder="Cargo" required>
             </div>
         </div>
 
@@ -211,27 +225,6 @@
 		<!-- TERMINA: Botones -->
 
     </form>
-
-    <!-- <br>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-
-        {% for message in messages %}
-            {% if "Error" not in message[1]: %}
-                <div class="alert alert-info">
-                <strong>Success! </strong> {{ message[1] }}
-                </div>
-            {% endif %}
-
-            {% if "Error" in message[1]: %}
-                <div class="alert alert-warning">
-                {{ message[1] }}
-                </div>
-            {% endif %}
-        {% endfor %}
-            {% endif %}
-        {% endwith %} -->
-
 <br>
 
 </div>

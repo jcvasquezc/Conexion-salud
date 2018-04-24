@@ -87,6 +87,17 @@ function setlist(dpto_id,city_id)
 			}
 		}
 }
+/*-------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------*/
+//modulos.html
+//Cambiar texto en los botones cuando hay un porcentaje de la encuesta respondido
+function ToggleBtext()
+{
+
+}
 
 /*-------------------------------------------------------------------------
 ---------------------------------------------------------------------------
@@ -115,8 +126,8 @@ function setfields()
 	document.getElementById("reg_manag").text=IPSLists["Encargado de Encuesta"];
 	document.getElementById("reg_manmail").value=IPSLists["E-mail del Encargado"];
 	document.getElementById("reg_manmail").text=IPSLists["E-mail del Encargado"];
-	document.getElementById("reg_mantel").value=IPSLists["Teléfono del Encargado"];
-	document.getElementById("reg_mantel").text=IPSLists["Teléfono del Encargado"];
+	// document.getElementById("reg_mantel").value=IPSLists["Teléfono del Encargado"];
+	// document.getElementById("reg_mantel").text=IPSLists["Teléfono del Encargado"];
 	document.getElementById("reg_dptoP").value=IPSLists["Departamento"];//departamento-prestador
 	setlist("reg_dptoP","reg_cityP")
 	document.getElementById("reg_cityP").value=IPSLists["Municipio"];	
@@ -209,7 +220,7 @@ function clear_inputs(classcont)
 			}			
 			if (elem.localeCompare('number')==0)
 			{
-				c[i].value=0;
+				c[i].value='';
 			}
 			if (elem.localeCompare('text')==0)
 			{
