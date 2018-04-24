@@ -61,7 +61,7 @@ Users_data = db.Users_collection
 #######################################################
 #######################################################
 #Usuario para login
-class User(UserMixin):    
+class User(UserMixin):
     def __init__(self,usr_id):
         self.id = usr_id
 
@@ -99,7 +99,7 @@ def get_redirect_target():
             continue
         if is_safe_url(target):
             return target
-        
+
 def redirect_back(endpoint, **values):
     target = request.form['next']
     if not target or not is_safe_url(target):
@@ -108,7 +108,7 @@ def redirect_back(endpoint, **values):
 #######################################################
 #######################################################
 #######################################################
-    
+
 #Obtener listas de departamentos y ciudades
 def set_dptos():
     #Obtener lista de departamento y ciudades
@@ -130,7 +130,7 @@ def set_dptos():
     idx = 0
     for d in dptos:
         dptos[idx]=d.upper()
-        idx = idx+1        
+        idx = idx+1
     return dptos,cities
 ##############################################
 ##############################################
@@ -147,13 +147,13 @@ def progreso_mod(ips):
     Resultados_mod4=ips["Resultados Modulo 4"]
     Resultados_mod5=ips["Resultados Modulo 5"]
     Resultados_mod6=ips["Resultados Modulo 6"]
-    
+
 
     if "question3" in Resultados_mod5.keys():
         if Resultados_mod5["question3"][0]=="SI":
             div[4]=4
-        
-    
+
+
 
 
     print(len(Resultados_mod1), len(Resultados_mod2), len(Resultados_mod3), len(Resultados_mod4), len(Resultados_mod5), len(Resultados_mod6))
@@ -164,13 +164,13 @@ def progreso_mod(ips):
 
     perc_mod[find0]=0
     find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
-    
+
     perc_mod[find100]=100
 
     if len(Resultados_mod6)>1:
         if Resultados_mod6["question1"][0].find("NO")>=0:
             perc_mod[5]=100
-            
+
     return perc_mod
 #def new_user(nit):
 #    # Creates a new user for the company passed into the function if it doesn't already exist. se
@@ -183,7 +183,7 @@ def progreso_mod(ips):
 #    user_data['password'] = hash_pass(password)
 #    user_data['email'] = input("Please enter your email address: ")
 #    update_result = update_mongo_document(company.upper(), 'user', '$push', user_data)
-#    
+#
 ####################################
 #Codificar contrasenna
 def hash_pass(password,salt):
@@ -193,7 +193,7 @@ def hash_pass(password,salt):
     return hash_password
 ########################################################
 #Verificar credenciales
-def get_credentials(usr,userpass):    
+def get_credentials(usr,userpass):
     temp = Users_data.find({"usuario":usr}).count()
 #    print(temp)
     if temp == 0:
@@ -256,7 +256,7 @@ def contacto():
 
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
-def Ingresar():    
+def Ingresar():
 #    next = get_redirect_target()
     LogFlag = "False"
     if request.method == 'POST':
@@ -270,7 +270,7 @@ def Ingresar():
         if credentials:
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
-            login_user(user)        
+            login_user(user)
 #            if not is_safe_url(next):
 #                return abort(400)
 
@@ -282,7 +282,7 @@ def Ingresar():
     return render_template('Ingresar.html',LogFlag=json.dumps(LogFlag))
 #####################################################
 @app.route("/redirec", methods=['GET', 'POST'])
-def redirec():    
+def redirec():
     next = get_redirect_target()
     LogFlag = "False"
     if request.method == 'POST':
@@ -296,7 +296,7 @@ def redirec():
         if credentials:
             user_id = Users_data.find({"usuario":username})[0]['user_id']
             user = User(user_id)
-            login_user(user)        
+            login_user(user)
 #            if not is_safe_url(next):
 #                return abort(400)
 
@@ -310,19 +310,19 @@ def redirec():
 @app.route("/registro", methods=['GET', 'POST'])
 @login_required
 def registro():
-    dptos,cities = set_dptos()   
+    dptos,cities = set_dptos()
     #Current User
     usr_id = int(current_user.id)
     usrid = Users_data.find({"user_id":usr_id})[0]
-    
+
     #Select colab
     if (usrid['role']!='manager'):
         return redirect(url_for('index'))
-    
+
     IPSdata = IPS_data.find({"ID":usrid['ID']})[0]
     IPSdata.pop('_id', None)#JSON CANT SERIALIZED ObjectID
-    
-    if request.method == 'POST': 
+
+    if request.method == 'POST':
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
         nit = request.form['reg_nit']#Nit del prestador
@@ -354,7 +354,7 @@ def registro():
                   "Nombre del Prestador":nombreIPS,
                   "NIT":nit,
 #                  "Número de sede":Nsed,
-                  }       
+                  }
         #print(IPS_reg_data)
         usr_id = int(current_user.id)
         ID = Users_data.find({"user_id":usr_id})[0]['user_id']
@@ -363,7 +363,7 @@ def registro():
             IPS_data.update_one({"ID":ID},{"$set":IPS_reg_data})
         else:
             IPS_data.insert_one(IPS_reg_data).inserted_id
-        
+
         return redirect(url_for('modulos'))
 
     return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
@@ -373,8 +373,8 @@ def registro():
 def modulos():
 #    dptos,cities = set_dptos()
     #Verificar si es necesario registrar
-    usr_id = int(current_user.id)   
-    usrid = Users_data.find({"user_id":usr_id})[0] 
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
     #Select colab
     if (usrid['role']=='member1'):
         return redirect(url_for('preguntas_mod1'))
@@ -389,19 +389,19 @@ def modulos():
     if (usrid['role']=='member6'):
         return redirect(url_for('preguntas_mod6'))
     if (usrid['role']=='admin'):
-        return redirect(url_for('admin')) 
-    
+        return redirect(url_for('admin'))
+
     IPSdata = IPS_data.find({"ID":usrid['user_id']})[0]
     perc_mod = progreso_mod(IPSdata)
 
-        
-    if request.method == 'POST': 
+
+    if request.method == 'POST':
 #        colabs = {}
 #        Ncolabs = 6 #Numero maximo de colaboradores
 #        for idx in range(1,Ncolabs+1):
 #            colabs['nombre'+str(idx)] = request.form['nombre'+str(idx)]
 #            colabs['email'+str(idx)] = request.form['email'+str(idx)]
-#            colabs['cargo'+str(idx)] = request.form['cargo'+str(idx)]        
+#            colabs['cargo'+str(idx)] = request.form['cargo'+str(idx)]
 #
 #        usr_id = current_user.id
 #        usr =   Users_data.find({'user_id': int(usr_id)})[0]
@@ -415,7 +415,7 @@ def modulos():
 
         return redirect(url_for('modulos'))
 #        return render_template('modulos.html',userid=IPS_data.find({"ID":usrid['ID']})[0]['ID'], message=["","","","","",""])
-    
+
     return render_template('modulos.html',perc_mod=perc_mod)
 
 
@@ -450,10 +450,16 @@ def preguntas_mod1():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[0]>=100:
+        return redirect(url_for('modulo_completo'))
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
-    temp = IPS_data.find({"ID":usr['ID']})  
-    temp2=temp[0]     
+    temp = IPS_data.find({"ID":usr['ID']})
+    temp2=temp[0]
     Rtas = temp2["Resultados Modulo 1"]
     if request.method == 'POST':
         return redirect(url_for('preguntas_mod1'))
@@ -465,10 +471,17 @@ def preguntas_mod2():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[1]>=100:
+        return redirect(url_for('modulo_completo'))
+
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
-    temp2=temp[0]     
+    temp2=temp[0]
     Rtas = temp2["Resultados Modulo 2"]
     if request.method == 'POST':
       return redirect(url_for('preguntas_mod2'))
@@ -480,12 +493,18 @@ def preguntas_mod3():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[2]>=100:
+        return redirect(url_for('modulo_completo'))
+
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
-    temp2=temp[0]     
+    temp2=temp[0]
     Rtas = temp2["Resultados Modulo 3"]
-    
+
     if request.method == 'POST':
       return redirect(url_for('preguntas_mod3'))
     return render_template('preguntas_mod3.html',Rtas=json.dumps(dict(Rtas)))
@@ -496,10 +515,17 @@ def preguntas_mod4():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[3]>=100:
+        return redirect(url_for('modulo_completo'))
+
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
-    temp2=temp[0]     
+    temp2=temp[0]
     Rtas = temp2["Resultados Modulo 4"]
     if request.method == 'POST':
         return redirect(url_for('preguntas_mod4'))
@@ -511,10 +537,16 @@ def preguntas_mod5():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[4]>=100:
+        return redirect(url_for('modulo_completo'))
+
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
-    temp2=temp[0]     
+    temp2=temp[0]
     Rtas = temp2["Resultados Modulo 5"]
     print(Rtas)
     if request.method == 'POST':
@@ -528,6 +560,13 @@ def preguntas_mod6():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+
+
+    perc_mod = progreso_mod(IPSdata)
+    if perc_mod[5]>=100:
+        return redirect(url_for('modulo_completo'))
+
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
@@ -543,7 +582,7 @@ def preguntas_mod6():
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
-    if request.method == 'POST': 
+    if request.method == 'POST':
         usr_id = current_user.id
         usr =   Users_data.find({'user_id': int(usr_id)})[0]
         temp = IPS_data.find({"ID":usr['ID']})
@@ -570,7 +609,7 @@ def validar(modulo):
 
         print(dict_encuesta)
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
-       
+
         return render_template('validar.html', nit=usr['Codigo'])
     return render_template('validar.html', nit=usr['Codigo'])
 
@@ -579,22 +618,28 @@ def validar(modulo):
 def mensaje():
     return render_template('mensaje.html')
 
+@app.route("/modulo_completo", methods=['GET', 'POST'])
+@login_required
+def modulo_completo():
+    return render_template('modulo_completo.html')
+
+
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
-def admin():    
-    usr_id = int(current_user.id)   
-    usrid = Users_data.find({"user_id":usr_id})[0] 
+def admin():
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
     #Select colab
     if (usrid['role']!='admin'):
         return redirect(url_for('index'))
-    
+
     Nregistered=0
     Nmiss=0
     tab_reg=[]
     tab_miss=[]
     n_mod=np.zeros(6)
     #IPS registradas
-    
+
     for docs in IPS_data.find():
         if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
@@ -613,7 +658,7 @@ def admin():
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
 def adminips_(ips_usr):
-    
+
     #print('IPS ID',ips_usr)
     usr =   IPS_data.find({"ID":int(ips_usr)})[0]
     general_info={
@@ -636,13 +681,13 @@ def adminips_(ips_usr):
                   "Teléfono del representate":usr["Teléfono del representate"],
                   "Encargado de Encuesta":usr["Encargado de Encuesta"],
                   "E-mail del Encargado":usr["E-mail del Encargado"],
-                  "Teléfono del Encargado":usr["Teléfono del Encargado"],            
+                  "Teléfono del Encargado":usr["Teléfono del Encargado"],
     }
     for idx in range(1,7):
         general_info['name'+str(idx)] =usr['colaborador'+str(idx)+' nombre']
         general_info['cargo'+str(idx)] =usr['colaborador'+str(idx)+' cargo']
         general_info['email'+str(idx)] =usr['colaborador'+str(idx)+' email']
-            
+
     Resultados_mod1=usr["Resultados Modulo 1"]
     Resultados_mod2=usr["Resultados Modulo 2"]
     Resultados_mod3=usr["Resultados Modulo 3"]
@@ -657,14 +702,14 @@ def adminips_(ips_usr):
 
     perc_mod[find0]=0
     find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
-    
+
     perc_mod[find100]=100
 
     if len(Resultados_mod6)>0:
         if Resultados_mod6["question1"].find("NO")>=0:
             perc_mod[5]=100
 
-    
+
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
 
 
@@ -674,9 +719,9 @@ def exportcsv(modulo):
     # with open("outputs/Adjacency.csv") as fp:
     #     csv = fp.read()
 
-    if request.method == 'POST': 
+    if request.method == 'POST':
         temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
-        
+
         row = -1
         df=pd.DataFrame([])
         for reg in temp:
@@ -704,7 +749,7 @@ def exportcsv(modulo):
 @app.route("/sendmail<modulo>", methods=['GET', 'POST'])
 @login_required
 def sendmail(modulo):
-    if request.method == 'POST': 
+    if request.method == 'POST':
         nombres=request.form['nombre'+str(modulo)]
 
         usr_id = int(current_user.id)

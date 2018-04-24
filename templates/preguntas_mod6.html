@@ -10,19 +10,19 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="static/jscripts.js"></script>
       <link rel="stylesheet" href="static/index_style.css">
-    
+
       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    
-    <script>            
+
+    <script>
       var Rtas = {{Rtas|safe}}
-      function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) { 
-         if (questionIDYesNO.checked) {           
-          $(questionIDYes).removeClass("hidden");          
-           $(questionIDNO).addClass("hidden");                             
+      function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) {
+         if (questionIDYesNO.checked) {
+          $(questionIDYes).removeClass("hidden");
+           $(questionIDNO).addClass("hidden");
          }
        }
     </script>
@@ -33,7 +33,7 @@
           <img src="static/logos/banner-encuesta.png" class="img-responsive">
       </div>
 		</div>
-		<div class="topnav" id="myTopnav">				
+		<div class="topnav" id="myTopnav">
 		<ul>
 			<li><a href="/">Inicio</a></li>
 			<li><a href="/modulos">Encuesta</a></li>
@@ -41,16 +41,16 @@
 			<li><a href="/contacto">Contacto</a></li>
 			<!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
 			<li><a href="/logout">&#9949; Cerrar Sesión</a></li>
-			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
-		</ul>	
+			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>
+		</ul>
 		</div>
 
   <form enctype=multipart/form-data class="register" method="post" id="form_mod6">
 
 
     <input type="submit" formaction="validar6" style="visibility: hidden; display: none;">
- 
-    <h3 class="title"> 
+
+    <h3 class="title">
         MÓDULO 6. Capacitación
     </h3>
 <br>
@@ -58,7 +58,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <label for="question1"><h4>1. ¿Su institución invirtió en el año 2017 en procesos de entrenamiento/capacitación de uso de TIC en salud dirigido al personal?
-              <a data-toggle="tooltip" 
+              <a data-toggle="tooltip"
               onclick="alerta('Cursos de capacitación, apoyo económico para realización de cursos, destinación de tiempo laboral para capacitación')">
               <i class="fa fa-question-circle" style=font-size:24px></i></a>
           </h4></label>
@@ -68,9 +68,9 @@
       </div>
       <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <input type="radio" class="option-input radio" id="q1question1_hab" name="question1" value="SI" 
+        <input type="radio" class="option-input radio" id="q1question1_hab" name="question1" value="SI"
         onclick="yesnoCheck(this, qsi1container, qno1container);"> SI<br>
-        <input type="radio" class="option-input radio" id="q1question2" name="question1" value="NO" 
+        <input type="radio" class="option-input radio" id="q1question2" name="question1" value="NO"
         onclick="yesnoCheck(this, qno1container,qsi1container);clear_inputs('qsi1container');"> NO<br>
           <br>
         </div>
@@ -84,7 +84,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label for="question2"><h4>2. Existe un proceso de entrenamiento/capacitación de uso de TIC en salud dirigido al personal:
                 <a
-                data-toggle="tooltip" 
+                data-toggle="tooltip"
                 onclick="alerta('Es afirmativa si invirtió recursos en capacitación del uso de TIC')">
                 <i class="fa fa-question-circle" style=font-size:24px></i></a><br>
                 </h4></label>
@@ -111,7 +111,7 @@
           <br>
           <div class="row">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-              <label>Administrativo&nbsp&nbsp&nbsp 
+              <label>Administrativo&nbsp&nbsp&nbsp
                   <input type="radio" class="option-input radio" id="q2cquestion1" name="question2c" value="SI"> SI&nbsp&nbsp
                   <input type="radio" class="option-input radio" id="q2cquestion2" name="question2c" value="NO" > NO
                 </label><br>
@@ -121,10 +121,10 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <label for="question2"><h4>3. Este proceso se realiza mediante:
-                  <a data-toggle="tooltip" 
+                  <a data-toggle="tooltip"
                   onclick="alerta('Se refiere a la estrategia utilizada para las capacitaciones en TIC.\n\nDe ser necesario escoja varias respuestas')">
                   <i class="fa fa-question-circle" style=font-size:24px></i></a>
-              </h4></label>              
+              </h4></label>
               <br>
             </div>
           </div>
@@ -133,7 +133,7 @@
               <label><input type="checkbox" id="question3a" ondragover="" class="option-input checkbox" name="question3" value="Proceso presencial"> Proceso presencial</label><br>
               <label><input type="checkbox" id="question3b" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante videos grabados"> Proceso virtual mediante videos grabados</label><br>
               <label><input type="checkbox" id="question3c" ondragover="" class="option-input checkbox" name="question3" value="Proceso virtual mediante plataformas virtuales en tiempo real"> Proceso virtual mediante plataformas virtuales en tiempo real</label><br>
-              <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3" 
+              <label><input type="checkbox" id="question3d" ondragover="" class="option-input checkbox" name="question3"
                onclick="Checkb(this,q3Otro)" value="Proceso virtual mediante plataformas virtuales de acceso"> Proceso virtual mediante plataformas virtuales de acceso</label><br>
               <div class="hidden" id="q3Otro">
                 <br>
@@ -155,4 +155,3 @@
 </div>
 </body>
 </html>
-

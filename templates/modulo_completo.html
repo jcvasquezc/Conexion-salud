@@ -17,36 +17,72 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 <body>
-
 	<div class="wrapper">
 		<div class="topnav">
-            <div class="logo_nav">
-                <img src="static/logos/banner-encuesta.png" class="img-responsive">
-            </div>
+			<div class="logo_nav">
+					<img src="static/logos/banner-encuesta.png" class="img-responsive">
+			</div>
 		</div>
 		<div class="topnav" id="myTopnav">
 		<ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/modulos">Encuesta</a></li>
+			<li><a href="/">Inicio</a></li>
 			<li><a href="/instructivo">Tutorial</a></li>
 			<li><a href="/contacto">Contacto</a></li>
 			<!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
 			<li><a href="/logout">&#9949; Cerrar Sesión</a></li>
 			<li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>
 		</ul>
-        </div>
+		</div>
 
-        <!-- <img src="static/logos/modulo_completado.png" class="img-responsive"> -->
 
-    </div>
-<form class="idx_sty" method="post">
+  <form class="idx_sty" method="post">
+
+
     <div class="row">
-        <p class="title">Las respuestas de este modulo ya fueron guardadas</p>
+        <p class="title">Este Módulo ya fue diligenciado en su totalidad</p>
+        <p class="title">Gracias por su colaboración</p>
         <p>Si requiere hacer alguna corrección en la encuesta, por favor pongase en contacto la
             persona encargada para que le habiliten nuevamente el modulo.</p>
 
     </div>
-</form>
 
+
+
+<!--
+	<div class= "row">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<button onclick="/" class="state">Volver</button>
+		<!-- </div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<button type="submit" class="state">Ver los resultados</button>
+		</div> -->
+	</div>
+  </form>
+
+  <br>
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %} -->
+
+
+
+
+
+</div>
 </body>
 </html>
