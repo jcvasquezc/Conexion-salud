@@ -65,10 +65,11 @@
     <label><input type="checkbox" id="question1c" ondragover="" class="option-input checkbox" name="question1" value="IEEE"> IEEE</label><br>
     <label><input type="checkbox" id="question1d" ondragover="" class="option-input checkbox" name="question1" value="DICOM"> DICOM</label><br>
     <label><input type="checkbox" id="question1e_hab" ondragover="" class="option-input checkbox" name="question1" value="Otros" 
-      onclick="Checkb(this,q1Otro)"> Otros</label><br>
+      onclick="Checkb(this,q1Otro);inputOn(this,'question1_otro');"> Otros</label><br>
     <br>
     <div class="hidden" id="q1Otro">
-        <input type="text" onkeypress="return textonly(event);" id="question1_otro" maxlength="200" name="question1_otro"/></label>
+        <input type="text" onkeypress="return textonly(event);" id="question1_otro" maxlength="200" 
+        name="question1_otro" disabled="disabled" /></label>
     </div>
   </div>
 </div>
@@ -90,10 +91,10 @@
     <label><input type="checkbox" id="question2d" ondragover="" class="option-input checkbox" name="question2" value="LOINC"> LOINC</label><br>
     <label><input type="checkbox" id="question2e" ondragover="" class="option-input checkbox" name="question2" value="NCPDP"> NCPDP</label><br>
     <label><input type="checkbox" id="question2f_hab" ondragover="" class="option-input checkbox" name="question2" value="Otros" 
-    onclick="Checkb(this,q2Otro);"> Otros</label><br>
+    onclick="Checkb(this,q2Otro);inputOn(this,'question2_otro');"> Otros</label><br>
     <br>
     <div class="hidden" id="q2Otro">
-      <input id="question2_otro" maxlength="200" name="question2_otro"/></label><br>
+      <input type="text" id="question2_otro" maxlength="200" name="question2_otro" disabled="disabled" /></label><br>
     </div>
   </div>
 </div>

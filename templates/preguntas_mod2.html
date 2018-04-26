@@ -107,11 +107,13 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question3si_hab" name="question3" value="SI" onclick="yesnoCheck(this, q4container, q5container);"> SI
+      <input type="radio" class="option-input radio" id="question3si_hab" name="question3" value="SI" 
+      onclick="yesnoCheck(this, q4container, q5container);"> SI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <input type="radio" class="option-input radio" id="question3no" name="question3" value="NO" onclick="yesnoCheck(this, q5container, q4container);clear_inputs('q4container');"> NO
+      <input type="radio" class="option-input radio" id="question3no" name="question3" value="NO" 
+      onclick="yesnoCheck(this, q5container, q4container);clear_inputs('q4container');"> NO
       <br>
     </div>
     <br>
@@ -123,12 +125,14 @@
 <div class="hidden" id="q5container"></div>
 
 <div class="hidden" id="q4container">
-    <label><input type="radio" id="question3_a" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Menos del 10% de su presupuesto anual"> Menos del 10% de su presupuesto anual</label><br>
-    <label><input type="radio" id="question3_b" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 10-30% de su presupuesto anual"> Entre el 10-30% de su presupuesto anual</label><br>
-    <label><input type="radio" id="question3_c" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 30-50% de su presupuesto anual"> Entre el 30-50% de su presupuesto anual</label><br>
-    <label><input type="radio" id="question3_d" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 50-80% de su presupuesto anual"> Entre el 50-80% de su presupuesto anual</label><br>
-    <label><input type="radio" id="question3_e" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Más del 80% de su presupuesto anual"> Más del 80% de su presupuesto anual</label><br>
-  </div>
+  <br>
+    <label>&nbsp&nbsp&nbsp&nbsp<input type="radio" id="question3_a" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Menos del 10% de su presupuesto anual"> Menos del 10% de su presupuesto anual</label><br>
+    <label>&nbsp&nbsp&nbsp&nbsp<input type="radio" id="question3_b" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 10-30% de su presupuesto anual"> Entre el 10-30% de su presupuesto anual</label><br>
+    <label>&nbsp&nbsp&nbsp&nbsp<input type="radio" id="question3_c" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 30-50% de su presupuesto anual"> Entre el 30-50% de su presupuesto anual</label><br>
+    <label>&nbsp&nbsp&nbsp&nbsp<input type="radio" id="question3_d" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Entre el 50-80% de su presupuesto anual"> Entre el 50-80% de su presupuesto anual</label><br>
+    <label>&nbsp&nbsp&nbsp&nbsp<input type="radio" id="question3_e" ondragover="" class="option-input radio" name="question3_presupuesto_inversionTIC" value="Más del 80% de su presupuesto anual"> Más del 80% de su presupuesto anual</label><br>
+
+</div>
 
 <br><hr>
 <div class="row">
@@ -327,7 +331,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <label for="question21">
+    <label >
       <h4>11. ¿Cuántos Técnicos/Tecnólogos/Profesionales utilizan al menos una vez por semana una computadora de escritorio, portátil,
       tableta u otros dispositivos?</h4>
     </label>
@@ -372,40 +376,26 @@
 </div>
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
   <input type="number" min=0 id="q11f6" name="question11_tecnologos_nosalud" >
+  
 </div>
 
-    <div class="row">
-      <br>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <br>
-          <label>Otro:</label>
-      </div>
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <input type="text" id="question11otroa" name="otro11a" placeholder="Cuál?">
-      </div>
-      <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question11Notroa" name="notro11a"  />
-      </div>
-      </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <input type="text" id="question11otrob" name="otro11b" placeholder="Cuál?">
-      </div>
-      <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question11Notrob" name="notro11b"  />
-      </div>
-      </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <input type="text" id="question11otroc" name="otro11c" placeholder="Cuál?">
-      </div>
-      <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=0 id="question11Notroc" name="notro11c"  />
-      </div>
-    </div>
-<br>
-<hr>
+<div class="row">
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <input type="checkbox" id="question11_f_hab" name="question11" class="option-input checkbox" name="question11" value="Otra" 
+    onclick="inputOn(this,'question11_otro'); "/> Otros, ¿Cuáles?:
+    <a data-toggle="tooltip" 
+    onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
+    <i class="fa fa-question-circle" style=font-size:24px></i></a>
+    <br>
+    <input type="text" id="question11_otro" name="question11_otro" disabled="disabled" />
+  </div>
+</div>
+
+
+<br><hr>
 
 
 <div class="row">
@@ -413,7 +403,7 @@
     <label for="question12"><h4>12. ¿La institución cuenta con alguna persona especializada o a cargo del área de Tecnologías de la Información y la comunicación
     (TIC) o informática?
     <a  data-toggle="tooltip" 
-    onclick="alert('Personal contratado por la institución encargado de las TIC')">
+    onclick="alert('Es el encargado del funcionamiento de redes e internet, puede ser de manera administrativa, técnica o ambas.')">
     <i class="fa fa-question-circle" style=font-size:24px></i></a>
   </h4></label>
     <br>
@@ -455,32 +445,32 @@
       </div> -->
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_b" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Primaria incompleta" > Primaria incompleta
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria incompleta" > Primaria incompleta
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_c" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Primaria completa" > Primaria completa
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria completa" > Primaria completa
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_d" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Secundaria incompleta" > Secundaria incompleta
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria incompleta" > Secundaria incompleta
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_e" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Secundaria completa" > Secundaria completa
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria completa" > Secundaria completa
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_f" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Estudios Técnicos" > Estudios Técnicos
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Estudios Técnicos" > Estudios Técnicos
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_g" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden')" value="Estudios Tecnológicos"> Estudios Tecnológicos
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value='';" value="Estudios Tecnológicos"> Estudios Tecnológicos
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -550,11 +540,11 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
-                <input type="radio" id="question14_f" name="question14" class="option-input radio" name="question14" value="Otra" 
+                <input type="radio" id="question14_f_hab" name="question14" class="option-input radio" name="question14" value="Otra" 
                 onclick="inputOn(this,'question14_otro'); "
                 /> Otro
                 <br><br>
-                <input id="question14_otro" name="question14_otro" disabled="disabled" />
+                <input type="text" id="question14_otro" name="question14_otro" disabled="disabled" />
                 <br>
             <br>
         </div>
@@ -602,7 +592,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question17">
-        <h4>16. ¿Qué tan satisfactorio ha sido el resultado?</h4>
+        <h4>16. ¿Qué tan satisfactorio ha sido el resultado de los procesos de capacitación al personal usando herramientas TIC?</h4>
       </label>
       <br>
       <label>Indique de 1 a 4 siendo 1 nada satisfactorio, 2 es poco satisfactorio, 3 es bastante satisfactorio y 4 totalmente satisfactorio.</label>
@@ -613,25 +603,6 @@
       <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
          <input type="number" min=1 max=4 id="question16" name="question16">         
       </div>
-    <!-- <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_a" name="question16" value="1"> 1
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_b" name="question16" value="2"> 2
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_c" name="question16" value="3"> 3
-        <br>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <input type="radio" class="option-input radio" id="question16_d" name="question16" value="4"> 4
-        <br>
-      </div>
-      <br>
-    </div> -->
   </div>
  
   <br>
@@ -891,7 +862,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <input type="radio" class="option-input radio" id="question22c" name="question22" value="Subsidiada por otra institucion" 
+      <input type="radio" class="option-input radio" id="question22c_hab" name="question22" value="Subsidiada por otra institucion" 
       onclick="$(q22cont).removeClass('hidden');inputOn(this,'question22otro')"/> Subsidiada por otra institución
       <br><br>
       <div class="hidden" id="q22cont">
@@ -988,7 +959,7 @@
       </tr>
       <tr>
         <td>10 Mbps o más de 10 Mbps.</td>
-        <td><input type="radio" class="option-input radio" id="q24question4" name="question24" value="10 Mbps o más de 10 Mbps" 
+        <td><input type="radio" class="option-input radio" id="q24question4_hab" name="question24" value="10 Mbps o más de 10 Mbps" 
           onclick="Checkb(this,q24cont);inputOn(this,'question24otro');"/></td>
         <td>Más de 1 Gbps</td>
         <td><input type="radio" class="option-input radio" id="q24aquestion4" name="question24a" value="Más de 1 Gbps"></td>

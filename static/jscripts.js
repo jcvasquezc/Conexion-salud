@@ -162,7 +162,12 @@ function set_checkbox(x,val)
 		var check = x.value;
 		if (check.localeCompare(val[j])==0)
 		{	
-			document.getElementById(x.id).checked = true;	
+			var temp = x.id	
+			if (temp.search('_hab')!=-1)//Para disparar eventos que habilitan otras opciones
+			{
+				$(document.getElementById(x.id)).click();			
+			}
+			document.getElementById(x.id).checked = true;
 		}
 	}
 }
@@ -281,7 +286,8 @@ function Checkb(obj,containerid)
 	}
 	else//Ocultar
 	{
-	$(containerid).addClass("hidden");
+	$(containerid).addClass("hidden");	
+	clear_inputs($(containerid).attr('id'));
 	}
 }
 
@@ -293,19 +299,20 @@ function inputOn(obj,textInput)
 	{ 
 		input.disabled = false; 
 		input.focus();
+		input.required = true;
 	}
 	else
 	{
 		input.value='';
 		input.disabled=true;
+		input.required = false;
 	}
 }
 
-
-	// Deshabilitar con Radio
+// Deshabilitar con Radio
 function disradio(radObj)
 {
 	document.getElementById(radObj).disabled=true;
-	document.getElementById(radObj).value='';
-}
+	document.getElementById(radObj).value=''
+	}
 

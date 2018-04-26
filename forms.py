@@ -140,7 +140,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def progreso_mod(ips):
-    div=[81,25,29,3,3,3]
+#    div=[81,25,29,3,3,3]#Original Camilo
+    div=[100,25,29,3,3,3]
     Resultados_mod1=ips["Resultados Modulo 1"]
     Resultados_mod2=ips["Resultados Modulo 2"]
     Resultados_mod3=ips["Resultados Modulo 3"]
@@ -148,17 +149,14 @@ def progreso_mod(ips):
     Resultados_mod5=ips["Resultados Modulo 5"]
     Resultados_mod6=ips["Resultados Modulo 6"]
 
+#    print('Key'+str(Resultados_mod1.keys()))
 
     if "question3" in Resultados_mod5.keys():
         if Resultados_mod5["question3"][0]=="SI":
             div[4]=4
-
-
-
-
-    print(len(Resultados_mod1), len(Resultados_mod2), len(Resultados_mod3), len(Resultados_mod4), len(Resultados_mod5), len(Resultados_mod6))
+    
     perc_mod=[int(100*(len(Resultados_mod1)-1)/div[0]), int(100*(len(Resultados_mod2)-1)/div[1]), int(100*(len(Resultados_mod3)-1)/div[2]), int(100*(len(Resultados_mod4)-1)/div[3]), int(100*(len(Resultados_mod5)-1)/div[4]), int(100*(len(Resultados_mod6)-1)/div[5])]
-    print(perc_mod)
+    
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
 
@@ -451,13 +449,13 @@ def preguntas_mod1():
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
 
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[0]>=100:
         return redirect(url_for('modulo_completo'))
-
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
+    
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 1"]
@@ -473,13 +471,13 @@ def preguntas_mod2():
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
 
 
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
+
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[1]>=100:
         return redirect(url_for('modulo_completo'))
 
-
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 2"]
@@ -493,14 +491,15 @@ def preguntas_mod3():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+    
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[2]>=100:
         return redirect(url_for('modulo_completo'))
 
 
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 3"]
@@ -516,14 +515,13 @@ def preguntas_mod4():
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
 
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[3]>=100:
         return redirect(url_for('modulo_completo'))
 
-
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 4"]
@@ -538,17 +536,16 @@ def preguntas_mod5():
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
 
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
+    
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[4]>=100:
         return redirect(url_for('modulo_completo'))
 
-
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 5"]
-    print(Rtas)
     if request.method == 'POST':
         return redirect(url_for('preguntas_mod5'))
     return render_template('preguntas_mod5.html',Rtas=json.dumps(dict(Rtas)))
@@ -561,14 +558,13 @@ def preguntas_mod6():
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
 
+    if IPSdata['Validar INFO']==False:
+        return redirect(url_for('registro'))
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[5]>=100:
         return redirect(url_for('modulo_completo'))
 
-
-    if IPSdata['Validar INFO']==False:
-        return redirect(url_for('registro'))
     temp = IPS_data.find({"ID":usr['ID']})
     temp2 = temp[0]
     Rtas = temp2["Resultados Modulo 6"]
@@ -600,14 +596,10 @@ def validar(modulo):
             if j.find("question")>=0:
                 temp = request.form.getlist(j)
                 if len(temp[0])>0:
-                    print(len(temp), temp)
                     dict_encuesta[j] = [temp]
-                    print(dict_encuesta[j])
                     if len(dict_encuesta[j])==1:
-                        print(dict_encuesta[j])
                         dict_encuesta[j]=dict_encuesta[j][0]
 
-        print(dict_encuesta)
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
 
         return render_template('validar.html', nit=usr['Codigo'])
@@ -695,7 +687,6 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    print(Resultados_mod3)
     perc_mod=[int(100*(len(Resultados_mod1)-1)/81), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])

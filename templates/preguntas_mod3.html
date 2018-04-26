@@ -71,41 +71,6 @@
       <br>
     </div>
   </div>
-<!-- 
-    <div class="row">
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <label>Usuario Interno</label>
-          </div>
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="q1inquestion1_hab" name="question1_int" value="SI" 
-          onclick="yesnoCheck(this, q43container, q44container);"> SI
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-          <input type="radio" class="option-input radio" id="q1inquestion2" name="question1_int" value="NO" 
-          onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');"> NO
-        </div>
-        <br>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <label>Usuario Externo</label>
-        </div>
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <input type="radio" class="option-input radio" id="q1exquestion1_hab" name="question1_ext" 
-          onclick="yesnoCheck(this, q43container, q44container);" value="SI"> SI
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-          <input type="radio" class="option-input radio" id="q1exquestion2" name="question1_ext" 
-          onclick="yesnoCheck(this, q44container, q43container);clear_inputs('q43container');" value="NO"> NO
-        </div>
-        <br>
-      </div>
-    </div> -->
-
-
 
 
 <div class="hidden" id="q44container"></div>
@@ -293,22 +258,22 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <input type="radio" class="option-input radio" id="q3question1" name="question3" 
-     onclick="$(q3Otro).addClass('hidden');" value="Mensual"> Mensual
+     onclick="$(q3Otro).addClass('hidden');disradio('question3_otro')" value="Mensual"> Mensual
     <br>
     <input type="radio" class="option-input radio" id="q3question2" name="question3" 
-    onclick="$(q3Otro).addClass('hidden');" value="Bimestral"> Bimestral
+    onclick="$(q3Otro).addClass('hidden');disradio('question3_otro')" value="Bimestral"> Bimestral
     <br>
     <input type="radio" class="option-input radio" id="q3question3" name="question3" 
-    onclick="$(q3Otro).addClass('hidden');" value="Trimestral"> Trimestral
+    onclick="$(q3Otro).addClass('hidden');disradio('question3_otro')" value="Trimestral"> Trimestral
     <br>
     <input type="radio" class="option-input radio" id="q3question4" name="question3" 
-    onclick="$(q3Otro).addClass('hidden');" value="Semestral"> Semestral
+    onclick="$(q3Otro).addClass('hidden');disradio('question3_otro')" value="Semestral"> Semestral
     <br>
     <input type="radio" class="option-input radio" id="q3question5" name="question3" 
-    onclick="$(q3Otro).addClass('hidden');" value="Anual"> Anual
+    onclick="$(q3Otro).addClass('hidden');disradio('question3_otro')" value="Anual"> Anual
     <br>
-    <input type="radio" class="option-input radio" id="q3question6" name="question3" value="Otro" 
-    onclick="Checkb(this,q3Otro);"/> Otro
+    <input type="radio" class="option-input radio" id="q3question6_hab" name="question3" value="Otro" 
+    onclick="Checkb(this,q3Otro);inputOn(this,'question3_otro')"/> Otro
     <br><br>
     <div class="hidden" id="q3Otro">
       <input type="text" id="question3_otro" onkeypress="return textonly(event);" name="question3_otro" disabled="disabled" />
@@ -334,10 +299,10 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <input type="radio" class="option-input radio" id="q4question1" name="question4" 
-    onclick="$(q4NO).addClass('hidden');" value="SI"> SI
+    onclick="$(q4NO).addClass('hidden');disradio('question4_por_que')" value="SI"> SI
     <br>
-    <input type="radio" class="option-input radio" id="q4question2" name="question4" 
-    onclick="Checkb(this,q4NO)" value="NO"> NO
+    <input type="radio" class="option-input radio" id="q4question2_hab" name="question4" 
+    onclick="Checkb(this,q4NO);inputOn(this,'question4_por_que')" value="NO"> NO
     <br><br>
     <div class="hidden" id="q4NO">
         <label>¿Por qué? 
@@ -683,12 +648,12 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-   <input type="radio" class="option-input radio" id="q8question1" name="question8" 
-   onclick="Checkb(this,q8SI)" value="SI" > SI
+   <input type="radio" class="option-input radio" id="q8question1_hab" name="question8" 
+   onclick="Checkb(this,q8SI);inputOn(this,'question1otro')" value="SI" > SI
   </div>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
    <input type="radio" class="option-input radio" id="q8question2" name="question8" 
-   onclick="$(q8SI).addClass('hidden');" value="NO" > NO
+   onclick="$(q8SI).addClass('hidden');disradio('question1otro')" value="NO" > NO
   </div>
 
   <div class="hidden" id="q8SI"> 
@@ -729,7 +694,7 @@
     <input type="checkbox" class="option-input checkbox" id="q9question3" name="question9" value="Via web"> Via web
     <br>
 
-    <input type="checkbox" class="option-input checkbox" id="q9question4" name="question9" value="Otro" 
+    <input type="checkbox" class="option-input checkbox" id="q9question4_hab" name="question9" value="Otro" 
     onclick="Checkb(this,q9otro);inputOn(this,'question9_otro')"
     /> Otro. ¿Cuál?
     <br><br>
@@ -802,12 +767,12 @@
 
 </table>
 <input type="checkbox" class="option-input checkbox" id="question10e1_hab" name="question10e" value="Equipos Médicos" 
-  onclick="Checkb(this,q10Otro);"> Otro. ¿Cuál?
+  onclick="Checkb(this,q10Otro);inputOn(this,'question10_otro')"> Otro. ¿Cuál?
 
     <!-- <label>Otro, ¿Cuál?</label> -->
     <div class="hidden" id="q10Otro">
       <br>
-    <input type="text" id="question10_otro" name="question10_otro" />
+    <input type="text" id="question10_otro" name="question10_otro" disabled="disabled"/>
   </div>
 <br>
 <hr>
@@ -992,13 +957,13 @@
     <br>
     <input type="checkbox" class="option-input checkbox" id="q15question3b" name="question15" value="Contrato/póliza"> Biométrico
     <br>
-    <input type="checkbox" class="option-input checkbox" id="q15question4" name="question15" value="Otro" 
+    <input type="checkbox" class="option-input checkbox" id="q15question4_hab" name="question15" value="Otro" 
     onclick="Checkb(this,q15Otro);inputOn(this,'question15_otro');"
     /> Otro, ¿Cuál? 
     
     <div class="hidden" id="q15Otro">
       <br>
-      <input id="question15_otro" name="question15_otro" disabled="disabled" />
+      <input type="text" id="question15_otro" name="question15_otro" disabled="disabled" />
     </div>
   </div>
 </div>
@@ -1093,10 +1058,10 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label>
       <input type="checkbox" class="option-input checkbox" id="question17h" name="question17" value="Otro" 
-      onclick="Checkb(this,q17Otro);document.getElementById('question17_otro').focus()"/> Otros. ¿Cuáles?
+      onclick="Checkb(this,q17Otro);inputOn(this,'question17_otro')"/> Otros. ¿Cuáles?
       <br><br>
       <div class="hidden" id="q17Otro">
-        <input id="question17_otro" name="question17_otro" />
+        <input type="text" id="question17_otro" name="question17_otro" disabled="disabled"/>
       </div>
     </label>
 
@@ -1122,109 +1087,134 @@
 <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question1" name="question18" value="CNT"> CNT
+      <input type="radio" class="option-input radio" id="q18question1" name="question18" 
+      onclick="disradio('question18_otro')" value="CNT"> CNT
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question2" name="question18" value="Dinámica Gerencial"> Dinámica Gerencial
+      <input type="radio" class="option-input radio" id="q18question2" name="question18" 
+      onclick="disradio('question18_otro')" value="Dinámica Gerencial"> Dinámica Gerencial
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question3" name="question18" value="Hosvital"> Hosvital
+      <input type="radio" class="option-input radio" id="q18question3" name="question18" 
+      onclick="disradio('question18_otro')" value="Hosvital"> Hosvital
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question4" name="question18" value="HeOn"> HeOn
+      <input type="radio" class="option-input radio" id="q18question4" name="question18" 
+      onclick="disradio('question18_otro')" value="HeOn"> HeOn
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question5" name="question18" value="SAHI"> SAHI
+      <input type="radio" class="option-input radio" id="q18question5" name="question18" 
+      onclick="disradio('question18_otro')" value="SAHI"> SAHI
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question6" name="question18" value="Xenco"> Xenco
+      <input type="radio" class="option-input radio" id="q18question6" name="question18" 
+      onclick="disradio('question18_otro')" value="Xenco"> Xenco
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question7" name="question18" value="CitiSalud"> CitiSalud
+      <input type="radio" class="option-input radio" id="q18question7" name="question18" 
+      onclick="disradio('question18_otro')" value="CitiSalud"> CitiSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question8" name="question18" value="Punto Exe"> Punto Exe
+      <input type="radio" class="option-input radio" id="q18question8" name="question18" 
+      onclick="disradio('question18_otro')" value="Punto Exe"> Punto Exe
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question9" name="question18" value="Hospitec"> Hospitec
+      <input type="radio" class="option-input radio" id="q18question9" name="question18" 
+      onclick="disradio('question18_otro')" value="Hospitec"> Hospitec
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question10" name="question18" value="Hipócrates"> Hipócrates
+      <input type="radio" class="option-input radio" id="q18question10" name="question18" 
+      onclick="disradio('question18_otro')" value="Hipócrates"> Hipócrates
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question11" name="question18" value="SAP"> SAP
+      <input type="radio" class="option-input radio" id="q18question11" name="question18" 
+      onclick="disradio('question18_otro')" value="SAP"> SAP
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question12" name="question18" value="Servinte"> Servinte
+      <input type="radio" class="option-input radio" id="q18question12" name="question18" 
+      onclick="disradio('question18_otro')" value="Servinte"> Servinte
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question13" name="question18" value="SysNet"> SysNet
+      <input type="radio" class="option-input radio" id="q18question13" name="question18" 
+      onclick="disradio('question18_otro')" value="SysNet"> SysNet
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question14" name="question18" value="eSalud"> eSalud
+      <input type="radio" class="option-input radio" id="q18question14" name="question18" 
+      onclick="disradio('question18_otro')" value="eSalud"> eSalud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question15" name="question18" value="Escafandra"> Escafandra
+      <input type="radio" class="option-input radio" id="q18question15" name="question18" 
+      onclick="disradio('question18_otro')" value="Escafandra"> Escafandra
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18uestion16" name="question18" value="iMedical"> iMedical
+      <input type="radio" class="option-input radio" id="q18uestion16" name="question18" 
+      onclick="disradio('question18_otro')" value="iMedical"> iMedical
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question17" name="question18" value="OasisCom"> OasisCom
+      <input type="radio" class="option-input radio" id="q18question17" name="question18" 
+      onclick="disradio('question18_otro')" value="OasisCom"> OasisCom
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question18" name="question18" value="FormPlus"> FormPlus
+      <input type="radio" class="option-input radio" id="q18question18" name="question18" 
+      onclick="disradio('question18_otro')" value="FormPlus"> FormPlus
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question19" name="question18" value="Manager Clinic"> Manager Clinic
+      <input type="radio" class="option-input radio" id="q18question19" name="question18" 
+      onclick="disradio('question18_otro')" value="Manager Clinic"> Manager Clinic
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question20" name="question18" value="Gomedisys"> Gomedisys
+      <input type="radio" class="option-input radio" id="q18question20" name="question18" 
+      onclick="disradio('question18_otro')" value="Gomedisys"> Gomedisys
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question21" name="question18" value="SIO Salud"> SIO Salud
+      <input type="radio" class="option-input radio" id="q18question21" name="question18" 
+      onclick="disradio('question18_otro')" value="SIO Salud"> SIO Salud
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question22" name="question18" value="SISFIN"> SISFIN
+      <input type="radio" class="option-input radio" id="q18question22" name="question18" 
+      onclick="disradio('question18_otro')" value="SISFIN"> SISFIN
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question23" name="question18" value="IPSoft"> IPSoft
+      <input type="radio" class="option-input radio" id="q18question23" name="question18" 
+      onclick="disradio('question18_otro')" value="IPSoft"> IPSoft
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question24" name="question18" value="Rocky"> Rocky
+      <input type="radio" class="option-input radio" id="q18question24" name="question18" 
+      onclick="disradio('question18_otro')" value="Rocky"> Rocky
       <br>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <input type="radio" class="option-input radio" id="q18question25" name="question18" value="Gemar"> Gemar
+      <input type="radio" class="option-input radio" id="q18question25" name="question18" 
+       onclick="disradio('question18_otro')" value="Gemar"> Gemar
       <br>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <input type="radio" class="option-input radio" id="q18question26" name="question18" value="Otro" 
-    onclick="Checkb(this,q18Otro);document.getElementById('question18_otro').focus()"/> Otro. ¿Cuál?
+    onclick="Checkb(this,q18Otro);inputOn(this,'question18_otro')"/> Otro. ¿Cuál?
     <br><br>
     </div>
     <div class="hidden" id="q18Otro">
@@ -1251,24 +1241,28 @@
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type="radio" class="option-input radio" id="q19question1" name="question19" value="Stand Alone"> Stand Alone
+        <input type="radio" class="option-input radio" id="q19question1" name="question19" 
+        onclick="disradio('question19_otro')" value="Stand Alone"> Stand Alone
         <br>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type="radio" class="option-input radio" id="q19question2" name="question19" value="Cliente – Servidor"> Cliente – Servidor
+        <input type="radio" class="option-input radio" id="q19question2" name="question19" 
+        onclick="disradio('question19_otro')" value="Cliente – Servidor"> Cliente – Servidor
         <br>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type="radio" class="option-input radio" id="q19question3" name="question19" value="Web"> Web
+        <input type="radio" class="option-input radio" id="q19question3" name="question19" 
+        onclick="disradio('question19_otro')" value="Web"> Web
         <br>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type="radio" class="option-input radio" id="q19question4" name="question19" value="SOA"> Arquitectura orientada a servicios (SOA)
+        <input type="radio" class="option-input radio" id="q19question4" name="question19" 
+        onclick="disradio('question19_otro')" value="SOA"> Arquitectura orientada a servicios (SOA)
         <br>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type="radio" class="option-input radio" id="q19question5" name="question19" value="Otro" 
-        onclick="Checkb(this,q19Otro)"/> Otro. ¿Cuál?
+        <input type="radio" class="option-input radio" id="q19question5_hab" name="question19" value="Otro" 
+        onclick="Checkb(this,q19Otro);inputOn(this,'question19_otro')"/> Otro. ¿Cuál?
         <br><br>
         <div class="hidden" id="q19Otro">
             <input type="text" onkeypress="return textonly(event);" id="question19_otro" name="question19_otro" disabled="disabled" />
@@ -1386,12 +1380,13 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label>
-        <input type="checkbox" id="question22g" ondragover="" class="option-input checkbox" name="question22" value="Otro" 
-        onclick="Checkb(this,q22Otro);document.getElementById('question22_otro').focus()"/> Otro
+        <input type="checkbox" id="question22g_hab" ondragover="" class="option-input checkbox" name="question22" value="Otro" 
+        onclick="Checkb(this,q22Otro);inputOn(this,'question22_otro')"/> Otro
         <br>
         <br>
         <div class="hidden" id="q22Otro">
-            <input type="text" onkeypress="return textonly(event);" id="question22_otro" name="question45_otro" disabled="disabled" />
+            <input type="text" onkeypress="return textonly(event);" id="question22_otro" 
+            name="question45_otro" disabled="disabled" />
         </div>
 
       </label>
@@ -1419,79 +1414,89 @@
   </div>
 </div>
 
+<input type="checkbox" class="option-input checkbox" id="q23aTOP" name="question23aTOP"
+ value="Protección específica y detección temprana"> Protección específica y detección temprana
+<br>
+<input type="checkbox" class="option-input checkbox" id="q23bquestiona_hab" name="question23bTOP"
+      onclick="Checkb(this,q23b)"> Consulta externa
 
+  <div class="hidden" id="q23b">
+    <br>
+      <table>
 
-<table>
+          <tr>
+            <th></th>
+            <th>SI</th>
+            <th>NO</th>
+            <th>N/A</th>
+          </tr>
+          <tr>
+          <td>Consulta externa general</td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23bquestiona" name="question23b" value="SI">
+          </td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23bquestionb" name="question23b" value="NO">
+          </td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23bquestionc" name="question23b" value="N/A">
+          </td>
+          </tr>
 
-  <tr>
-    <th></th>
-    <th>SI</th>
-    <th>NO</th>
-    <th>N/A</th>
-  </tr>
-  <tr>
-    <td>Protección específica y detección temprana</td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23aquestiona" name="question23a" value="SI">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23aquestionb" name="question23a" value="NO">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23aquestionc" name="question23a" value="N/A">
-    </td>
-  </tr>
+          <tr>
+          <td>Consulta externa especialidades médicas</td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23cquestiona" name="question23c" value="SI">
+          </td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23cquestionb" name="question23c" value="NO">
+          </td>
+          <td>
+            <input type="radio" class="option-input radio" id="q23cquestionc" name="question23c" value="N/A">
+          </td>
+          </tr>
 
-  <tr>
-    <td>Consulta externa general</td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23bquestiona" name="question23b" value="SI">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23bquestionb" name="question23b" value="NO">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23bquestionc" name="question23b" value="N/A">
-    </td>
-  </tr>
+          <tr>
+            <td>Consulta odontológica general y especializada</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23dquestiona" name="question23d" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23dquestionb" name="question23d" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23dquestionc" name="question23d" value="N/A">
+            </td>
+          </tr>
 
-  <tr>
-    <td>Consulta externa especialidades médicas</td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23cquestiona" name="question23c" value="SI">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23cquestionb" name="question23c" value="NO">
-    </td>
-    <td>
-      <input type="radio" class="option-input radio" id="q23cquestionc" name="question23c" value="N/A">
-    </td>
-  </tr>
+          <tr>
+            <td>Medicinas alternativas</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23equestiona" name="question23e" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23equestionb" name="question23e" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23equestionc" name="question23e" value="N/A">
+            </td>
+          </tr>
+    </table>
+  </div>
 
+<br>
+<input type="checkbox" class="option-input checkbox" id="q23c_hab" name="q23cTOP"
+      onclick="Checkb(this,q23c)"> Internación
+
+    <div class="hidden" id="q23c">
+    <br>
+    <table>
+    
     <tr>
-      <td>Consulta odontológica general y especializada</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23dquestiona" name="question23d" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23dquestionb" name="question23d" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23dquestionc" name="question23d" value="N/A">
-      </td>
-    </tr>
-
-    <tr>
-      <td>Medicinas alternativas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23equestiona" name="question23e" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23equestionb" name="question23e" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23equestionc" name="question23e" value="N/A">
-      </td>
+      <th></th>
+      <th>SI</th>
+      <th>NO</th>
+      <th>N/A</th>
     </tr>
 
     <tr>
@@ -1692,6 +1697,23 @@
         <input type="radio" class="option-input radio" id="q23tquestion23c" name="question23t" value="N/A">
       </td>
     </tr>
+</table>
+</div>
+<br>
+
+<input type="checkbox" class="option-input checkbox" id="q23d_hab" name="q23dTOP"
+      onclick="Checkb(this,q23d)"> Quirúrgicos
+
+    <div class="hidden" id="q23d">
+    <br>
+    <table>
+    
+    <tr>
+      <th></th>
+      <th>SI</th>
+      <th>NO</th>
+      <th>N/A</th>
+    </tr>
 
 
     <tr>
@@ -1771,465 +1793,539 @@
         <input type="radio" class="option-input radio" id="q23zquestion23c" name="question23z" value="N/A">
       </td>
     </tr>
+    </table>
+    </div>
 
-    <tr>
-      <td>Urgencias baja complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zaquestion23a" name="question23za" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zaquestion23b" name="question23za" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zaquestion23c" name="question23za" value="N/A">
-      </td>
-    </tr>
+    <br>
+    
+    <input type="checkbox" class="option-input checkbox" id="q23f_hab" name="q23fTOP"
+          onclick="Checkb(this,q23f)"> Urgencias
+    
+        <div class="hidden" id="q23f">
+          <br>
+          <table>
+          
+          <tr>
+            <th></th>
+            <th>SI</th>
+            <th>NO</th>
+            <th>N/A</th>
+          </tr>
 
-    <tr>
-      <td>Urgencias mediana y alta complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zbquestion23a" name="question23zb" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zbquestion23b" name="question23zb" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zbquestion23c" name="question23zb" value="N/A">
-      </td>
-    </tr>
+          
+          <tr>
+            <td>Urgencias baja complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zaquestion23a" name="question23za" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zaquestion23b" name="question23za" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zaquestion23c" name="question23za" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Servicio farmacéutico baja complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zcquestion23a" name="question23zc" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zcquestion23b" name="question23zc" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zcquestion23c" name="question23zc" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Urgencias mediana y alta complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zbquestion23a" name="question23zb" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zbquestion23b" name="question23zb" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zbquestion23c" name="question23zb" value="N/A">
+            </td>
+          </tr>
+          </table>
+    </div>
 
-    <tr>
-      <td>Servicio farmacéutico mediana y alta complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zdquestion23a" name="question23zd" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zdquestion23b" name="question23zd" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zdquestion23c" name="question23zd" value="N/A">
-      </td>
-    </tr>
+    <br>
+    
+    <input type="checkbox" class="option-input checkbox" id="q23g_hab" name="q23gTOP"
+          onclick="Checkb(this,q23g)"> Apoyo diagnóstico y complementación terapéutica
+    
+        <div class="hidden" id="q23g">
+          <br>
+          <table>
+          
+          <tr>
+            <th></th>
+            <th>SI</th>
+            <th>NO</th>
+            <th>N/A</th>
+          </tr>
 
-    <tr>
-      <td>Toma e interpretación de radiografías odontológicas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zequestion23a" name="question23ze" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zequestion23b" name="question23ze" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zequestion23c" name="question23ze" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Servicio farmacéutico baja complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zcquestion23a" name="question23zc" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zcquestion23b" name="question23zc" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zcquestion23c" name="question23zc" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Radiología e imágenes diagnósticas baja complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zfquestion23a" name="question23zf" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zfquestion23b" name="question23zf" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zfquestion23c" name="question23zf" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Servicio farmacéutico mediana y alta complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zdquestion23a" name="question23zd" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zdquestion23b" name="question23zd" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zdquestion23c" name="question23zd" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Radiología e imágenes diagnósticas, mediana y alta complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zgquestion23a" name="question23zg" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zgquestion23b" name="question23zg" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zgquestion23c" name="question23zg" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Toma e interpretación de radiografías odontológicas</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zequestion23a" name="question23ze" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zequestion23b" name="question23ze" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zequestion23c" name="question23ze" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Ultrasonido Medicina nuclear</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zhquestion23a" name="question23zh" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zhquestion23b" name="question23zh" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zhquestion23c" name="question23zh" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Radiología e imágenes diagnósticas baja complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zfquestion23a" name="question23zf" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zfquestion23b" name="question23zf" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zfquestion23c" name="question23zf" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Radioterapia</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ziquestion23a" name="question23zi" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ziquestion23b" name="question23zi" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ziquestion23c" name="question23zi" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Radiología e imágenes diagnósticas, mediana y alta complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zgquestion23a" name="question23zg" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zgquestion23b" name="question23zg" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zgquestion23c" name="question23zg" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Quimioterapia</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zjquestion23a" name="question23zj" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zjquestion23b" name="question23zj" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zjquestion23c" name="question23zj" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Ultrasonido Medicina nuclear</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zhquestion23a" name="question23zh" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zhquestion23b" name="question23zh" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zhquestion23c" name="question23zh" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Diagnóstico cardiovascular</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zkquestion23a" name="question23zk" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zkquestion23b" name="question23zk" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zkquestion23c" name="question23zk" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Radioterapia</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ziquestion23a" name="question23zi" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ziquestion23b" name="question23zi" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ziquestion23c" name="question23zi" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Electrodiagnóstico</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zlquestion23a" name="question23zl" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zlquestion23b" name="question23zl" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zlquestion23c" name="question23zl" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Quimioterapia</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zjquestion23a" name="question23zj" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zjquestion23b" name="question23zj" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zjquestion23c" name="question23zj" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Transfusión sanguínea</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zmquestion23a" name="question23zm" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zmquestion23b" name="question23zm" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zmquestion23c" name="question23zm" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Diagnóstico cardiovascular</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zkquestion23a" name="question23zk" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zkquestion23b" name="question23zk" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zkquestion23c" name="question23zk" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Toma de muestras de laboratorio clínico</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23znquestion23a" name="question23zn" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23znquestion23b" name="question23zn" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23znquestion23c" name="question23zn" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Electrodiagnóstico</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zlquestion23a" name="question23zl" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zlquestion23b" name="question23zl" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zlquestion23c" name="question23zl" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Laboratorio clínico baja, mediana y alta complejidad</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zoquestion23a" name="question23zo" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zoquestion23b" name="question23zo" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zoquestion23c" name="question23zo" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Transfusión sanguínea</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zmquestion23a" name="question23zm" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zmquestion23b" name="question23zm" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zmquestion23c" name="question23zm" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Tamización de cáncer de cuello uterino</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zpquestion23a" name="question23zp" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zpquestion23b" name="question23zp" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zpquestion23c" name="question23zp" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Toma de muestras de laboratorio clínico</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23znquestion23a" name="question23zn" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23znquestion23b" name="question23zn" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23znquestion23c" name="question23zn" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Laboratorio de citologías cervico-uterinas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zqquestion23a" name="question23zq" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zqquestion23b" name="question23zq" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zqquestion23c" name="question23zq" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Laboratorio clínico baja, mediana y alta complejidad</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zoquestion23a" name="question23zo" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zoquestion23b" name="question23zo" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zoquestion23c" name="question23zo" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Laboratorio de histotecnología</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zrquestion23a" name="question23zr" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zrquestion23b" name="question23zr" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zrquestion23c" name="question23zr" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Tamización de cáncer de cuello uterino</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zpquestion23a" name="question23zp" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zpquestion23b" name="question23zp" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zpquestion23c" name="question23zp" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Laboratorio de patología</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zsquestion23a" name="question23zs" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zsquestion23b" name="question23zs" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zsquestion23c" name="question23zs" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Laboratorio de citologías cervico-uterinas</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zqquestion23a" name="question23zq" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zqquestion23b" name="question23zq" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zqquestion23c" name="question23zq" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Endoscopia Digestiva</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ztquestion23a" name="question23zt" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ztquestion23b" name="question23zt" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23ztquestion23c" name="question23zt" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Laboratorio de histotecnología</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zrquestion23a" name="question23zr" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zrquestion23b" name="question23zr" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zrquestion23c" name="question23zr" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Hemodiálisis</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zuquestion23a" name="question23zu" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zuquestion23b" name="question23zu" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zuquestion23c" name="question23zu" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Laboratorio de patología</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zsquestion23a" name="question23zs" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zsquestion23b" name="question23zs" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zsquestion23c" name="question23zs" value="N/A">
+            </td>
+          </tr>
+
+          <tr>
+            <td>Endoscopia Digestiva</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ztquestion23a" name="question23zt" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ztquestion23b" name="question23zt" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23ztquestion23c" name="question23zt" value="N/A">
+            </td>
+          </tr>
+
+          <tr>
+            <td>Hemodiálisis</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zuquestion23a" name="question23zu" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zuquestion23b" name="question23zu" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zuquestion23c" name="question23zu" value="N/A">
+            </td>
+          </tr>
 
 
-    <tr>
-      <td>Diálisis peritoneal</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zvquestion23a" name="question23zv" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zvquestion23b" name="question23zv" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zvquestion23c" name="question23zv" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Diálisis peritoneal</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zvquestion23a" name="question23zv" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zvquestion23b" name="question23zv" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zvquestion23c" name="question23zv" value="N/A">
+            </td>
+          </tr>
 
 
-    <tr>
-      <td>Terapias alternativas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zwquestion23a" name="question23zw" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zwquestion23b" name="question23zw" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zwquestion23c" name="question23zw" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Terapias alternativas</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zwquestion23a" name="question23zw" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zwquestion23b" name="question23zw" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zwquestion23c" name="question23zw" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Neumología - Laboratorio de función pulmonar</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zxquestion23a" name="question23zx" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zxquestion23b" name="question23zx" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zxquestion23c" name="question23zx" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Neumología - Laboratorio de función pulmonar</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zxquestion23a" name="question23zx" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zxquestion23b" name="question23zx" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zxquestion23c" name="question23zx" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Hemodinamia</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zyquestion23a" name="question23zy" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zyquestion23b" name="question23zy" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zyquestion23c" name="question23zy" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Hemodinamia</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zyquestion23a" name="question23zy" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zyquestion23b" name="question23zy" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zyquestion23c" name="question23zy" value="N/A">
+            </td>
+          </tr>
+          </table>
+          </div>
 
-    <tr>
-      <td>Transporte asistencial básico</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzquestion23a" name="question23zz" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzquestion23b" name="question23zz" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzquestion23c" name="question23zz" value="N/A">
-      </td>
-    </tr>
+          <br>
+  
+  <input type="checkbox" class="option-input checkbox" id="q23h_hab" name="q23hTOP"
+        onclick="Checkb(this,q23h)"> Transporte asistencial
+  
+      <div class="hidden" id="q23h">
+            <br>
+            <table>
+            
+            <tr>
+              <th></th>
+              <th>SI</th>
+              <th>NO</th>
+              <th>N/A</th>
+            </tr>
 
-    <tr>
-      <td>Transporte asistencial medicalizado diagnósticas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzaquestion23a" name="question23zza" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzaquestion23b" name="question23zza" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzaquestion23c" name="question23zza" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Transporte asistencial básico</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzquestion23a" name="question23zz" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzquestion23b" name="question23zz" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzquestion23c" name="question23zz" value="N/A">
+            </td>
+          </tr>
 
-    <tr>
-      <td>Atención domiciliaria paciente agudo</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzbquestion23a" name="question23zzb" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzbquestion23b" name="question23zzb" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzbquestion23c" name="question23zzb" value="N/A">
-      </td>
-    </tr>
+          <tr>
+            <td>Transporte asistencial medicalizado diagnósticas</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzaquestion23a" name="question23zza" value="SI">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzaquestion23b" name="question23zza" value="NO">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q23zzaquestion23c" name="question23zza" value="N/A">
+            </td>
+          </tr>
+          </table>
+      </div>
 
-    <tr>
-      <td>Atención domiciliaria paciente crónico sin ventilador</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzcquestion23a" name="question23zzc" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzcquestion23b" name="question23zzc" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzcquestion23c" name="question23zzc" value="N/A">
-      </td>
-    </tr>
+      <br>
 
-    <tr>
-      <td>Atención domiciliaria paciente crónico con ventilador</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzdquestion23a" name="question23zzd" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzdquestion23b" name="question23zzd" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzdquestion23c" name="question23zzd" value="N/A">
-      </td>
-    </tr>
+<input type="checkbox" class="option-input checkbox" id="q23i_hab" name="q23iTOP"
+    onclick="Checkb(this,q23i)"> Otros servicios
 
-    <tr>
-      <td>Consulta domiciliaria</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzequestion23a" name="question23zze" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzequestion23b" name="question23zze" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzequestion23c" name="question23zze" value="N/A">
-      </td>
-    </tr>
+  <div class="hidden" id="q23i">
+        <br>
+        <table>
+        
+        <tr>
+          <th></th>
+          <th>SI</th>
+          <th>NO</th>
+          <th>N/A</th>
+        </tr>
 
-    <tr>
-      <td>Atención prehospitalaria</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzfquestion23a" name="question23zzf" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzfquestion23b" name="question23zzf" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzfquestion23c" name="question23zzf" value="N/A">
-      </td>
-    </tr>
+      <tr>
+        <td>Atención domiciliaria paciente agudo</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzbquestion23a" name="question23zzb" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzbquestion23b" name="question23zzb" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzbquestion23c" name="question23zzb" value="N/A">
+        </td>
+      </tr>
 
-    <tr>
-      <td>Atención consumidor de sustancias psicoactivas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzgquestion23a" name="question23zzg" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzgquestion23b" name="question23zzg" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzgquestion23c" name="question23zzg" value="N/A">
-      </td>
-    </tr>
+      <tr>
+        <td>Atención domiciliaria paciente crónico sin ventilador</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzcquestion23a" name="question23zzc" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzcquestion23b" name="question23zzc" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzcquestion23c" name="question23zzc" value="N/A">
+        </td>
+      </tr>
 
-    <tr>
-      <td>Atención ambulatoria al consumidor de sustancias psicoactivas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzhquestion23a" name="question23zzh" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzhquestion23b" name="question23zzh" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zzhquestion23c" name="question23zzh" value="N/A">
-      </td>
-    </tr>
+      <tr>
+        <td>Atención domiciliaria paciente crónico con ventilador</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzdquestion23a" name="question23zzd" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzdquestion23b" name="question23zzd" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzdquestion23c" name="question23zzd" value="N/A">
+        </td>
+      </tr>
 
-    <tr>
-      <td>Atención institucional no hospitalaria al consumidor de sustancias psicoactivas</td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zziquestion23a" name="question23zzi" value="SI">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zziquestion23b" name="question23zzi" value="NO">
-      </td>
-      <td>
-        <input type="radio" class="option-input radio" id="q23zziquestion23c" name="question23zzi" value="N/A">
-      </td>
-    </tr>
+      <tr>
+        <td>Consulta domiciliaria</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzequestion23a" name="question23zze" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzequestion23b" name="question23zze" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzequestion23c" name="question23zze" value="N/A">
+        </td>
+      </tr>
 
-</table>
+      <tr>
+        <td>Atención prehospitalaria</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzfquestion23a" name="question23zzf" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzfquestion23b" name="question23zzf" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzfquestion23c" name="question23zzf" value="N/A">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Atención consumidor de sustancias psicoactivas</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzgquestion23a" name="question23zzg" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzgquestion23b" name="question23zzg" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzgquestion23c" name="question23zzg" value="N/A">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Atención ambulatoria al consumidor de sustancias psicoactivas</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzhquestion23a" name="question23zzh" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzhquestion23b" name="question23zzh" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zzhquestion23c" name="question23zzh" value="N/A">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Atención institucional no hospitalaria al consumidor de sustancias psicoactivas</td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zziquestion23a" name="question23zzi" value="SI">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zziquestion23b" name="question23zzi" value="NO">
+        </td>
+        <td>
+          <input type="radio" class="option-input radio" id="q23zziquestion23c" name="question23zzi" value="N/A">
+        </td>
+      </tr>
+
+  </table>
+  </div>
 
 
 

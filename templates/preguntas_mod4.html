@@ -17,17 +17,6 @@
       <link rel="stylesheet" href="static/index_style.css">
     </head>
 
-   <script>
-    function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO) 
-    { 
-      if (questionIDYesNO.checked) 
-      {
-        $(questionIDYes).removeClass("hidden");
-        $(questionIDNO).addClass("hidden");
-      }
-    }
-   </script>
-
 <body onload="set_rtas()">
 	<div class="wrapper">
 		<script type="text/javascript">   
@@ -159,11 +148,12 @@
             <label><input type="checkbox" id="question3f" ondragover="" class="option-input checkbox" name="question3" value="Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)"> Restricciones de acceso a sitios de internet (política de seguridad con algunas tareas bloqueo tales como: tiendas en línea, acceso a sitios no deseados, descarga de música)</label><br>
           </div>
           <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-            <label><input type="checkbox" class="option-input checkbox" id="question3otro" name="question3" value="Otro" 
+            <label><input type="checkbox" class="option-input checkbox" id="question3otro_hab" name="question3" value="Otro" 
               onclick="Checkb(this,q3Otro);inputOn(this,'question3_otro');" /> Otro<br>
               <br>
               <div class="hidden" id="q3Otro">
-                <input type="text" onkeypress="return textonly(event);" id="question3_otro" maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
+                <input type="text" onkeypress="return textonly(event);" id="question3_otro" 
+                maxlength="200" name="question3_otro" disabled="disabled"/></label><br>
               </div>
           </div>
       </div>
