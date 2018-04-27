@@ -140,22 +140,25 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def progreso_mod(ips):
-#    div=[81,25,29,3,3,3]#Original Camilo
-    div=[100,25,29,3,3,3]
-    Resultados_mod1=ips["Resultados Modulo 1"]
-    Resultados_mod2=ips["Resultados Modulo 2"]
-    Resultados_mod3=ips["Resultados Modulo 3"]
-    Resultados_mod4=ips["Resultados Modulo 4"]
-    Resultados_mod5=ips["Resultados Modulo 5"]
-    Resultados_mod6=ips["Resultados Modulo 6"]
-
-#    print('Key'+str(Resultados_mod1.keys()))
-
-    if "question3" in Resultados_mod5.keys():
-        if Resultados_mod5["question3"][0]=="SI":
-            div[4]=4
+    div=[93,25,29,3,3,5]
     
-    perc_mod=[int(100*(len(Resultados_mod1)-1)/div[0]), int(100*(len(Resultados_mod2)-1)/div[1]), int(100*(len(Resultados_mod3)-1)/div[2]), int(100*(len(Resultados_mod4)-1)/div[3]), int(100*(len(Resultados_mod5)-1)/div[4]), int(100*(len(Resultados_mod6)-1)/div[5])]
+    if "question3" in ips["Resultados Modulo 5"].keys():
+        if ips["Resultados Modulo 5"]["question3"][0]=="SI":
+            div[4]=4
+            
+    perc_mod = []
+    for idxmod in range(1,7):
+        rtas = ips["Resultados Modulo "+str(idxmod)]
+        cont = 0 #Contar respuestas
+        for idx in rtas.keys():
+            if "INGP" not in idx:
+                cont = cont+1        
+                
+        calc = int(100*(cont-1)/div[idxmod-1])#-1 por el ID
+        perc_mod.append(calc)
+    
+    
+#    perc_mod=[int(100*(len(Resultados_mod1)-1)/div[0]), int(100*(len(Resultados_mod2)-1)/div[1]), int(100*(len(Resultados_mod3)-1)/div[2]), int(100*(len(Resultados_mod4)-1)/div[3]), int(100*(len(Resultados_mod5)-1)/div[4]), int(100*(len(Resultados_mod6)-1)/div[5])]
     
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
@@ -165,8 +168,8 @@ def progreso_mod(ips):
 
     perc_mod[find100]=100
 
-    if len(Resultados_mod6)>1:
-        if Resultados_mod6["question1"][0].find("NO")>=0:
+    if len(ips["Resultados Modulo 6"])>1:
+        if ips["Resultados Modulo 6"]["question1"][0].find("NO")>=0:
             perc_mod[5]=100
 
     return perc_mod
