@@ -18,9 +18,11 @@
     </head>
 
 <body onload="set_rtas()">
-		<script type="text/javascript">
-      var Rtas =  {{Rtas|safe}} //Respuestas del modulo 1
-		</script>
+    
+    <script type="text/javascript">
+      var Rtas =  {{Rtas|safe}};//Respuestas del modulo 1    
+    </script>
+    
 	<div class="wrapper">
 		<div class="topnav">
 			<div class="logo_nav">
@@ -72,17 +74,20 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-        <input type="checkbox" id="question1_i_hab" ondragover="" class="option-input checkbox" 
-            name="Tipo_atencion" value="Otros" onclick="inputOn(this,'question1_iotro')"> Otros:
+        <input type="checkbox" id="question1_i_hab" ondragover="" class="option-input checkbox" name="Tipo_atencion" value="Otros" 
+            onclick="inputOn(this,'question1_iotro');Checkb(this,q1cont)"> Otros:
               <a  
               data-toggle="tooltip" 
               onclick="alerta('Si existen varios servicios, separelos con guiones')">
               <i class="fa fa-question-circle" style=font-size:24px></i>
             </a>
           </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <input type="text" onkeypress="return textonly(event);" id="question1_iotro" 
-            name="INGPquestion1_iotro" placeholder="Cuáles?" disabled="disabled"/>
+
+          <div class="hidden" id="q1cont">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <input type="text" onkeypress="return textonly(event);" id="question1_iotro" 
+              name="INGPquestion1_iotro" placeholder="Cuáles?" disabled="disabled"/>
+            </div>
           </div>
 
 
@@ -457,14 +462,19 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
            <input type="checkbox" id="question3_otro_hab" name="INGPotroq3"  
-            onclick="inputOn(this,'question3_p1')" class="option-input checkbox"> Otros, ¿Cuáles?:
+            onclick="inputOn(this,'question3_p1');Checkb(this,q3cont)" class="option-input checkbox"> Otros, ¿Cuáles?:
             <a data-toggle="tooltip" 
             onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
             <i class="fa fa-question-circle" style=font-size:24px></i></a>
      
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <input type="text" id="question3_p1" name="INGPotro_prof_salud1" placeholder="Cuáles?" disabled="disabled">
+
+
+
+      <div class="hidden" id="q3cont">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <input type="text" id="question3_p1" name="INGPotro_prof_salud1" placeholder="Cuáles?" disabled="disabled">
+        </div>
       </div>
     </div>    
 
@@ -560,15 +570,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <br>
              <input type="checkbox" id="question4_otro_hab"  ondragover="" name="INGPq4otro_tecnologo"  
-              onclick="inputOn(this,'q4_otro')" value="Otros"class="option-input checkbox"> Otros, ¿Cuáles?:
+              onclick="inputOn(this,'q4_otro');Checkb(this,q4cont)" value="Otros"class="option-input checkbox"> Otros, ¿Cuáles?:
               <a data-toggle="tooltip" 
               onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
               <i class="fa fa-question-circle" style=font-size:24px></i></a>
        
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <input type="text" id="q4_otro" name="INGPotro_tecnologo" placeholder="Cuáles?" disabled="disabled">
-        </div>
+        <div class="hidden" id="q4cont">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <input type="text" id="q4_otro" name="INGPotro_tecnologo" placeholder="Cuáles?" disabled="disabled">
+            </div>
+        </div>    
       </div>
 
     <br>
@@ -654,18 +666,6 @@
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
           <input type="text" id="question5_b1" name="ingenieria1" placeholder="Cuál?">
         </div>
-        <!-- <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          <input type="number"  min=0 id="question5_bn1" name="n_ingenieria1"  /></div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        </div> -->
-        <!-- <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          </div> -->
-          <!-- <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-         <input type="text" id="question5_b2" name="ingenieria2" placeholder="Cuál?">
-        </div>
-        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-          <input type="number"  min=0 id="question5_bn2" name="n_ingenieria2"  />
-        </div> -->
   </div>
 
 
@@ -674,14 +674,16 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <br>
            <input type="checkbox" id="question5_otro_hab" name="INGPq5otroprof"  
-            onclick="inputOn(this,'q5_otro')" class="option-input checkbox"> Otros, ¿Cuáles?:
+            onclick="inputOn(this,'q5_otro');Checkb(this,q5cont)" class="option-input checkbox"> Otros, ¿Cuáles?:
             <a data-toggle="tooltip" 
             onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
             <i class="fa fa-question-circle" style=font-size:24px></i></a>
      
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <input type="text" id="q5_otro" name="INGPq5_otro" placeholder="Cuáles?" disabled="disabled">
+      <div class="hidden" id="q5cont">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <input type="text" id="q5_otro" name="INGPq5_otro" placeholder="Cuáles?" disabled="disabled">
+          </div>
       </div>
     </div>
 
@@ -764,15 +766,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <br>
              <input type="checkbox" id="question6_otro_hab" name="INGPq6otroprof"  
-              onclick="inputOn(this,'q6_otro')" class="option-input checkbox"> Otros, ¿Cuáles?:
+              onclick="inputOn(this,'q6_otro');Checkb(this,q6cont)" class="option-input checkbox"> Otros, ¿Cuáles?:
               <a data-toggle="tooltip" 
               onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
               <i class="fa fa-question-circle" style=font-size:24px></i></a>
        
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <input type="text" id="q6_otro" name="INGPq6_otro" placeholder="Cuáles?" disabled="disabled">
+
+        <div class="hidden" id="q6cont">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <input type="text" id="q6_otro" name="INGPq6_otro" placeholder="Cuáles?" disabled="disabled">
+          </div>
         </div>
+        
       </div>
 
 
@@ -785,248 +791,599 @@
           <h4>7. ¿En su institución quién utiliza más las TIC?</h4>
         </label>
         <br>
-        <label>Indique de 1 a 5 el nivel de uso de las TIC, siendo 1 muy bajo uso, 2 bajo uso, 3 uso moderado, 4 uso alto y 5 uso muy alto. Si la respuesta es "0" igual debe ser diligenciado</label>
+        <label>Indique de 1 a 5 el nivel de uso de las TIC, siendo 1 muy bajo uso, 2 bajo uso, 3 uso moderado, 4 uso alto y 5 uso muy alto. En caso de que no exista personal en alguno de los ítems, marque la opción "No Aplica".</label>
         <!-- <a href="#" data-toggle="tooltip" title="Ayuda">
           <i class="fa fa-question-circle" style=font-size:24px></i>
         </a> -->
         <br><br>
+
+
+        <h4>Talento humano</h4>
+
+      <table>
+      <tr>        
+          <th></th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>No Aplica</th>
+      </tr>
+      <tr>
+            <td>Medicina General</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_1" name="q7_medgral" value="1">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_2" name="q7_medgral" value="2">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_3" name="q7_medgral" value="3">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_4" name="q7_medgral" value="4">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_5" name="q7_medgral" value="5">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medgral_NA" name="q7_medgral" value="NA">
+            </td>
+        </tr>
+        <tr>
+            <td>Medicina Especializada</td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_1" name="q7_medeps" value="1">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_2" name="q7_medeps" value="2">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_3" name="q7_medeps" value="3">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_4" name="q7_medeps" value="4">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_5" name="q7_medeps" value="5">
+            </td>
+            <td>
+              <input type="radio" class="option-input radio" id="q7_medeps_NA" name="q7_medeps" value="NA">
+            </td>
+          </tr>
+          <tr>
+              <td>Medicina Subespecializada</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_1" name="q7_medsubeps" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_2" name="q7_medsubeps" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_3" name="q7_medsubeps" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_4" name="q7_medsubeps" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_5" name="q7_medsubeps" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_medsubeps_NA" name="q7_medsubeps" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Odontología</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_1" name="q7_odont" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_2" name="q7_odont" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_3" name="q7_odont" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_4" name="q7_odont" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_5" name="q7_odont" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_odont_NA" name="q7_odont" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Nutricionista</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_1" name="q7_nutr" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_2" name="q7_nutr" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_3" name="q7_nutr" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_4" name="q7_nutr" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_5" name="q7_nutr" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_nutr_NA" name="q7_nutr" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Enfermería profesional</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_1" name="q7_enfpro" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_2" name="q7_enfpro" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_3" name="q7_enfpro" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_4" name="q7_enfpro" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_5" name="q7_enfpro" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_enfpro_NA" name="q7_enfpro" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Fisioterapia</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_1" name="q7_fisio" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_2" name="q7_fisio" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_3" name="q7_fisio" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_4" name="q7_fisio" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_5" name="q7_fisio" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fisio_NA" name="q7_fisio" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Fonoaudiología</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_1" name="q7_fono" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_2" name="q7_fono" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_3" name="q7_fono" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_4" name="q7_fono" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_5" name="q7_fono" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_fono_NA" name="q7_fono" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Instrumentación Quirúrgica</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_1" name="q7_insqui" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_2" name="q7_insqui" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_3" name="q7_insqui" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_4" name="q7_insqui" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_5" name="q7_insqui" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_insqui_NA" name="q7_insqui" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Optometría</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_1" name="q7_optm" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_2" name="q7_optm" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_3" name="q7_optm" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_4" name="q7_optm" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_5" name="q7_optm" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_optm_NA" name="q7_optm" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Psicología</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_1" name="q7_psic" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_2" name="q7_psic" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_3" name="q7_psic" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_4" name="q7_psic" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_5" name="q7_psic" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_psic_NA" name="q7_psic" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Bacteriología</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_1" name="q7_bactr" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_2" name="q7_bactr" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_3" name="q7_bactr" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_4" name="q7_bactr" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_5" name="q7_bactr" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_bactr_NA" name="q7_bactr" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Química Farmacéutico</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_1" name="q7_quifar" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_2" name="q7_quifar" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_3" name="q7_quifar" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_4" name="q7_quifar" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_5" name="q7_quifar" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_quifar_NA" name="q7_quifar" value="NA">
+              </td>
+            </tr>
+          </table>
+          <br><br>
+
+
+          <h4>Personal administrativo</h4>
+
+          <!-- <br>
+          <input type="checkbox" class="option-input checkbox" id="q7admins_hab" name="q7admins"
+              onclick="MoreOpts(this,q7admcon)"> Consulta externa
+
+          <div class="hidden" id="q7admcon">
+            <br> -->
+          <table>
+              <tr>        
+                  <th></th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>No Aplica</th>
+            </tr>
+              <tr>
+              <td>Gerente</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_1" name="q7_gert" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_2" name="q7_gert" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_3" name="q7_gert" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_4" name="q7_gert" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_5" name="q7_gert" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_gert_NA" name="q7_gert" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Subgerente</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_1" name="q7_subgert" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_2" name="q7_subgert" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_3" name="q7_subgert" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_4" name="q7_subgert" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_5" name="q7_subgert" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_subgert_NA" name="q7_subgert" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Directores</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_1" name="q7_dirs" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_2" name="q7_dirs" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_3" name="q7_dirs" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_4" name="q7_dirs" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_5" name="q7_dirs" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_dirs_NA" name="q7_dirs" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Jefe de área</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_1" name="q7_jeare" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_2" name="q7_jeare" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_3" name="q7_jeare" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_4" name="q7_jeare" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_5" name="q7_jeare" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_jeare_NA" name="q7_jeare" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Coordinadores</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_1" name="q7_coordn" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_2" name="q7_coordn" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_3" name="q7_coordn" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_4" name="q7_coordn" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_5" name="q7_coordn" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_coordn_NA" name="q7_coordn" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Auxiliares</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_1" name="q7_auxl" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_2" name="q7_auxl" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_3" name="q7_auxl" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_4" name="q7_auxl" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_5" name="q7_auxl" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_auxl_NA" name="q7_auxl" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Asistentes</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_1" name="q7_asistn" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_2" name="q7_asistn" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_3" name="q7_asistn" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_4" name="q7_asistn" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_5" name="q7_asistn" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_asistn_NA" name="q7_asistn" value="NA">
+              </td>
+          </tr>
+          </table>
+
+
+          <br><br>
+
+
+              <h4>Profesionales NO afines a la salud</h4>
+
+          <table>
+              <tr>        
+                  <th></th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>No Aplica</th>
+            </tr>
+
+          <tr>
+              <td>Ingeniería</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_1" name="q7_inger" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_2" name="q7_inger" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_3" name="q7_inger" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_4" name="q7_inger" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_5" name="q7_inger" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_inger_NA" name="q7_inger" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Contaduría</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_1" name="q7_contar" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_2" name="q7_contar" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_3" name="q7_contar" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_4" name="q7_contar" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_5" name="q7_contar" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_contar_NA" name="q7_contar" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Periodismo</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_1" name="q7_period" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_2" name="q7_period" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_3" name="q7_period" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_4" name="q7_period" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_5" name="q7_period" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_period_NA" name="q7_period" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Derecho</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_1" name="q7_derch" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_2" name="q7_derch" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_3" name="q7_derch" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_4" name="q7_derch" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_5" name="q7_derch" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_derch_NA" name="q7_derch" value="NA">
+              </td>
+          </tr>
+          <tr>
+              <td>Trabajo social</td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_1" name="q7_trasoc" value="1">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_2" name="q7_trasoc" value="2">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_3" name="q7_trasoc" value="3">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_4" name="q7_trasoc" value="4">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_5" name="q7_trasoc" value="5">
+              </td>
+              <td>
+                <input type="radio" class="option-input radio" id="q7_trasoc_NA" name="q7_trasoc" value="NA">
+              </td>
+          </tr>
+      </table>
+      <br><hr>
       </div>
-      <!--</div>-->
-      <!--<div class="row">-->
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <label>Medicina General:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-        <input type="number" min=1 max=5 id="question7_a" name="uso_medicina_gral"   >
-        <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Medicina Especializada:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_b" name="uso_medicina_especializada"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Medicina Subespecializada:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_c" name="uso_medicina_Subespecializada"   >
-          <br>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-          <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Odontología:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_d" name="uso_Odontología"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Nutricionista:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_e" name="usoNutricionista"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Enfermería profesional:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f" name="uso_Enfermeria_profesional"   >
-          <br>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Fisioterapia:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f2" name="uso_Fisioterapia"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Fonoaudiología:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f3" name="uso_Fonoaudiología"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Instrumentación Quirúrgica:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f4" name="uso_Instrumentación Quirúrgica"   >
-          <br>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Optometría:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f5" name="uso_Optometría"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Psicología:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f8" name="uso_Psicología"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Bacteriología:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f6" name="uso_Bacteriología"   >
-          <br>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Química Farmacéutico:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_f7" name="uso_Química Farmacéutico"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Gerente:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_g" name="uso_Gerente"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Subgerente:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_h" name="uso_Subgerente"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Directores:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_i" name="uso_Directores"   >
-          <br>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Jefe de área:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_j" name="uso_jefe_area"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-          <label>Coordinadores:</label>
-        </div>
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-          <input type="number" min=1 max=5 id="question7_k" name="uso_Coordinadores"   >
-          <br>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <label>Auxiliares:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-        <input type="number" min=1 max=5 id="question7_l" name="uso_Auxiliares"   >
-        <br>
-      </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <label>Asistentes:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-        <input type="number" min=1 max=5 id="question7_l2" name="uso_Asistentes"   >
-        <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <label>Ingeniería:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=1 max=5 id="question7_l3" name="uso_Ingeniería"   >
-      <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <label>Contaduría:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=1 max=5 id="question7_l4" name="uso_Contaduría"   >
-      <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <label>Periodismo:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=1 max=5 id="question7_l5" name="uso_Periodismo"   >
-      <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <label>Derecho:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=1 max=5 id="question7_l6" name="uso_Derecho"   >
-      <br>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-      <label>Trabajo social:</label>
-      </div>
-      <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
-      <input type="number" min=1 max=5 id="question7_l7" name="uso_Trabajo social "   >
-      <br>
-      </div>
-      </div>
-    <br><hr>
 
     <div class "row">
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <button type="submit" class="state" name="continuar" formaction="validar1">Guardar respuestas</button>
+          <button type="submit" class="state" name="continuar" 
+          onclick="conf_rtas('form_mod1')" formaction="validar1">Guardar respuestas</button>
         </div>
       </div>
       </div>

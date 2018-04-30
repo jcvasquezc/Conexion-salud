@@ -154,7 +154,7 @@ def progreso_mod(ips):
             if "INGP" not in idx:
                 cont = cont+1        
                 
-        calc = int(100*(cont-1)/div[idxmod-1])#-1 por el ID
+        calc = int(100*(cont-1)/div[idxmod-1])#cont-1 por la etiqueta "ID"
         perc_mod.append(calc)
     
     
@@ -457,12 +457,12 @@ def preguntas_mod1():
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[0]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
     
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 1"]
-    if request.method == 'POST':
+    if request.method == 'POST':     
         return redirect(url_for('preguntas_mod1'))
     return render_template('preguntas_mod1.html',Rtas=json.dumps(dict(Rtas)))
 
@@ -479,7 +479,7 @@ def preguntas_mod2():
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[1]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
 
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
@@ -500,7 +500,7 @@ def preguntas_mod3():
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[2]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
 
 
     temp = IPS_data.find({"ID":usr['ID']})
@@ -523,7 +523,7 @@ def preguntas_mod4():
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[3]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
 
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
@@ -544,7 +544,7 @@ def preguntas_mod5():
     
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[4]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
 
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
@@ -566,7 +566,7 @@ def preguntas_mod6():
 
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[5]>=100:
-        return redirect(url_for('modulo_completo'))
+        return redirect(url_for('mensaje'))
 
     temp = IPS_data.find({"ID":usr['ID']})
     temp2 = temp[0]
@@ -588,6 +588,7 @@ def validar(modulo):
         Ntemp=temp.count()
         dict_encuesta={}
         dict_encuesta["ID"]=usr['ID']
+        
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
@@ -605,6 +606,13 @@ def validar(modulo):
 
         IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): dict_encuesta}}, upsert=False, full_response= True)
 
+        #VERIFICAR EL PORCENTAJE DEL MODULO
+        IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
+        perc_mod = progreso_mod(IPSdata)
+        current_mod = perc_mod[int(modulo)-1]
+        if current_mod>=100:
+            return redirect(url_for('modulo_completo'))           
+        
         return render_template('validar.html', nit=usr['Codigo'])
     return render_template('validar.html', nit=usr['Codigo'])
 

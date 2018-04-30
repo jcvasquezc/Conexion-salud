@@ -52,8 +52,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question1"><h4>1. ¿Qué tipo de estándar técnico utiliza en la Historia Clínica Electrónica?
-      <!-- <a  data-toggle="tooltip" onclick="alerta('HL7: es un conjunto de estándares para facilitar el intercambio electrónico de información clínica.\n\nISO: Es la Organización Internacional de Normalización crea estándares internacionales compuesta por diversas organizaciones nacionales de estandarización\n\nIEEE: Normas dadas por el Instituto de Ingeniería Eléctrica y Electrónica\n\nDICOM: Imagen Digital y Comunicación en Medicina.\n\nDe ser necesario escoja varias opciones')">
-      <i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+      <a  data-toggle="tooltip" onclick="alerta('Se refiere a los diferentes estándares para manejo de datos, tales como signos vitales, imágenes médicas y/o información de laboratorio.\n\nDe ser necesario escoja varias opciones')">
+      <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
     <br>
   </div>
@@ -77,8 +77,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question2"><h4>2. ¿Qué tipo de estándares de codificación utiliza Historia Clínica Electrónica?
-        <!-- <a  data-toggle="tooltip" onclick="alerta('Estándares de codificación son las estrategias utilizadas por los programas que permiten gestionar la historia clínica electrónica.\n\nDe ser necesario escoja varias respuestas')">
-        <i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+        <a  data-toggle="tooltip" onclick="alerta('Se refiere a los estándares de codificación a nivel clínico que permiten gestionar la historia clínica electrónica.\n\nDe ser necesario escoja varias respuestas')">
+        <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
     <br>
   </div>
@@ -103,6 +103,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question3"><h4>3. ¿Conoce el marco de interoperabilidad del Estado colombiano?
+        <a  data-toggle="tooltip" onclick="alerta('Decreto 1151 de 2008 y el Manual para la implementación de la Estrategia de Gobierno en línea.')">
+            <i class="fa fa-question-circle" style=font-size:24px></i></a>
     </h4></label>
       <br>
   </div>
@@ -125,8 +127,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="question4"><h4>4. ¿La institución cuenta con procesos que cumplan con el concepto de interoperabilidad?
-          <!-- <a  data-toggle="tooltip" onclick="alerta('Se refiere a software adicional o procesos realizados al interior de la institución para facilitar la interoperabildiad')">
-          <i class="fa fa-question-circle" style=font-size:24px></i></a> -->
+          <a  data-toggle="tooltip" onclick="alerta('Se refiere a los procesos realizados al interior de la institución que facilitan la interoperabilidad.')">
+          <i class="fa fa-question-circle" style=font-size:24px></i></a>
       </h4>
     </label>
       <br>
@@ -144,7 +146,8 @@
 
 <div class "row">
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-      <button type="submit" class="state" name="continuar" formaction="validar5">Guardar respuestas</button>
+      <button type="submit" class="state" name="continuar" 
+      onclick="conf_rtas('form_mod5')" formaction="validar5">Guardar respuestas</button>
     </div>
   </div>
   </div>

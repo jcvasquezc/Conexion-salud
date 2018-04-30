@@ -291,6 +291,7 @@ function Checkb(obj,containerid)
 	}
 }
 
+
 // activar entrada de texto OTROS
 function inputOn(obj,textInput)
 {
@@ -313,6 +314,18 @@ function inputOn(obj,textInput)
 function disradio(radObj)
 {
 	document.getElementById(radObj).disabled=true;
-	document.getElementById(radObj).value=''
+	document.getElementById(radObj).value='';
 	}
+
+//Confirmación de respuestas
+function conf_rtas(formid)
+{
+	document.getElementById(formid).onsubmit = function onSubmit(form) {
+	// singleAmount = document.getElementById("singleAmount").value;
+	if (confirm("Recuerde: Si el módulo está completo al 100%, ya no podrá cambiar sus respuestas.\n\n¿Está seguro que desea continuar?"))
+	   return true;
+	else
+	  return false;
+	}
+}
 

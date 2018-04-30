@@ -385,12 +385,14 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <input type="checkbox" id="question11_f_hab" name="question11" class="option-input checkbox" name="question11" value="Otra" 
-    onclick="inputOn(this,'question11_otro'); "/> Otros, ¿Cuáles?:
+    onclick="inputOn(this,'question11_otro');Checkb(this,q11otrocont) "/> Otros, ¿Cuáles?:
     <a data-toggle="tooltip" 
     onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
     <i class="fa fa-question-circle" style=font-size:24px></i></a>
     <br>
-    <input type="text" id="question11_otro" name="INGPquestion11_otro" disabled="disabled" />
+    <div class="hidden" id="q11otrocont">
+        <input type="text" id="question11_otro" name="INGPquestion11_otro"/>
+      </div>
   </div>
 </div>
 
@@ -445,37 +447,38 @@
       </div> -->
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_b" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria incompleta" > Primaria incompleta
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria incompleta" > Primaria incompleta
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_c" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria completa" > Primaria completa
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Primaria completa" > Primaria completa
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_d" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria incompleta" > Secundaria incompleta
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria incompleta" > Secundaria incompleta
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_e" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria completa" > Secundaria completa
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Secundaria completa" > Secundaria completa
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_f" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Estudios Técnicos" > Estudios Técnicos
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value=''" value="Estudios Técnicos" > Estudios Técnicos
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_g" name="question13" 
-        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value='';" value="Estudios Tecnológicos"> Estudios Tecnológicos
+        onclick="disradio('question13_ipos');$(q14procontainer).addClass('hidden');$(q14cont).addClass('hidden');clear_inputs($(q14procontainer).attr('id'));document.getElementById('question14_otro').value='';" value="Estudios Tecnológicos"> Estudios Tecnológicos
         <br>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <input type="radio" class="option-input radio" id="question13_h_hab" name="question13" 
-        onclick="Checkb(this,q14cont);Checkb(this,q14procontainer);disradio('question13_ipos')" value="Estudios universitarios"> Estudios universitarios
+        onclick="Checkb(this,q14cont);Checkb(this,q14procontainer);disradio('question13_ipos');$(q14cont).addClass('hidden')"
+         value="Estudios universitarios"> Estudios universitarios
         <br>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -511,42 +514,43 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
             <input type="radio" id="question14_a" ondragover="" class="option-input radio" name="question14" 
-            onclick="disradio('question14_otro')" value="Ingeniería"> Ingeniería</label>
+            onclick="disradio('question14_otro');$(q14otrocont).addClass('hidden')" value="Ingeniería"> Ingeniería</label>
           <br>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
             <input type="radio" id="question14_b" ondragover="" class="option-input radio" name="question14" 
-            onclick="disradio('question14_otro')" value="Ciencias de la Salud o Ciencias Biológicas"> Ciencias de la Salud o Ciencias Biológicas</label>
+            onclick="disradio('question14_otro');$(q14otrocont).addClass('hidden')" value="Ciencias de la Salud o Ciencias Biológicas"> Ciencias de la Salud o Ciencias Biológicas</label>
           <br>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
             <input type="radio" id="question14_c" ondragover="" class="option-input radio" name="question14" 
-            onclick="disradio('question14_otro')" value="Administración, Contabilidad y Economía"> Administración, Contabilidad y Economía</label>
+            onclick="disradio('question14_otro');$(q14otrocont).addClass('hidden')" value="Administración, Contabilidad y Economía"> Administración, Contabilidad y Economía</label>
           <br>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
             <input type="radio" id="question14_d" ondragover="" class="option-input radio" name="question14" 
-            onclick="disradio('question14_otro')" value="Ciencias Exactas o Computación"> Ciencias Exactas o Computación</label>
+            onclick="disradio('question14_otro');$(q14otrocont).addClass('hidden')" value="Ciencias Exactas o Computación"> Ciencias Exactas o Computación</label>
           <br>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <label>
             <input type="radio" id="question14_e" ondragover="" class="option-input radio" name="question14" 
-            onclick="disradio('question14_otro')" value="Humanidades y Ciencias Sociales"> Humanidades y Ciencias Sociales</label>
+            onclick="disradio('question14_otro');$(q14otrocont).addClass('hidden')" value="Humanidades y Ciencias Sociales"> Humanidades y Ciencias Sociales</label>
           <br>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <label>
                 <input type="radio" id="question14_f_hab" name="question14" class="option-input radio" name="question14" value="Otra" 
-                onclick="inputOn(this,'question14_otro'); "
+                onclick="Checkb(this,q14otrocont);inputOn(this,'question14_otro')"
                 /> Otro
                 <br><br>
-                <input type="text" id="question14_otro" name="INGPquestion14_otro" disabled="disabled" />
+                <div class="hidden" id="q14otrocont">
+                 <input type="text" id="question14_otro" name="question14_otro"/>
                 <br>
-            <br>
+              </div>
         </div>
         <br>
       </div>
@@ -807,7 +811,8 @@
           <a  data-toggle="tooltip" 
           onclick="alert('Acceso o conexión a Internet es el sistema de enlace con que el computador (es) cuenta para acceder a páginas web desde un navegador y a otros servicios que ofrece Internet, como correo electrónico, mensajería, redes sociales entre otras.')">
             <i class="fa fa-question-circle" style=font-size:24px></i>
-          </a></h4>
+          </a>
+        </h4>
     </label>
     <br>
   </div>
@@ -839,9 +844,10 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <label for="question25">
       <h4>22. Su conexión es financiada por:
-          <a  data-toggle="tooltip" 
+          <!-- <a  data-toggle="tooltip" 
           onclick="alert('Los costos de la conexión a internet de su institución es financiada con subsidios (ayuda económica) del gobierno o de otra entidad.')">      <i class="fa fa-question-circle" style=font-size:24px></i>
-          </a></h4>
+          </a> -->
+        </h4>
     </label>
     <br>
   </div>
@@ -1262,7 +1268,8 @@
 
 <div class "row">
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-    <button type="submit" class="state" name="continuar" formaction="validar2">Guardar respuestas</button>
+    <button type="submit" class="state" name="continuar" 
+    onclick="conf_rtas('form_mod2')" formaction="validar2">Guardar respuestas</button>
   </div>
 </div>
 </div>
