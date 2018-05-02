@@ -49,7 +49,7 @@
 
 .login input:focus {
   outline: none;
-  color: #444;
+  color: #333;
   border-color: #031336;
   border-left-width: 35px;
 }
@@ -61,7 +61,7 @@
 }
 
 .login .title {
-  color: #444;
+  color: #333;
   font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0 30px 0;
@@ -79,7 +79,7 @@
   padding-left: 15px;
 }
 .login .title_log {
-  color: #444;
+  color: #333;
   font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0 30px 0;
@@ -171,7 +171,7 @@ button:focus {
 
 .register input:focus {
   outline: none;
-  color: #444;
+  color: #333;
   border-color: #031336;
   border-left-width: 35px;
 }
