@@ -124,7 +124,7 @@ for idx_ips in range(0,df.shape[0]):
     userpass = pass_generator()#car[1]+temppass[3]+temppass[0]+car[-1:]+temppass[1]+temppass[2]+car[len(car)-2]+car[0]
     idx_usr = idx_usr+1
     username = 'saludcol'+str(idx_usr)
-    dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username,userpass],(1,5)))
+    dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,nombreIPS, razsoc, repre, emailrep, telrep, username,userpass],(1,10)))
     passw.append(dfpass)
     hpassw,salt = hash_pass(userpass)    
     
@@ -194,7 +194,7 @@ for idx_ips in range(0,df.shape[0]):
     IPS_data.insert_one(IPS_index_data) 
 
 tabla = pd.concat(passw)
-tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código",3:'Usuario',4:'Contraseña'})
+tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código Habilitación",3:"Nombre IPS", 4:"Razón Social", 5: "Representante legal", 6:"email",7:"telefono",8:'Usuario',9:'Contraseña'})
 tabla.to_csv('Passwords.csv',index=False)
 
 

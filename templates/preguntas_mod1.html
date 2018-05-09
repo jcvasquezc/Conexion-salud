@@ -20,7 +20,33 @@
 <body onload="set_rtas()">
     
     <script type="text/javascript">
-      var Rtas =  {{Rtas|safe}};//Respuestas del modulo 1    
+      var Rtas =  {{Rtas|safe}};//Respuestas del modulo 1   
+
+
+    function watchTextbox() {
+      var currentValue = $('#question5_b1').val();
+      if (currentValue > 0) {
+        $("#question5_b2_cual_ing").removeClass("hidden");
+
+      }
+      else{
+        $("#question5_b2_cual_ing").addClass("hidden");	
+	      clear_inputs($("#question5_b2_cual_ing").attr('id'));
+      }
+    }
+
+    // Record the initial value of the textbox.
+    $('#txtInput').data('lastValue', $('#txtInput').val());
+
+    // Bind to the keypress and user-defined set event.
+    $('#txtInput').bind('keypress set', null, watchTextbox);
+
+    // Example of JS code triggering the user event
+    $('#btnSetText').click(function (ev) {
+      $('#txtInput').val('abc def').trigger('set');
+    });
+
+
     </script>
     
 	<div class="wrapper">
@@ -678,9 +704,19 @@
               onclick="alerta('En el caso de que sean varios, separar cada respuesta por guiones')">
               <i class="fa fa-question-circle" style=font-size:24px></i></a></label>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <input type="text" id="question5_b1" name="ingenieria1" placeholder="Cuál?">
-          <input type="text" id="question5_b2" name="ingenieria1_cantidad" placeholder="Cuántos?">
+
+
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1">
+            <input type="number"  min=0 id="question5_b1" name="n_ingenieria"   >
+            <br>
+          </div> 
+          
+          <script>
+              setInterval(watchTextbox, 100);
+          </script>
+
+        <div id="question5_b2_cual_ing" class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden">
+          <input type="text" id="question5_b2" name="ingenieria1" placeholder="Cuál?">
         </div>
   </div>
 
