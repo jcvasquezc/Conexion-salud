@@ -141,25 +141,25 @@ def allowed_file(filename):
 
 def progreso_mod(ips):
     div=[93,25,29,3,3,5]
-    
+
     if "question3" in ips["Resultados Modulo 5"].keys():
         if ips["Resultados Modulo 5"]["question3"][0]=="SI":
             div[4]=4
-            
+
     perc_mod = []
     for idxmod in range(1,7):
         rtas = ips["Resultados Modulo "+str(idxmod)]
         cont = 0 #Contar respuestas
         for idx in rtas.keys():
             if "INGP" not in idx:
-                cont = cont+1        
-                
+                cont = cont+1
+
         calc = int(100*(cont-1)/div[idxmod-1])#cont-1 por la etiqueta "ID"
         perc_mod.append(calc)
-    
-    
+
+
 #    perc_mod=[int(100*(len(Resultados_mod1)-1)/div[0]), int(100*(len(Resultados_mod2)-1)/div[1]), int(100*(len(Resultados_mod3)-1)/div[2]), int(100*(len(Resultados_mod4)-1)/div[3]), int(100*(len(Resultados_mod5)-1)/div[4]), int(100*(len(Resultados_mod6)-1)/div[5])]
-    
+
     perc_mod=np.asarray(perc_mod)
     find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
 
@@ -458,11 +458,11 @@ def preguntas_mod1():
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[0]>=100:
         return redirect(url_for('mensaje'))
-    
+
     temp = IPS_data.find({"ID":usr['ID']})
     temp2=temp[0]
     Rtas = temp2["Resultados Modulo 1"]
-    if request.method == 'POST':     
+    if request.method == 'POST':
         return redirect(url_for('preguntas_mod1'))
     return render_template('preguntas_mod1.html',Rtas=json.dumps(dict(Rtas)))
 
@@ -494,7 +494,7 @@ def preguntas_mod3():
     usr_id = current_user.id
     usr =   Users_data.find({'user_id': int(usr_id)})[0]
     IPSdata = IPS_data.find({"ID":usr['user_id']})[0]
-    
+
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
 
@@ -541,7 +541,7 @@ def preguntas_mod5():
 
     if IPSdata['Validar INFO']==False:
         return redirect(url_for('registro'))
-    
+
     perc_mod = progreso_mod(IPSdata)
     if perc_mod[4]>=100:
         return redirect(url_for('mensaje'))
@@ -578,6 +578,28 @@ def preguntas_mod6():
 
     return render_template('preguntas_mod6.html', nquestion=nquestion,Rtas=json.dumps(dict(Rtas)))
 
+
+@app.route("/habilitar<code_modulo>", methods=['GET', 'POST'])
+@login_required
+def habilitar(code_modulo):
+    if request.method == 'POST':
+        code_hab_mod=code_modulo.split('_')
+        codigo_hab=code_hab_mod[0]
+        modulo=code_hab_mod[1]
+        usr =   IPS_data.find({"ID":int(codigo_hab)})[0]
+        IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): {}}}, upsert=False, full_response= True)
+        return redirect('adminips_'+codigo_hab)
+    return redirect('adminips_'+codigo_hab)
+
+
+
+
+
+
+
+
+
+
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
@@ -588,7 +610,7 @@ def validar(modulo):
         Ntemp=temp.count()
         dict_encuesta={}
         dict_encuesta["ID"]=usr['ID']
-        
+
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
@@ -611,8 +633,8 @@ def validar(modulo):
         perc_mod = progreso_mod(IPSdata)
         current_mod = perc_mod[int(modulo)-1]
         if current_mod>=100:
-            return redirect(url_for('modulo_completo'))           
-        
+            return redirect(url_for('modulo_completo'))
+
         return render_template('validar.html', nit=usr['Codigo'])
     return render_template('validar.html', nit=usr['Codigo'])
 
@@ -666,6 +688,7 @@ def adminips_(ips_usr):
     usr =   IPS_data.find({"ID":int(ips_usr)})[0]
     general_info={
                   "Código Habilitación":usr['Código Habilitación'],
+                  "ID":usr["ID"],
                   "Nombre del Prestador":usr['Nombre del Prestador'],
                   "NIT":usr['NIT'],
                   "Razón social":usr['Razón social'],
@@ -686,10 +709,6 @@ def adminips_(ips_usr):
                   "E-mail del Encargado":usr["E-mail del Encargado"],
                   "Teléfono del Encargado":usr["Teléfono del Encargado"],
     }
-    for idx in range(1,7):
-        general_info['name'+str(idx)] =usr['colaborador'+str(idx)+' nombre']
-        general_info['cargo'+str(idx)] =usr['colaborador'+str(idx)+' cargo']
-        general_info['email'+str(idx)] =usr['colaborador'+str(idx)+' email']
 
     Resultados_mod1=usr["Resultados Modulo 1"]
     Resultados_mod2=usr["Resultados Modulo 2"]
@@ -698,18 +717,21 @@ def adminips_(ips_usr):
     Resultados_mod5=usr["Resultados Modulo 5"]
     Resultados_mod6=usr["Resultados Modulo 6"]
 
-    perc_mod=[int(100*(len(Resultados_mod1)-1)/81), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
-    perc_mod=np.asarray(perc_mod)
-    find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
 
-    perc_mod[find0]=0
-    find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
+    perc_mod = progreso_mod(usr)
 
-    perc_mod[find100]=100
-
-    if len(Resultados_mod6)>0:
-        if Resultados_mod6["question1"].find("NO")>=0:
-            perc_mod[5]=100
+    # perc_mod=[int(100*(len(Resultados_mod1)-1)/81), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
+    # perc_mod=np.asarray(perc_mod)
+    # find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
+    #
+    # perc_mod[find0]=0
+    # find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
+    #
+    # perc_mod[find100]=100
+    #
+    # if len(Resultados_mod6)>0:
+    #     if Resultados_mod6["question1"].find("NO")>=0:
+    #         perc_mod[5]=100
 
 
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)

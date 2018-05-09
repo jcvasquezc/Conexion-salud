@@ -33,19 +33,17 @@
 					<img src="static/logos/banner-encuesta.png" class="img-responsive">
 			</div>
 		</div>
-    <div class="topnav" id="myTopnav">			
+    <div class="topnav" id="myTopnav">
     <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="/registro">Registro</a></li>
-        <li><a href="/modulos"> Encuesta</a></li>
         <li><a href="/instructivo">Tutorial</a></li>
         <li><a href="/contacto">Contacto</a></li>
         <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
         <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
-        <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
-    </ul>	
+        <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>
+    </ul>
     </div>
-    <form enctype=multipart/form-data action="preguntas_mod1" class="idx_sty" method="post">
+    <form enctype=multipart/form-data class="idx_sty" method="post">
     <!-- <div class="idx_sty"> -->
         <h1 class="title">Información general de la IPS</h1>
         <p>En esta página podrás ver el progreso de la encuesta para cada modulo.</p>
@@ -53,7 +51,7 @@
         <br><hr>
 
         <h2>IPS: {{general_info['Nombre del Prestador']}}</h2>
-        
+
         <br>
         <div class="row"><label>Código Habilitación:</label> {{general_info["Código Habilitación"]}}</div>
         <div class="row"><label>NIT:</label> {{general_info["NIT"]}}</div>
@@ -97,10 +95,10 @@
         <div class="row">
             <span>e-mail: {{general_info['email1']}}</span>
         </div> -->
-  
+
         <div class="row">
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="container" style="width:100%">
                         <h4>Porcentaje respondido</h4>
                         <span>{{perc_mod[0]}}</span>
@@ -112,14 +110,18 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
+            <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
                 <br>
-                <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button>
-                <!-- <button  data-toggle="modal" data-target="#myModal1">Ver resultados</button> -->
+                <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                 <!-- <button  data-toggle="modal" data-target="#myModal1">Ver resultados</button> -->
             </div>
-
+            <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                <br>
+                <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                 <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_1">Habilitar</button>
+            </div>
         </div>
-        
+
 
 
         <br><hr>
@@ -140,11 +142,11 @@
         <div class="row">
             <span>e-mail: {{general_info['email2']}}</span>
         </div> -->
-  
-  
+
+
         <div class="row">
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container" style="width:100%">
                             <h4>Porcentaje respondido</h4>
                             <span>{{perc_mod[1]}}</span>
@@ -154,16 +156,21 @@
                                     </div>
                             </div>
                     </div>
-    
+
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
                     <br>
-                    <button type="submit" class="state" formaction="preguntas_mod2">Ver resultados</button>
-                    <!-- <button  data-toggle="modal" data-target="#myModal2">Ver resultados</button> -->
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <!-- <button  data-toggle="modal" data-target="#myModal2">Ver resultados</button> -->
                 </div>
-    
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                    <br>
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_2">Habilitar</button>
+                </div>
+
             </div>
- 
+
         <br><hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -183,10 +190,10 @@
             <span>e-mail: {{general_info['email3']}}</span>
         </div>
    -->
-  
+
         <div class="row">
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container" style="width:100%">
                             <h4>Porcentaje respondido</h4>
                             <span>{{perc_mod[2]}}</span>
@@ -196,14 +203,19 @@
                                     </div>
                             </div>
                     </div>
-    
+
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
                     <br>
-                    <button type="submit" class="state" formaction="preguntas_mod3">Ver resultados</button>
-                    <!-- <button  data-toggle="modal" data-target="#myModal3">Ver resultados</button> -->
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <!-- <button  data-toggle="modal" data-target="#myModal3">Ver resultados</button> -->
                 </div>
-    
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                    <br>
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_3">Habilitar</button>
+                </div>
+
             </div>
         <br><hr>
         <div class="row">
@@ -223,11 +235,11 @@
         <div class="row">
             <span>e-mail: {{general_info['email4']}}</span>
         </div> -->
-  
-  
+
+
         <div class="row">
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container" style="width:100%">
                             <h4>Porcentaje respondido</h4>
                             <span>{{perc_mod[3]}}</span>
@@ -237,21 +249,26 @@
                                     </div>
                             </div>
                     </div>
-    
+
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
                     <br>
-                    <button type="submit" class="state" formaction="preguntas_mod4">Ver resultados</button>
-                    <!-- <button  data-toggle="modal" data-target="#myModal4">Ver resultados</button> -->
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <!-- <button  data-toggle="modal" data-target="#myModal4">Ver resultados</button> -->
                 </div>
-    
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                    <br>
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_4">Habilitar</button>
+                </div>
+
             </div>
 
 
         <br><hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h2>MÓDULO 5.  Estándares e Interoperabilidad 
+            <h2>MÓDULO 5.  Estándares e Interoperabilidad
           </h2></div>
         </div>
         <!-- <div class="row">
@@ -267,9 +284,9 @@
             <span>e-mail: {{general_info['email5']}}</span>
         </div>
    -->
-  
+
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="container" style="width:100%">
                     <h4>Porcentaje respondido</h4>
                     <span>{{perc_mod[4]}}</span>
@@ -278,14 +295,19 @@
                             {{perc_mod[4]}}
                         </div>
                     </div>
-                </div>    
-            </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
-                    <br>
-                    <button type="submit" class="state" formaction="preguntas_mod5">Ver resultados</button>
-                    <!-- <button  data-toggle="modal" data-target="#myModal5">Ver resultados</button> -->
                 </div>
-    
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                <br>
+                <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                 <!-- <button  data-toggle="modal" data-target="#myModal5">Ver resultados</button> -->
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                <br>
+                <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                 <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_5">Habilitar</button>
+            </div>
+
         </div>
 
 
@@ -307,11 +329,11 @@
         <div class="row">
             <span>e-mail: {{general_info['email6']}}</span>
         </div> -->
-  
-  
+
+
         <div class="row">
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container" style="width:100%">
                             <h4>Porcentaje respondido</h4>
                             <span>{{perc_mod[5]}}</span>
@@ -321,21 +343,26 @@
                                     </div>
                             </div>
                     </div>
-    
+
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">  
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
                     <br>
-                    <button type="submit" class="state" formaction="preguntas_mod6">Ver resultados</button>
-                    <!-- <button data-toggle="modal" data-target="#myModal6">Ver resultados</button> -->
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <!-- <button  data-toggle="modal" data-target="#myModal6">Ver resultados</button> -->
                 </div>
-    
+                <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                    <br>
+                    <!-- <button type="submit" class="state" formaction="preguntas_mod1">Ver resultados</button> -->
+                     <button type="submit" class="state" formaction="habilitar{{general_info['ID']}}_6">Habilitar</button>
+                </div>
+
             </div>
 
         </div>
 
         </div>
-        
-    
+
+
 
 
 
@@ -349,12 +376,12 @@
               <h4 class="modal-title">Resultados Modulo 1</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -362,10 +389,10 @@
                         {% for key, value in Resultados_mod1.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
+
                     </tbody>
 
                 </table>
@@ -387,12 +414,12 @@
               <h4 class="modal-title">Resultados Modulo 2</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -400,10 +427,10 @@
                         {% for key, value in Resultados_mod2.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
+
                     </tbody>
 
                 </table>
@@ -428,12 +455,12 @@
               <h4 class="modal-title">Resultados Modulo 3</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -441,11 +468,11 @@
                         {% for key, value in Resultados_mod3.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
-        
+
+
                     </tbody>
 
                 </table>
@@ -467,22 +494,22 @@
               <h4 class="modal-title">Resultados Modulo 4</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for key, value in Resultados_mod4.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
+
                     </tbody>
 
                 </table>
@@ -503,22 +530,22 @@
               <h4 class="modal-title">Resultados Modulo 5</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for key, value in Resultados_mod5.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
+
                     </tbody>
 
                 </table>
@@ -540,12 +567,12 @@
               <h4 class="modal-title">Resultados Modulo 6</h4>
             </div>
             <div class="modal-body">
-                
+
                 <table class="table" style=" max-height: 200px;">
                     <thead>
                         <tr>
                             <th>Indicador Pregunta</th>
-                            <th>Respuesta</th> 
+                            <th>Respuesta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -553,10 +580,10 @@
                         {% for key, value in Resultados_mod6.items() %}
                         <tr>
                             <td> {{key}}</td>
-                            <td> {{value}}</td>  
-                        </tr>   
+                            <td> {{value}}</td>
+                        </tr>
                         {% endfor %}
-        
+
                     </tbody>
 
                 </table>
