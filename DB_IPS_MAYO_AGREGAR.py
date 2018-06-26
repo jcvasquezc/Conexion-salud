@@ -73,19 +73,22 @@ db.Users_data.create_index([(usertag,ASCENDING)],unique=True)
 
 #Obtener lista de departamento y ciudades
 #info_IPS = pd.read_csv(main_path+'/static/listaDB.csv')
-info_IPS = pd.read_csv(main_path+'/static/BD_IPS_faltantes.csv')
+info_IPS = pd.read_csv(main_path+'/static/BD_IPS_faltantes5.csv', encoding='latin-1')
+idx_usr = 1050 #Index for username
 #Obtener departamentos
 df = pd.DataFrame(info_IPS)
 #Reemplazar datos faltantes
 df = df.replace(np.nan,'')
 passw = []
 passwcolab = []
-idx_usr = 800 #Index for username
+print(df.shape[0])
 
-for idx_ips in range(800,df.shape[0]+800):
-    ips = df.iloc[[idx_ips-800]]
+for idx_ips in range(idx_usr,df.shape[0]+idx_usr):
+    print(idx_ips-idx_usr, idx_ips, idx_usr)
+    ips = df.iloc[[idx_ips-idx_usr]]
     dpto = list(ips['DEPARTAMENTO'])[0]
     city = list(ips['MUNICIPIO'])[0]
+    print(dpto, city)
     codhab = str(list(ips['CÓDIGO'])[0])#Codigo habilitacion
     nombreIPS = list(ips['NOMBRE'])[0]#Nombre del prestador de servicios
     nit = str(list(ips['NIT'])[0])
@@ -113,15 +116,15 @@ for idx_ips in range(800,df.shape[0]+800):
     usr = list(ips['NOMBRE PERSONA ENCARGADA DE TECNOLOGIA'])[0]
     usrmail = list(ips['EMAIL PERSONA ENCARGADA DE TECNOLOGIA'])[0]
     usrtel = list(ips['TELEFONO PERSONA ENCARGADA DE TECNOLOGIA'])[0]
-    print(idx_usr,codhab,dpto,city,idx_usr)
+    #print(idx_usr,codhab,dpto,city,idx_usr)
     cod_dpto,cod_city = set_cod(dpto,city)
 
     #Ingreso de usuario para login
     #IPS_data.update({"NIT":nit}, {'$push':{'Usuarios':{"Usuario":nit, "password":hash_pass(userpass)}}}, upsert=False)
 #    temppass = nit[-4:]
     userpass = pass_generator()#car[1]+temppass[3]+temppass[0]+car[-1:]+temppass[1]+temppass[2]+car[len(car)-2]+car[0]
-    idx_usr = idx_usr+1
-    username = 'saludcol'+str(idx_usr)
+    #idx_usr = idx_usr+1
+    username = 'saludcol'+str(idx_ips)
     dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,nombreIPS, razsoc, repre, emailrep, telrep, username,userpass],(1,10)))
     passw.append(dfpass)
     hpassw,salt = hash_pass(userpass)
@@ -129,9 +132,9 @@ for idx_ips in range(800,df.shape[0]+800):
     IPS_index_data = {
                   "Validar INFO":False,
                   "Código Habilitación":codhab,
-                  "ID":int(str(codhab+str(idx_usr))),
+                  "ID":int(str(codhab+str(idx_ips))),
                   "Nombre del Prestador":nombreIPS,
-                  "Número de sede":str(idx_usr),
+                  "Número de sede":str(idx_ips),
                   "NIT":nit,
                   "Razón social":razsoc,
                   "Nivel del Prestador":str(niv),#str(int(niv)) if niv else 0,
@@ -165,8 +168,8 @@ for idx_ips in range(800,df.shape[0]+800):
                 "salt":salt,
                 "Codigo":codhab,
                 'role':'manager',
-                'ID':int(str(codhab+str(idx_usr))),#toco :(
-                'user_id':int(str(codhab+str(idx_usr)))
+                'ID':int(str(codhab+str(idx_ips))),#toco :(
+                'user_id':int(str(codhab+str(idx_ips)))
                 }
     Users_data.insert_one(Users_IPS)
 
@@ -180,8 +183,8 @@ for idx_ips in range(800,df.shape[0]+800):
             "salt":salt,
             "Codigo":codhab,
             'role':'member'+str(mem),
-            'ID':int(str(codhab+str(idx_usr))),#toco :(
-            'user_id':int(str(codhab+str(idx_usr)+str(mem)))
+            'ID':int(str(codhab+str(idx_ips))),#toco :(
+            'user_id':int(str(codhab+str(idx_ips)+str(mem)))
             }
         dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username+'colab'+str(mem),userpass],(1,5)))
         passwcolab.append(dfpass)
@@ -193,7 +196,7 @@ for idx_ips in range(800,df.shape[0]+800):
 
 tabla = pd.concat(passw)
 tabla = tabla.rename(columns={0:'Departamento',1:'Municipio',2:"Código Habilitación",3:"Nombre IPS", 4:"Razón Social", 5: "Representante legal", 6:"email",7:"telefono",8:'Usuario',9:'Contraseña'})
-tabla.to_csv('Passwords2.csv',index=False)
+tabla.to_csv('Passwords6.csv',index=False)
 
 
 tabla = pd.concat(passwcolab)
@@ -228,7 +231,7 @@ Users_IPS = {
     'ID':7894,#toco :(
     'user_id':7894
     }
-Users_data.insert_one(Users_IPS)
+#Users_data.insert_one(Users_IPS)
 
 #for doc in documents:
 #    try:

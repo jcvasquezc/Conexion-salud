@@ -140,11 +140,62 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def progreso_mod(ips):
-    div=[93,25,29,3,3,5]
+    div=[93,25,19,3,3,5]
 
     if "question3" in ips["Resultados Modulo 5"].keys():
         if ips["Resultados Modulo 5"]["question3"][0]=="SI":
             div[4]=4
+
+    if "question21" in ips["Resultados Modulo 2"].keys():
+        if ips["Resultados Modulo 2"]["question21"][0]=="SI":
+            div[1]=div[1]+8
+
+    if "question26" in ips["Resultados Modulo 2"].keys():
+        if ips["Resultados Modulo 2"]["question26"][0]=="SI":
+            div[1]=div[1]+2
+
+    if "question12" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question12"][0]=="SI":
+            div[2]=div[2]+10
+
+    if "question6" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question6"][0]=="NO":
+            div[2]=div[2]-1
+
+    if "question26" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question26"][0]=="NO":
+            div[2]=div[2]-1
+
+    if "question1_int" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question1_int"][0]=="NO":
+            div[2]=div[2]-1
+
+
+
+    if "question23bTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+4
+
+    if "question23cTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+15
+
+    if "question23dTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+6
+
+    if "question23fTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+2
+
+    if "question23gTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+23
+
+    if "question23hTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+2
+
+    if "question23iTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+8
+
+
+
+
 
     perc_mod = []
     for idxmod in range(1,7):
@@ -754,9 +805,18 @@ def exportcsv(modulo):
                 row = row + 1
 
                 data=reg["Resultados Modulo "+str(modulo)]
-
+                #print(data.keys())
                 for key in data.keys():
-                    df.loc[row,key] = data[key]
+                    if key!="ID":
+                        #print(data[key], key, len(data[key]))
+                        if len(data[key])>1:
+                            response=', '.join(data[key])
+                        else:
+                            response=data[key][0]
+                    else:
+                        response=data[key]
+                    #print(response)
+                    df.loc[row,key] = response
         #print(df)
         csv_file=df.to_csv(sep='\t')
 

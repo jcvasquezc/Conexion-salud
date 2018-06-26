@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="static/header-login-signup.css">
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="static/jscripts.js"></script>
+		<link rel="stylesheet" href="static/login_style.css">
+		<title>Estudio sobre el nivel de madurez del ecosistema de TIC en las IPS públicas</title>		 
+	</head>		
+
+	<body>
+		<!-- Funciones javascript -->
+		<script type="text/javascript">
+			var cityLists = {{cities|safe}}
+		</script>
+		<!-- Funciones javascript -->
+        
+		<div class="topnav" id="myTopnav">				
+			<div class="logo">
+				<a href="/">
+				<img src="static/Logos_header.png" class="img-responsive">
+				</a>
+			</div>
+		</div>
+
+		<div class="wrapper">					
+			<form  action="registro" class="login" method="post" >						
+				<p class="title_sec">Registrar IPS</p>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<label for="reg_dpto">Departamento</label>
+						<br>
+						<select  id="reg_dpto" name="reg_dpto" onchange="setlist(this,'reg_city')" required>
+						<option  value = "">Seleccionar</option>
+						{% for value in dptos %}
+						<option  value = "{{value}}">{{value}}</option>
+						{% endfor %}
+						</select> 	
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<!-- Campo para ciudad -->
+						<label for="reg_city">Municipio</label>
+						<br>
+						<select  id="reg_city" name="reg_city" required>
+						<option  value ="">Seleccionar</option>
+						</select> 
+					</div>
+				</div>
+                <br> 		
+				<p class="title_sec">Validar usuario<font color="red">{{error}}</font></p>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<label>Usuario</label>
+						<input type="text" id="usrreg" name="usrreg" placeholder="Escriba su usuario" required>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<label>Contraseña</label>
+						<input type="password" id="passreg" name="passreg" placeholder="Escriba su contraseña" required>				
+					</div>
+				</div>	
+				<br>
+				<!-- COMIENZA: Botones -->
+				<div class="row">
+					<!-- Boton para continuar a la encuesta -->
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button type="submit" class="button">Continuar</button>
+					</div>
+					<!-- Boton para regresar-->
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button onclick="goBack()" class="button">Volver</button>
+					</div>
+				</div>
+            </form>	
+		</div>
+	</body>
+</html>

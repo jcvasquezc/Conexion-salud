@@ -5,7 +5,7 @@ Created on Tue Dec  12 14:44:02 2017
 
 @author: gita
 """
-
+from flask import Flask
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -58,8 +58,10 @@ def progreso_mod(ips):
 
     return perc_mod
 
+server = Flask(__name__)
+app = dash.Dash(__name__, server=server)
+application = app.server
 
-app = dash.Dash()
 
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
