@@ -137,6 +137,29 @@ def set_dptos():
         dptos[idx]=d.upper()
         idx = idx+1
     return dptos,cities
+
+#Obtener codigos de departamentos y municipios
+def set_cod(dpto,city):
+    #Obtener lista de departamento y ciudades
+    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
+    #Obtener departamentos
+    df = pd.DataFrame(lista_dptos)
+    del  df['lat']
+    del  df['lon']
+#    del  df['ID']
+#    del  df['ID2']
+    df = df.dropna()
+    dptos = list(np.unique(df['Departamento']))  
+    
+    codes_dpto = {}
+    for idx in dptos:
+        codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
+    
+    cod_dpto = codes_dpto[dpto]
+    city_list = df[df['Municipio']==city]
+#    print(city_list)
+    cod_city = list(city_list[city_list['ID2']==cod_dpto]['ID'])[0]
+    return str(cod_dpto),str(cod_city)
 ##############################################
 ##############################################
 #Extensiones permitidas
@@ -450,26 +473,26 @@ def registro_admin():
     if request.method == 'POST':
         #Datos prestador
         nombreIPS = request.form['reg_ips']#Nombre del prestador
-        nit = request.form['reg_nit']#Nit del prestador
+#        nit = request.form['reg_nit']#Nit del prestador
 #        Nsed = request.form['reg_numsede']#Numero de sedes
         codhab = request.form['reg_hab']#NCdigo habilitacion
 #        naju = request.form['reg_natjur']#Naturaleza juridica
 #        clpr = request.form['reg_clase']#Clase de prestador
 #        niv = request.form['reg_nivel']#Nivel del prestador
         dptoP = request.form['reg_dptoP']#Departamento del prestador
-        cod_dpto = request.form['reg_coddpto']#Departamento del prestador
-        cod_city = request.form['reg_codcity']#Municipio del prestador
+#        cod_dpto = request.form['reg_coddpto']#Departamento del prestador
+#        cod_city = request.form['reg_codcity']#Municipio del prestador
         cityP = request.form['reg_cityP']#Municipio del prestador
         userenc = request.form['reg_manag']#nombre del encargado
         mailenc = request.form['reg_manmail']#email del encargado
         telenc = request.form['reg_mantel']#Telefono del encargado
-        ext = request.form['reg_mantelExt']#Telefono del encargado
-        ger = request.form['reg_gerente']
-        dirips = request.form['reg_direccion']
-        barips = request.form['reg_barrio']
-        telips = request.form['reg_ipstel']
-        emailips = request.form['reg_ipsemail']
-        
+#        ext = request.form['reg_mantelExt']#Telefono del encargado
+#        ger = request.form['reg_gerente']
+#        dirips = request.form['reg_direccion']
+#        barips = request.form['reg_barrio']
+#        telips = request.form['reg_ipstel']
+#        emailips = request.form['reg_ipsemail']
+        cod_dpto,cod_city = set_cod(dptoP,cityP)
         numID = []
         for docs in IPS_data.find():
               numID.append(int(docs['Número de sede']))
@@ -477,11 +500,11 @@ def registro_admin():
         numID = numID[0]+1
         
         IPS_reg_data = {
-                  "Gerente":ger,
-                  "Dirección":dirips,
-                  "Barrio":barips,
-                  "Teléfono":telips,
-                  "E-mail empresarial":emailips,
+                  "Gerente":'',
+                  "Dirección":'',
+                  "Barrio":'',
+                  "Teléfono":'',
+                  "E-mail empresarial":'',
                   "Código Habilitación":codhab,
                   "Código Municipio":cod_city,
                   "Código Departamento":cod_dpto,
@@ -489,15 +512,15 @@ def registro_admin():
                   "Encargado de Encuesta":userenc,
                   "E-mail del Encargado":mailenc,
                   "Teléfono del Encargado":telenc,
-                  "Extensión del Encargado":ext,
+                  "Extensión del Encargado":'',
                   "Municipio":cityP,
                   "Razón social":nombreIPS,
-                  "Representante legal":ger,
+                  "Representante legal":'',
 #                  "Nivel del Prestador":niv,
 #                  "Naturaleza Jurídica":naju,
 #                  "Clase de Prestador":clpr,
                   "Nombre del Prestador":nombreIPS,
-                  "NIT":nit,
+                  "NIT":'',
                   "ID":int(str(codhab+str(numID))),
                   "Número de sede":str(numID),
                   "Resultados Modulo 1":{},
@@ -533,11 +556,12 @@ def registro_admin():
              'cod':codhab,
              'ips':nombreIPS,
              "dpto":dptoP,
+             "cod_dpto":cod_dpto,
+             "cod_city":cod_city,
              "muni":cityP,
              "enc":userenc,
              "email":mailenc,
-             "tel":telenc,
-             "ext":ext}
+             "tel":telenc}
         ct = Temp_data.find().count()
         if ct>0:
                Temp_data.remove({})
@@ -549,8 +573,8 @@ def registro_admin():
 @login_required
 def confirm_reg(): 
      INFO = Temp_data.find()[0]
-     print(INFO)
      if request.method == 'POST':
+        Temp_data.remove({})
         return render_template('confirm_reg.html')
      return render_template('confirm_reg.html',**{"INFO":INFO})
 

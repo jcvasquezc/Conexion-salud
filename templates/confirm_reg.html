@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-<body>
+<body onbeforeunload="return unloadconfirm()">
 
         <div class="wrapper">
             <div class="topnav">
@@ -24,17 +24,16 @@
                     <img src="static/logos/banner-encuesta.png" class="img-responsive">
                 </div>
             </div>
-            <div class="topnav" id="myTopnav">
+<!--             <div class="topnav" id="myTopnav">
             <ul>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/modulos">Encuesta</a></li>
                 <li><a href="/instructivo">Tutorial</a></li>
                 <li><a href="/contacto">Contacto</a></li>
-                <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
                 <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
                 <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>
             </ul>
-            </div>
+            </div> -->
 
 
   <form  action="admin" class="idx_sty" method="post">
@@ -58,49 +57,47 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <p  class="title">Información de la IPS</p>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label style="font-size: 18px;">Código de habilitación:</label> <p style="font-size: 18px;">{{INFO["cod"]}}</p>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <label style="font-size: 18px;">Código de habilitación:</label> <p style="font-size: 18px;">{{INFO["cod"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
         <label style="font-size: 18px;">Nombre de la IPS:</label> <p style="font-size: 18px;">{{INFO["ips"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label style="font-size: 18px;">Departamento:</label> <p style="font-size: 18px;">{{INFO["dpto"]}}</p>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">Departamento:</label> <p style="font-size: 18px;">{{INFO["cod_dpto"]}} - {{INFO["dpto"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label style="font-size: 18px;">Municipio:</label> <p style="font-size: 18px;">{{INFO["muni"]}}</p>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">Municipio:</label> <p style="font-size: 18px;">{{INFO["cod_city"]}} - {{INFO["muni"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
         <label style="font-size: 18px;">Encargado encuesta:</label> <p style="font-size: 18px;">{{INFO["enc"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
         <label style="font-size: 18px;">E-mail:</label> <p style="font-size: 18px;">{{INFO["email"]}}</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
         <label style="font-size: 18px;">Teléfono:</label> <p style="font-size: 18px;">{{INFO["tel"]}}</p>
         </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <label style="font-size: 18px;">Extensión:</label> <p style="font-size: 18px;">{{INFO["ext"]}}</p>
-        </div>
         
-		<!-- COMIENZA: Botones -->
-		<div class="row">
-			<!-- Boton para continuar a la encuesta -->
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
-				<button href="/admin" class="button">Aceptar</button>
-			</div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <!-- Boton para continuar a la encuesta -->
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+            <button href="/admin" class="button" onclick="window.onbeforeunload = null;">Guardar y continuar</button>
         </div>
-
     </div>
-
-
   </form>
 </body>
 </html>
