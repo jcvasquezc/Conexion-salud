@@ -13,10 +13,13 @@ import pandas as pd
 import numpy as np
 import os
 import json
-from werkzeug.utils import secure_filename
+#from werkzeug.utils import secure_filename
 import hashlib
-from utils import send_email
+#from utils import send_email
 from urllib.parse import urlparse, urljoin
+#Newlibs
+import string
+import random
 
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +52,9 @@ db = client.IPS_database
 #Crear colección
 IPS_data  = db.IPS_collection
 Users_data = db.Users_collection
+Temp_data = db.Temp_collection
 
+usertag = "usuario"
 
 ##Delete collection
 #db.Index_collection.drop()
@@ -244,6 +249,17 @@ def hash_pass(password,salt):
     hash_password = salt_hash.digest()
     return hash_password
 ########################################################
+#New password
+def new_pass(password):
+    salt = os.urandom(hashlib.blake2b.SALT_SIZE)
+    salt_hash = hashlib.blake2b(salt=salt)
+    salt_hash.update(password.encode('utf-8'))
+    hash_password = salt_hash.digest()
+    return hash_password,salt
+
+def pass_generator(size=8, chars=string.ascii_uppercase + string.digits):
+   return ''.join(random.choice(chars) for x in range(size))
+########################################################
 #Verificar credenciales
 def get_credentials(usr,userpass):
     temp = Users_data.find({"usuario":usr}).count()
@@ -419,6 +435,126 @@ def registro():
         return redirect(url_for('modulos'))
 
     return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
+######################################################
+@app.route("/registro_admin", methods=['GET', 'POST'])
+@login_required
+def registro_admin():
+    dptos,cities = set_dptos()
+    #Current User
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
+
+    #Select colab
+    if (usrid['role']!='admin'):
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        #Datos prestador
+        nombreIPS = request.form['reg_ips']#Nombre del prestador
+        nit = request.form['reg_nit']#Nit del prestador
+#        Nsed = request.form['reg_numsede']#Numero de sedes
+        codhab = request.form['reg_hab']#NCdigo habilitacion
+#        naju = request.form['reg_natjur']#Naturaleza juridica
+#        clpr = request.form['reg_clase']#Clase de prestador
+#        niv = request.form['reg_nivel']#Nivel del prestador
+        dptoP = request.form['reg_dptoP']#Departamento del prestador
+        cod_dpto = request.form['reg_coddpto']#Departamento del prestador
+        cod_city = request.form['reg_codcity']#Municipio del prestador
+        cityP = request.form['reg_cityP']#Municipio del prestador
+        userenc = request.form['reg_manag']#nombre del encargado
+        mailenc = request.form['reg_manmail']#email del encargado
+        telenc = request.form['reg_mantel']#Telefono del encargado
+        ext = request.form['reg_mantelExt']#Telefono del encargado
+        ger = request.form['reg_gerente']
+        dirips = request.form['reg_direccion']
+        barips = request.form['reg_barrio']
+        telips = request.form['reg_ipstel']
+        emailips = request.form['reg_ipsemail']
+        
+        numID = []
+        for docs in IPS_data.find():
+              numID.append(int(docs['Número de sede']))
+        numID.sort(reverse=True)
+        numID = numID[0]+1
+        
+        IPS_reg_data = {
+                  "Gerente":ger,
+                  "Dirección":dirips,
+                  "Barrio":barips,
+                  "Teléfono":telips,
+                  "E-mail empresarial":emailips,
+                  "Código Habilitación":codhab,
+                  "Código Municipio":cod_city,
+                  "Código Departamento":cod_dpto,
+                  "Departamento":dptoP,
+                  "Encargado de Encuesta":userenc,
+                  "E-mail del Encargado":mailenc,
+                  "Teléfono del Encargado":telenc,
+                  "Extensión del Encargado":ext,
+                  "Municipio":cityP,
+                  "Razón social":nombreIPS,
+                  "Representante legal":ger,
+#                  "Nivel del Prestador":niv,
+#                  "Naturaleza Jurídica":naju,
+#                  "Clase de Prestador":clpr,
+                  "Nombre del Prestador":nombreIPS,
+                  "NIT":nit,
+                  "ID":int(str(codhab+str(numID))),
+                  "Número de sede":str(numID),
+                  "Resultados Modulo 1":{},
+                  "Resultados Modulo 2":{},
+                  "Resultados Modulo 3":{},
+                  "Resultados Modulo 4":{},
+                  "Resultados Modulo 5":{},
+                  "Resultados Modulo 6":{},   
+                  "valmod1":False,
+                  "Validar INFO":False
+                  }
+            
+        
+        userpass = pass_generator()
+        hpassw,salt = new_pass(userpass)  
+        username = 'saludcol'+str(numID)
+        Users_IPS = {
+                     usertag:username, 
+                     "password":hpassw,
+                     "salt":salt,
+                     "Codigo":codhab,
+                     'role':'manager',
+                     'ID':int(str(codhab+str(numID))),#toco :(
+                     'user_id':int(str(codhab+str(numID)))
+                     }    
+
+        Users_data.insert_one(Users_IPS) 
+        IPS_data.insert_one(IPS_reg_data)
+   
+        INFO = {
+             'usr':username,
+             'pw':userpass,
+             'cod':codhab,
+             'ips':nombreIPS,
+             "dpto":dptoP,
+             "muni":cityP,
+             "enc":userenc,
+             "email":mailenc,
+             "tel":telenc,
+             "ext":ext}
+        ct = Temp_data.find().count()
+        if ct>0:
+               Temp_data.remove({})
+        Temp_data.insert_one(INFO)
+        return redirect(url_for('confirm_reg'))
+    return render_template('registro_admin.html',**{"dptos":dptos},cities=json.dumps(cities))
+######################################################
+@app.route("/confirm_reg", methods=['GET', 'POST'])
+@login_required
+def confirm_reg(): 
+     INFO = Temp_data.find()[0]
+     print(INFO)
+     if request.method == 'POST':
+        return render_template('confirm_reg.html')
+     return render_template('confirm_reg.html',**{"INFO":INFO})
+
+
 ######################################################
 @app.route("/modulos", methods=['GET', 'POST'])
 @login_required
@@ -644,13 +780,6 @@ def habilitar(code_modulo):
 
 
 
-
-
-
-
-
-
-
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
@@ -716,7 +845,7 @@ def admin():
     n_mod=np.zeros(6)
     #IPS registradas
 
-    for docs in IPS_data.find():
+    for docs in IPS_data.find().sort('Departamento'):
         if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
             tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
@@ -742,8 +871,8 @@ def adminips_(ips_usr):
                   "ID":usr["ID"],
                   "Nombre del Prestador":usr['Nombre del Prestador'],
                   "NIT":usr['NIT'],
-                  "Razón social":usr['Razón social'],
-                  "Nivel del Prestador":usr["Nivel del Prestador"],
+#                  "Razón social":usr['Razón social'],
+#                  "Nivel del Prestador":usr["Nivel del Prestador"],
                   "Gerente":usr["Gerente"],
                   "Dirección":usr["Dirección"],
                   "Barrio":usr["Barrio"],
@@ -753,9 +882,9 @@ def adminips_(ips_usr):
                   "Código Departamento":usr["Código Departamento"],
                   "Teléfono":usr["Teléfono"],
                   "E-mail empresarial":usr["E-mail empresarial"],
-                  "Representante legal":usr["Representante legal"],
-                  "E-mail del representante":usr["E-mail del representante"],
-                  "Teléfono del representate":usr["Teléfono del representate"],
+#                  "Representante legal":usr["Representante legal"],
+#                  "E-mail del representante":usr["E-mail del representante"],
+#                  "Teléfono del representate":usr["Teléfono del representate"],
                   "Encargado de Encuesta":usr["Encargado de Encuesta"],
                   "E-mail del Encargado":usr["E-mail del Encargado"],
                   "Teléfono del Encargado":usr["Teléfono del Encargado"],
@@ -829,23 +958,23 @@ def exportcsv(modulo):
 
 
 
-
-@app.route("/sendmail<modulo>", methods=['GET', 'POST'])
-@login_required
-def sendmail(modulo):
-    if request.method == 'POST':
-        nombres=request.form['nombre'+str(modulo)]
-
-        usr_id = int(current_user.id)
-        usrid = Users_data.find({"user_id":usr_id})[0]
-        user_encargado=usrid["usuario"]
-        user=user_encargado+"colab"+str(modulo)
-        usrid_colab = Users_data.find({"usuario":user})[0]
-        key_pass=usrid_colab["password_nc"]
-        to_email=request.form['email'+str(modulo)]
-        send_email(to_email, nombres, user, key_pass, modulo, file_email="./templates/email.html")
-        return redirect(url_for('modulos'))
-    return redirect(url_for('modulos'))
+#
+#@app.route("/sendmail<modulo>", methods=['GET', 'POST'])
+#@login_required
+#def sendmail(modulo):
+#    if request.method == 'POST':
+#        nombres=request.form['nombre'+str(modulo)]
+#
+#        usr_id = int(current_user.id)
+#        usrid = Users_data.find({"user_id":usr_id})[0]
+#        user_encargado=usrid["usuario"]
+#        user=user_encargado+"colab"+str(modulo)
+#        usrid_colab = Users_data.find({"usuario":user})[0]
+#        key_pass=usrid_colab["password_nc"]
+#        to_email=request.form['email'+str(modulo)]
+#        send_email(to_email, nombres, user, key_pass, modulo, file_email="./templates/email.html")
+#        return redirect(url_for('modulos'))
+#    return redirect(url_for('modulos'))
 
 
 
