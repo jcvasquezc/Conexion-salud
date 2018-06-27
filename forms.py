@@ -8,7 +8,7 @@ Created on Tue Dec  12 14:44:02 2017
 
 from flask import Flask, render_template, flash, request, redirect,url_for, make_response, abort
 from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin, current_user
-from pymongo import MongoClient #Manejos de base de datos
+from pymongo import MongoClient, ASCENDING #Manejos de base de datos
 import pandas as pd
 import numpy as np
 import os
@@ -869,7 +869,7 @@ def admin():
     n_mod=np.zeros(6)
     #IPS registradas
 
-    for docs in IPS_data.find().sort('Departamento'):
+    for docs in IPS_data.find().sort([("Departamento", ASCENDING), ("Municipio", ASCENDING)]):
         if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered=Nregistered+1
             tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
