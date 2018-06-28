@@ -24,11 +24,58 @@ import pprint
 
 
 def progreso_mod(ips):
-    div=[93,25,29,3,3,5]
+    div=[93,25,19,3,3,5]
 
     if "question3" in ips["Resultados Modulo 5"].keys():
         if ips["Resultados Modulo 5"]["question3"][0]=="SI":
             div[4]=4
+
+    if "question21" in ips["Resultados Modulo 2"].keys():
+        if ips["Resultados Modulo 2"]["question21"][0]=="SI":
+            div[1]=div[1]+8
+
+    if "question26" in ips["Resultados Modulo 2"].keys():
+        if ips["Resultados Modulo 2"]["question26"][0]=="SI":
+            div[1]=div[1]+2
+
+    if "question12" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question12"][0]=="SI":
+            div[2]=div[2]+10
+
+    if "question6" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question6"][0]=="NO":
+            div[2]=div[2]-1
+
+    if "question26" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question26"][0]=="NO":
+            div[2]=div[2]-1
+
+    if "question1_int" in ips["Resultados Modulo 3"].keys():
+        if ips["Resultados Modulo 3"]["question1_int"][0]=="NO":
+            div[2]=div[2]-1
+
+
+
+    if "question23bTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+4
+
+    if "question23cTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+15
+
+    if "question23dTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+6
+
+    if "question23fTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+2
+
+    if "question23gTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+23
+
+    if "question23hTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+2
+
+    if "question23iTOP" in ips["Resultados Modulo 3"].keys():
+        div[2]=div[2]+8
 
     perc_mod = []
     for idxmod in range(1,7):
@@ -57,6 +104,7 @@ def progreso_mod(ips):
             perc_mod[5]=100
 
     return perc_mod
+
 
 server = Flask(__name__)
 app = dash.Dash(__name__, server=server)
@@ -107,11 +155,11 @@ app.layout = html.Div([
         """
 
 
-            Porcentaje de IPSs que han diligenciado la encuesta: '{}'
+            Porcentaje de IPSs Registradas: '{}'
 
-            Porcentaje de IPSs que han diligenciado la encuesta en el departamento: '{}'
+            Porcentaje de IPSs Registradas en el departamento: '{}'
 
-            Porcentaje de IPSs que han diligenciado la encuesta en el municipio: '{}'
+            Porcentaje de IPSs Registradas en el municipio: '{}'
 
         """.replace('   ', '').format('0.0%', '0.0%', '0.0%')),
     ], id="porc", style={'width':'100%', 'display': 'inline-block'}),
@@ -120,7 +168,7 @@ app.layout = html.Div([
          dcc.Graph(id='map',
              figure={'data': datamap, 'layout': layoutmap}
              )
-    ], style={'width':'100%',  'display': 'inline-block'}),
+    ], style={'width':'100%'}),
 
 
 ])
@@ -222,16 +270,16 @@ def update_map(dpto):
                     perc_mod = progreso_mod(docs)
                     perc_mod_str=[str(np.round(perc_mod[j])) for j in range(len(perc_mod))]
 
-                    str_prgress=" \n\r Modulo 1: "+perc_mod_str[0]
-                    str_prgress=str_prgress+" \n\r Modulo 2: "+perc_mod_str[1]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 3: "+perc_mod_str[2]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 4: "+perc_mod_str[3]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 5: "+perc_mod_str[4]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 6: "+perc_mod_str[5]+"%"
+                    str_prgress=" \n\r Mod 1: "+perc_mod_str[0]
+                    str_prgress=str_prgress+" \n\r Mod 2: "+perc_mod_str[1]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 3: "+perc_mod_str[2]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 4: "+perc_mod_str[3]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 5: "+perc_mod_str[4]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 6: "+perc_mod_str[5]+"%"
 
 
 
-                    textmap.append(cities_all[k]+' \n\r '+name+str_prgress)
+                    textmap.append(name+str_prgress)
                     if float(lat[pmap[0]])>1000 or float(lon[pmap[0]])>1000:
                         print(lat[pmap[0]], lon[pmap[0]], cities_all[k], np.round(prob,3))
                 #except:
@@ -268,7 +316,7 @@ def update_markdown(dpto, mpio):
     ips_all=[]
     user_all=[]
     for docs in IPS_data.find():
-        if docs["Validar INFO"]==True:#IPS REGISTRADAS
+        if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
             Nregistered_total=Nregistered_total+1
             if docs["Departamento"]==dpto:
                 Nregistered_dpto=Nregistered_dpto+1
@@ -288,13 +336,15 @@ def update_markdown(dpto, mpio):
             """
 
 
-                Porcentaje de IPSs que han diligenciado la encuesta: '{}'
+                Porcentaje de IPSs Registradas: '{}'
 
-                Porcentaje de IPSs que han diligenciado la encuesta en el departamento: '{}'
+                Porcentaje de IPSs Registradas en el departamento: '{}'
 
-                Porcentaje de IPSs que han diligenciado la encuesta en el municipio: '{}'
+                Porcentaje de IPSs Registradas en el municipio: '{}'
 
             """.replace('   ', '').format(perc1, perc2, perc3))]
+
+
 
 
 

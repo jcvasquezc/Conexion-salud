@@ -149,12 +149,12 @@ def set_cod(dpto,city):
 #    del  df['ID']
 #    del  df['ID2']
     df = df.dropna()
-    dptos = list(np.unique(df['Departamento']))  
-    
+    dptos = list(np.unique(df['Departamento']))
+
     codes_dpto = {}
     for idx in dptos:
         codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
-    
+
     cod_dpto = codes_dpto[dpto]
     city_list = df[df['Municipio']==city]
 #    print(city_list)
@@ -220,10 +220,6 @@ def progreso_mod(ips):
 
     if "question23iTOP" in ips["Resultados Modulo 3"].keys():
         div[2]=div[2]+8
-
-
-
-
 
     perc_mod = []
     for idxmod in range(1,7):
@@ -498,7 +494,7 @@ def registro_admin():
               numID.append(int(docs['Número de sede']))
         numID.sort(reverse=True)
         numID = numID[0]+1
-        
+
         IPS_reg_data = {
                   "Gerente":'',
                   "Dirección":'',
@@ -528,28 +524,28 @@ def registro_admin():
                   "Resultados Modulo 3":{},
                   "Resultados Modulo 4":{},
                   "Resultados Modulo 5":{},
-                  "Resultados Modulo 6":{},   
+                  "Resultados Modulo 6":{},
                   "valmod1":False,
                   "Validar INFO":False
                   }
-            
-        
+
+
         userpass = pass_generator()
-        hpassw,salt = new_pass(userpass)  
+        hpassw,salt = new_pass(userpass)
         username = 'saludcol'+str(numID)
         Users_IPS = {
-                     usertag:username, 
+                     usertag:username,
                      "password":hpassw,
                      "salt":salt,
                      "Codigo":codhab,
                      'role':'manager',
                      'ID':int(str(codhab+str(numID))),#toco :(
                      'user_id':int(str(codhab+str(numID)))
-                     }    
+                     }
 
-        Users_data.insert_one(Users_IPS) 
+        Users_data.insert_one(Users_IPS)
         IPS_data.insert_one(IPS_reg_data)
-   
+
         INFO = {
              'usr':username,
              'pw':userpass,
@@ -571,7 +567,7 @@ def registro_admin():
 ######################################################
 @app.route("/confirm_reg", methods=['GET', 'POST'])
 @login_required
-def confirm_reg(): 
+def confirm_reg():
      INFO = Temp_data.find()[0]
      if request.method == 'POST':
         Temp_data.remove({})
@@ -815,6 +811,10 @@ def validar(modulo):
         dict_encuesta={}
         dict_encuesta["ID"]=usr['ID']
 
+        dict_encuesta["Código Habilitación"]=usr['Codigo']
+        dict_encuesta["Nombre del Prestador"]=temp[0]['Nombre del Prestador']
+        dict_encuesta["usuario"]=usr['usuario']
+
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
                 IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"valmod1": True}}, upsert=False, full_response= True)
@@ -867,22 +867,40 @@ def admin():
     tab_reg=[]
     tab_miss=[]
     n_mod=np.zeros(6)
+
+    dpto_list = IPS_data.find().distinct("Departamento")
+    tab_dptos={}
+    for j in dpto_list:
+        tab_dptos[j]=[0]*3
+
     #IPS registradas
 
     for docs in IPS_data.find().sort([("Departamento", ASCENDING), ("Municipio", ASCENDING)]):
-        if docs["Validar INFO"]==True:#IPS REGISTRADAS
+        Depto=docs["Departamento"]
+        tab_dptos[Depto][0]=tab_dptos[Depto][0]+1
+        if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
+            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_dptos[Depto][1]=tab_dptos[Depto][1]+1
+            perc_mod = progreso_mod(docs)
+            if sum(perc_mod)>99*6:
+                tab_dptos[Depto][2]=tab_dptos[Depto][2]+1
         else:#IPS FALTANTES
             Nmiss = Nmiss+1
-            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
+            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
 
         for k in np.arange(1,7):
             if len(docs["Resultados Modulo "+str(k)])>0:
                 n_mod[k-1]=n_mod[k-1]+1
 
+    tab_dptos_list=[]
+    dpto_list.sort()
+    for j in range(len(dpto_list)):
+        tab_dptos_list.append([dpto_list[j], tab_dptos[dpto_list[j]][0],tab_dptos[dpto_list[j]][1],tab_dptos[dpto_list[j]][2]])
+
+    print(tab_dptos_list)
     n_mod=np.round(100*n_mod/(Nregistered+Nmiss),2)
-    return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, n_mod=n_mod)
+    return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, **{"tab_dptos":tab_dptos_list}, n_mod=n_mod)
 
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
@@ -959,8 +977,9 @@ def exportcsv(modulo):
 
                 data=reg["Resultados Modulo "+str(modulo)]
                 #print(data.keys())
+                columns=[]
                 for key in data.keys():
-                    if key!="ID":
+                    if key!="Código Habilitación" and key!="Nombre del Prestador" and key!="usuario" and key!="porcentaje" and key!="ID":
                         #print(data[key], key, len(data[key]))
                         if len(data[key])>1:
                             response=', '.join(data[key])
@@ -970,9 +989,17 @@ def exportcsv(modulo):
                         response=data[key]
                     #print(response)
                     df.loc[row,key] = response
+                    if key.find("question")>=0:
+                        columns.append(key.replace("question","Pregunta: "))
+                    else:
+                        columns.append(key)
         #print(df)
-        csv_file=df.to_csv(sep='\t')
 
+
+        df.columns=columns
+
+
+        csv_file=df.to_csv(sep='\t')
 
         resp = make_response(csv_file)
         resp.headers["Content-Disposition"] = "attachment; filename=export.csv"

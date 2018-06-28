@@ -69,7 +69,7 @@ def get_data_map(lati, longi, sizem, textm, nivel, mapbox_access_token):
         title="Estado de conectividad de IPS públicas en Colombia",
         hovermode='closest',
         autosize=False,
-        width='30%',
+        width='90%',
         height=800,
         mapbox=dict(
             accesstoken=mapbox_access_token,
@@ -479,7 +479,7 @@ def get_radar(ref, val, legends, refdpto=[0,0,0,0,0,0]):
       "autosize": False,
       "height": 700,
       "hovermode": "closest",
-      "width": "40%",
+      "width": "70%",
       #"title":"Conectividad de su IPS",
 
       "xaxis": {

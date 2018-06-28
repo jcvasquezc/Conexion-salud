@@ -118,6 +118,38 @@
 
         </table>
 
+        <br><hr>
+          <h2>Respuestas por departamento</h2>
+          <br>
+
+          <table class="table" style=" max-height: 400px;">
+
+              <thead>
+                  <tr>
+                      <th>Departamento</th>
+                      <th>Número de IPSs</th>
+                      <th>Número de IPS registradas</th>
+                      <th>Número de IPSs que respondieron la encuesta</th>
+                  </tr>
+              </thead>
+
+              <tbody>
+
+                  {% for value in tab_dptos %}
+                      <tr>
+                          <td>{{value[0]}}</td>
+                          <td>{{value[1]}}</td>
+                          <td>{{value[2]}}</td>
+                          <td>{{value[3]}}</td>
+                      </tr>
+                  {% endfor %}
+
+
+              </tbody>
+
+
+          </table>
+
 
 
         <br><hr>
@@ -286,7 +318,7 @@
             </div>
 
       <div class="row">
-        <iframe src="http://179.50.15.173:8050/" width=80% height="1000"> </iframe>
+        <iframe src="http://179.50.15.173:8050/" width=100% height="1000"> </iframe>
       </div>
 
       </form>
