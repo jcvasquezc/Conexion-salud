@@ -869,25 +869,28 @@ def admin():
     n_mod=np.zeros(6)
 
     dpto_list = IPS_data.find().distinct("Departamento")
+    dpto_list.sort()
     tab_dptos={}
+    dpto_list=np.unique([k.upper() for k in dpto_list])
+
     for j in dpto_list:
         tab_dptos[j]=[0]*3
 
     #IPS registradas
 
     for docs in IPS_data.find().sort([("Departamento", ASCENDING), ("Municipio", ASCENDING)]):
-        Depto=docs["Departamento"]
+        Depto=docs["Departamento"].upper()
         tab_dptos[Depto][0]=tab_dptos[Depto][0]+1
         if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_reg.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
             tab_dptos[Depto][1]=tab_dptos[Depto][1]+1
             perc_mod = progreso_mod(docs)
             if sum(perc_mod)>99*6:
                 tab_dptos[Depto][2]=tab_dptos[Depto][2]+1
         else:#IPS FALTANTES
             Nmiss = Nmiss+1
-            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_miss.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
 
         for k in np.arange(1,7):
             if len(docs["Resultados Modulo "+str(k)])>0:

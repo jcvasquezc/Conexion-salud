@@ -22,7 +22,6 @@ import pprint
 
 
 
-
 def progreso_mod(ips):
     div=[93,25,19,3,3,5]
 
@@ -119,7 +118,8 @@ db = client.IPS_database
 IPS_data  = db.IPS_collection
 Users_data = db.Users_collection
 
-dfpmap=pd.read_csv('./static/pos_col.csv')
+main_path = os.path.dirname(os.path.abspath(__file__))
+dfpmap=pd.read_csv(main_path+'/static/pos_col.csv')
 
 lat=[str(dfpmap["lat"][j]) for j in range(len(dfpmap["lat"]))]
 lon=[str(dfpmap["lon"][j]) for j in range(len(dfpmap["lon"]))]
@@ -157,9 +157,9 @@ app.layout = html.Div([
 
             Porcentaje de IPSs Registradas: '{}'
 
-            Porcentaje de IPSs Registradas en el departamento: '{}'
+            Porcentaje de IPSs Registradas: '{}'
 
-            Porcentaje de IPSs Registradas en el municipio: '{}'
+            Porcentaje de IPSs Registradas: '{}'
 
         """.replace('   ', '').format('0.0%', '0.0%', '0.0%')),
     ], id="porc", style={'width':'100%', 'display': 'inline-block'}),
@@ -168,7 +168,7 @@ app.layout = html.Div([
          dcc.Graph(id='map',
              figure={'data': datamap, 'layout': layoutmap}
              )
-    ], style={'width':'100%'}),
+    ], style={'width':'100%',  'display': 'inline-block'}),
 
 
 ])
@@ -232,12 +232,12 @@ def update_map(dpto):
                     perc_mod = progreso_mod(docs)
                     perc_mod_str=[str(np.round(perc_mod[j])) for j in range(len(perc_mod))]
 
-                    str_prgress=" \n\r Modulo 1: "+perc_mod_str[0]
-                    str_prgress=str_prgress+" \n\r Modulo 2: "+perc_mod_str[1]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 3: "+perc_mod_str[2]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 4: "+perc_mod_str[3]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 5: "+perc_mod_str[4]+"%"
-                    str_prgress=str_prgress+" \n\r Modulo 6: "+perc_mod_str[5]+"%"
+                    str_prgress=" \n\r Mod 1: "+perc_mod_str[0]
+                    str_prgress=str_prgress+" \n\r Mod 2: "+perc_mod_str[1]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 3: "+perc_mod_str[2]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 4: "+perc_mod_str[3]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 5: "+perc_mod_str[4]+"%"
+                    str_prgress=str_prgress+" \n\r Mod 6: "+perc_mod_str[5]+"%"
 
                     sizemap.append(15)
                     nivelmap.append(int(nivel))
@@ -273,7 +273,7 @@ def update_map(dpto):
                     str_prgress=" \n\r Mod 1: "+perc_mod_str[0]
                     str_prgress=str_prgress+" \n\r Mod 2: "+perc_mod_str[1]+"%"
                     str_prgress=str_prgress+" \n\r Mod 3: "+perc_mod_str[2]+"%"
-                    str_prgress=str_prgress+" \n\r Mod 4: "+perc_mod_str[3]+"%"
+                    str_prgress=str_prgress+" \n\r Modulo 4: "+perc_mod_str[3]+"%"
                     str_prgress=str_prgress+" \n\r Mod 5: "+perc_mod_str[4]+"%"
                     str_prgress=str_prgress+" \n\r Mod 6: "+perc_mod_str[5]+"%"
 
@@ -316,7 +316,7 @@ def update_markdown(dpto, mpio):
     ips_all=[]
     user_all=[]
     for docs in IPS_data.find():
-        if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
+        if docs["Validar INFO"]==True:#IPS REGISTRADAS
             Nregistered_total=Nregistered_total+1
             if docs["Departamento"]==dpto:
                 Nregistered_dpto=Nregistered_dpto+1
@@ -343,14 +343,6 @@ def update_markdown(dpto, mpio):
                 Porcentaje de IPSs Registradas en el municipio: '{}'
 
             """.replace('   ', '').format(perc1, perc2, perc3))]
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
