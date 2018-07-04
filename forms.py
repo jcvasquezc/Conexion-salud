@@ -975,12 +975,20 @@ def exportcsv(modulo):
         df=pd.DataFrame([])
         for reg in temp:
             if len(reg["Resultados Modulo "+str(modulo)])>0:
-                #print(reg["Resultados Modulo "+str(modulo)])
+                print(reg["Nombre del Prestador"])
                 row = row + 1
-
                 data=reg["Resultados Modulo "+str(modulo)]
                 #print(data.keys())
-                columns=[]
+
+                usr =   IPS_data.find({"ID":int(reg["ID"])})[0]
+                print(usr)
+                perc_mod = progreso_mod(usr)
+                df.loc[row,"Código Habilitación"]=reg["Código Habilitación"]
+                df.loc[row,"Nombre del Prestador"]=reg["Nombre del Prestador"]
+
+                df.loc[row,"usuario"]="saludcol"+usr["Número de sede"]
+                df.loc[row,"porcentaje"]=str(perc_mod[int(modulo)-1])
+
                 for key in data.keys():
                     if key!="Código Habilitación" and key!="Nombre del Prestador" and key!="usuario" and key!="porcentaje" and key!="ID":
                         #print(data[key], key, len(data[key]))
@@ -992,15 +1000,22 @@ def exportcsv(modulo):
                         response=data[key]
                     #print(response)
                     df.loc[row,key] = response
-                    if key.find("question")>=0:
-                        columns.append(key.replace("question","Pregunta: "))
-                    else:
-                        columns.append(key)
+                    # if key.find("question")>=0:
+                    #     columns.append(key.replace("question","Pregunta: "))
+                    #else:
+                        #columns.append(key)
+
+
         #print(df)
 
-
+        #df.columns=columns
+        columns=[]
+        for nc in range(len(df.columns)):
+            if df.columns[nc].find("question")>=0:
+                columns.append(df.columns[nc].replace("question", "Pregunta: "))
+            else:
+                columns.append(df.columns[nc])
         df.columns=columns
-
 
         csv_file=df.to_csv(sep='\t')
 
