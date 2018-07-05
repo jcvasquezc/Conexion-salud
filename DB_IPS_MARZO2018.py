@@ -172,23 +172,23 @@ for idx_ips in range(0,df.shape[0]):
                 }    
     Users_data.insert_one(Users_IPS) 
     
-    for mem in range(1,7):
-        userpass = pass_generator()
-        hpassw,salt = hash_pass(userpass) 
-        Users_IPS = {
-            usertag:username+'colab'+str(mem), 
-            "password":hpassw,
-            "password_nc":userpass,
-            "salt":salt,
-            "Codigo":codhab,
-            'role':'member'+str(mem),
-            'ID':int(str(codhab+str(idx_usr))),#toco :(
-            'user_id':int(str(codhab+str(idx_usr)+str(mem)))
-            } 
-        dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username+'colab'+str(mem),userpass],(1,5)))
-        passwcolab.append(dfpass)        
-        Users_data.insert_one(Users_IPS) 
-        
+#    for mem in range(1,7):
+#        userpass = pass_generator()
+#        hpassw,salt = hash_pass(userpass) 
+#        Users_IPS = {
+#            usertag:username+'colab'+str(mem), 
+#            "password":hpassw,
+#            "password_nc":userpass,
+#            "salt":salt,
+#            "Codigo":codhab,
+#            'role':'member'+str(mem),
+#            'ID':int(str(codhab+str(idx_usr))),#toco :(
+#            'user_id':int(str(codhab+str(idx_usr)+str(mem)))
+#            } 
+#        dfpass = pd.DataFrame(np.reshape([dpto,city,codhab,username+'colab'+str(mem),userpass],(1,5)))
+#        passwcolab.append(dfpass)        
+#        Users_data.insert_one(Users_IPS) 
+#        
         
     #Llenar base de datos
     IPS_data.insert_one(IPS_index_data) 
@@ -231,6 +231,20 @@ Users_IPS = {
     'user_id':7894
     }       
 Users_data.insert_one(Users_IPS) 
+
+
+
+hpassw,salt = hash_pass('consalGOB01!') 
+Users_IPS = {
+    usertag:'mincol01', 
+    "password":hpassw,
+    "salt":salt,
+    'role':'gob',
+    'ID':1,#toco :(
+    'user_id':1
+    }       
+Users_data.insert_one(Users_IPS) 
+
 
 #for doc in documents:
 #    try:

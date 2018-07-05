@@ -584,20 +584,12 @@ def modulos():
     usr_id = int(current_user.id)
     usrid = Users_data.find({"user_id":usr_id})[0]
     #Select colab
-    if (usrid['role']=='member1'):
-        return redirect(url_for('preguntas_mod1'))
-    if (usrid['role']=='member2'):
-        return redirect(url_for('preguntas_mod2'))
-    if (usrid['role']=='member3'):
-        return redirect(url_for('preguntas_mod3'))
-    if (usrid['role']=='member4'):
-        return redirect(url_for('preguntas_mod4'))
-    if (usrid['role']=='member5'):
-        return redirect(url_for('preguntas_mod5'))
-    if (usrid['role']=='member6'):
-        return redirect(url_for('preguntas_mod6'))
     if (usrid['role']=='admin'):
         return redirect(url_for('admin'))
+    elif (usrid['role']=='gob'):
+        return redirect(url_for('admin'))
+    elif (usrid['role']!='manager'):
+        return redirect(url_for('index'))
 
     IPSdata = IPS_data.find({"ID":usrid['user_id']})[0]
     perc_mod = progreso_mod(IPSdata)
@@ -786,20 +778,6 @@ def preguntas_mod6():
     return render_template('preguntas_mod6.html', nquestion=nquestion,Rtas=json.dumps(dict(Rtas)))
 
 
-@app.route("/habilitar<code_modulo>", methods=['GET', 'POST'])
-@login_required
-def habilitar(code_modulo):
-    if request.method == 'POST':
-        code_hab_mod=code_modulo.split('_')
-        codigo_hab=code_hab_mod[0]
-        modulo=code_hab_mod[1]
-        usr =   IPS_data.find({"ID":int(codigo_hab)})[0]
-        IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): {}}}, upsert=False, full_response= True)
-        return redirect('adminips_'+codigo_hab)
-    return redirect('adminips_'+codigo_hab)
-
-
-
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
@@ -859,7 +837,7 @@ def admin():
     usr_id = int(current_user.id)
     usrid = Users_data.find({"user_id":usr_id})[0]
     #Select colab
-    if (usrid['role']!='admin'):
+    if ((usrid['role']=='manager')):
         return redirect(url_for('index'))
 
     Nregistered=0
@@ -883,14 +861,14 @@ def admin():
         tab_dptos[Depto][0]=tab_dptos[Depto][0]+1
         if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_reg.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui",docs['ID']])
             tab_dptos[Depto][1]=tab_dptos[Depto][1]+1
             perc_mod = progreso_mod(docs)
             if sum(perc_mod)>99*6:
                 tab_dptos[Depto][2]=tab_dptos[Depto][2]+1
         else:#IPS FALTANTES
             Nmiss = Nmiss+1
-            tab_miss.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_miss.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui",docs['ID']])
 
         for k in np.arange(1,7):
             if len(docs["Resultados Modulo "+str(k)])>0:
@@ -908,6 +886,11 @@ def admin():
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
 def adminips_(ips_usr):
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
+    #Select colab
+    if ((usrid['role']=='manager')):
+        return redirect(url_for('index'))
 
     #print('IPS ID',ips_usr)
     usr =   IPS_data.find({"ID":int(ips_usr)})[0]
@@ -944,30 +927,28 @@ def adminips_(ips_usr):
 
 
     perc_mod = progreso_mod(usr)
-
-    # perc_mod=[int(100*(len(Resultados_mod1)-1)/81), int(100*(len(Resultados_mod2)-1)/31), int(100*(len(Resultados_mod3)-1)/29), int(100*(len(Resultados_mod4)-1)/3), int(100*(len(Resultados_mod5)-1)/4), int(100*(len(Resultados_mod6)-1)/3)]
-    # perc_mod=np.asarray(perc_mod)
-    # find0=np.asarray(np.where(np.asarray(perc_mod)<0)[0])
-    #
-    # perc_mod[find0]=0
-    # find100=np.asarray(np.where(np.asarray(perc_mod)>100)[0])
-    #
-    # perc_mod[find100]=100
-    #
-    # if len(Resultados_mod6)>0:
-    #     if Resultados_mod6["question1"].find("NO")>=0:
-    #         perc_mod[5]=100
-
-
     return render_template('adminips_.html', **{"general_info":general_info},**{"Resultados_mod1":Resultados_mod1},**{"Resultados_mod2":Resultados_mod2},**{"Resultados_mod3":Resultados_mod3},**{"Resultados_mod4":Resultados_mod4},**{"Resultados_mod5":Resultados_mod5},**{"Resultados_mod6":Resultados_mod6},perc_mod=perc_mod)
 
+@app.route("/habilitar<code_modulo>", methods=['GET', 'POST'])
+@login_required
+def habilitar(code_modulo):
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
+    if request.method == 'POST':
+        code_hab_mod=code_modulo.split('_')
+        codigo_hab=code_hab_mod[0]
+        if (usrid['role']=='admin'):
+             modulo=code_hab_mod[1]
+             usr =   IPS_data.find({"ID":int(codigo_hab)})[0]
+             IPS_data.find_and_modify(query={"ID":usr['ID']}, update={"$set": {"Resultados Modulo "+str(modulo): {}}}, upsert=False, full_response= True)
+        return redirect('adminips_'+codigo_hab)
+    return redirect('adminips_'+codigo_hab)
 
 @app.route("/exportcsv<modulo>", methods=['GET', 'POST'])
 @login_required
 def exportcsv(modulo):
     # with open("outputs/Adjacency.csv") as fp:
     #     csv = fp.read()
-
     if request.method == 'POST':
         temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}})
 
@@ -981,7 +962,6 @@ def exportcsv(modulo):
                 #print(data.keys())
 
                 usr =   IPS_data.find({"ID":int(reg["ID"])})[0]
-                print(usr)
                 perc_mod = progreso_mod(usr)
                 df.loc[row,"Código Habilitación"]=reg["Código Habilitación"]
                 df.loc[row,"Nombre del Prestador"]=reg["Nombre del Prestador"]
