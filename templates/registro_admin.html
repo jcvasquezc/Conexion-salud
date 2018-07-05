@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+        <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="static/header-login-signup.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="static/jscripts.js"></script>
+        <link rel="stylesheet" href="static/index_style.css">
+        <title>Conexión salud</title>		 
+    </head>
+    <body>
+
+    <!-- Funciones javascript -->
+    <script type="text/javascript">        
+        var cityLists = {{cities|safe}}      
+    </script>
+    <!-- Funciones javascript -->
+
+    <div class="wrapper">
+		<div class="topnav">
+			<div class="logo_nav">
+					<img src="static/logos/banner-encuesta.png" class="img-responsive">
+			</div>
+		</div>
+        <div class="topnav" id="myTopnav">				
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/instructivo">Tutorial</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <!-- <li><a href="/faqs">Preguntas frecuentes</a></li> -->
+                <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+                <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>	
+            </ul>	
+        </div>
+    <form  action="registro_admin" class="register" method="post">
+
+    	<p class="title">DATOS GENERALES DE LA INSTITUCIÓN PRESTADORA DE SALUD</p>
+        <br>
+        <div class = "row">
+            <!-- Campo para departamento -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_dptoP">Departamento</label>
+                <select  id="reg_dptoP" name="reg_dptoP" onchange="setlist('reg_dptoP','reg_cityP')" required>
+                    <option  value = "">Seleccionar</option>
+                    {% for value in dptos %}
+                    <option  value = "{{value}}">{{value}}</option>
+                    {% endfor %}
+                </select> 
+            </div>
+            <!-- Campo para ciudad -->
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <label for="reg_cityP">Municipio</label>
+                <br>
+                <select  id="reg_cityP" name="reg_cityP" required>
+                    <option  value ="">Seleccionar</option>
+                </select> 
+            </div>
+        </div>
+        <br>
+<!--         <div class="helpbuttom">
+        <div class = "row"> -->
+            <!-- Campo para departamento -->
+<!--             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">                    
+                <label>Código departamento                     
+                    <a
+                    onclick="alerta('Este código puede ser consultado en: https://www.datos.gov.co/Mapas-Nacionales/Departamentos-y-municipios-de-Colombia/xdk5-pm3f')"
+                    >
+                    &nbsp?&nbsp
+                    </a></label>
+                <input type="text" id="reg_coddpto" name="reg_coddpto" required>				
+            </div> -->
+            <!-- Campo para ciudad -->
+<!--             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                    <label>Código municipio                     
+                        <a
+                        onclick="alert('Este código puede ser consultado en: https://www.datos.gov.co/Mapas-Nacionales/Departamentos-y-municipios-de-Colombia/xdk5-pm3f')"
+                        >
+                        &nbsp?&nbsp
+                        </a></label>
+                    <input type="text" id="reg_codcity" name="reg_codcity" required>				
+            </div>
+        </div></div> -->
+        <br>
+        <div class="row">
+			<!--Campo para el Nombre de la IPS -->
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+				<label>Nombre del prestador de servicios:</label>
+                <br>
+                <input type="text" id="reg_ips" name="reg_ips" placeholder="Nombre de IPS"  required>				
+                <!--<input list="reg_ips" name="reg_ips" type="text" autofocus autocomplete="off" placeholder="Nombre de IPS" required>
+				<datalist id="reg_ips">
+					{% for value in IPS %}
+						<option  value = "{{value}}">{{value}}</option>
+					{% endfor %}
+				</datalist>-->
+			</div>
+        </div>
+
+        <br>
+
+        <div class="helpbuttom">
+        <div class="row">
+          <!--       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">  -->                   
+                    <!--Campo para el NIT -->  
+<!--                         <label>
+                            NIT del Prestador                            
+                            <a 
+                            onclick="alerta('Escriba los 9 dígitos del NIT sin código de verificación')"
+                            >
+                            &nbsp?&nbsp
+                            </a>
+                        </label>              
+                        <br>
+                    <input type="number" min="100000000" max="999999999" id="reg_nit" name="reg_nit" placeholder="NIT" required>                                            
+                </div>
+ -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                    <!--Campo para código de habilitación-->
+                    <label>Código de habilitación</label>
+                    <br>
+                    <input type="number" id="reg_hab" name="reg_hab" required>
+                </div>	
+        </div>          
+        <br>   
+		<!-- RESPONSABLE DE LA ENCUESTA -->	
+		<p class="title">INFORMACIÓN DE LA PERSONA ENCARGADA DE LA ENCUESTA</p>
+        <div class="row">
+            <!-- campo nombre responsable -->
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+              <label>Nombre y apellidos</label>
+			  <br>
+              <input type="text"  id="reg_manag" name="reg_manag" placeholder="Nombre de la persona encargada" required>
+            </div>
+        </div>
+        <div class="row">
+            <!-- campo correo -->
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                <label>Email</label>
+                <br>
+                <input type="text"  id="reg_manmail" name="reg_manmail" placeholder="ejemplo@mail.com" required>
+            </div>
+        </div>
+        <div class="row">
+                <!-- campo Teléfono -->
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                  <label>Teléfono</label>
+                  <br>
+                  <input type="text"  id="reg_mantel" name="reg_mantel" placeholder="Teléfono" required>
+                </div>
+        </div>
+<!--         <div class="row"> -->
+            <!-- campo cargo -->
+<!-- 			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+              <label>Cargo</label>
+			  <br>
+              <input type="text"  id="reg_mancar" name="reg_mancar" placeholder="Cargo" required>
+            </div>
+        </div> -->
+
+        <br>
+
+		<!-- COMIENZA: Botones -->
+		<div class="row">
+			<!-- Boton para continuar a la encuesta -->
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+				<button type="submit" class="button">Generar Usuario</button>
+			</div>
+			<!-- Boton para regresar
+			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+				<button onclick="goBack()" class="button">Volver</button>
+			</div> -->
+        </div>
+        </div>
+		<!-- TERMINA: Botones -->
+
+    </form>
+<br>
+
+</div>
+</body>
+</html>

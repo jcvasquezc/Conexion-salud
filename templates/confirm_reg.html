@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Conexión salud</title>
+        <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+        <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+        <!-- <link rel="stylesheet" href="static/preg_style.css"> -->
+        <link rel="stylesheet" href="static/radio_checks.css">		<link rel="stylesheet" href="static/header-login-signup.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="static/jscripts.js"></script>
+        <link rel="stylesheet" href="static/index_style.css">
+      
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+<body onbeforeunload="return unloadconfirm()">
+
+        <div class="wrapper">
+            <div class="topnav">
+                <div class="logo_nav">
+                    <img src="static/logos/banner-encuesta.png" class="img-responsive">
+                </div>
+            </div>
+<!--             <div class="topnav" id="myTopnav">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/modulos">Encuesta</a></li>
+                <li><a href="/instructivo">Tutorial</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/logout">&#9949; Cerrar Sesión</a></li>
+                <li><a href="javascript:void(0);" id="icon" class="icon" onclick="toggle_menu('myTopnav')">&#9776;</a></li>
+            </ul>
+            </div> -->
+
+
+  <form  action="admin" class="idx_sty" method="post">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p  class="title">La IPS ha sido registrada</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p style="font-size: 18px;">Por favor guarde el nombre de usuario y contraseña asignados a la IPS.</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label style="color:red;font-size: 18px;">Usuario:</label><p style="display:inline;font-size: 18px;"> {{INFO["usr"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label style="color:red;font-size: 18px;">Contraseña:</label> <p style="display:inline;font-size: 18px;">{{INFO["pw"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p  class="title">Información de la IPS</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <label style="font-size: 18px;">Código de habilitación:</label> <p style="font-size: 18px;">{{INFO["cod"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+        <label style="font-size: 18px;">Nombre de la IPS:</label> <p style="font-size: 18px;">{{INFO["ips"]}}</p>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">Departamento:</label> <p style="font-size: 18px;">{{INFO["cod_dpto"]}} - {{INFO["dpto"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">Municipio:</label> <p style="font-size: 18px;">{{INFO["cod_city"]}} - {{INFO["muni"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">Encargado encuesta:</label> <p style="font-size: 18px;">{{INFO["enc"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <label style="font-size: 18px;">E-mail:</label> <p style="font-size: 18px;">{{INFO["email"]}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+        <label style="font-size: 18px;">Teléfono:</label> <p style="font-size: 18px;">{{INFO["tel"]}}</p>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br></div>
+
+        <!-- Boton para continuar a la encuesta -->
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+            <button href="/admin" class="button" onclick="window.onbeforeunload = null;">Guardar y continuar</button>
+        </div>
+    </div>
+  </form>
+</body>
+</html>
