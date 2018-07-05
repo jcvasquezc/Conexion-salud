@@ -6,14 +6,14 @@ Created on Tue Dec  12 14:44:02 2017
 @author: gita
 """
 
-from flask import Flask, render_template, flash, request,session, redirect,url_for, make_response
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
+#from flask import Flask, render_template, flash, request,session, redirect,url_for, make_response
+#from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, IntegerField
 from pymongo import MongoClient,ASCENDING #Manejos de base de datos
 import pandas as pd
 import numpy as np
 import os
 import pprint
-from random import randint
+#from random import randint
 import hashlib
 import string
 import random
