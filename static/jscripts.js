@@ -7,6 +7,12 @@ function alerta(msg) {
     alert(msg);
 }
 
+/* Salir de una ágina */
+function unloadconfirm()
+{
+	return "Está a punto de abandonar la página sin guardar los cambios."
+}
+
 function logval() {
 	if (LogVal=="True")
 	{

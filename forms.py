@@ -8,15 +8,18 @@ Created on Tue Dec  12 14:44:02 2017
 
 from flask import Flask, render_template, flash, request, redirect,url_for, make_response, abort
 from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin, current_user
-from pymongo import MongoClient #Manejos de base de datos
+from pymongo import MongoClient, ASCENDING #Manejos de base de datos
 import pandas as pd
 import numpy as np
 import os
 import json
-from werkzeug.utils import secure_filename
+#from werkzeug.utils import secure_filename
 import hashlib
-from utils import send_email
+#from utils import send_email
 from urllib.parse import urlparse, urljoin
+#Newlibs
+import string
+import random
 
 #Directorio de proyecto
 main_path = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +52,9 @@ db = client.IPS_database
 #Crear colección
 IPS_data  = db.IPS_collection
 Users_data = db.Users_collection
+Temp_data = db.Temp_collection
 
+usertag = "usuario"
 
 ##Delete collection
 #db.Index_collection.drop()
@@ -132,6 +137,29 @@ def set_dptos():
         dptos[idx]=d.upper()
         idx = idx+1
     return dptos,cities
+
+#Obtener codigos de departamentos y municipios
+def set_cod(dpto,city):
+    #Obtener lista de departamento y ciudades
+    lista_dptos = pd.read_csv(main_path+'/static/pos_col.csv')
+    #Obtener departamentos
+    df = pd.DataFrame(lista_dptos)
+    del  df['lat']
+    del  df['lon']
+#    del  df['ID']
+#    del  df['ID2']
+    df = df.dropna()
+    dptos = list(np.unique(df['Departamento']))
+
+    codes_dpto = {}
+    for idx in dptos:
+        codes_dpto[idx.upper()] = list(np.unique(df[df['Departamento']==idx]['ID2']))[0]
+
+    cod_dpto = codes_dpto[dpto]
+    city_list = df[df['Municipio']==city]
+#    print(city_list)
+    cod_city = list(city_list[city_list['ID2']==cod_dpto]['ID'])[0]
+    return str(cod_dpto),str(cod_city)
 ##############################################
 ##############################################
 #Extensiones permitidas
@@ -193,10 +221,6 @@ def progreso_mod(ips):
     if "question23iTOP" in ips["Resultados Modulo 3"].keys():
         div[2]=div[2]+8
 
-
-
-
-
     perc_mod = []
     for idxmod in range(1,7):
         rtas = ips["Resultados Modulo "+str(idxmod)]
@@ -243,6 +267,17 @@ def hash_pass(password,salt):
     salt_hash.update(password.encode('utf-8'))
     hash_password = salt_hash.digest()
     return hash_password
+########################################################
+#New password
+def new_pass(password):
+    salt = os.urandom(hashlib.blake2b.SALT_SIZE)
+    salt_hash = hashlib.blake2b(salt=salt)
+    salt_hash.update(password.encode('utf-8'))
+    hash_password = salt_hash.digest()
+    return hash_password,salt
+
+def pass_generator(size=8, chars=string.ascii_uppercase + string.digits):
+   return ''.join(random.choice(chars) for x in range(size))
 ########################################################
 #Verificar credenciales
 def get_credentials(usr,userpass):
@@ -419,6 +454,127 @@ def registro():
         return redirect(url_for('modulos'))
 
     return render_template('registro.html',**{"dptos":dptos},cities=json.dumps(cities),IPSdata=json.dumps(dict(IPSdata)))
+######################################################
+@app.route("/registro_admin", methods=['GET', 'POST'])
+@login_required
+def registro_admin():
+    dptos,cities = set_dptos()
+    #Current User
+    usr_id = int(current_user.id)
+    usrid = Users_data.find({"user_id":usr_id})[0]
+
+    #Select colab
+    if (usrid['role']!='admin'):
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        #Datos prestador
+        nombreIPS = request.form['reg_ips']#Nombre del prestador
+#        nit = request.form['reg_nit']#Nit del prestador
+#        Nsed = request.form['reg_numsede']#Numero de sedes
+        codhab = request.form['reg_hab']#NCdigo habilitacion
+#        naju = request.form['reg_natjur']#Naturaleza juridica
+#        clpr = request.form['reg_clase']#Clase de prestador
+#        niv = request.form['reg_nivel']#Nivel del prestador
+        dptoP = request.form['reg_dptoP']#Departamento del prestador
+#        cod_dpto = request.form['reg_coddpto']#Departamento del prestador
+#        cod_city = request.form['reg_codcity']#Municipio del prestador
+        cityP = request.form['reg_cityP']#Municipio del prestador
+        userenc = request.form['reg_manag']#nombre del encargado
+        mailenc = request.form['reg_manmail']#email del encargado
+        telenc = request.form['reg_mantel']#Telefono del encargado
+#        ext = request.form['reg_mantelExt']#Telefono del encargado
+#        ger = request.form['reg_gerente']
+#        dirips = request.form['reg_direccion']
+#        barips = request.form['reg_barrio']
+#        telips = request.form['reg_ipstel']
+#        emailips = request.form['reg_ipsemail']
+        cod_dpto,cod_city = set_cod(dptoP,cityP)
+        numID = []
+        for docs in IPS_data.find():
+              numID.append(int(docs['Número de sede']))
+        numID.sort(reverse=True)
+        numID = numID[0]+1
+
+        IPS_reg_data = {
+                  "Gerente":'',
+                  "Dirección":'',
+                  "Barrio":'',
+                  "Teléfono":'',
+                  "E-mail empresarial":'',
+                  "Código Habilitación":codhab,
+                  "Código Municipio":cod_city,
+                  "Código Departamento":cod_dpto,
+                  "Departamento":dptoP,
+                  "Encargado de Encuesta":userenc,
+                  "E-mail del Encargado":mailenc,
+                  "Teléfono del Encargado":telenc,
+                  "Extensión del Encargado":'',
+                  "Municipio":cityP,
+                  "Razón social":nombreIPS,
+                  "Representante legal":'',
+#                  "Nivel del Prestador":niv,
+#                  "Naturaleza Jurídica":naju,
+#                  "Clase de Prestador":clpr,
+                  "Nombre del Prestador":nombreIPS,
+                  "NIT":'',
+                  "ID":int(str(codhab+str(numID))),
+                  "Número de sede":str(numID),
+                  "Resultados Modulo 1":{},
+                  "Resultados Modulo 2":{},
+                  "Resultados Modulo 3":{},
+                  "Resultados Modulo 4":{},
+                  "Resultados Modulo 5":{},
+                  "Resultados Modulo 6":{},
+                  "valmod1":False,
+                  "Validar INFO":False
+                  }
+
+
+        userpass = pass_generator()
+        hpassw,salt = new_pass(userpass)
+        username = 'saludcol'+str(numID)
+        Users_IPS = {
+                     usertag:username,
+                     "password":hpassw,
+                     "salt":salt,
+                     "Codigo":codhab,
+                     'role':'manager',
+                     'ID':int(str(codhab+str(numID))),#toco :(
+                     'user_id':int(str(codhab+str(numID)))
+                     }
+
+        Users_data.insert_one(Users_IPS)
+        IPS_data.insert_one(IPS_reg_data)
+
+        INFO = {
+             'usr':username,
+             'pw':userpass,
+             'cod':codhab,
+             'ips':nombreIPS,
+             "dpto":dptoP,
+             "cod_dpto":cod_dpto,
+             "cod_city":cod_city,
+             "muni":cityP,
+             "enc":userenc,
+             "email":mailenc,
+             "tel":telenc}
+        ct = Temp_data.find().count()
+        if ct>0:
+               Temp_data.remove({})
+        Temp_data.insert_one(INFO)
+        return redirect(url_for('confirm_reg'))
+    return render_template('registro_admin.html',**{"dptos":dptos},cities=json.dumps(cities))
+######################################################
+@app.route("/confirm_reg", methods=['GET', 'POST'])
+@login_required
+def confirm_reg():
+     INFO = Temp_data.find()[0]
+     if request.method == 'POST':
+        Temp_data.remove({})
+        return render_template('confirm_reg.html')
+     return render_template('confirm_reg.html',**{"INFO":INFO})
+
+
 ######################################################
 @app.route("/modulos", methods=['GET', 'POST'])
 @login_required
@@ -644,13 +800,6 @@ def habilitar(code_modulo):
 
 
 
-
-
-
-
-
-
-
 @app.route("/validar<modulo>", methods=['GET', 'POST'])
 @login_required
 def validar(modulo):
@@ -661,6 +810,10 @@ def validar(modulo):
         Ntemp=temp.count()
         dict_encuesta={}
         dict_encuesta["ID"]=usr['ID']
+
+        dict_encuesta["Código Habilitación"]=usr['Codigo']
+        dict_encuesta["Nombre del Prestador"]=temp[0]['Nombre del Prestador']
+        dict_encuesta["usuario"]=usr['usuario']
 
         for j in request.form:
             if int(modulo)==1 and len(request.form[j])>0:
@@ -714,22 +867,43 @@ def admin():
     tab_reg=[]
     tab_miss=[]
     n_mod=np.zeros(6)
+
+    dpto_list = IPS_data.find().distinct("Departamento")
+    dpto_list.sort()
+    tab_dptos={}
+    dpto_list=np.unique([k.upper() for k in dpto_list])
+
+    for j in dpto_list:
+        tab_dptos[j]=[0]*3
+
     #IPS registradas
 
-    for docs in IPS_data.find():
-        if docs["Validar INFO"]==True:#IPS REGISTRADAS
+    for docs in IPS_data.find().sort([("Departamento", ASCENDING), ("Municipio", ASCENDING)]):
+        Depto=docs["Departamento"].upper()
+        tab_dptos[Depto][0]=tab_dptos[Depto][0]+1
+        if len(docs["Encargado de Encuesta"])>1:#IPS REGISTRADAS
             Nregistered=Nregistered+1
-            tab_reg.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
+            tab_reg.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
+            tab_dptos[Depto][1]=tab_dptos[Depto][1]+1
+            perc_mod = progreso_mod(docs)
+            if sum(perc_mod)>99*6:
+                tab_dptos[Depto][2]=tab_dptos[Depto][2]+1
         else:#IPS FALTANTES
             Nmiss = Nmiss+1
-            tab_miss.append([docs["Departamento"],docs["Municipio"], docs["Nombre del Prestador"], docs["ID"], "Aqui"])
+            tab_miss.append([docs["Departamento"].upper(),docs["Municipio"], docs["Nombre del Prestador"], docs["Código Habilitación"], "Aqui"])
 
         for k in np.arange(1,7):
             if len(docs["Resultados Modulo "+str(k)])>0:
                 n_mod[k-1]=n_mod[k-1]+1
 
+    tab_dptos_list=[]
+    dpto_list.sort()
+    for j in range(len(dpto_list)):
+        tab_dptos_list.append([dpto_list[j], tab_dptos[dpto_list[j]][0],tab_dptos[dpto_list[j]][1],tab_dptos[dpto_list[j]][2]])
+
+    print(tab_dptos_list)
     n_mod=np.round(100*n_mod/(Nregistered+Nmiss),2)
-    return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, n_mod=n_mod)
+    return render_template('admin.html', Nregistered=Nregistered, Nmiss=Nmiss, **{"tab_reg":tab_reg},**{"tab_miss":tab_miss}, **{"tab_dptos":tab_dptos_list}, n_mod=n_mod)
 
 @app.route("/adminips_<ips_usr>", methods=['GET', 'POST'])
 @login_required
@@ -742,8 +916,8 @@ def adminips_(ips_usr):
                   "ID":usr["ID"],
                   "Nombre del Prestador":usr['Nombre del Prestador'],
                   "NIT":usr['NIT'],
-                  "Razón social":usr['Razón social'],
-                  "Nivel del Prestador":usr["Nivel del Prestador"],
+#                  "Razón social":usr['Razón social'],
+#                  "Nivel del Prestador":usr["Nivel del Prestador"],
                   "Gerente":usr["Gerente"],
                   "Dirección":usr["Dirección"],
                   "Barrio":usr["Barrio"],
@@ -753,9 +927,9 @@ def adminips_(ips_usr):
                   "Código Departamento":usr["Código Departamento"],
                   "Teléfono":usr["Teléfono"],
                   "E-mail empresarial":usr["E-mail empresarial"],
-                  "Representante legal":usr["Representante legal"],
-                  "E-mail del representante":usr["E-mail del representante"],
-                  "Teléfono del representate":usr["Teléfono del representate"],
+#                  "Representante legal":usr["Representante legal"],
+#                  "E-mail del representante":usr["E-mail del representante"],
+#                  "Teléfono del representate":usr["Teléfono del representate"],
                   "Encargado de Encuesta":usr["Encargado de Encuesta"],
                   "E-mail del Encargado":usr["E-mail del Encargado"],
                   "Teléfono del Encargado":usr["Teléfono del Encargado"],
@@ -801,13 +975,22 @@ def exportcsv(modulo):
         df=pd.DataFrame([])
         for reg in temp:
             if len(reg["Resultados Modulo "+str(modulo)])>0:
-                #print(reg["Resultados Modulo "+str(modulo)])
+                print(reg["Nombre del Prestador"])
                 row = row + 1
-
                 data=reg["Resultados Modulo "+str(modulo)]
                 #print(data.keys())
+
+                usr =   IPS_data.find({"ID":int(reg["ID"])})[0]
+                print(usr)
+                perc_mod = progreso_mod(usr)
+                df.loc[row,"Código Habilitación"]=reg["Código Habilitación"]
+                df.loc[row,"Nombre del Prestador"]=reg["Nombre del Prestador"]
+
+                df.loc[row,"usuario"]="saludcol"+usr["Número de sede"]
+                df.loc[row,"porcentaje"]=str(perc_mod[int(modulo)-1])
+
                 for key in data.keys():
-                    if key!="ID":
+                    if key!="Código Habilitación" and key!="Nombre del Prestador" and key!="usuario" and key!="porcentaje" and key!="ID":
                         #print(data[key], key, len(data[key]))
                         if len(data[key])>1:
                             response=', '.join(data[key])
@@ -817,9 +1000,24 @@ def exportcsv(modulo):
                         response=data[key]
                     #print(response)
                     df.loc[row,key] = response
-        #print(df)
-        csv_file=df.to_csv(sep='\t')
+                    # if key.find("question")>=0:
+                    #     columns.append(key.replace("question","Pregunta: "))
+                    #else:
+                        #columns.append(key)
 
+
+        #print(df)
+
+        #df.columns=columns
+        columns=[]
+        for nc in range(len(df.columns)):
+            if df.columns[nc].find("question")>=0:
+                columns.append(df.columns[nc].replace("question", "Pregunta: "))
+            else:
+                columns.append(df.columns[nc])
+        df.columns=columns
+
+        csv_file=df.to_csv(sep='\t')
 
         resp = make_response(csv_file)
         resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
@@ -829,23 +1027,23 @@ def exportcsv(modulo):
 
 
 
-
-@app.route("/sendmail<modulo>", methods=['GET', 'POST'])
-@login_required
-def sendmail(modulo):
-    if request.method == 'POST':
-        nombres=request.form['nombre'+str(modulo)]
-
-        usr_id = int(current_user.id)
-        usrid = Users_data.find({"user_id":usr_id})[0]
-        user_encargado=usrid["usuario"]
-        user=user_encargado+"colab"+str(modulo)
-        usrid_colab = Users_data.find({"usuario":user})[0]
-        key_pass=usrid_colab["password_nc"]
-        to_email=request.form['email'+str(modulo)]
-        send_email(to_email, nombres, user, key_pass, modulo, file_email="./templates/email.html")
-        return redirect(url_for('modulos'))
-    return redirect(url_for('modulos'))
+#
+#@app.route("/sendmail<modulo>", methods=['GET', 'POST'])
+#@login_required
+#def sendmail(modulo):
+#    if request.method == 'POST':
+#        nombres=request.form['nombre'+str(modulo)]
+#
+#        usr_id = int(current_user.id)
+#        usrid = Users_data.find({"user_id":usr_id})[0]
+#        user_encargado=usrid["usuario"]
+#        user=user_encargado+"colab"+str(modulo)
+#        usrid_colab = Users_data.find({"usuario":user})[0]
+#        key_pass=usrid_colab["password_nc"]
+#        to_email=request.form['email'+str(modulo)]
+#        send_email(to_email, nombres, user, key_pass, modulo, file_email="./templates/email.html")
+#        return redirect(url_for('modulos'))
+#    return redirect(url_for('modulos'))
 
 
 
