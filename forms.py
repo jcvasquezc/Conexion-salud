@@ -6,13 +6,14 @@ Created on Tue Dec  12 14:44:02 2017
 @author: gita
 """
 
-from flask import Flask, render_template, flash, request, redirect,url_for, make_response, abort
+from flask import Flask, render_template, flash, request, redirect,url_for, make_response, abort, Response
 from flask_login import LoginManager, login_required, login_user,logout_user,UserMixin, current_user
 from pymongo import MongoClient, ASCENDING #Manejos de base de datos
 import pandas as pd
 import numpy as np
 import os
 import json
+import time
 #from werkzeug.utils import secure_filename
 import hashlib
 #from utils import send_email
@@ -1004,6 +1005,71 @@ def exportcsv(modulo):
         resp.headers["Content-Type"] = "text/csv"
         return resp
     return render_template('admin.html')
+
+
+
+
+
+
+@app.route("/download_data", methods=['GET', 'POST'])
+@login_required
+def download_data():
+    # with open("outputs/Adjacency.csv") as fp:
+    #     csv = fp.read()
+    if request.method == 'POST':
+        temp = IPS_data.find({"Encargado de Encuesta":{'$not': {'$size': 0}}}).sort([("Departamento", ASCENDING), ("Municipio", ASCENDING)])
+
+        row = -1
+        df=pd.DataFrame([])
+        for reg in temp:
+
+            row = row + 1
+            usr =   IPS_data.find({"ID":int(reg["ID"])})[0]
+            perc_mod = progreso_mod(usr)
+
+            df.loc[row,"usuario"]="saludcol"+usr["Número de sede"]
+
+            keys_data=reg.keys()
+
+            for k in keys_data:
+                if k.find("Resultados")>=0 or k.find("_id")>=0:
+                    continue
+
+                df.loc[row,k]=reg[k]
+
+            df.loc[row,"porcentaje modulo 1"]=str(perc_mod[0])
+            df.loc[row,"porcentaje modulo 2"]=str(perc_mod[1])
+            df.loc[row,"porcentaje modulo 3"]=str(perc_mod[2])
+            df.loc[row,"porcentaje modulo 4"]=str(perc_mod[3])
+            df.loc[row,"porcentaje modulo 5"]=str(perc_mod[4])
+            df.loc[row,"porcentaje modulo 6"]=str(perc_mod[5])
+
+
+
+
+        csv_file=df.to_csv(sep='\t')
+
+        resp = make_response(csv_file)
+        resp.headers["Content-Disposition"] = "attachment; filename=Data_IPS_conexionsalud.csv"
+        resp.headers["Content-Type"] = "text/csv"
+        return resp
+    return render_template('admin.html')
+
+# 
+# @app.route('/progress1')
+# def progress1():
+#
+#     def generate():
+#         x = 0
+#
+#         while x <= 100:
+#             yield "data:" + str(x) + "\n\n"
+#             x = x + 10
+#             time.sleep(0.5)
+#
+#     return Response(generate(), mimetype= 'text/event-stream')
+
+
 
 
 
