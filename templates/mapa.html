@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>		
+		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
+		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="static/header-login-signup.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="static/jscripts.js"></script>
+        <script src="static/jquery.min.js"></script>
+        <script src="static/plotly-latest.min.js"></script>
+		<link rel="stylesheet" href="static/index_style.css">
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Conexión salud</title>		 
+	</head>		
+  
+	<body>
+	<div class="wrapper">
+
+		<div class="topnav">
+			<div class="logo_nav">
+				<img src="static/logos/banner-encuesta.png" class="img-responsive">
+			</div>
+		</div>
+		<div class="topnav" id="myTopnav">				
+		<ul>
+			<li><a href="/">Inicio</a></li>
+		</ul>	
+        </div>
+        
+
+
+		<form action="mapa" method="post" class="idx_sty">
+            <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                        <label>Elegir componente a analizar</label>
+                        <br>
+                        <select id="pregunta" name="pregunta" required>
+                            <option value="">Seleccionar</option>
+                            <option value="2_1">Instituciones que cuentan con área de sistemas de información</option>
+                            <option value="2_3">Insitituciones que invirtieron en tecnologías de la información y la comunicación en el año 2017</option>
+                            <option value="2_4">Instituciones que contaron con computadores como herramienta tecnológica básica en los consultorios en el año 2017</option>
+                            <option value="2_21">Instituciones que cuentan con acceso a internet</option>
+                            <option value="2_26">Instituciones que cuentan con redes inalámbricas</option>
+                            <option value="3_6">Instituciones que prestan servicios de telemedicina</option>
+                            <option value="3_12">Instituciones que cuentan con sistema de Historia Clínica Electrónica</option>
+                            <option value="3_13">Instituciones cuyos datos capturados con equipos médicos son interoperables con la Historia Clínica Electrónica</option>
+                            <option value="3_21">Instituciones con Historia Clínica Electrónica separada del sistema administrativo</option>
+                            <option value="3_26">Instituciones que envían o reciben información electrónicamente de otras instituciones de salud</option>
+                            <option value="6_1">Instituciones que invirtieron en procesos de entrenamiento/capacitación de uso de TIC en salud en el año 2017</option>
+                        </select>               
+                    </div>	
+
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <button type="submit" class="button">Actualizar</button>
+                    </div>
+                </div>
+                
+                {{maptxt|safe}}
+        </form>
+	</body>
+</html>

@@ -14,6 +14,9 @@ import numpy as np
 import os
 import json
 import time
+import read_mod
+import plot_map
+import plotly
 #from werkzeug.utils import secure_filename
 import hashlib
 #from utils import send_email
@@ -44,18 +47,29 @@ login_manager.login_view = "Ingresar" #ir a esta html cuando se requiera el logi
 
 #Base de datos
 #Crear cliente
-client = MongoClient()
-
-#Crear database
-db = client.IPS_database
-#client.drop_database('IPS_database')
-
-#Crear colección
-IPS_data  = db.IPS_collection
-Users_data = db.Users_collection
-Temp_data = db.Temp_collection
+try:
+    client = MongoClient()
+    #Crear database
+    db = client.IPS_database
+    #client.drop_database('IPS_database')
+    
+    #Crear colección
+    IPS_data  = db.IPS_collection
+    Users_data = db.Users_collection
+    Temp_data = db.Temp_collection
+except:
+    print('')
 
 usertag = "usuario"
+
+db_files = os.listdir('./BD')
+db_files.sort() 
+
+#Info general IPS
+IPS = pd.read_excel('./BD/'+db_files[0])
+
+#LAT, LON
+dfpmap = pd.read_csv('./pos_col.csv')
 
 ##Delete collection
 #db.Index_collection.drop()
@@ -75,10 +89,13 @@ class User(UserMixin):
         return '<User {}>'.format(self.usr_id)
 
 #Cargar usuarios
-users=[]
-for docs in Users_data.find():
-    usr_id=docs["user_id"]
-    users.append(User(usr_id))
+try:
+    users=[]
+    for docs in Users_data.find():
+        usr_id=docs["user_id"]
+        users.append(User(usr_id))
+except:
+    print('')
 
 @login_manager.user_loader
 def load_user(usr_id):
@@ -342,6 +359,35 @@ def contacto():
 
     return render_template('contacto.html',LogFlag=json.dumps(LogFlag))
 
+@app.route("/mapa", methods=['GET', 'POST'])
+def mapa():
+#    dptos,cities = set_dptos()
+#    fl = open('./templates/mapas/plot.txt','r')
+#    maptxt = fl.read()
+    if request.method == 'POST':
+        sttmod = request.form['pregunta']#Nombre del prestador
+        sep = sttmod.find('_')#El guion bajo separa entre modulo y pregunta
+        mod = int(sttmod[0:sep])#Obtener numero del modulo
+        numpreg = int(sttmod[sep+1:])#Obtener el numero de la pregunta
+        #Obetner respuestas
+        mod_data = read_mod.leer_rta_mod(db_files,mod)
+        #Obtener tabla de respuestas de un modulo (mod) y pregunta especificos (numpreg)
+        rtas,sel_col = read_mod.leer_pregunta(mod_data,IPS,numpreg)
+        #Obtener latitud, longitud, tamanno del marcador y ciudades
+        preg_label = sel_col.copy()
+        preg_label.remove('ID')#Dejar solo las etiquetas de las preguntas
+        lat,lon,szmark,ctymap,n_ind,list_n = read_mod.ubicacion(rtas,dfpmap,preg_label[0])  
+        #******************************************************************
+        #Graficar
+        data, layout = plot_map.get_data_map(lat,lon,szmark, ctymap,n_ind,list_n,'')
+        
+        fig = dict(data=data, layout=layout)
+        
+        maptxt = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+        return render_template('mapa.html',maptxt=maptxt)
+#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+
+    return render_template('mapa.html')
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
 def Ingresar():
