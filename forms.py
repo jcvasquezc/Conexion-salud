@@ -52,7 +52,7 @@ try:
     #Crear database
     db = client.IPS_database
     #client.drop_database('IPS_database')
-    
+
     #Crear colección
     IPS_data  = db.IPS_collection
     Users_data = db.Users_collection
@@ -63,7 +63,7 @@ except:
 usertag = "usuario"
 
 db_files = os.listdir('./BD')
-db_files.sort() 
+db_files.sort()
 
 #Info general IPS
 IPS = pd.read_excel('./BD/'+db_files[0])
@@ -361,33 +361,21 @@ def contacto():
 
 @app.route("/mapa", methods=['GET', 'POST'])
 def mapa():
-#    dptos,cities = set_dptos()
-#    fl = open('./templates/mapas/plot.txt','r')
-#    maptxt = fl.read()
+    loghid = 'true' #Agregar atributo de invicible de la tabla
     if request.method == 'POST':
-        sttmod = request.form['pregunta']#Nombre del prestador
-        sep = sttmod.find('_')#El guion bajo separa entre modulo y pregunta
-        mod = int(sttmod[0:sep])#Obtener numero del modulo
-        numpreg = int(sttmod[sep+1:])#Obtener el numero de la pregunta
-        #Obetner respuestas
-        mod_data = read_mod.leer_rta_mod(db_files,mod)
-        #Obtener tabla de respuestas de un modulo (mod) y pregunta especificos (numpreg)
-        rtas,sel_col = read_mod.leer_pregunta(mod_data,IPS,numpreg)
-        #Obtener latitud, longitud, tamanno del marcador y ciudades
-        preg_label = sel_col.copy()
-        preg_label.remove('ID')#Dejar solo las etiquetas de las preguntas
-        lat,lon,szmark,ctymap,n_ind,list_n = read_mod.ubicacion(rtas,dfpmap,preg_label[0])  
-        #******************************************************************
-        #Graficar
-        data, layout = plot_map.get_data_map(lat,lon,szmark, ctymap,n_ind,list_n,'')
-        
-        fig = dict(data=data, layout=layout)
-        
-        maptxt = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-        return render_template('mapa.html',maptxt=maptxt)
-#    return render_template('index.html', **{"dptos":dptos},cities=json.dumps(cities))
+        loghid = 'false'#Quitar atributo de invicible de la tabla
+        opt = request.form['plots']
+        if opt=='mgral':#Mapas genrales (tipo de rta: SI/NO)
+            sttmod = request.form['sel_mgral']
+            clr_rta = 'sval'#Lista de colores. 
+        else:#Mapas genrales (tipo de rta: varias opciones, unica respuesta)
+            sttmod = request.form['sel_mesp']
+            clr_rta = 'mval'
+            
+        maptxt,ans_unique,tab_resp_sort,tab_total = read_mod.mapa_gral(sttmod,db_files,IPS,dfpmap,clr_rta)
+        return render_template('mapa.html',maptxt=maptxt, **{"tab_rtas":tab_resp_sort,"tab_total":tab_total}, ans=ans_unique,loghid=loghid)
+    return render_template('mapa.html',loghid=loghid)
 
-    return render_template('mapa.html')
 ###################################################3##
 @app.route("/Ingresar", methods=['GET', 'POST'])
 def Ingresar():
@@ -1101,7 +1089,7 @@ def download_data():
         return resp
     return render_template('admin.html')
 
-# 
+#
 # @app.route('/progress1')
 # def progress1():
 #

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-	<head>		
+	<head>
 		<link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
 		<link rel="stylesheet" href="static/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="static/header-login-signup.css">
@@ -11,10 +11,19 @@
         <script src="static/plotly-latest.min.js"></script>
 		<link rel="stylesheet" href="static/index_style.css">
         <script src="https://www.w3schools.com/lib/w3.js"></script>
-		<title>Conexión salud</title>		 
-	</head>		
-  
-	<body>
+		<title>Conexión salud</title>
+	</head>
+
+	<body onload="if (LogHid==false)
+	{
+		$(tablecont).removeClass('hidden');
+	}
+	else{
+		$(tablecont).addClass('hidden');
+	}">
+	<script type="text/javascript">   
+		var LogHid = {{loghid|safe}}          
+	</script>
 	<div class="wrapper">
 
 		<div class="topnav">
@@ -22,41 +31,140 @@
 				<img src="static/logos/banner-encuesta.png" class="img-responsive">
 			</div>
 		</div>
-		<div class="topnav" id="myTopnav">				
+		<div class="topnav" id="myTopnav">
 		<ul>
 			<li><a href="/">Inicio</a></li>
-		</ul>	
+		</ul>
         </div>
-        
+
 
 
 		<form action="mapa" method="post" class="idx_sty">
-            <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                        <label>Elegir componente a analizar</label>
-                        <br>
-                        <select id="pregunta" name="pregunta" required>
-                            <option value="">Seleccionar</option>
-                            <option value="2_1">Instituciones que cuentan con área de sistemas de información</option>
-                            <option value="2_3">Insitituciones que invirtieron en tecnologías de la información y la comunicación en el año 2017</option>
-                            <option value="2_4">Instituciones que contaron con computadores como herramienta tecnológica básica en los consultorios en el año 2017</option>
-                            <option value="2_21">Instituciones que cuentan con acceso a internet</option>
-                            <option value="2_26">Instituciones que cuentan con redes inalámbricas</option>
-                            <option value="3_6">Instituciones que prestan servicios de telemedicina</option>
-                            <option value="3_12">Instituciones que cuentan con sistema de Historia Clínica Electrónica</option>
-                            <option value="3_13">Instituciones cuyos datos capturados con equipos médicos son interoperables con la Historia Clínica Electrónica</option>
-                            <option value="3_21">Instituciones con Historia Clínica Electrónica separada del sistema administrativo</option>
-                            <option value="3_26">Instituciones que envían o reciben información electrónicamente de otras instituciones de salud</option>
-                            <option value="6_1">Instituciones que invirtieron en procesos de entrenamiento/capacitación de uso de TIC en salud en el año 2017</option>
-                        </select>               
-                    </div>	
+            <div class="row">	
+					<div class="title">Seleccionar tipo de análisis</div>				
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<input 
+						type="radio" 
+						class="option-input radio" 
+						id="mapa_gral" 
+						name="plots" 
+						value="mgral"
+						onclick="setCont(cont_gral);ResetCont(cont_mesp)"/> 
+						Componentes generales (Mapas-Tipo de respuesta SI/NO)
+					</div>	
+					<div class="hidden" id="cont_gral">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<br>
+							<select id="sel_mgral" name="sel_mgral">
+								<!--ESTRUCTURA DE LOS VALORES (VALUE): NumeroDelModulo_NumeroDeLaPregunta-->
+								<option value="">Seleccionar</option>
+								<option value="2_1">IPSs que cuentan con área de sistemas de información</option>
+								<option value="2_3">IPSs que invirtieron en tecnologías de la información y la comunicación en el año 2017</option>
+								<option value="2_4">IPSs que contaron con computadores como herramienta tecnológica básica en los consultorios en el año 2017</option>
+								<option value="2_21">IPSs que cuentan con acceso a internet</option>
+								<option value="2_26">IPSs que cuentan con redes inalámbricas</option>
+								<option value="3_6">IPSs que prestan servicios de telemedicina</option>
+								<option value="3_12">IPSs que cuentan con sistema de Historia Clínica Electrónica</option>
+								<option value="3_20">IPSs cuyos datos capturados con equipos médicos son interoperables con la Historia Clínica Electrónica</option>
+								<option value="3_21">IPSs con Historia Clínica Electrónica separada del sistema administrativo</option>
+								<option value="3_26">IPSs que envían o reciben información electrónicamente de otras IPSs de salud</option>
+								<option value="6_1">IPSs que invirtieron en procesos de entrenamiento/capacitación de uso de TIC en salud en el año 2017</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<input 
+						type="radio" 
+						class="option-input radio" 
+						id="mapa_esp" 
+						name="plots" 
+						value="mesp"
+						onclick="setCont(cont_mesp);ResetCont(cont_gral)"/> 
+						Componentes específicos (Mapas-Respuestas específicas)
+					</div>
+					<div class="hidden" id="cont_mesp">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<br>
+							<select id="sel_mesp" name="sel_mesp">
+								<!--ESTRUCTURA DE LOS VALORES (VALUE): NumeroDelModulo_NumeroDeLaPregunta-->
+								<option value="">Seleccionar</option>
+								<option value="2_323">Porcentaje de inversión por las IPSs en TICs en el año 2017</option>
+								<option value="2_22">Entidad que financia el acceso a internet en las IPSs</option>
+								<option value="2_28">Tipo de cobertura de la red inalámbrica en las IPSs</option>
+								<option value="3_16">Tiempo que lleva implementado el sistema de Historia Clínica Electrónica en las IPSs</option>
+								<option value="3_13">Medios que utilizan las IPSs para registrar la historia clínica de los pacientes</option>
+							</select>
+						</div>
+					</div>
+				</div>
 
-                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                        <button type="submit" class="button">Actualizar</button>
-                    </div>
-                </div>
-                
-                {{maptxt|safe}}
+				<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+					<br>
+					<button type="submit" class="button">Actualizar</button>
+				</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<br>
+				{{maptxt|safe}}
+			</div>
+
+			<br>
+
+			<div class="hidden" id="tablecont">
+				<table class="table" style=" max-height: 600px;">
+				<thead>
+					<tr>
+						<th>Departamento</th>
+
+						{% for h in ans %}
+							<th>{{h}}</th>
+						{% endfor %}
+					</tr>
+				</thead>
+
+				<tbody>
+
+					{% for value in tab_rtas %}
+						<tr>
+							<td>{{value[0]}}</td>
+
+							{% for h in range(ans|length)%}
+								<td>{{value[h+1]}}</td>
+
+							{% endfor %}
+
+						</tr>
+					{% endfor %}
+				</tbody>
+				</table>
+
+				<!--TOTAL-->
+				<table class="table" style=" max-height: 600px;">
+						<thead>
+							<tr>
+								<th style="text-align:center">Resultados</th>
+								
+								{% for h in ans %}
+									<th style="text-align:center">{{h}}</th>
+								{% endfor %}
+							</tr>
+						</thead>
+		
+						<tbody>
+							<tr>
+								<td style="font-weight: bold">TOTAL</td>
+								{% for value in tab_total %}
+									<td style="text-align:center">{{value}}</td>
+								{% endfor %}
+							</tr>
+						</tbody>
+						</table>
+
+
+			</div>
+
+		</div>
         </form>
 	</body>
 </html>

@@ -12,18 +12,24 @@ import numpy as np
 token = 'pk.eyJ1IjoiamN2YXNxdWV6YyIsImEiOiJjajhpOHJzYzEwd2lhMndteGE3dXdoZ2JwIn0.FXt2St8t89mIZ-L-UpCYkg'
 mapbox_access_token = token
 
-colorlist = [
-    'rgba(0,0,255,0.7)',
-    'rgba(0,255,0,0.7)',
-    'rgba(255,0,0,0.7)',
-    'rgba(255,128,0,0.7)',
-    'rgba(255,51,51,0.7)',
-    'rgba(153,0,0,0.7)'
-]
-
 #***************************************************************************
 #***************************************************************************
-def get_data_map(lati, longi, sizem, textm,resp, nivel,mapname):
+def get_data_map(lati, longi, sizem, textm,resp, nivel,mapname,clr_rta):
+    if clr_rta=='sval':
+        colorlist = [
+            'rgba(255,0,0,0.7)',
+            'rgba(0,0,255,0.7)'
+        ]
+    else:
+        colorlist = [
+            'rgba(0, 0, 255,0.7)',
+            'rgba(0, 255, 0,0.7)',
+            'rgba(255, 255, 0,0.7)',
+            'rgba(255, 0, 0,0.7)',
+            'rgba(153, 0, 153,0.7)',
+            'rgba(0, 51, 0,0.7)'
+        ]
+        
     #print(textm)
     latl=[]
     longl=[]
@@ -58,8 +64,8 @@ def get_data_map(lati, longi, sizem, textm,resp, nivel,mapname):
         title=mapname,
         hovermode='closest',
 #        sizing= "stretch",
-        autosize=True,
-#        width = 800,
+#        autosize=True,
+#        width = 1200,
         height=800,
         mapbox=dict(
             accesstoken=mapbox_access_token,

@@ -283,6 +283,46 @@ function yesnoCheck(questionIDYesNO, questionIDYes, questionIDNO)
 	$(questionIDNO).addClass("hidden");
 	}
 }
+
+//Limpiar entradas y eliminar bandera de "requerido"
+function disableinputs(classcont)
+{
+	var c = document.getElementById($(classcont).attr('id')).querySelectorAll('*');//Obtener todos los elementos de una clase
+	for (i = 0; i < c.length; i++) 
+	{
+		var temp = c[i].nodeName;//Verificar que sea entrada
+		if (temp.localeCompare('INPUT')==0)
+		{
+			c[i].required=false;
+		}
+    }
+}
+
+function enableinputs(classcont)
+{
+	var c = document.getElementById($(classcont).attr('id')).querySelectorAll('*');//Obtener todos los elementos de una clase
+	for (i = 0; i < c.length; i++) 
+	{
+		var temp = c[i].nodeName;//Verificar que sea entrada
+		if (temp.localeCompare('INPUT')==0)
+		{
+			c[i].required = true;
+		}
+    }
+}
+// Activar contenedores (clases ocultas)
+function setCont(containerID) 
+{
+	$(containerID).removeClass("hidden");
+	enableinputs(containerID);
+}
+//Borrar respuestas de contenedores y ocultar
+function ResetCont(containerID)
+{
+	disableinputs(containerID);
+	$(containerID).addClass("hidden");	
+}
+
 // activar a partir de checkboxes
 function Checkb(obj,containerid) 
 {
